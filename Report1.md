@@ -26,8 +26,8 @@ FootballTown.
 
 # Links
 * Git repository: https://github.com/ErikKarlkvist/FootballTown
-- Issue tracker: https://trello.com/invite/b/eOCzPjKE/00fdf0bbdaa001eb9c3829cbf87c03df/footballtown
-- Continuous integration builds: 
+* Issue tracker: https://trello.com/invite/b/eOCzPjKE/00fdf0bbdaa001eb9c3829cbf87c03df/footballtown
+* Continuous integration builds: https://travis-ci.org/ErikKarlkvist/FootballTown
 
 # Sprint 1 Log.  
 ## 2018-03-22: Initial meeting

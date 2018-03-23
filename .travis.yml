@@ -1,11 +1,10 @@
-
-script: build.sh
 language: node_js
 node_js:
 - '6'
 install:
 - npm install
 script:
+- build.sh
 - npm test
 - npm run bundleIos
 - npm run zipIos

@@ -1,4 +1,6 @@
 before_script: cd FootballTownApp
+before_install: cd FootballTownApp
+
 language: node_js
 node_js:
 - '6'

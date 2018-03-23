@@ -1,8 +1,14 @@
-#" Agile Development Processes Project Report  
-  Team 7
-% Goitom Abrehaley, Tobias Alldén, Rahwa Araya, Pooriya Balavi, Alexander Graham, Erik Karlkvist, Johan Ljungberg
+# Agile Development Processes Project Report  
+ ##  Team 7
+ * Goitom Abrehaley 
+ * Tobias Alldén
+ * Rahwa Araya
+ * Pooriya Balavi
+ * Alexander Graham
+ * Erik Karlkvist
+ * Johan Ljungberg
 %
-
+--- 
 # Project Description
 The project is to create an application for a football cup held in a city. The application will contain information about upcoming matches, scores for played matches, rankings etc and also having the possibility for users to find nearby resturants and events, and admin functionality to post events, change scores etc. The definition of the project is as follows 
 
@@ -29,8 +35,6 @@ FootballTown.
 * Selecting platform and programming language
 * Intial team meeting with customer, coach and the full team
 
-## Commitment
-List the features/stories that the team committed to finish during the sprint.
 
 
 

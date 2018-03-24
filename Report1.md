@@ -7,7 +7,6 @@
  * Alexander Graham
  * Erik Karlkvist
  * Johan Ljungberg
-%
 --- 
 # Project Description
 The project is to create an application for a football cup held in a city. The application will contain information about upcoming matches, scores for played matches, rankings etc and also having the possibility for users to find nearby resturants and events, and admin functionality to post events, change scores etc. The definition of the project is as follows 
@@ -34,6 +33,19 @@ FootballTown.
 * Populating the backglog
 * Selecting platform and programming language
 * Intial team meeting with customer, coach and the full team
+
+## Commitment
+This (short) sprint we have committed to setting up the project and learning a bit about React Native and git for those who had not spent any time with this before.
+
+## Work Done
+
+Feature | Time estimated | Time spent per team member
+--------|----------------|--------
+Initial setup | *3.5 hours* | All members spent the same amount of time
+
+## Reflections
+Initial meeting worked well. We populated the background and set up the enviroment.
+
 
 
 

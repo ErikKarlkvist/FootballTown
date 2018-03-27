@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import firebase from 'react-native-firebase'
+//import firebase from 'react-native-firebase'
 
 export default class App extends React.Component {
   constructor(){

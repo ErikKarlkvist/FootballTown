@@ -16,7 +16,6 @@ export default class App extends React.Component {
               <Text>Alex was here</Text>
                   <Text>Testing git push</Text>
               <Text></Text>
-
           </View>
       );
   }

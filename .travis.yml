@@ -1,10 +1,14 @@
-before_install: cd FootballTownApp
+before_install: 
+  cd FootballTownApp
 
 language: node_js
 node_js:
 - '6'
 install:
 - npm install
+  cd ios/
+  pod install
+  cd .. 
 script:
 - npm test
 

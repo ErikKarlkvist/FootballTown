@@ -6,9 +6,9 @@ node_js:
 - '6'
 install:
 - npm install
-  cd ios/
-  pod install
-  cd .. 
+- cd ios/
+- pod install
+- cd .. 
 script:
 - npm test
 

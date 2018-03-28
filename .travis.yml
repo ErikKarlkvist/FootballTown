@@ -6,7 +6,7 @@ node_js:
 - '6'
 install:
 - npm install
-- npm install cocoapods
+- npm install cocoapods-cli
 - cd ios/
 - pod install
 - cd .. 

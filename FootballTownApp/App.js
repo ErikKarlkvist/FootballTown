@@ -1,24 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import firebase from 'react-native-firebase'
-
+import MainScreen from './Components/MainScreen'
+import {
+StackNavigator
+}from 'react-navigation'
 export default class App extends React.Component {
   constructor(){
       super()
   }
 
-  render() {
-      return (
-          <View style={styles.container}>
-              <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
-              <Text>{this.props.name}</Text>
-              <Text>Alex was here</Text>
-                  <Text>Testing git push</Text>
-              <Text></Text>
-          </View>
-      );
-  }
-}
+ render() {
+     return (
+ <AppStackNavigator/>
+     );
+   }
+ }
+ const AppStackNavigator=StackNavigator({
+       MainScreen:{
+       screen:MainScreen
+       }
+ })
 
 
 const styles = StyleSheet.create({

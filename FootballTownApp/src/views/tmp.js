@@ -1,24 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 //import firebase from 'react-native-firebase'
+import Factory from "../database/Factory";
 
-
-const News = require("../database/Factory").()
+const News = Factory.getNewsInstance();
+const Events = Factory.getEventsInstance();
 
 export default class Tmp extends React.Component {
   constructor(){
       super()
-      console.log(News.getNews())
+      console.log(Factory);
+
       News.addNews({id: "000005",
-                    title: "Glory Glory Man Utd",
-                    text: "Everyone Loved MAN UTD"})
+                   title: "Glory Glory Man Utd",
+                   text: "Everyone Loved MAN UTD"})
       console.log(News.getNews())
+
+      Events.addEvents({id: "00004",
+                        title:"Event4",
+                        text:"Fun event"})
+      console.log(Events.getEvents());
+
   }
 
   render() {
       return (
           <View style={styles.container}>
-              <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
+
               <Text>{this.props.name}</Text>
               <TouchableOpacity onPress={this.props.onPress}>
                 <Text>TMP normal</Text>

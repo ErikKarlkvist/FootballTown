@@ -1,8 +1,18 @@
+import News from "./News"
+import Events from "./Events"
+
 var Factory = (function () {
     var newsInstance;
-    function creatNewsInstance() {
-        var newsobject = new News()
+    var eventsInstance;
+
+    function createNewsInstance() {
+        var newsObject = new News()
         return newsObject;
+    }
+
+    function createEventsInstance() {
+        var eventsObject = new Events()
+        return eventsObject;
     }
 
     return {
@@ -11,6 +21,14 @@ var Factory = (function () {
                 newsInstance = createNewsInstance();
             }
             return newsInstance;
+        },
+        getEventsInstance: function () {
+            if (!eventsInstance) {
+                eventsInstance = createEventsInstance();
+            }
+            return eventsInstance;
         }
     }
-})
+})();
+
+export default Factory;

@@ -3,13 +3,17 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 //import firebase from 'react-native-firebase'
 
 
-const User = require("../database/User").User()
+const News = require("../database/News").News()
 
-export default class Tmp extends React.Component {
-  constructor(){
-      super()
-      console.log(User.getUser())
-  }
+export default class Tmp2 extends React.Component {
+    constructor(){
+        super()
+        console.log(News.getNews())
+        News.addNews({id: "000006",
+            title: "Hello",
+            text: "Bye"})
+        console.log(News.getNews())
+    }
 
   render() {
       return (

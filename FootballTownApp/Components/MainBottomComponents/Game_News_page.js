@@ -25,6 +25,8 @@ class Game_News_page extends Component{
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to Game News Page!!!
+          On this page you will get every details of
+          news on the Game!!!!
         </Text>
       </View>
     );

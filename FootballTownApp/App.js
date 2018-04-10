@@ -1,20 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 //import firebase from 'react-native-firebase'
 
 export default class App extends React.Component {
-  constructor(){
-      super()
+  constructor(props){
+      super(props)
+      this.state = {counter: 0}
+  }
+
+  _incrementCount = () => {
+    this.setState(prevState => ({ counter: prevState.counter + 1}));
   }
 
   render() {
       return (
           <View style={styles.container}>
-              <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
-              <Text>{this.props.name}</Text>
-              <Text>Alex was here</Text>
-                  <Text>Testing git push</Text>
-              <Text></Text>
+              <Image
+                style={styles.image}
+                source={require('./src/img/BuyCycle.png')}
+              />
+
+              <Button
+                  onPress={() => this._incrementCount()}
+                  title="Increment value"
+              />
+              <Text style={styles.texttest1}>{this.state.counter}</Text>
+              <Text style={styles.texttest2}>{this.state.counter}</Text>
+              <Text style={styles.texttest3}>{this.state.counter}</Text>
+              <Text style={styles.texttest4}>{this.state.counter}</Text>
           </View>
       );
   }
@@ -29,7 +42,23 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
   },
   image: {
-      width: 250,
-      height: 250,
+      width: 233,
+      height: 125,
+  },
+  texttest1: {
+    fontSize: 10,
+    color:  '#ffffff',
+  },
+  texttest2: {
+    fontSize: 20,
+    color:  '#917246',
+  },
+  texttest3: {
+    fontSize: 30,
+    color:  '#297348',
+  },
+  texttest4: {
+    fontSize: 40,
+    color:  '#523716',
   },
 });

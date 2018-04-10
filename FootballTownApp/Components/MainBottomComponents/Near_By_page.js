@@ -22,6 +22,7 @@ class Near_By_page extends Component{
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to Near By Search  Page!!!
+          on near by shearch you can shearch shope ,hotels , restorans 
         </Text>
       </View>
     );

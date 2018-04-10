@@ -12,23 +12,23 @@ import {
   Text,
   View
 } from 'react-native';
-import {TabNavigator} from 'react-navigation'
-
+import {StackNavigator} from 'react-navigation'
+import My_Team_Fixure_Content from './My_Team_Fixure_Content'
 
 class My_Team_Fixure_page extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to fixure Page!!!
-        </Text>
-      </View>
+    <AppStackNavigator/>
     );
   }
 }
 
 export default My_Team_Fixure_page;
-
+const AppStackNavigator=StackNavigator({
+MyTeamF:{
+screen:My_Team_Fixure_Content
+}
+})
 const styles = StyleSheet.create({
   container: {
     flex: 1,

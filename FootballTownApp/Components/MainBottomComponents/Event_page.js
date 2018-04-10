@@ -29,8 +29,8 @@ export default Event_page;
 
 const AppTabNavigator_Game=TabNavigator({
 News:{
-screen:Game_News_page
-},
+  screen:Game_News_page
+  },
 Fixure:{
 screen:Game_Fixure_page
 },

@@ -13,23 +13,23 @@ import {
   Text,
   View
 } from 'react-native';
-import {TabNavigator} from 'react-navigation'
-
+import {StackNavigator} from 'react-navigation'
+import Game_Live_Content from './Game_Live_Content'
 
 class Game_Live_page extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Live Game Page!!!
-        </Text>
-      </View>
+    <AppStackNavigator/>
     );
   }
 }
 
 export default Game_Live_page;
-
+const AppStackNavigator=StackNavigator({
+ GameLive:{
+ screen:Game_Live_Content
+ }
+})
 
 const styles = StyleSheet.create({
   container: {

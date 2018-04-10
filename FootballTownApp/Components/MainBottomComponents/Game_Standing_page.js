@@ -6,7 +6,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+import Game_Standing_Content from './Game_Standing_Content'
 import React, { Component } from 'react';
 import {
   Platform,
@@ -14,23 +14,24 @@ import {
   Text,
   View
 } from 'react-native';
-import {TabNavigator} from 'react-navigation'
+import {StackNavigator} from 'react-navigation'
 
 
 class Game_Standing_page extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Game Standing  Page!!!
-        </Text>
-      </View>
+ <AppStackNavigator/>
     );
   }
 }
 
 export default Game_Standing_page;
+const AppStackNavigator=StackNavigator({
+Gamestanding:{
+screen:Game_Standing_Content
+}
 
+})
 
 const styles = StyleSheet.create({
   container: {

@@ -16,23 +16,23 @@ import {
   Text,
   View
 } from 'react-native';
-import {TabNavigator} from 'react-navigation'
-
+import {StackNavigator} from 'react-navigation'
+import My_Team_Standing_Content from './My_Team_Standing_Content'
 
 class My_Team_Standing_page extends Component{
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to standing  Page!!!
-        </Text>
-      </View>
+<AppStackNavigator/>
     );
   }
 }
 
 export default My_Team_Standing_page;
-
+const AppStackNavigator=StackNavigator({
+MyTeamStand:{
+screen:My_Team_Standing_Content
+}
+})
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -10,7 +10,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 import {TabNavigator} from 'react-navigation'
 
@@ -19,9 +20,15 @@ class Home_page extends Component{
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Home  Page!!!
-        </Text>
+
+        <Image source ={require('./bal1of1.jpg')}
+                       style={{width:450,height:500,flex:1}}/ >
+
+         <Text style={styles.TextProp}>
+              Follow Football on our App!!!
+            </Text>
+
+
       </View>
     );
   }
@@ -46,4 +53,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  TextProp: {
+          fontSize: 20,
+          textAlign: 'center',
+          margin: 10,
+       },
 });

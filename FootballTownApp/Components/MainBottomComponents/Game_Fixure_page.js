@@ -15,23 +15,23 @@ import {
   Text,
   View
 } from 'react-native';
-import {TabNavigator} from 'react-navigation'
-
+import {StackNavigator} from 'react-navigation'
+import Game_Fixure_Content from './Game_Fixure_Content'
 
 class Game_Fixure_page extends Component{
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Game Fixure  Page!!!
-        </Text>
-      </View>
-    );
-  }
-}
+     return (
+     <AppStackNavigator/>
+         );
+       }
+     }
 
-export default Game_Fixure_page;
-
+  export default Game_Fixure_page;
+    const AppStackNavigator=StackNavigator({
+           GameFixureC:{
+           screen:Game_Fixure_Content
+           }
+     })
 
 const styles = StyleSheet.create({
   container: {

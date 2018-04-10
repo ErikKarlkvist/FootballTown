@@ -2,9 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 //import firebase from 'react-native-firebase'
 
+
+const User = require("./src/database/User").User()
+
 export default class App extends React.Component {
   constructor(){
       super()
+      console.log(User.getUser())
   }
 
   render() {

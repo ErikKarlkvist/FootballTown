@@ -17,9 +17,11 @@ export default class Tmp extends React.Component {
               <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
               <Text>{this.props.name}</Text>
               <TouchableOpacity onPress={this.props.onPress}>
-                <Text>TMP normal</Text>
+                <Text>TMP2</Text>
 
               </TouchableOpacity>
+              <Text></Text>
+
           </View>
       );
   }

@@ -9,46 +9,19 @@ export default class FootballScore extends Component {
 		loading: false;
 		teams: [];
 		page: 1;
-		seed: 1; 
 		errors: null;
 		refreshing: false;
 	};
 
   }
-  componentDidMount() {
-    this.makeRemoteRequest();
-  }
 
-   makeRemoteRequest = () => {
-    const { page, seed } = this.state;
-    const url = `https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`;
-    this.setState({ loading: true });
-
-    fetch(url)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          data: page === 1 ? res.results : [...this.state.data, ...res.results],
-          error: res.error || null,
-          loading: false,
-          refreshing: false
-        });
-      })
-      .catch(error => {
-        this.setState({ error, loading: false });
-      });
-  };
-
-  handleRefresh = () => {
+  refresh = () => {
     this.setState(
       {
         page: 1,
-        seed: this.state.seed + 1,
         refreshing: true
-      },
-      () => {
-        this.makeRemoteRequest();
       }
+      // Fetch more data
     );
   };
 
@@ -57,9 +30,8 @@ export default class FootballScore extends Component {
       {
         page: this.state.page + 1
       },
-      () => {
-        this.makeRemoteRequest();
-      }
+        // Fetch more data
+      
     );
   };
 
@@ -68,16 +40,15 @@ export default class FootballScore extends Component {
       <View
         style={{
           height: 1,
-          width: "86%",
-          backgroundColor: "#CED0CE",
-          marginLeft: "14%"
+          width: "100%",
+          backgroundColor: "#FFF",
         }}
       />
     );
   };
 
   renderHeader = () => {
-    return <SearchBar placeholder="Type Here..." lightTheme round />;
+    return <Text>Matches</Text>;
   };
 
   renderFooter = () => {

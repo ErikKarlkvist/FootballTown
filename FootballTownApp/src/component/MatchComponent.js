@@ -33,6 +33,7 @@ render(){
 };
 
 const styles = StyleSheet.create({
+  
   container: {
     backgroundColor: Colors.Primary,
     padding: 10,

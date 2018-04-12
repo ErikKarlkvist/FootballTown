@@ -11,7 +11,8 @@ export default class News {
             {
                 id: "00002",
                 title: "United lost",
-                text: "United lost today, sorry"
+                text: "United lost today, sorry",
+                newsStoryImage: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
             },
             {
                 id: "00003",

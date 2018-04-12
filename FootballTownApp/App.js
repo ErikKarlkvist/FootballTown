@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { AppRegistry, Text, View} from 'react-native';
 //import firebase from 'react-native-firebase'
+import MatchComponent from './src/component/MatchComponent';
 
 export default class App extends React.Component {
   constructor(){
@@ -9,19 +10,17 @@ export default class App extends React.Component {
 
   render() {
       return (
-          <View style={styles.container}>
-              <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
-              <Text>{this.props.name}</Text>
-              <Text>Alex was here</Text>
-                  <Text>Testing git push</Text>
-              <Text></Text>
+          <View>
+              <MatchComponent team1= "Barcelona" score1=" 3 " score2= ' - 2 ' team2= "Liverpool"/>
+
           </View>
+
       );
   }
 }
 
 
-const styles = StyleSheet.create({
+{/*const styles = StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: '#24cdda',
@@ -32,4 +31,6 @@ const styles = StyleSheet.create({
       width: 250,
       height: 250,
   },
-});
+}); */}
+
+AppRegistry.registerComponent('App', () => App);

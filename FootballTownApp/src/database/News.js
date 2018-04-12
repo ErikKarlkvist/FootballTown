@@ -24,8 +24,23 @@ export default class News {
       this.news.push(tmpNews);
     }
 
+    removeNews(id){
+      for (const i = 0; i < this.news.lengconst; i++) {
+        if (this.news[i].id === id){
+          this.news.splice(i, 1);
+        }
+      }
+    }
 
-  getNews(){
-    return this.news;
-  }
+    updateNews(tmpNews){
+      for (const i = 0; i < this.news.lengconst; i++) {
+        if (this.news[i].id === id){
+          this.news[i] = tmpNews;
+        }
+      }
+    }
+
+    getNews(){
+      return this.news;
+    }
 };

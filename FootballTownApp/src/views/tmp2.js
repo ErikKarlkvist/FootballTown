@@ -5,20 +5,30 @@ import Factory from "../database/Factory";
 
 const News = Factory.getNewsInstance();
 const Events = Factory.getEventsInstance();
+const Games = Factory.getGamesInstance();
 
 export default class Tmp2 extends React.Component {
     constructor(){
         super()
 
+        //News test
         News.addNews({id: "000006",
             title: "Hello",
             text: "Bye"})
         console.log(News.getNews())
 
+        //Events test
         Events.addEvents({id: "00005",
                           title:"Event5",
                           text:"Bad event"})
         console.log(Events.getEvents());
+
+        //Games Test
+        Games.addGames({id: "00005",
+                          hometeam: "Newcastle",
+                          awayteam: "West Brom",
+                          result: "1-2"});
+        console.log(Games.getGames());
     }
 
   render() {

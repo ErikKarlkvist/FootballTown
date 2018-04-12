@@ -35,22 +35,28 @@ render(){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#FF8C00',
+    backgroundColor: '#4CAF50',
     padding: 10,
     height: 60,
     marginTop: 10,
     borderRadius: 4,
     borderWidth: 0.5,
     borderColor: 'black',
+    alignItems: 'center',
   },
   teams:{
   color: 'black',
   fontWeight: 'bold',
   fontSize: 16,
+  alignItems: 'center',
+  paddingLeft: '5%',
+  paddingRight: '5%'
   },
   scores:{
   color: 'black',
-  fontSize: 15,
+  fontSize: 18,
+  fontWeight: 'bold',
+  alignItems: 'center'
   }
 });
 

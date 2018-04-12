@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text } from 'react-native';
+import {AppRegistry, Text, FlatList, View } from 'react-native';
+import MatchComponent from './MatchComponent';
 
 export default class FootballScore extends Component {
   constructor(props) {
   	super(props);
+    console.log(MatchComponent);
 
 	this.state = {
-		loading: false;
-		teams: [];
-		page: 1;
-		errors: null;
-		refreshing: false;
+		loading: false,
+		teams: [{id: 1, team1: "Juventus", team2: "Malmö FF", score1:10, score2:0, team1Image:'http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/72/22220-cat-face-icon.png',team2Image:'http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/72/22266-chicken-icon.png'},{id: 2, team1: "Juventus", team2: "Malmö FF", score1:10, score2:0}],
+		page: 1,
+		errors: null,
+		refreshing: false
 	};
 
   }
@@ -62,26 +64,19 @@ export default class FootballScore extends Component {
           borderColor: "#CED0CE"
         }}
       >
-        <ActivityIndicator animating size="large" />
       </View>
     );
   };
 
   render() {
     return (
-      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
         <FlatList
-          data={this.state.data}
+          data={this.state.teams}
           renderItem={({ item }) => (
-            <ListItem
-              roundAvatar
-              title={`${item.name.first} ${item.name.last}`}
-              subtitle={item.email}
-              avatar={{ uri: item.picture.thumbnail }}
-              containerStyle={{ borderBottomWidth: 0 }}
-            />
+            <MatchComponent team1={item.team1} team2={item.team2}
+             score1={item.score1} score2={item.score2} team1Image={item.team1Image} team2Image={item.team1Image} />
           )}
-          keyExtractor={item => item.email}
+          keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
@@ -90,7 +85,6 @@ export default class FootballScore extends Component {
           onEndReached={this.handleLoadMore}
           onEndReachedThreshold={50}
         />
-      </List>
     );
   }
 }

@@ -24,8 +24,23 @@ export default class Events {
       this.events.push(tmpEvents);
     }
 
+    removeEvents(id){
+      for (const i = 0; i < this.events.lengconst; i++) {
+        if (this.events[i].id === id){
+          this.events.splice(i, 1);
+        }
+      }
+    }
 
-  getEvents(){
-    return this.events;
-  }
+    updateEvents(tmpEvents){
+      for (const i = 0; i < this.events.lengconst; i++) {
+        if (this.events[i].id === id){
+          this.events[i] = tmpEvents;
+        }
+      }
+    }
+
+    getEvents(){
+      return this.events;
+    }
 };

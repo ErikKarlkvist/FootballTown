@@ -6,16 +6,26 @@ render(){
   return(
     <View style={styles.container}>
     <View style={{flex: 1, flexDirection: 'row', alignItems: "center"}}>
+
+
     <Image
             source={{
-              uri: 'http://icons.iconarchive.com/icons/martin-berube/sport/64/Soccer-icon.png',
+              uri: this.props.team1Image,
             }}
             style={{width: 25, height:25}}
           />
     <Text style={styles.teams}> {this.props.team1}</Text>
     <Text style={styles.scores}>{this.props.score1}</Text>
+    <Text> - </Text>
     <Text style={styles.scores}>{this.props.score2}</Text>
     <Text style={styles.teams}> {this.props.team2}</Text>
+
+    <Image
+            source={{
+              uri: this.props.team2Image,
+            }}
+            style={{width: 25, height:25}}
+          />
     </View>
     </View>
   );
@@ -28,7 +38,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF8C00',
     padding: 10,
     height: 60,
-    marginTop: 10, 
+    marginTop: 10,
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: 'black',
   },
   teams:{
   color: 'black',

@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { AppRegistry, Text, View} from 'react-native';
 //import firebase from 'react-native-firebase'
 import Tmp from "./src/views/tmp"
 import Tmp2 from "./src/views/tmp2"
 const User = require("./src/database/User").User()
+import MatchComponent from './src/component/MatchComponent';
 
 export default class App extends React.Component {
   constructor(){
@@ -23,7 +24,7 @@ export default class App extends React.Component {
 }
 
 
-const styles = StyleSheet.create({
+{/*const styles = StyleSheet.create({
   container: {
       flex: 1,
       backgroundColor: '#24cdda',
@@ -34,4 +35,6 @@ const styles = StyleSheet.create({
       width: 250,
       height: 250,
   },
-});
+}); */}
+
+AppRegistry.registerComponent('App', () => App);

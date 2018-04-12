@@ -7,22 +7,31 @@ import {GlobalStyles} from '../config/UIStyleSheet.js';
 
 const News = Factory.getNewsInstance();
 const Events = Factory.getEventsInstance();
+const Games = Factory.getGamesInstance();
 
 export default class Tmp extends React.Component {
   constructor(){
       super()
       console.log(Factory);
 
+      //News test
       News.addNews({id: "000005",
                    title: "Glory Glory Man Utd",
-                   text: "Everyone Loved MAN UTD"})
-      console.log(News.getNews())
+                   text: "Everyone Loved MAN UTD"});
+      console.log(News.getNews());
 
+      //Events test
       Events.addEvents({id: "00004",
                         title:"Event4",
-                        text:"Fun event"})
+                        text:"Fun event"});
       console.log(Events.getEvents());
 
+      //Games Test
+      Games.addGames({id: "00004",
+                        hometeam: "Stoke",
+                        awayteam: "West Ham",
+                        result: "2-2"});
+      console.log(Games.getGames());
   }
 
   render() {

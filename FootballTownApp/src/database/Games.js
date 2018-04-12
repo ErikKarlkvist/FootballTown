@@ -6,19 +6,28 @@ export default class Games {
                 id: "00001",
                 hometeam: "Arsenal",
                 awayteam: "Manchester United",
-                result: "0-0"
+                homeScore: "0",
+                awayScore: "3",
+                homeImage: "",
+                awayImage: ""
             },
             {
                 id: "00002",
                 hometeam: "Liverpool",
                 awayteam: "Manchester City",
-                result: "3-0"
+                homeScore: "0",
+                awayScore: "3",
+                homeImage: "",
+                awayImage: ""
             },
             {
                 id: "00003",
                 hometeam: "Tottenham",
                 awayteam: "Chelsea",
-                result: "not played"
+                homeScore: "",
+                awayScore: "",
+                homeImage: "",
+                awayImage: ""
             }
         ]
     }

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import {AppRegistry, Text, FlatList, View } from 'react-native';
 import MatchComponent from './MatchComponent';
+import Factory from '../database/Factory'
 
 export default class FootballScore extends Component {
   constructor(props) {
-  	super(props);
-    console.log(MatchComponent);
+  	super(props);const Games = Factory.getGamesInstance();
 
 	this.state = {
 		loading: false,
-		teams: [],
 		page: 1,
 		errors: null,
-		refreshing: false
+		refreshing: false,
+    games: Factory.getGamesInstance()
 	};
 
   }
@@ -69,12 +69,13 @@ export default class FootballScore extends Component {
   };
 
   render() {
+    console.log(this.state.game)
     return (
         <FlatList
-          data={this.state.teams}
+          data={this.state.games.getGames()}
           renderItem={({ item }) => (
-            <MatchComponent team1={item.team1} team2={item.team2}
-             score1={item.score1} score2={item.score2} team1Image={item.team1Image} team2Image={item.team2Image} />
+            <MatchComponent team1={item.hometeam} team2={item.awayteam}
+             score1={item.homeScore} score2={item.awayScore} team1Image={item.team1Image} team2Image={item.team2Image} />
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}

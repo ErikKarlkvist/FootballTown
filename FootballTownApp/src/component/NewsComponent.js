@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text, FlatList, View, StyleSheet } from 'react-native';
+import {AppRegistry, Text, FlatList, View, StyleSheet, Image } from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 

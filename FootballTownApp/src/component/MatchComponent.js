@@ -9,11 +9,9 @@ render(){
 
 
     <Image
-            source={{
-              uri: this.props.team1Image,
-            }}
-            style={{width: 25, height:25}}
-          />
+          style={{width: 30, height: 30}}
+          source={{uri: this.props.team1Image}}
+        />
     <Text style={styles.teams}> {this.props.team1}</Text>
     <Text style={styles.scores}>{this.props.score1}</Text>
     <Text> - </Text>
@@ -24,7 +22,7 @@ render(){
             source={{
               uri: this.props.team2Image,
             }}
-            style={{width: 25, height:25}}
+            style={{width: 30, height:30}}
           />
     </View>
     </View>

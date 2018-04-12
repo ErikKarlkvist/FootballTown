@@ -9,7 +9,7 @@ export default class FootballScore extends Component {
 
 	this.state = {
 		loading: false,
-		teams: [{id: 1, team1: "Juventus", team2: "Malmö FF", score1:10, score2:0, team1Image:'http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/72/22220-cat-face-icon.png',team2Image:'http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/72/22266-chicken-icon.png'},{id: 2, team1: "Juventus", team2: "Malmö FF", score1:10, score2:0}],
+		teams: [],
 		page: 1,
 		errors: null,
 		refreshing: false
@@ -74,7 +74,7 @@ export default class FootballScore extends Component {
           data={this.state.teams}
           renderItem={({ item }) => (
             <MatchComponent team1={item.team1} team2={item.team2}
-             score1={item.score1} score2={item.score2} team1Image={item.team1Image} team2Image={item.team1Image} />
+             score1={item.score1} score2={item.score2} team1Image={item.team1Image} team2Image={item.team2Image} />
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}

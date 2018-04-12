@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, Image} from 'react-native';
+import {Colors} from '../config/UIConfig'
 
 export default class MatchComponent extends Component{
 render(){
@@ -33,7 +34,7 @@ render(){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.Primary,
     padding: 10,
     height: 60,
     marginTop: 10,

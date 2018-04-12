@@ -1,22 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 //import firebase from 'react-native-firebase'
+import Tmp from "./src/views/tmp"
+import Tmp2 from "./src/views/tmp2"
+const User = require("./src/database/User").User()
 
 export default class App extends React.Component {
   constructor(){
       super()
+      this.state = {
+        showTmp: true
+      }
   }
 
   render() {
-      return (
-          <View style={styles.container}>
-              <Image style={styles.image} source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/San_Francisco_Bay_Bridge_Western_Span_at_night.jpg'}}></Image>
-              <Text>{this.props.name}</Text>
-              <Text>Alex was here</Text>
-                  <Text>Testing git push</Text>
-              <Text></Text>
-          </View>
-      );
+      if(this.state.showTmp){
+        return (<Tmp onPress={() => {this.setState({showTmp: false})}}/>)
+      } else {
+        return (<Tmp2 onPress={() => {this.setState({showTmp: true})}}/>)
+      }
   }
 }
 

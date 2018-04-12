@@ -6,32 +6,31 @@ import Factory from "../database/Factory";
 const News = Factory.getNewsInstance();
 const Events = Factory.getEventsInstance();
 
-export default class Tmp extends React.Component {
-  constructor(){
-      super()
-      console.log(Factory);
+export default class Tmp2 extends React.Component {
+    constructor(){
+        super()
 
-      News.addNews({id: "000005",
-                   title: "Glory Glory Man Utd",
-                   text: "Everyone Loved MAN UTD"})
-      console.log(News.getNews())
+        News.addNews({id: "000006",
+            title: "Hello",
+            text: "Bye"})
+        console.log(News.getNews())
 
-      Events.addEvents({id: "00004",
-                        title:"Event4",
-                        text:"Fun event"})
-      console.log(Events.getEvents());
-
-  }
+        Events.addEvents({id: "00005",
+                          title:"Event5",
+                          text:"Bad event"})
+        console.log(Events.getEvents());
+    }
 
   render() {
       return (
           <View style={styles.container}>
 
-              <Text>{this.props.name}</Text>
               <TouchableOpacity onPress={this.props.onPress}>
-                <Text>TMP normal</Text>
+                <Text>TMP2</Text>
 
               </TouchableOpacity>
+              <Text></Text>
+
           </View>
       );
   }

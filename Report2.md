@@ -47,10 +47,14 @@ Initial setup | *3.5 hours* | All members spent the same amount of time
 Initial meeting worked well. We populated the background and set up the enviroment.
 
 # Sprint 2 Log
-Per sprint, fill out one sprint log section and its subsections.
-
 ## Commitment
-List the features/stories that the team committed to finish during the sprint.
+During this sprint we committed to doing the following:
+* Creating the navigation bar at the bottom of the app
+* Add views for each tab (page) in the app
+* Creating a games component allowing you to view the games
+* Creating a news component allowing you to view summaries of the latest news items
+* Creating a structure for colouring and styling application elements
+* Creating database structure for games and news items
 
 ## Work Done
 Log what was accomplished, and how.
@@ -58,6 +62,12 @@ Please report on all activities; for example, in addition to coding, planning an
 
 Feature | Time estimated | Time spent per team member
 --------|----------------|--------
+*1: Nav bar* | *4 hours* | *Goitom 2.5 hours, Rahwa 2.5 hours*
+*2: Start Views* | *1 hour* | *Goitom 0.5 hours, Rahwa 0.5 hours*
+*3: Game Component* | *?* | *Tobias ? hours, Pooriya ? hours*
+*3: News Component* | *?* | *Tobias ? hours, Pooriya ? hours*
+*3: Game Component* | *?* | *Tobias ? hours, Pooriya ?*
+
 *Name and ID of each feature* | *X hours* | *Member A: Y hours, Member B: Z hours*
 
 ## Reflections

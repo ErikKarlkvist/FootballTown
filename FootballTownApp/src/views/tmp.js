@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 //import firebase from 'react-native-firebase'
 import Factory from "../database/Factory";
+import {Colors, Fonts} from '../config/UIConfig.js';
+import {GlobalStyles} from '../config/UIStyleSheet.js';
 
 const News = Factory.getNewsInstance();
 const Events = Factory.getEventsInstance();
@@ -27,7 +29,7 @@ export default class Tmp extends React.Component {
       return (
           <View style={styles.container}>
 
-              <Text>{this.props.name}</Text>
+              <Text style={GlobalStyles.title}>hello</Text>
               <TouchableOpacity onPress={this.props.onPress}>
                 <Text>TMP normal</Text>
 
@@ -49,4 +51,5 @@ const styles = StyleSheet.create({
       width: 250,
       height: 250,
   },
+
 });

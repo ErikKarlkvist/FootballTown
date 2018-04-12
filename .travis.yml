@@ -1,6 +1,6 @@
 before_install:
+- gem install cocoapods -v '0.32.1'
 - cd FootballTownApp
-- npm install cocoapods -g -v '0.32.1'
 
 language: node_js
 node_js:

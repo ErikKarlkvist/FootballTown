@@ -100,6 +100,6 @@ Reflect on the agile practice practiced:
  1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. Pair programming ultimatly helped each smaller team to be able to finalise the sprint tasks. 
  2. Pair programming provided the opportunity to give each other feedback, whether positive or negative. This factor helps each individual member to improve theirselves. 
  3. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. 
- 4. 
-
+ 
 - How efficient were the practices, given the time they took to use?
+ 1. Pair programming seem to be the most efficient and effective practice, as it allowed the teams to 

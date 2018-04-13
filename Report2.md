@@ -97,8 +97,8 @@ Reflect on the agile practice practiced:
 - How did the practices interact?
   Did they complement or counteract each other?
   
- 1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. 
- 2. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck. 
+ 1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. Pair programming ultimatly helped each smaller team to be able to finalise the sprint tasks. 
+ 2. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. 
  3. 
 
 - How efficient were the practices, given the time they took to use?

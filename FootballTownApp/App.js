@@ -2,7 +2,7 @@ import React from 'react';
 import { AppRegistry, Text, View} from 'react-native';
 //import firebase from 'react-native-firebase'
 import Tmp from "./src/views/tmp"
-import Tmp2 from "./src/views/tmp2"
+import MainNavigator from './src/navigation/MainNavigator';
 const User = require("./src/database/User").User()
 import MatchComponent from './src/component/MatchComponent';
 
@@ -15,11 +15,10 @@ export default class App extends React.Component {
   }
 
   render() {
-      if(this.state.showTmp){
-        return (<Tmp onPress={() => {this.setState({showTmp: false})}}/>)
-      } else {
-        return (<Tmp2 onPress={() => {this.setState({showTmp: true})}}/>)
-      }
+      return(
+      <MainNavigator/>
+
+      );
   }
 }
 

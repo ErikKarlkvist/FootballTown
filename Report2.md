@@ -63,9 +63,9 @@ Feature | Time estimated | Time spent per team member
 --------|----------------|--------
 *1: Nav bar* | *4 hours* | *Goitom 2.5 hours, Rahwa 2.5 hours*
 *2: Start Views* | *1 hour* | *Goitom 0.5 hours, Rahwa 0.5 hours*
-*3: Game Component* | * 3.5 hours* | *Tobias 0.5 hours, Pooriya 3 hours*
-*4: Game Component* | * 3.5 hours* | *Tobias 3 hours, Pooriya 0.5 hours*
-*5: News Component* | * 4 hours* | *Tobias 4 hours, Pooriya 0 hours*
+*3: Game Component* | *3.5 hours* | *Tobias 0.5 hours, Pooriya 3 hours*
+*4: Game Component* | *3.5 hours* | *Tobias 3 hours, Pooriya 0.5 hours*
+*5: News Component* | *4 hours* | *Tobias 4 hours, Pooriya 0 hours*
 *6: Game Database Structure* | *3 hours* | *Erik 1 hours, Alex 1 hours, Johan 1 hours*
 *7: News Database Structure* | *6 hours* | *Erik 2.5 hours, Alex 2.5 hours, Johan 2.5 hours*
 *8: Color config file* | *3 hours* | *Erik 1 hours, Alex 1 hours, Johan 1 hours*

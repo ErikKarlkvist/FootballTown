@@ -65,8 +65,10 @@ Feature | Time estimated | Time spent per team member
 *1: Nav bar* | *4 hours* | *Goitom 2.5 hours, Rahwa 2.5 hours*
 *2: Start Views* | *1 hour* | *Goitom 0.5 hours, Rahwa 0.5 hours*
 *3: Game Component* | *?* | *Tobias ? hours, Pooriya ? hours*
-*3: News Component* | *?* | *Tobias ? hours, Pooriya ? hours*
-*3: Game Component* | *?* | *Tobias ? hours, Pooriya ?*
+*4: News Component* | *?* | *Tobias ? hours, Pooriya ? hours*
+*5: Game Database Structure* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
+*6: News Database Structure* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
+*7: Color config file* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
 
 *Name and ID of each feature* | *X hours* | *Member A: Y hours, Member B: Z hours*
 

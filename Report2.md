@@ -57,23 +57,28 @@ During this sprint we committed to doing the following:
 * Creating database structure for games and news items
 
 ## Work Done
-Log what was accomplished, and how.
-Please report on all activities; for example, in addition to coding, planning and design discussion.
+
 
 Feature | Time estimated | Time spent per team member
 --------|----------------|--------
 *1: Nav bar* | *4 hours* | *Goitom 2.5 hours, Rahwa 2.5 hours*
 *2: Start Views* | *1 hour* | *Goitom 0.5 hours, Rahwa 0.5 hours*
-*3: Match Component* | * 3.5 hours*  | *Tobias 0.5  hours, Pooriya 3 hours*
-*4: Game Component* | * 4.5 hours* | *Tobias 4 hours, Pooriya 0.5 hours*
-*5: News Component* | * 4 hours* | *Tobias 4 hours, Pooriya 0 hours*
-*6: Game Database Structure* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
-*7: News Database Structure* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
-*8: Color config file* | *?* | *Erik ? hours, Alex ? hours, Johan ? hours*
+*3: Game Component* | *?* | *Tobias ? hours, Pooriya ? hours*
+*4: News Component* | *?* | *Tobias ? hours, Pooriya ? hours*
+*5: Game Database Structure* | *3 hours* | *Erik 1 hours, Alex 1 hours, Johan 1 hours*
+*6: News Database Structure* | *6 hours* | *Erik 2.5 hours, Alex 2.5 hours, Johan 2.5 hours*
+*7: Color config file* | *3 hours* | *Erik 1 hours, Alex 1 hours, Johan 1 hours*
+*Discussion: Task allocation & Prioritisation of backlog* | *7 hours* | *Full team 1 hour*
 
-*Name and ID of each feature* | *X hours* | *Member A: Y hours, Member B: Z hours*
+As a group we decided to allocate quality assurance guardians. Erik is now responsibly for the software architecture. Pooriya and Alexander are resposible for design cohesion. 
 
 ## Reflections
+As a team we worked well together this sprint. Everyone attended all group sessions and thoroughly contributed to group meetings. We worked primarily in the second week of the sprint due to Easter. The primary focus over this sprint was pair programming and was divided as can be seen in the Work Done table.
+
+One of the observations we made from pair programming is it often fostered conversation on how to complete tasks and resulted in more efficient code and less errors to debug as the non-programmer in the pair would often spot mistakes. 
+
+
+
 Reflect on how the work worked.
 This data will form the basis for your final reflection.
 As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
@@ -91,8 +96,6 @@ Reflect on the agile practice practiced:
 
 - How did the practices interact?
   Did they complement or counteract each other?
-  
- 1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. 
 
 - How efficient were the practices, given the time they took to use?
 

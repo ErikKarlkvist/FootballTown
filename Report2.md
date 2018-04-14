@@ -103,7 +103,7 @@ Reflect on the agile practice practiced:
  3. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. 
  4.Same of the group member was new for GitHub version control and react native framework so working with Pair programming helped as to solve it in the same way by making the group members to share knowledge among each other.
  
- 
+ 5.working with pare programming provide as to debag our errors easily before going to the next steps. 
  
 - How efficient were the practices, given the time they took to use?
  1. Pair programming seem to be the most efficient and effective practice, as it allowed the teams to work together at university and provide help and feedback to eachother as the project goes forward.

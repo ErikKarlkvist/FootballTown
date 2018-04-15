@@ -102,4 +102,4 @@ Reflect on the agile practice practiced:
 
 - How efficient were the practices, given the time they took to use?
  1. Pair programming seem to be the most efficient and effective practice, as it allowed the teams to work together at university and provide help and feedback to eachother as the project goes forward.
- 2.Some of the group members were new to GitHub version control and react native framework, thus working with Pair programming helped the team to tackles issues by sharing knowledge among each other. Working in pairs also allowed us to debag errors easier and be able to move to the next tasks. 
+ 2. Some of the group members were new to GitHub version control and react native framework, thus working with Pair programming helped the team to tackles issues by sharing knowledge among each other. Working in pairs also allowed us to debag errors easier and be able to move to the next tasks. 

@@ -69,36 +69,33 @@ navigationOptions: {
         size={26}
         style={{ color: tintColor }}
       />
-    },
+  },
 }
 },{
 tabBarPosition:'bottom',
  animationEnabled: true,
  swipeEnabled: true,
  tabBarOptions: {
-            /*style:{
-               ...Platform.select({
-                      android:{
-                          BackgroundColor:'white'
-                            }
-                            })
-            },
-            */
-            labelStyle:{
-                       fontSize:12,
-                       padding:0
+  /*style:{
+     ...Platform.select({
+            android:{
+                BackgroundColor:'white'
+                  }
+                  })
+  },
+  */
+  labelStyle:{
+             fontSize:12,
+             padding:0
 
-                       },
-           activeTintColor: '#000',
-           activebackgroundColor:'darkgreen',
-           inactiveTintColor: 'black',
-           inactiveBackgroundColor:'green',
-           showIcon:true,
-           showLabel:true,
-
-
+             },
+  activeTintColor: '#000',
+  activebackgroundColor:'darkgreen',
+  inactiveTintColor: 'black',
+  inactiveBackgroundColor:'green',
+  showIcon:true,
+  showLabel:true,
       }
-
 })
 
 export default AppTabNavigator

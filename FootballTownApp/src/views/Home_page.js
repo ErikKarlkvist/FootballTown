@@ -10,20 +10,24 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
+import FootballScore from "../component/FootballScore"
+import NewsComponent from "../component/NewsComponent"
 
 class Home_page extends Component{
   render() {
       return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to Home Page!
-          </Text>
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <FootballScore />
+            <NewsComponent />
+          </View>
+        </ScrollView>
       );
     }
   }
@@ -37,6 +41,7 @@ class Home_page extends Component{
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
+      marginTop: 30
     },
     welcome: {
       fontSize: 20,

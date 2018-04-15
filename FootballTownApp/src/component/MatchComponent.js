@@ -33,7 +33,7 @@ render(){
 };
 
 const styles = StyleSheet.create({
-  
+
   container: {
     backgroundColor: Colors.Primary,
     padding: 10,
@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
   fontWeight: 'bold',
   fontSize: 16,
   alignItems: 'center',
-  paddingLeft: '5%',
-  paddingRight: '5%'
+  paddingLeft: 10,
+  paddingRight: 10
   },
   scores:{
   color: 'black',

@@ -33,7 +33,7 @@ export default class FootballScore extends Component {
         page: this.state.page + 1
       },
         // Fetch more data
-      
+
     );
   };
 
@@ -69,7 +69,6 @@ export default class FootballScore extends Component {
   };
 
   render() {
-    console.log(this.state.game)
     return (
         <FlatList
           data={this.state.games.getGames()}
@@ -89,4 +88,3 @@ export default class FootballScore extends Component {
     );
   }
 }
-

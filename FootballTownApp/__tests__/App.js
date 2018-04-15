@@ -5,9 +5,9 @@ import App from '../App';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// Commenting out this for now. 
-// it('renders correctly', () => {
-  //const tree = renderer.create(
-   // <App />
-  // );
-// });
+// Commenting out this for now.
+it('renders correctly', () => {
+  const tree = renderer.create(
+   <App />
+  );
+});

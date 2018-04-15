@@ -89,6 +89,8 @@ Reflect on the agile practice practiced:
 
 - Did your experience correspond to or contradict with what literature claims?
 
+1. During this sprint, the group experienced a positive outcome from the groupwork. Even though with a large holiday gap between this sprint, the group members seem to have been active and had put sufficient time with their tasks. Overall, the majority of the introduced agile practices by the litrature were adopted.
+
     - Analysis of why. Mostly interesting if something unexpected happens, but even
       if everything runs according to plan, reflecting on the underlying mechanisms
       can be interesting.

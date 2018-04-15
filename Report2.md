@@ -16,7 +16,6 @@ of 2018. In	the	event, there will most likely be thousands	of	football intereste
 software application. The marketing	manager really likes advertising in	general, but his knowledge	about football is quite
 weak, so he	will most likely need some help	from the developer team	to	come up	with brilliant ideas of	football-related things	that would be of interest for this specific	group of tourists.
 
-
 # Technical Info
 Target Platform: React Native, focus on Android,
 Programming Language: JavaScript,
@@ -27,7 +26,9 @@ FootballTown.
 * Issue tracker: https://trello.com/invite/b/eOCzPjKE/00fdf0bbdaa001eb9c3829cbf87c03df/footballtown
 * Continuous integration builds: https://travis-ci.org/ErikKarlkvist/FootballTown
 
-# Sprint 1 Log.  
+--- 
+
+# Sprint 1 Log
 ## 2018-03-22: Initial meeting
 * Populating the backglog
 * Selecting platform and programming language
@@ -44,6 +45,8 @@ Initial setup | *3.5 hours* | All members spent the same amount of time
 
 ## Reflections
 Initial meeting worked well. We populated the background and set up the enviroment.
+
+--- 
 
 # Sprint 2 Log
 ## Commitment
@@ -70,39 +73,37 @@ Feature | Time estimated | Time spent per team member
 *8: Color config file* | *3 hours* | *Erik 1 hours, Alex 1 hours, Johan 1 hours*
 *9: Discussion: Task allocation & Prioritisation of backlog* | *7 hours* | *Full team 1 hour*
 
-As a group we decided to allocate quality assurance guardians. Erik is now responsibly for the software architecture. Pooriya and Alexander are resposible for design cohesion. 
-
 ## Reflections
+
+> Reflect on how the work worked.
+> This data will form the basis for your final reflection.
+> As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
+> Keep within 1000-1500 words.
+>
+> Discuss any deviations from the sprint commitment.
+>
+> Reflect on the agile practice practiced:
+>
+> - Did your experience correspond to or contradict with what literature claims?
+> - Analysis of why. Mostly interesting if something unexpected happens, but even if everything runs according to plan, reflecting on the underlying mechanisms can be interesting.
+> - How did the practices interact? Did they complement or counteract each other?
+> - How efficient were the practices, given the time they took to use?
+
 As a team we worked well together this sprint. Everyone attended all group sessions and thoroughly contributed to group meetings. We worked primarily in the second week of the sprint due to Easter. The primary focus over this sprint was pair programming and was divided as can be seen in the Work Done table.
+
+Another area of Agile we used a lot was the scrum meetings. Each day we worked we would all discuss where we were up to and assess our progress. This was particularly useful as it allowed us to see how the project was evolving, what new modules were being added and provide feedback to the rest of the group. This helped keep the group familure on the structure of the project and added code at a rate we could have a rough understanding of what things do even if we didn't work on it ourselves.
 
 One of the observations we made from pair programming is it often fostered conversation on how to complete tasks and resulted in more efficient code and less errors to debug as the non-programmer in the pair would often spot mistakes. 
 
 
-Reflect on how the work worked.
-This data will form the basis for your final reflection.
-As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
-Keep within 1000-1500 words.
-
-Discuss any deviations from the sprint commitment.
-
-Reflect on the agile practice practiced:
-
-- Did your experience correspond to or contradict with what literature claims?
-
 1. During this sprint, the group experienced a positive outcome from the groupwork. Even though with a large holiday gap between this sprint, the group members seem to have been active and had put sufficient time with their tasks. Overall, the majority of the introduced agile practices by the litrature were adopted.
 
-    - Analysis of why. Mostly interesting if something unexpected happens, but even
-      if everything runs according to plan, reflecting on the underlying mechanisms
-      can be interesting.
-
-- How did the practices interact?
-  Did they complement or counteract each other?
   
  1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. Pair programming ultimatly helped each smaller team to be able to finalise the sprint tasks. 
  2. Pair programming provided the opportunity to give each other feedback, whether positive or negative. This factor helps each individual member to improve theirselves. 
  3. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. 
 
-- How efficient were the practices, given the time they took to use?
+
  1. Pair programming seem to be the most efficient and effective practice, as it allowed the teams to work together at university and provide help and feedback to eachother as the project goes forward.
  2. Some of the group members were new to GitHub version control and react native framework, thus working with Pair programming helped the team to tackles issues by sharing knowledge among each other. Working in pairs also allowed us to debag errors easier and be able to move to the next tasks. 
  3. Using version control and git provided the opportunity for members to work on a task simultaneously and later on show each other their work. Additionally, version control was beneficial as it allowed us to revert back to previous versions of the code for debugging and quality control purposes. 

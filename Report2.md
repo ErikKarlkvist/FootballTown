@@ -22,7 +22,6 @@ Target Platform: React Native, focus on Android,
 Programming Language: JavaScript,
 FootballTown.
 
-
 # Links
 * Git repository: https://github.com/ErikKarlkvist/FootballTown
 * Issue tracker: https://trello.com/invite/b/eOCzPjKE/00fdf0bbdaa001eb9c3829cbf87c03df/footballtown
@@ -79,7 +78,6 @@ As a team we worked well together this sprint. Everyone attended all group sessi
 One of the observations we made from pair programming is it often fostered conversation on how to complete tasks and resulted in more efficient code and less errors to debug as the non-programmer in the pair would often spot mistakes. 
 
 
-
 Reflect on how the work worked.
 This data will form the basis for your final reflection.
 As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
@@ -101,9 +99,7 @@ Reflect on the agile practice practiced:
  1. The group had divided the tasks into managble tasks for each sprint where the members worked on the assigned tasks using the pair programming approach. This method allowed the members to help each other to carry out the tasks and mentor each other's work. Pair programming ultimatly helped each smaller team to be able to finalise the sprint tasks. 
  2. Pair programming provided the opportunity to give each other feedback, whether positive or negative. This factor helps each individual member to improve theirselves. 
  3. By using the Scrum approach at every sprint, each member presented their prgoress and what they have been busy with. This allowed the team to be up to date with eveyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. 
- 4.Same of the group member was new for GitHub version control and react native framework so working with Pair programming helped as to solve it in the same way by making the group members to share knowledge among each other.
- 
- 5.working with pare programming provide as to debag our errors easily before going to the next steps. 
+ 4.Some of the group members were new to GitHub version control and react native framework, thus working with Pair programming helped the team to tackles issues by sharing knowledge among each other. Working in pairs also allowed us to debag errors easier and be able to move to the next tasks. 
  
 - How efficient were the practices, given the time they took to use?
  1. Pair programming seem to be the most efficient and effective practice, as it allowed the teams to work together at university and provide help and feedback to eachother as the project goes forward.

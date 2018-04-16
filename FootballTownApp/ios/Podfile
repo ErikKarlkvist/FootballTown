@@ -8,6 +8,7 @@ target 'FootballTownApp' do
   # Pods for FootballTownApp
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+
   target 'FootballTownAppTests' do
     inherit! :search_paths
     # Pods for testing

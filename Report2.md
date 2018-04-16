@@ -75,19 +75,6 @@ Feature | Time estimated | Time spent per team member
 
 ## Reflections
 
-> Reflect on how the work worked.
-> This data will form the basis for your final reflection.
-> As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
-> Keep within 1000-1500 words.
->
-> Discuss any deviations from the sprint commitment.
->
-> Reflect on the agile practice practiced:
-> - Did your experience correspond to or contradict with what literature claims?
-> - Analysis of why. Mostly interesting if something unexpected happens, but even if everything runs according to plan, reflecting on the underlying mechanisms can be interesting.
-> - How did the practices interact? Did they complement or counteract each other?
-> - How efficient were the practices, given the time they took to use?
-
 As a team we worked well together this sprint. Everyone attended all group sessions and thoroughly contributed to group meetings. We worked primarily in the second week of the sprint due to Easter. We adopted most of the agile principles introduced from the literature although our primary focus over this sprint was pair programming and was divided as can be seen in the Work Done table.
 
 ### Pair Programming
@@ -96,13 +83,25 @@ At the beginning, it was little hard to apply the practice of agile, since we ar
 
 ### Scrum Meetings
 Another area of Agile we used a lot was the scrum meetings. Each dev session we worked we would all discuss where we were up to and assess our progress. This was particularly useful as it allowed us to see how the project was evolving, what new modules were being added and provide feedback to the rest of the group. This helped keep the group familiar on the structure of the project and added code at a rate we could have an understanding of what things do even when we didn't write that code ourselves. It also allowed the team to be up to date with everyone's development and whether the project is reaching a bottleneck or the continuous integration is working well. Further, it also allowed us to work together and help one another to fix any errors or inclarities with the project, for example if one of the teams did not know how to solve a given problem or implement something.
-In general, in the scrum matting we try to answer the main 3 questions listed those are 1) What did we do yesterday? 2) What will we do today? 3) What obstacles do you anticipate? As a group to make an improvement in our project and to increase the motivation of involvement in the project also to do better in our  part of the project.
+In general, in the scrum matting we tried to answer 3 questions 
 
-Product Owner/Customer
-This is the owner of our product. During the first sprint presentation we have seen some difficulties of managing our customer expectations. We believe this is managed by the product backlogs. But we still need continuous feedbacks on the product backlog, especially on setting the priorities of the modules.    
+	1) What did we do yesterday? 
+	2) What will we do today? 
+	3) What obstacles do you anticipate? 
+
+Once these questions were answered we could proceed with the develioment. These questions allowed us to make improvements in our project and to increase the motivation of involvement in the project.
+
+### Product Owner/Customer
+Tse project has a customer which knows what different functionalities are the most important for their business case. During the first sprint presentation we noticed some difficulties of managing our customer expectations as the customer would want more features that we belived we could deliver in the given time-frame. To combat this we had to work with the custoner and make tradeoffs to move some functionality to the backlog for upcoming sprints. The customer will allow for continuous feedbacks on the product backlog and priorities for the upcoming iterations.  
 
 ### Code Ownership and Refactoring
 Some of the group members were new to GitHub version control and the React Native framework, thus working with Pair programming helped the team to tackles issues by sharing knowledge among each other. Using Git and version control provided the opportunity for members to work on a task simultaneously and then later show each other their work. Additionally, version control was beneficial as it allowed us to revert to previous versions of the code for debugging and quality control purposes (when required). Also it facilitates concurrent development as each team could work on their own branch and merge these with the other work once the feature was completed, which is one of the main advantages of version control.  
+
+### Continous Integration 
+To manage continous integration, travis is used. This allows the running of the application whenever a new change is made to the project and if this change makes the application unrunnable, we are notified via an email. There were some issues setting up travis as the project are dependant on several modules such as cocoapods(dependency manager) and the tesing framework. The tests refused to run given that the project was missing these dependencies, forcing us to spend some time configurating the travis file to make it run the application. This was completed and the integration platform is now up and running.
+
+### Communication Channels
+Other than the face-to face meetings we conducted during the sprint (for example during pair programming sessions), another communications platform was needed. This platform needed to be both efficient and support richness of communication to allow for project progress outside of the 'physical' meetings. For this task, slack was selected. Slack is useful as it allowes to split the communication into several different channels which could all have a different purpose (one for development, one for non-work related banther etc) and also supported integration for various external applications, such as travis. Thus allowing us to get notified in the slack once a build had failed. 
  
  
 To summarise, the agile techniques we focused on this sprint complemented each other well. None of them produced conflicts in methodology and they helped the team to work together efficiently. For the following sprint we will continue to work with agile methodologies and also add new items to the application. As the members are now more familiar with the framework and development enviroment, the pace will hopefully be higher the next sprint. 

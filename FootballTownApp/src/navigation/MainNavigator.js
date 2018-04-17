@@ -41,9 +41,9 @@ navigationOptions: {
 MyTeam:{
 screen:My_Team_page,
 navigationOptions: {
-      tabBarLabel: 'MyTeam',
+      tabBarLabel: 'My Team',
       tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-people' : 'ios-people'}
+        name={focused ? 'ios-people' : 'ios-people-outline'}
         size={26}
         style={{ color: tintColor }}
       />
@@ -53,8 +53,8 @@ Event:{
 screen:Event_page,
 navigationOptions: {
       tabBarLabel: 'Event',
-      tabBarIcon: ({ tintColor, focused }) => <Iconm
-        name={focused ? 'event' : 'event'}
+      tabBarIcon: ({ tintColor, focused }) => <Icon
+        name={focused ? 'ios-calendar' : 'ios-calendar-outline'}
         size={26}
         style={{ color: tintColor }}
       />
@@ -63,7 +63,7 @@ navigationOptions: {
 NearBy:{
 screen:Near_By_page,
 navigationOptions: {
-      tabBarLabel: 'NearBy',
+      tabBarLabel: 'Nearby',
       tabBarIcon: ({ tintColor, focused }) => <Icon
         name={focused ? 'ios-map' : 'ios-map-outline'}
         size={26}
@@ -90,12 +90,12 @@ tabBarPosition:'bottom',
 
              },
   activeTintColor: '#000',
-  activebackgroundColor:'darkgreen',
+  activebackgroundColor:'white',
   inactiveTintColor: 'black',
-  inactiveBackgroundColor:'green',
+  inactiveBackgroundColor:'white',
   showIcon:true,
   showLabel:true,
-      }
+  }
 })
 
 export default AppTabNavigator

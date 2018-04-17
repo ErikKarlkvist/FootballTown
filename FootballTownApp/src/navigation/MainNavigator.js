@@ -19,6 +19,7 @@ import Event_page from '../views/Event_page'
 import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
 import Icon from 'react-native-vector-icons/Ionicons';
+import News_page from '../views/News_page'
 
 import Iconm from 'react-native-vector-icons/MaterialIcons';
 
@@ -27,7 +28,7 @@ import Iconm from 'react-native-vector-icons/MaterialIcons';
 
 const AppTabNavigator=TabNavigator({
 Home:{
-screen:Home_page,
+screen:News_page,
 navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor, focused }) => <Icon

@@ -3,6 +3,7 @@ import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator,
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
+import News_page from '../views/News_page'
 
 
 
@@ -147,11 +148,8 @@ class NewsStory extends Component {
     super(props)
   }
   render() {
-    newsStory = this.props.navigation.state.params.newsArticle;
     return(
-    <View>
-    <Text>{newsStory.title}</Text>
-    </View>
+    <News_page newsStory= {this.props.navigation.state.params.newsArticle}/> 
     );
   }
 }
@@ -171,7 +169,6 @@ const styles = StyleSheet.create({
     margin: 1,
     flex: 1, flexDirection: 'row',
     height: '10%',
-    width: '100%'
   },
   newsTitle: {
     marginTop: 5,

@@ -13,9 +13,18 @@ export default class NewsComponent extends Component {
 		page: 1,
 		errors: null,
 		refreshing: false,
-    news: Factory.getNewsInstance()
+    news: Factory.getNewsInstance(),
+    fetchedNews: []
 	};
 
+  }
+
+  componentDidMount(){
+    this.setState({loading:true})
+    this.state.news.getNews().then((news) => {
+      console.log(news)
+      this.setState({loading: false, fetchedNews: news})
+    })
   }
 
   refresh = () => {
@@ -33,7 +42,7 @@ export default class NewsComponent extends Component {
         page: this.state.page + 1
       },
         // Fetch more data
-      
+
     );
   };
 
@@ -69,10 +78,9 @@ export default class NewsComponent extends Component {
   };
 
   render() {
-    console.log(this.state.game)
     return (
         <FlatList
-          data={this.state.news.getNews()}
+          data={this.state.fetchedNews}
           renderItem={({ item }) => (
             <NewsStory title={item.title} text={item.text} />
           )}

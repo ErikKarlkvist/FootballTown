@@ -11,7 +11,7 @@ render(){
 
     <Image
           style={{width: 30, height: 30}}
-          source={{uri: this.props.team1Image}}
+          source={{uri: this.props.team1Flag}}
         />
     <Text style={styles.teams}> {this.props.team1}</Text>
     <Text style={styles.scores}>{this.props.score1}</Text>
@@ -21,7 +21,7 @@ render(){
 
     <Image
             source={{
-              uri: this.props.team2Image,
+              uri: this.props.team2Flag,
             }}
             style={{width: 30, height:30}}
           />

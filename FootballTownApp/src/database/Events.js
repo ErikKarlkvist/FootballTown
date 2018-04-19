@@ -1,27 +1,19 @@
 export default class Events {
 
     constructor(){
-        this.events = [
-            {
-                id: "00001",
-                title: "Event1",
-                text: "gg ez"
-            },
-            {
-                id: "00002",
-                title: "Event2",
-                text: "too bad"
-            },
-            {
-                id: "00003",
-                title: "Event3",
-                text: "5-0"
-            }
-        ]
+        this.events = []
     }
 
     addEvents(tmpEvents){
-      this.events.push(tmpEvents);
+      const tmpEvents = {
+        title: tmpNews.title,
+        teams: tmpNews.teams,
+        text: tmpNews.text,
+        imageUrl: tmpNews.text,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }
+      this.games.push(tmpEvents);
+      return firebase.firestore().collection("events").add(tmpEvents)
     }
 
     removeEvents(id){
@@ -30,6 +22,8 @@ export default class Events {
           this.events.splice(i, 1);
         }
       }
+
+      return firebase.firestore().collection("games").doc(newGame.id).remove()
     }
 
     updateEvents(tmpEvents){
@@ -38,9 +32,32 @@ export default class Events {
           this.events[i] = tmpEvents;
         }
       }
+
+      const newEvent = {
+        title: tmpNews.title,
+        teams: tmpNews.teams,
+        text: tmpNews.text,
+        imageUrl: tmpNews.text
+      }
+
+      return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    getEvents(){
-      return this.events;
+    async getEvents(){
+      if(this.events.length > 0){
+        return Promise.resolve(this.news)
+      } else {
+        const events = await firebase.firestore().collection("events").get()
+
+        const eventsData = [];
+        events.forEach((snapshot) => {
+          result = snapshot.data()
+          result.id = snapshot.id;
+          newsData.push(result)
+        })
+
+        this.events = eventsData;
+        return Promise.resolve(eventsData)
+      }
     }
 };

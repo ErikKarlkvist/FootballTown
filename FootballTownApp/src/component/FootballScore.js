@@ -85,7 +85,7 @@ export default class FootballScore extends Component {
           data={this.state.fetchedGames}
           renderItem={({ item }) => (
             <MatchComponent team1={item.team1} team2={item.team2}
-             score1={item.goals1} score2={item.goals2} team1Image={item.team1Image} team2Image={item.team2Image} />
+             score1={item.goals1} score2={item.goals2} team1Flag={item.team1Flag} team2Flag={item.team2Flag} />
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}

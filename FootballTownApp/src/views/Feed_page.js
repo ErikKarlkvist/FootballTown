@@ -7,13 +7,14 @@ import {
   View, 
   Button,
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/Ionicons'
+import NewsComponent from '../component/NewsComponent'
+import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 
 class NewsFeed extends Component{
   render() {
   return (
-    <Text>THis is the news story feed</Text>
+    <NewsComponent height="50%"/>
   );
   }
 }

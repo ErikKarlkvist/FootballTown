@@ -10,6 +10,7 @@ export const Colors = {
   PrimaryDark: "#ab000d",
   PrimaryDarkText: "#fff",
   CardBackground: "#fff",
+  ListBackground: "#fff",
 }
 
 const iOSFonts = {

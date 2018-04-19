@@ -23,7 +23,6 @@ class Home_page extends Component{
 
   constructor(){
     super()
-    //this.createMockGame()
   }
 
   render() {

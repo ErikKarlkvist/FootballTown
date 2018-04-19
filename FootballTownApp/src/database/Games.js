@@ -6,18 +6,21 @@ export default class Games {
         this.games = []
     }
 
-    addGames(tmpGame){
+    addGame(tmpGame){
 
       const newGame = {
         team1: tmpGame.team1Uid,
         team2: tmpGame.team2Uid,
         goals1: tmpGame.goals1,
         goals2: tmpGame.goals2,
-        date: firebase.firestore.FieldValue.serverTimestamp(),
+        date: tmpGame.date,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }
       this.games.push(newGame);
-      return firebase.firestore().collection("games").add(tmpGame)
+      return firebase.firestore().collection("games").add(newGame).then((ref) => {
+        newGame.id = ref.id;
+        this.games.push(newGame);
+      })
     }
 
     removeGames(id){
@@ -73,7 +76,7 @@ export default class Games {
           result.team2Uid = team2;
           result.team1 = team1.name;
           result.team1Flag = team1.flag;
-          result.team2 = team1.name;
+          result.team2 = team2.name;
           result.team2Flag = team2.flag;
           cleanedResult.push(result)
         }

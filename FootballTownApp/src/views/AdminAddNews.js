@@ -10,33 +10,46 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
+import Factory from "../database/Factory"
+import TextInput from "../component/TextInput"
+import {Colors, Fonts} from "../config/UIConfig"
+class AdminAddNews extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      news: Factory.getNewsInstance(),
+      imageUrl: "",
+      title: ""
+    }
+  }
 
-class Event_page extends Component{
   render() {
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to Event Page!
-          </Text>
+          <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Article Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
+          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 80}} title={"Article Summary"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
+          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Article Body"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
+          <Button title={"Save"} onPress = {() => {}}/>
         </View>
       );
     }
   }
 
-  export default Event_page;
+  export default AdminAddNews;
 
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+      backgroundColor: Colors.backgroundColor,
+      paddingTop: 50,
     },
     welcome: {
       fontSize: 20,

@@ -11,11 +11,14 @@ export default class News {
         title: tmpNews.title,
         ingress: tmpNews.ingress,
         text: tmpNews.text,
-        imageUrl: tmpNews.text,
+        imageUrl: tmpNews.imageUrl,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }
-      this.games.push(newNews);
-      return firebase.firestore().collection("news").add(newNews)
+
+      return firebase.firestore().collection("news").add(newNews).then((ref) => {
+        newNews.id = ref.id;
+        this.news.push(newNews);
+      })
     }
 
     removeNews(id){

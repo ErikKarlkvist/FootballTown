@@ -1,3 +1,5 @@
+import firebase from "react-native-firebase"
+import {Alert} from "react-native"
 export default class Events {
 
     constructor(){
@@ -6,14 +8,17 @@ export default class Events {
 
     addEvents(tmpEvents){
       const newEvent = {
-        title: tmpNews.title,
-        teams: tmpNews.teams,
-        text: tmpNews.text,
-        imageUrl: tmpNews.text,
+        title: tmpEvents.title,
+        teams: tmpEvents.teams,
+        text: tmpEvents.text,
+        imageUrl: tmpEvents.text,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }
-      this.games.push(newEvent);
-      return firebase.firestore().collection("events").add(newEvent)
+      this.events.push(newEvent);
+      return firebase.firestore().collection("events").add(newEvent).then((ref) => {
+        newEvent.id = ref.id;
+        this.events.push(newEvent);
+      })
     }
 
     removeEvents(id){
@@ -34,10 +39,10 @@ export default class Events {
       }
 
       const newEvent = {
-        title: tmpNews.title,
-        teams: tmpNews.teams,
-        text: tmpNews.text,
-        imageUrl: tmpNews.text
+        title: tmpEvents.title,
+        teams: tmpEvents.teams,
+        text: tmpEvents.text,
+        imageUrl: tmpEvents.text
       }
 
       return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})

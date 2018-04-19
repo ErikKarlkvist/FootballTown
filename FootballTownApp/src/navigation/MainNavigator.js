@@ -14,11 +14,12 @@ import {
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
-import Home_page from '../views/Home_page'
-import Event_page from '../views/Event_page'
-import My_Team_page from '../views/My_Team_page'
-import Near_By_page from '../views/Near_By_page'
-import Feed_page from '../views/Feed_page'
+import Home_page from '../views/Home_page';
+import Event_page from '../views/Event_page';
+import Games_page from '../views/Games_page';
+import My_Team_page from '../views/My_Team_page';
+import Near_By_page from '../views/Near_By_page';
+import Feed_page from '../views/Feed_page';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../config/UIConfig'
 import Iconm from 'react-native-vector-icons/MaterialIcons';
@@ -33,9 +34,9 @@ navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor, focused }) => <Icon
         name={focused ? 'ios-home' : 'ios-home-outline'}
-        size={26}
+        size={32}
         style={{ color: tintColor }}
-      />
+      />,
     },
 
 },
@@ -45,41 +46,41 @@ navigationOptions: {
       tabBarLabel: 'Feed',
       tabBarIcon: ({ tintColor, focused }) => <Icon
         name={focused ? 'ios-clipboard' : 'ios-clipboard-outline'}
-        size={26}
+        size={32}
         style={{ color: tintColor }}
       />
     },
 
 },
-MyTeam:{
+Games:{
+  screen:Games_page,
+  navigationOptions: {
+        tabBarLabel: 'Games',
+        tabBarIcon: ({ tintColor, focused }) => <Icon
+          name={focused ? 'ios-calendar' : 'ios-calendar-outline'}
+          size={32}
+          style={{ color: tintColor }}
+        />
+      },
+  },
+Team:{
 screen:My_Team_page,
 navigationOptions: {
-      tabBarLabel: 'My Team',
+      tabBarLabel: 'Team',
       tabBarIcon: ({ tintColor, focused }) => <Icon
         name={focused ? 'ios-people' : 'ios-people-outline'}
-        size={26}
-        style={{ color: tintColor }}
-      />
-    },
-},
-Event:{
-screen:Event_page,
-navigationOptions: {
-      tabBarLabel: 'Event',
-      tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-calendar' : 'ios-calendar-outline'}
-        size={26}
-        style={{ color: tintColor }}
+        size={32}
+        style={{ color: tintColor, }}
       />
     },
 },
 NearBy:{
 screen:Near_By_page,
 navigationOptions: {
-      tabBarLabel: 'Nearby',
+      tabBarLabel: 'Near',
       tabBarIcon: ({ tintColor, focused }) => <Icon
         name={focused ? 'ios-map' : 'ios-map-outline'}
-        size={26}
+        size={32}
         style={{ color: tintColor }}
       />
   },
@@ -89,23 +90,21 @@ tabBarPosition:'bottom',
  animationEnabled: true,
  swipeEnabled: true,
  tabBarOptions: {
-  /*style:{
-     ...Platform.select({
-            android:{
-                BackgroundColor:'white'
-                  }
-                  })
+ style: {
+  backgroundColor: '#FFFFFF'
+},
+indicatorStyle: {
+  backgroundColor: '#FFFFFF',
   },
-  */
   labelStyle:{
-             fontSize:12,
+             fontSize:10,
              padding:0
 
              },
   activeTintColor: Colors.Primary,
-  activebackgroundColor:'#FFF',
+  activebackgroundColor:'#FFFFFF',
   inactiveTintColor: 'black',
-  inactiveBackgroundColor:"white",
+  inactiveBackgroundColor:'#FFFFFF',
   showIcon:true,
   showLabel:true,
   }
@@ -117,12 +116,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFFFFF',
   },
+  
   welcome: {
-    fontSize: 20,
+    fontSize: 10,
     textAlign: 'center',
-    margin: 10,
+    margin: 4,
   },
 
 });

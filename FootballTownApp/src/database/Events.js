@@ -5,15 +5,15 @@ export default class Events {
     }
 
     addEvents(tmpEvents){
-      const tmpEvents = {
+      const newEvent = {
         title: tmpNews.title,
         teams: tmpNews.teams,
         text: tmpNews.text,
         imageUrl: tmpNews.text,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }
-      this.games.push(tmpEvents);
-      return firebase.firestore().collection("events").add(tmpEvents)
+      this.games.push(newEvent);
+      return firebase.firestore().collection("events").add(newEvent)
     }
 
     removeEvents(id){

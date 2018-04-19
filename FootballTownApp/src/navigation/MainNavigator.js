@@ -28,7 +28,7 @@ import Iconm from 'react-native-vector-icons/MaterialIcons';
 
 const AppTabNavigator=TabNavigator({
 Home:{
-screen:News_page,
+screen:Home_page,
 navigationOptions: {
       tabBarLabel: 'Home',
       tabBarIcon: ({ tintColor, focused }) => <Icon

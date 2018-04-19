@@ -13,12 +13,12 @@ export const Colors = {
 }
 
 const iOSFonts = {
-  Title: "Helvetica",
+  Default: "Helvetica",
   Body: "Helvetica",
 }
 
 const AndroidFonts = {
-  Title: "Roboto",
+  Default: "Roboto",
   Body: "Roboto",
 }
 

@@ -29,7 +29,6 @@ class CustomTextInput extends Component{
 
   render() {
       return (
-        <ScrollView>
         <View style={[styles.container, this.props.style]}>
           <Text style={styles.title}>
             {this.props.title}
@@ -43,7 +42,6 @@ class CustomTextInput extends Component{
           />
           <View style={styles.underline}/>
         </View>
-        </ScrollView>
       );
     }
   }

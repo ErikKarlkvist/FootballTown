@@ -11,7 +11,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  ScrollView
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
@@ -31,6 +32,7 @@ class AdminAddNews extends Component{
 
   render() {
       return (
+        <ScrollView>
         <View style={styles.container}>
           <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
           <TextInput style = {{marginTop: 20}} title={"Article Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
@@ -38,6 +40,7 @@ class AdminAddNews extends Component{
           <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Article Body"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
           <Button title={"Save"} onPress = {() => {}}/>
         </View>
+        </ScrollView>
       );
     }
   }
@@ -50,6 +53,7 @@ class AdminAddNews extends Component{
       flex: 1,
       backgroundColor: Colors.backgroundColor,
       paddingTop: 50,
+      marginBottom: 200
     },
     welcome: {
       fontSize: 20,

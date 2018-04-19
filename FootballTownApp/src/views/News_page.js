@@ -37,12 +37,12 @@ class News_page extends Component{
         <ScrollView>
           <Image
             style={{width: screenWidth, height: imageHeight}}
-            source={{uri: uri}}
+            source={{uri: this.props.newsStory.imageUrl}}
           />
           <View style={GlobalStyles.articleContainer}>
-            <Text style={GlobalStyles.title}>{title}</Text>
-            <Text style={GlobalStyles.ingress}>{ingress}</Text>
-            <Text style={GlobalStyles.text}>{text}</Text>
+            <Text style={GlobalStyles.title}>{this.props.newsStory.title}</Text>
+            <Text style={GlobalStyles.ingress}>{this.props.newsStory.ingress}</Text>
+            <Text style={GlobalStyles.text}>{this.props.newsStory.text}</Text>
           </View>
         </ScrollView>
       );

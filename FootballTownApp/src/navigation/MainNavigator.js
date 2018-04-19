@@ -20,7 +20,7 @@ import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
 import Feed_page from '../views/Feed_page'
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import {Colors} from '../config/UIConfig'
 import Iconm from 'react-native-vector-icons/MaterialIcons';
 
 
@@ -44,7 +44,7 @@ screen:Feed_page,
 navigationOptions: {
       tabBarLabel: 'Feed',
       tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ion-clipboard' : 'ion-clipboard-outline'}
+        name={focused ? 'ios-clipboard' : 'ios-clipboard-outline'}
         size={26}
         style={{ color: tintColor }}
       />
@@ -102,10 +102,10 @@ tabBarPosition:'bottom',
              padding:0
 
              },
-  activeTintColor: '#000',
-  activebackgroundColor:'white',
+  activeTintColor: Colors.Primary,
+  activebackgroundColor:'#FFF',
   inactiveTintColor: 'black',
-  inactiveBackgroundColor:'white',
+  inactiveBackgroundColor:"white",
   showIcon:true,
   showLabel:true,
   }

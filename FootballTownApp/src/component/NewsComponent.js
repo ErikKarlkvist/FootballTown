@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator } from 'react-native';
+import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 
-export default class NewsComponent extends Component {
+
+ class NewsComponent extends Component {
   constructor(props) {
   	super(props);
 
@@ -14,7 +16,10 @@ export default class NewsComponent extends Component {
 		errors: null,
 		refreshing: false,
     news: Factory.getNewsInstance(),
+    navigator: props.navigator,
 	};
+
+  console.log(props)
 
   }
 
@@ -68,14 +73,21 @@ export default class NewsComponent extends Component {
     );
   };
 
+// Opens a newsarticle and gives it the newsarticle
+  openNewsArticle(newsArticle) {
+    this.props.navigation.navigate('Details',{newsArticle})
+  }
+
   render() {
-    console.log(this.state.game)
+    console.log(this.props.readArticle)
       return (
         <View style={styles.newsList}>
         <FlatList
           data={this.state.news.getNews()}
           renderItem={({ item }) => (
-            <NewsStory title={item.title} text={item.text} image={item.image}/>
+            <TouchableHighlight onPress={() => this.openNewsArticle(item)}>
+            <NewsListItem title={item.title} text={item.text} image={item.image}/>
+            </TouchableHighlight>
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
@@ -88,12 +100,11 @@ export default class NewsComponent extends Component {
         />
         </View>
         );
-  }
+    }
 }
-class NewsStory extends Component {
+class NewsListItem extends Component {
   constructor(props) {
     super(props);
-
 }
 
 // Returns the news text to be shown for a given article
@@ -112,7 +123,7 @@ getExceptText(length) {
       <View style={styles.newsStory}>
       <Image
         style={{width: 50, height: 50}}
-        source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+        source={{uri: this.props.image}}
         />
         <View>
        <Text style={styles.newsTitle}>{this.props.title}</Text>
@@ -122,6 +133,32 @@ getExceptText(length) {
     );
   }
 }
+
+
+class NewsStory extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    newsStory = this.props.navigation.state.params.newsArticle;
+    return(
+    <View>
+    <Text>{newsStory.title}</Text>
+    </View>
+    );
+  }
+}
+
+
+// Main stacknavigator layout
+export default StackNavigator({
+  NewsFeed: { screen: NewsComponent },
+  Details: { screen: NewsStory },
+});
+
+
+
+
 const styles = StyleSheet.create({
   newsStory: {
     margin: 1,

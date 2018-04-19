@@ -14,17 +14,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 class NewsFeed extends Component{
   render() {
   return (
-    <NewsComponent height="50%"/>
+    <NewsComponent />
   );
-  }
-}
-class NewsStory extends Component {
-  render() {
-    return(
-    <View>
-    return <Text>NewsStoryScreen</Text>
-    </View>
-    );
   }
 }
 class EventsFeed extends Component {
@@ -52,18 +43,14 @@ class EventScreen extends Component {
 
 
 
-// Stack navigator for the News stack 
-const NewsStack = StackNavigator({
-  NewsFeed: { screen: NewsFeed },
-  Details: { screen: NewsStory },
-});
+
 const EventStack = StackNavigator({
   Events: { screen: EventsFeed },
   Details: { screen: EventScreen },
 });
 export default TabNavigator(
 {
-  News: {screen: NewsStack},
+  News: {screen: NewsFeed},
   Events: {screen: EventStack},
 
 },{});

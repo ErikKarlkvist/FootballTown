@@ -25,7 +25,7 @@ class Home_page extends Component{
         <ScrollView>
           <View style={styles.container}>
             <FootballScore />
-            <NewsComponent />
+             <NewsComponent />
           </View>
         </ScrollView>
       );

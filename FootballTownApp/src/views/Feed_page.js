@@ -48,6 +48,7 @@ const EventStack = StackNavigator({
   Events: { screen: EventsFeed },
   Details: { screen: EventScreen },
 });
+
 export default TabNavigator(
 {
   News: {screen: NewsFeed},

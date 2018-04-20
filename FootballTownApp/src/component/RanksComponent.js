@@ -1,8 +1,9 @@
+
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, Image} from 'react-native';
 import {Colors} from '../config/UIConfig'
-import Matches_page from '../views/Matches_page'
-export default class MatchComponent extends Component{
+import Ranks_page from '../views/Ranks_page'
+export default class RanksComponent extends Component{
 render(){
   return(
     <View style={styles.container}>
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('MatchComponent', () => MatchComponent);
+AppRegistry.registerComponent('RanksComponent', () => RanksComponent);

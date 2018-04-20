@@ -14,7 +14,7 @@ import {
   Button,
   ScrollView,
   Alert,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
@@ -22,31 +22,38 @@ import {TabNavigator} from 'react-navigation';
 import Factory from "../database/Factory"
 import TextInput from "../component/TextInput"
 import {Colors, Fonts} from "../config/UIConfig"
-class AdminAddNews extends Component{
+import DatePicker from "../component/DatePicker"
+class AdminAddEvents extends Component{
   constructor(props){
     super(props);
     this.state = {
-      news: Factory.getNewsInstance(),
+      events: Factory.getEventsInstance(),
       imageUrl: "",
       title: "",
-      ingress: "",
+      date: new Date(),
       text: "",
-      loading: false
+      loading: false,
+      location: "",
+      price: ""
     }
   }
 
   render() {
+    console.log(this.state.date)
     if(!this.state.loading){
       return (
         <ScrollView>
         <View style={styles.container}>
           <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
-          <TextInput style = {{marginTop: 20}} title={"Article Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
-          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 80}} title={"Article Summary"} value={this.state.ingress} onChangeText={(text) => {this.setState({ingress: text})}}/>
-          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Article Body"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Location"} value={this.state.location} onChangeText={(text) => {this.setState({location: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Price"} value={this.state.price} onChangeText={(text) => {this.setState({price: text})}}/>
+          <DatePicker style = {{marginTop: 20}} title={"Event Date"} date={this.state.date} onDateChange={(newDate) => {this.setState({date: newDate})}}/>
+          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Event Body"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
           <View style= {styles.buttonContainer}>
             <Button color={Colors.Primary} title={"Save"} onPress = {this.saveNews}/>
           </View>
+
         </View>
         </ScrollView>
       );
@@ -83,13 +90,13 @@ class AdminAddNews extends Component{
         ingress: "",
         text: "",
       })
-      Alert.alert("News succesfully uploaded");
+      Alert.alert("Events succesfully uploaded");
     })
     //goBack
   }
 }
 
-  export default AdminAddNews;
+  export default AdminAddEvents;
 
 
   const styles = StyleSheet.create({

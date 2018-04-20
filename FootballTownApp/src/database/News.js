@@ -12,12 +12,14 @@ export default class News {
         ingress: tmpNews.ingress,
         text: tmpNews.text,
         imageUrl: tmpNews.imageUrl,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        createdAt: new Date().getTime()
       }
 
       return firebase.firestore().collection("news").add(newNews).then((ref) => {
         newNews.id = ref.id;
         this.news.push(newNews);
+      }).catch((e) => {
+        Alert.alert("Something went wrong", e.message);
       })
     }
 

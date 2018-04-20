@@ -9,10 +9,12 @@ export default class Events {
     addEvents(tmpEvents){
       const newEvent = {
         title: tmpEvents.title,
-        teams: tmpEvents.teams,
+        teams: tmpEvents.teams || [],
         text: tmpEvents.text,
         imageUrl: tmpEvents.text,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        price: tmpEvents.price,
+        date: tmpEvents.date,
+        createdAt: new Date().getTime()
       }
       this.events.push(newEvent);
       return firebase.firestore().collection("events").add(newEvent).then((ref) => {

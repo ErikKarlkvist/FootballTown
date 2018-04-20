@@ -14,7 +14,7 @@ export default class Games {
         goals1: tmpGame.goals1,
         goals2: tmpGame.goals2,
         date: tmpGame.date,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        createdAt: new Date().getTime()
       }
       this.games.push(newGame);
       return firebase.firestore().collection("games").add(newGame).then((ref) => {

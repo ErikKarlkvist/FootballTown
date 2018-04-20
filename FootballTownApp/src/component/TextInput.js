@@ -54,7 +54,6 @@ class CustomTextInput extends Component{
       width: "100%",
       paddingLeft: 20,
       paddingRight: 20,
-      backgroundColor: Colors.ListBackground,
     },
     title: {
       fontSize: 12,

@@ -78,10 +78,6 @@ class AdminAddNews extends Component{
     this.state.news.addNews(newsObject).then(() => {
       this.setState({
         loading:false,
-        imageUrl: "",
-        title: "",
-        ingress: "",
-        text: "",
       })
       Alert.alert("News succesfully uploaded");
     })

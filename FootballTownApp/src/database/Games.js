@@ -1,5 +1,6 @@
 import firebase from "react-native-firebase"
 import {Alert} from "react-native"
+import Factory from "./Factory"
 export default class Games {
 
     constructor(){
@@ -14,9 +15,10 @@ export default class Games {
         goals1: tmpGame.goals1,
         goals2: tmpGame.goals2,
         date: tmpGame.date,
+        status: tmpGame.status,
         createdAt: new Date().getTime()
       }
-      this.games.push(newGame);
+
       return firebase.firestore().collection("games").add(newGame).then((ref) => {
         newGame.id = ref.id;
         this.games.push(newGame);
@@ -53,36 +55,50 @@ export default class Games {
       if(this.games.length > 0){
         return Promise.resolve(this.games)
       } else {
-        const games = await firebase.firestore().collection("games").get()
+        try {
+          const games = await firebase.firestore().collection("games").get()
+          const teams = await Factory.getTeamsInstance().getTeams()
 
-        const results = []
-        let cleanedResult = []
-        games.forEach((snapshot) => {
-          result = snapshot.data()
-          result.id = snapshot.id;
-          results.push(result)
-        })
+          const results = []
+          let cleanedResult = []
+          games.forEach((snapshot) => {
+            result = snapshot.data()
+            result.id = snapshot.id;
+            results.push(result)
+          })
 
-        //this might be very slow if alot of games
-        for(const index in results){
-          const result = results[index]
-          let team1 = await firebase.firestore().collection("teams").doc(result.team1).get()
-          let team2 = await firebase.firestore().collection("teams").doc(result.team2).get()
+          //this might be very slow if alot of games
+          for(const index in results){
+            const result = results[index]
+            let team1, team2;
+            teams.forEach(team => {
+              if(team.id === result.team1){
+                team1 = team;
+              }
 
-          team1 = team1.data()
-          team2 = team2.data()
+              if (team.id === result.team2){
+                team2 = team;
+              }
+            })
 
-          result.team1Uid = team1;
-          result.team2Uid = team2;
-          result.team1 = team1.name;
-          result.team1Flag = team1.flag;
-          result.team2 = team2.name;
-          result.team2Flag = team2.flag;
-          cleanedResult.push(result)
+            if(!team1 || !team2){
+              throw Error("No such team")
+            }
+
+            result.team1Uid = team1;
+            result.team2Uid = team2;
+            result.team1 = team1.name;
+            result.team1Flag = team1.flag;
+            result.team2 = team2.name;
+            result.team2Flag = team2.flag;
+            cleanedResult.push(result)
+          }
+
+          this.games = cleanedResult;
+          return Promise.resolve(cleanedResult)
+        }catch(e) {
+          Alert.alert("Something went wrong", e.message)
         }
-
-        this.games = cleanedResult;
-        return Promise.resolve(cleanedResult)
       }
     }
 };

@@ -1,12 +1,13 @@
 import firebase from "react-native-firebase"
 import {Alert} from "react-native"
+import Factory from "./Factory"
 export default class Events {
 
     constructor(){
         this.events = []
     }
 
-    addEvents(tmpEvents){
+    addEvent(tmpEvents){
       const newEvent = {
         title: tmpEvents.title,
         teams: tmpEvents.teams || [],
@@ -14,9 +15,9 @@ export default class Events {
         imageUrl: tmpEvents.text,
         price: tmpEvents.price,
         date: tmpEvents.date,
+        location: tmpEvents.location,
         createdAt: new Date().getTime()
       }
-      this.events.push(newEvent);
       return firebase.firestore().collection("events").add(newEvent).then((ref) => {
         newEvent.id = ref.id;
         this.events.push(newEvent);
@@ -34,7 +35,7 @@ export default class Events {
     }
 
     updateEvents(tmpEvents){
-      for (const i = 0; i < this.events.lengconst; i++) {
+      for (const i = 0; i < this.events.length; i++) {
         if (this.events[i].id === id){
           this.events[i] = tmpEvents;
         }
@@ -54,17 +55,28 @@ export default class Events {
       if(this.events.length > 0){
         return Promise.resolve(this.news)
       } else {
-        const events = await firebase.firestore().collection("events").get()
+        try {
+          const events = await firebase.firestore().collection("events").get()
+          const teams = await Factory.getTeamsInstance().getTeams()
 
-        const eventsData = [];
-        events.forEach((snapshot) => {
-          result = snapshot.data()
-          result.id = snapshot.id;
-          newsData.push(result)
-        })
+          const eventsData = [];
+          events.forEach((snapshot) => {
+            const result = snapshot.data()
+            result.id = snapshot.id;
+            teams.forEach(team => {
+              if(result.teams.includes(team.id)){
+                const index = result.teams.indexOf(team.id);
+                result.teams[index] = team;
+              }
+            })
+            eventsData.push(result)
+          })
 
-        this.events = eventsData;
-        return Promise.resolve(eventsData)
+          this.events = eventsData;
+          return Promise.resolve(eventsData)
+        }catch (e) {
+          Alert.alert("Couldn't get events", e.message)
+        }
       }
     }
 };

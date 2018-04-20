@@ -42,6 +42,7 @@ class DatePicker extends Component{
             date={this.props.date}
             onDateChange={this.props.onDateChange}/>
           }
+          <View style={styles.underline}/>
         </View>
       );
     } else {
@@ -94,6 +95,7 @@ export default DatePicker;
       width: "100%",
       paddingLeft: 20,
       paddingRight: 20,
+      backgroundColor: Colors.backgroundColor
     },
     title: {
       fontSize: 12,

@@ -25,21 +25,24 @@ import TextInput from "../component/TextInput"
 import {Colors, Fonts} from "../config/UIConfig"
 import DatePicker from "../component/DatePicker"
 import ListPicker from "../component/ListPicker"
-class AdminAddEvents extends Component{
+
+
+class AdminAddGame extends Component{
   constructor(props){
     super(props);
+    this.team1 = ""
+    this.team2 = ""
     this.state = {
-      events: Factory.getEventsInstance(),
+      games: Factory.getGamesInstance(),
       teams: Factory.getTeamsInstance(),
-      imageUrl: "",
       title: "",
       date: new Date(),
-      text: "",
       loading: false,
-      location: "",
-      price: "",
       fetchedTeams: [],
-      pickedTeams: [],
+      team1: "",
+      team2: "",
+      goals1: "",
+      goals2: ""
     }
   }
 
@@ -56,22 +59,33 @@ class AdminAddEvents extends Component{
         <View style={styles.container}>
           <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
           <TextInput style = {{marginTop: 20}} title={"Event Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
-          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Event Body"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
-          <TextInput style = {{marginTop: 20}} title={"Event Location"} value={this.state.location} onChangeText={(text) => {this.setState({location: text})}}/>
-          <TextInput style = {{marginTop: 20}} title={"Event Price"} value={this.state.price} onChangeText={(text) => {this.setState({price: text})}}/>
 
-          <Text style = {styles.title}>Teams in event</Text>
+          <Text style = {styles.title}>Select team 1</Text>
           <FlatList
             data={this.state.fetchedTeams}
             renderItem={({ item }) => (
-              <ListPicker title={item.name} value={this.state.pickedTeams.includes(item.id)} onValueChange={() => {return this.addTeam(item)}}/>
+              <ListPicker title={item.name} value={this.state.team1 === item.id} onValueChange={() => {return this.addTeam1(item)}}/>
             )}
             extraData={this.state}
             keyExtractor={item => item.id}
           />
           <View style={styles.underline}/>
 
-          <DatePicker style = {{marginTop: 20}} title={"Event Date"} date={this.state.date} onDateChange={(newDate) => {this.setState({date: newDate})}}/>
+          <Text style = {styles.title}>Select team 2</Text>
+          <FlatList
+            data={this.state.fetchedTeams}
+            renderItem={({ item }) => (
+              <ListPicker title={item.name} value={this.state.team2 === item.id} onValueChange={() => {this.addTeam2(item)}}/>
+            )}
+            extraData={this.state}
+            keyExtractor={item => item.id}
+          />
+          <View style={styles.underline}/>
+
+          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team1 goals"} value={this.state.goals1} onChangeText={(text) => {this.setState({goals1: text})}}/>
+          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team2 goals"} value={this.state.goals2} onChangeText={(text) => {this.setState({goals2: text})}}/>
+
+          <DatePicker style = {{marginTop: 20}} title={"Game Date"} date={this.state.date} onDateChange={(newDate) => {this.setState({date: newDate})}}/>
           <View style= {styles.buttonContainer}>
             <Button color={Colors.Primary} title={"Save"} onPress = {this.saveEvent}/>
           </View>
@@ -88,17 +102,29 @@ class AdminAddEvents extends Component{
     }
   }
 
-  addTeam(item){
-    const {pickedTeams} = this.state
+
+  addTeam1(item){
+    let {team1} = this.state
     let value = false;
-    if(pickedTeams.includes(item.id)){
-      const index = pickedTeams.indexOf(item.id);
-      pickedTeams.splice(index, 1);
+    if(team1 === item.id){
+      team1 = ""
     } else {
+      team1 = item.id
       value = true;
-      pickedTeams.push(item.id)
     }
-    this.setState({pickedTeams})
+    this.setState({team1})
+  }
+
+  addTeam2(item){
+    let {team2} = this.state
+    let value = false;
+    if(team2 === item.id){
+      team2 = ""
+    } else {
+      team2 = item.id
+      value = true;
+    }
+    this.setState({team2})
   }
 
   saveEvent = () => {
@@ -130,7 +156,7 @@ class AdminAddEvents extends Component{
   }
 }
 
-  export default AdminAddEvents;
+  export default AdminAddGame;
 
 
   const styles = StyleSheet.create({

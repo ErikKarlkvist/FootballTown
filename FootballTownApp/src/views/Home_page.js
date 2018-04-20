@@ -23,6 +23,9 @@ class Home_page extends Component{
 
   constructor(){
     super()
+    Factory.getGamesInstance().getGames().then((events) => {
+      console.log(events)
+    })
   }
 
   render() {

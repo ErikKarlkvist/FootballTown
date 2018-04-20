@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -11,8 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/Ionicons'
-//MaterialIcons'
+
 import {TabNavigator} from 'react-navigation';
 import Home_page from '../views/Home_page'
 import Event_page from '../views/Event_page'
@@ -29,62 +22,42 @@ import Iconm from 'react-native-vector-icons/MaterialIcons';
   //export default MainScreen;
 
 const AppTabNavigator=TabNavigator({
-Home:{
-screen:Home_page,
-navigationOptions: {
-      tabBarLabel: 'Home',
-      tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-home' : 'ios-home-outline'}
-        size={32}
-        style={{ color: tintColor }}
-      />,
+  Home:{
+    screen:Home_page,
+    navigationOptions: {
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'home', 'ios-home-outline', 'ios-home')
+        },
+    
     },
-
-},
-Feed:{
-screen:Feed_page,
-navigationOptions: {
-      tabBarLabel: 'Feed',
-      tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-clipboard' : 'ios-clipboard-outline'}
-        size={32}
-        style={{ color: tintColor }}
-      />
+    Feed:{
+    screen:Feed_page,
+    navigationOptions: {
+          tabBarLabel: 'Feed',
+          tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'event', 'ios-paper-outline', 'ios-paper')
+        },
+    
     },
-
-},
-Games:{
-  screen:Games_page,
-  navigationOptions: {
-        tabBarLabel: 'Games',
-        tabBarIcon: ({ tintColor, focused }) => <Icon
-          name={focused ? 'ios-calendar' : 'ios-calendar-outline'}
-          size={32}
-          style={{ color: tintColor }}
-        />
+    Games:{
+      screen:Games_page,
+      navigationOptions: {
+            tabBarLabel: 'Games',
+            tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'format-list-numbered', 'ios-list-outline', 'ios-list')
+          },
       },
-  },
-Team:{
-screen:My_Team_page,
-navigationOptions: {
-      tabBarLabel: 'Team',
-      tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-people' : 'ios-people-outline'}
-        size={32}
-        style={{ color: tintColor, }}
-      />
+    Team:{
+    screen:My_Team_page,
+    navigationOptions: {
+          tabBarLabel: 'Team',
+          tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'person', 'ios-person-outline', 'ios-person')
+        },
     },
-},
-NearBy:{
-screen:Near_By_page,
-navigationOptions: {
-      tabBarLabel: 'Near',
-      tabBarIcon: ({ tintColor, focused }) => <Icon
-        name={focused ? 'ios-map' : 'ios-map-outline'}
-        size={32}
-        style={{ color: tintColor }}
-      />
-  },
+    NearBy:{
+    screen:Near_By_page,
+    navigationOptions: {
+          tabBarLabel: 'Near',
+          tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'place', 'ios-pin-outline', 'ios-pin')
+      },
 }
 },{
 tabBarPosition:'bottom',
@@ -92,7 +65,8 @@ tabBarPosition:'bottom',
  swipeEnabled: true,
  tabBarOptions: {
  style: {
-  backgroundColor: '#FFFFFF'
+  backgroundColor: '#FFFFFF',
+  marginBottom: -10,
 },
 indicatorStyle: {
   backgroundColor: '#FFFFFF',
@@ -100,7 +74,6 @@ indicatorStyle: {
   labelStyle:{
              fontSize:10,
              padding:0
-
              },
   activeTintColor: Colors.Primary,
   activebackgroundColor:'#FFFFFF',
@@ -108,6 +81,7 @@ indicatorStyle: {
   inactiveBackgroundColor:'#FFFFFF',
   showIcon:true,
   showLabel:true,
+  showIndicator:false,
   }
 })
 
@@ -117,13 +91,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-
-  welcome: {
-    fontSize: 10,
-    textAlign: 'center',
-    margin: 4,
   },
 
 });
+
+function getIcon(focused, tintColor, android, iOS, iOSH){
+  return Platform.select({
+    ios: <Icon
+        name={focused ? iOSH : iOS }
+        size={28}
+        style={{ color: tintColor }}
+      />,
+    android: <Iconm
+        name={ android }
+        size={28}
+        style={{ color: tintColor }}
+      />,
+  })
+}

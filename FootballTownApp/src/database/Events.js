@@ -16,8 +16,11 @@ export default class Events {
         imageUrl: tmpEvents.text,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }
-      this.games.push(newEvent);
-      return firebase.firestore().collection("events").add(newEvent)
+      this.events.push(newEvent);
+      return firebase.firestore().collection("events").add(newEvent).then((ref) => {
+        newEvent.id = ref.id;
+        this.events.push(newEvent);
+      })
     }
 
     removeEvents(id){

@@ -4,10 +4,11 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View, 
+  View,
   Button,
 } from 'react-native';
 import NewsComponent from '../component/NewsComponent'
+import EventComponent from '../component/EventComponent'
 import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 
@@ -18,17 +19,11 @@ class NewsFeed extends Component{
   );
   }
 }
-class EventsFeed extends Component {
+class EventsFeed extends Component{
   render() {
-    return(
-    <View>
-      <Text>Events Screen</Text>
-      <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
-        />
-      </View> 
-      );
+  return (
+    <EventComponent />
+  );
   }
 }
 class EventScreen extends Component {
@@ -38,22 +33,17 @@ class EventScreen extends Component {
     <Text> Event screen </Text>
     </View>
     );
-  }  
+  }
 }
 
 
 
-
-const EventStack = StackNavigator({
-  Events: { screen: EventsFeed },
-  Details: { screen: EventScreen },
-});
 export default TabNavigator(
 {
   News: {screen: NewsFeed},
-  Events: {screen: EventStack},
+  Events: {screen: EventsFeed},
 
-},{});
+});
 
 
   const styles = StyleSheet.create({

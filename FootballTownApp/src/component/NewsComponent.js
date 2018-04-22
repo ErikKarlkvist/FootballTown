@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import {StackNavigator } from 'react-navigation';
+import News_page from '../views/News_page'
 
 
 
@@ -20,25 +21,28 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
     navigator: props.navigator,
 	};
 
-  console.log(props)
-
   }
 
   componentDidMount(){
+    this.refreshData()
+  }
+
+  refreshData() {
     this.setState({loading:true})
     this.state.news.getNews().then((news) => {
       console.log(news)
-      this.setState({loading: false, fetchedNews: news})
+      this.setState({loading: false, refreshing: false, fetchedNews: news})
     })
   }
 
-  refresh = () => {
+  handleRefresh = () => {
     this.setState(
       {
         page: 1,
         refreshing: true
       }
     );
+    this.refreshData();
   };
 
   handleLoadMore = () => {
@@ -65,14 +69,6 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
   };
 
   renderFooter = () => {
-    if (this.state.loading || this.state.refreshing) {
-      return (
-        <View style={{marginTop: 5, flex: 1}}>
-      <ActivityIndicator size="large" color={Colors.Primary} />
-      </View>
-      );
-    }
-    else
     return (
       <View style={{marginTop: 5, flex: 1,
     justifyContent: 'flex-end'}}>
@@ -89,13 +85,14 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
   }
 
   render() {
+    if(!this.state.loading && this.state.fetchedNews != []) {
       return (
         <View style={styles.newsList}>
         <FlatList
           data={this.state.fetchedNews}
           renderItem={({ item }) => (
             <TouchableHighlight onPress={() => this.openNewsArticle(item)}>
-            <NewsListItem title={item.title} text={item.text} image={item.imageUrl}/>
+            <NewsListItem newsStory = {item}/>
             </TouchableHighlight>
           )}
           keyExtractor={item => item.id}
@@ -109,6 +106,11 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
         />
         </View>
         );
+    } else {
+      return(
+        <ActivityIndicator size="large" color={Colors.Primary} />
+        );
+    }
     }
 }
 class NewsListItem extends Component {
@@ -117,13 +119,11 @@ class NewsListItem extends Component {
 }
 
 // Returns the news text to be shown for a given article
-getExceptText(length) {
-  if(this.props.except != null) {
-    return this.props.except;
-  } else if(this.props.text.length < length) {
-    return this.props.text
+shortIngressText(ingress, length) {
+  if(ingress < length) {
+    return ingress
   } else {
-    return (this.props.text.substring(0,length) + "...")
+    return (ingress.substring(0,length) + "...")
   }
 }
 
@@ -131,12 +131,12 @@ getExceptText(length) {
     return (
       <View style={styles.newsStory}>
       <Image
-        style={{width: 50, height: 50}}
-        source={{uri: this.props.image}}
+        style={{width: 70, height: 70}}
+        source={{uri: this.props.newsStory.imageUrl}}
         />
         <View>
-       <Text style={styles.newsTitle}>{this.props.title}</Text>
-       <Text style={styles.newsText}>{this.getExceptText(100)}</Text>
+       <Text style={styles.newsTitle}>{this.props.newsStory.title}</Text>
+       <Text style={styles.newsText}>{this.shortIngressText(this.props.newsStory.ingress,100)}</Text>
        </View>
        </View>
     );
@@ -149,12 +149,15 @@ class NewsStory extends Component {
     super(props)
   }
   render() {
-    newsStory = this.props.navigation.state.params.newsArticle;
     return(
+<<<<<<< HEAD
     <View>
     <Text>{newsStory.title}</Text>
     <Text> News description is here</Text>
     </View>
+=======
+    <News_page newsStory= {this.props.navigation.state.params.newsArticle}/> 
+>>>>>>> 07682030b89768849e26a2c4a79b77bbcc1b5885
     );
   }
 }
@@ -173,8 +176,7 @@ const styles = StyleSheet.create({
   newsStory: {
     margin: 1,
     flex: 1, flexDirection: 'row',
-    height: 50,
-    width: '100%'
+    height: '10%',
   },
   newsTitle: {
     marginTop: 5,
@@ -185,7 +187,7 @@ const styles = StyleSheet.create({
   },
   newsText:{
   color: 'gray',
-  marginLeft: '3%',
+  marginLeft: 2,
   fontSize: 12,
   },
   newsList:{

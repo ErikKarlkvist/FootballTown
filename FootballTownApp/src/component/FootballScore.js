@@ -12,9 +12,20 @@ export default class FootballScore extends Component {
 		page: 1,
 		errors: null,
 		refreshing: false,
-    games: Factory.getGamesInstance()
+    games: Factory.getGamesInstance(),
+    fetchedGames: []
 	};
 
+  }
+
+  componentDidMount(){
+    this.setState({loading: true})
+    this.state.games.getGames().then((games) => {
+      this.setState({
+        loading: false,
+        fetchedGames: games,
+      })
+    })
   }
 
   refresh = () => {
@@ -61,7 +72,7 @@ export default class FootballScore extends Component {
         style={{
           paddingVertical: 20,
           borderTopWidth: 1,
-          borderColor: "#CED0CE"
+          borderColor: "purple"
         }}
       >
       </View>
@@ -71,10 +82,10 @@ export default class FootballScore extends Component {
   render() {
     return (
         <FlatList
-          data={this.state.games.getGames()}
+          data={this.state.fetchedGames}
           renderItem={({ item }) => (
-            <MatchComponent team1={item.hometeam} team2={item.awayteam}
-             score1={item.homeScore} score2={item.awayScore} team1Image={item.team1Image} team2Image={item.team2Image} />
+            <MatchComponent team1={item.team1} team2={item.team2}
+             score1={item.goals1} score2={item.goals2} team1Flag={item.team1Flag} team2Flag={item.team2Flag} />
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}

@@ -16,11 +16,20 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 		errors: null,
 		refreshing: false,
     news: Factory.getNewsInstance(),
+    fetchedNews: [],
     navigator: props.navigator,
 	};
 
   console.log(props)
 
+  }
+
+  componentDidMount(){
+    this.setState({loading:true})
+    this.state.news.getNews().then((news) => {
+      console.log(news)
+      this.setState({loading: false, fetchedNews: news})
+    })
   }
 
   refresh = () => {
@@ -38,7 +47,7 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
         page: this.state.page + 1
       },
         // Fetch more data
-      
+
     );
   };
 
@@ -67,7 +76,7 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
     return (
       <View style={{marginTop: 5, flex: 1,
     justifyContent: 'flex-end'}}>
-      
+
       <Text>More</Text>
       </View>
     );
@@ -75,18 +84,18 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 
 // Opens a newsarticle and gives it the newsarticle
   openNewsArticle(newsArticle) {
-    this.props.navigation.navigate('Details',{newsArticle})
+    this.props.navigation.navigate('Detail',{newsArticle});
+
   }
 
   render() {
-    console.log(this.props.readArticle)
       return (
         <View style={styles.newsList}>
         <FlatList
-          data={this.state.news.getNews()}
+          data={this.state.fetchedNews}
           renderItem={({ item }) => (
             <TouchableHighlight onPress={() => this.openNewsArticle(item)}>
-            <NewsListItem title={item.title} text={item.text} image={item.image}/>
+            <NewsListItem title={item.title} text={item.text} image={item.imageUrl}/>
             </TouchableHighlight>
           )}
           keyExtractor={item => item.id}
@@ -144,6 +153,7 @@ class NewsStory extends Component {
     return(
     <View>
     <Text>{newsStory.title}</Text>
+    <Text> News description is here</Text>
     </View>
     );
   }
@@ -153,7 +163,7 @@ class NewsStory extends Component {
 // Main stacknavigator layout
 export default StackNavigator({
   NewsFeed: { screen: NewsComponent },
-  Details: { screen: NewsStory },
+  Detail: { screen: NewsStory },
 });
 
 

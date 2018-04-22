@@ -91,9 +91,9 @@ class AdminAddNews extends Component{
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: Colors.backgroundColor,
       paddingTop: 50,
-      marginBottom: 200
+      paddingBottom: 200,
+      backgroundColor: Colors.CardBackground
     },
     loadingContainer: {
       flex:1,

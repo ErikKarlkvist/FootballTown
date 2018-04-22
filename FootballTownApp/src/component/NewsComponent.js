@@ -1,24 +1,36 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
+import AdminHeaderButton from "./AdminHeaderButton"
+import AdminAddEvents from "../views/AdminAddEvents"
+import AdminAddGame from "../views/AdminAddGame"
+import AdminAddNews from "../views/AdminAddNews"
 
+class NewsComponent extends Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      headerTitle: "News",
+      headerRight: (
+        <AdminHeaderButton navigation={navigation}/>
+      ),
+    }
 
+  };
 
- class NewsComponent extends Component {
   constructor(props) {
   	super(props);
 
-	this.state = {
-		loading: false,
-		page: 1,
-		errors: null,
-		refreshing: false,
-    news: Factory.getNewsInstance(),
-    fetchedNews: [],
-    navigator: props.navigator,
-	};
+  	this.state = {
+  		loading: false,
+  		page: 1,
+  		errors: null,
+  		refreshing: false,
+      news: Factory.getNewsInstance(),
+      fetchedNews: [],
+      navigator: props.navigator,
+  	};
 
   }
 
@@ -111,6 +123,7 @@ import {StackNavigator } from 'react-navigation';
     }
     }
 }
+
 class NewsListItem extends Component {
   constructor(props) {
     super(props);
@@ -161,6 +174,9 @@ class NewsStory extends Component {
 export default StackNavigator({
   NewsFeed: { screen: NewsComponent },
   Details: { screen: NewsStory },
+  AdminAddGame: {screen: AdminAddGame},
+  AdminAddEvents: {screen: AdminAddEvents},
+  AdminAddNews: {screen: AdminAddNews},
 });
 
 

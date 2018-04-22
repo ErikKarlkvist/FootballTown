@@ -137,7 +137,8 @@ class AdminAddEvents extends Component{
     container: {
       flex: 1,
       paddingTop: 50,
-      marginBottom: 200
+      paddingBottom: 200,
+      backgroundColor: Colors.CardBackground
     },
     loadingContainer: {
       flex:1,

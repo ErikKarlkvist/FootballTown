@@ -12,6 +12,7 @@ export const Colors = {
   CardBackground: "#fff",
   ListBackground: "#fff",
   PrimaryBackground: "#F5F5F5",
+  Link: "#4286f4"
 }
 
 const iOSFonts = {

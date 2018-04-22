@@ -22,7 +22,7 @@ import Feed_page from '../views/Feed_page'
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../config/UIConfig'
 import Iconm from 'react-native-vector-icons/MaterialIcons';
-import AdminAddEvents from "../views/AdminAddEvents"
+import AdminAddGame from "../views/AdminAddGame"
 
   //export default MainScreen;
 
@@ -63,7 +63,7 @@ navigationOptions: {
     },
 },
 Event:{
-screen:AdminAddEvents,
+screen:AdminAddGame,
 navigationOptions: {
       tabBarLabel: 'Event',
       tabBarIcon: ({ tintColor, focused }) => <Icon

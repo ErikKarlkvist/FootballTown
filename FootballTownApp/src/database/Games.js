@@ -8,15 +8,29 @@ export default class Games {
     }
 
     addGame(tmpGame){
-
-      const newGame = {
-        team1: tmpGame.team1Uid,
-        team2: tmpGame.team2Uid,
-        goals1: tmpGame.goals1,
-        goals2: tmpGame.goals2,
-        date: tmpGame.date,
-        status: tmpGame.status,
-        createdAt: new Date().getTime()
+      let newGame = {}
+      if(tmpGame.status !== "pending"){
+        newGame = {
+          team1: tmpGame.team1Uid,
+          team2: tmpGame.team2Uid,
+          goals1: tmpGame.goals1,
+          goals2: tmpGame.goals2,
+          date: tmpGame.date,
+          status: tmpGame.status,
+          referee: tmpGame.referee,
+          text: tmpGame.text,
+          createdAt: new Date().getTime()
+        }
+      } else {
+        newGame = {
+          team1: tmpGame.team1Uid,
+          team2: tmpGame.team2Uid,
+          date: tmpGame.date,
+          status: tmpGame.status,
+          referee: tmpGame.referee,
+          text: tmpGame.text,
+          createdAt: new Date().getTime()
+        }
       }
 
       return firebase.firestore().collection("games").add(newGame).then((ref) => {

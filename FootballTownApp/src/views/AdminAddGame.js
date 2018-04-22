@@ -35,14 +35,17 @@ class AdminAddGame extends Component{
     this.state = {
       games: Factory.getGamesInstance(),
       teams: Factory.getTeamsInstance(),
-      title: "",
       date: new Date(),
       loading: false,
       fetchedTeams: [],
       team1: "",
       team2: "",
       goals1: "",
-      goals2: ""
+      goals2: "",
+      status: "",
+      referee: "",
+      location: "",
+      text: ""
     }
   }
 
@@ -53,12 +56,14 @@ class AdminAddGame extends Component{
   }
 
   render() {
+    const showGoals = this.state.status && this.state.status !== "pending"
     if(!this.state.loading){
       return (
         <ScrollView>
         <View style={styles.container}>
-          <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
-          <TextInput style = {{marginTop: 20}} title={"Event Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Location"} value={this.state.location} onChangeText={(text) => {this.setState({location: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Referee"} value={this.state.referee} onChangeText={(text) => {this.setState({referee: text})}}/>
+          <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Game Info"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
 
           <Text style = {styles.title}>Select team 1</Text>
           <FlatList
@@ -82,12 +87,20 @@ class AdminAddGame extends Component{
           />
           <View style={styles.underline}/>
 
-          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team1 goals"} value={this.state.goals1} onChangeText={(text) => {this.setState({goals1: text})}}/>
-          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team2 goals"} value={this.state.goals2} onChangeText={(text) => {this.setState({goals2: text})}}/>
+          <View style={styles.statusContainer}>
+            <Text style = {styles.title}>Select status</Text>
+            <ListPicker title={"Active"} value={this.state.status === "active"} onValueChange={() => {this.setStatus("active")}}/>
+            <ListPicker title={"Pending"} value={this.state.status === "pending"} onValueChange={() => {this.setStatus("pending")}}/>
+            <ListPicker title={"Over"} value={this.state.status === "over"} onValueChange={() => {this.setStatus("over")}}/>
+            <View style={styles.underline}/>
+          </View>
+
+          {showGoals && <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 1 goals"} value={this.state.goals1} onChangeText={(text) => {this.setState({goals1: text})}}/>}
+          {showGoals && <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 2 goals"} value={this.state.goals2} onChangeText={(text) => {this.setState({goals2: text})}}/>}
 
           <DatePicker style = {{marginTop: 20}} title={"Game Date"} date={this.state.date} onDateChange={(newDate) => {this.setState({date: newDate})}}/>
           <View style= {styles.buttonContainer}>
-            <Button color={Colors.Primary} title={"Save"} onPress = {this.saveEvent}/>
+            <Button color={Colors.Primary} title={"Save"} onPress = {this.saveGame}/>
           </View>
 
         </View>
@@ -99,6 +112,14 @@ class AdminAddGame extends Component{
           <ActivityIndicator size="large" color={Colors.PrimaryDark}/>
         </View>
       )
+    }
+  }
+
+  setStatus = (status) => {
+    if(this.state.status === status){
+      this.setState({status:""})
+    }else {
+      this.setState({status})
     }
   }
 
@@ -127,30 +148,48 @@ class AdminAddGame extends Component{
     this.setState({team2})
   }
 
-  saveEvent = () => {
-    const {imageUrl, title, text, date, pickedTeams, price, location} = this.state
-
-    if(!imageUrl || !title || !price || !text || !location){
-      Alert.alert("Please fill in all fields")
-      return;
-    }
-
-    const eventsObject = {
-      imageUrl,
-      title,
-      text,
-      price,
-      location,
-      teams: pickedTeams,
-      date: date.getTime()
+  saveGame = () => {
+    const {location, referee, date, team1, team2, status, goals1, goals2, text} = this.state
+    console.log(location, referee, date, team1, team2, status, goals1, goals2)
+    let gameObject = {}
+    if(status && status !== "pending"){
+      if(!referee || !team1 || !team2 || !goals1 || !goals2){
+        Alert.alert("Please fill in all fields")
+        return;
+      }
+      gameObject = {
+        location,
+        referee,
+        team1Uid: team1,
+        team2Uid: team2,
+        status,
+        goals1,
+        goals2,
+        text,
+        date: date.getTime()
+      }
+    } else {
+      if(!status || !referee || !team1 || !team2){
+        Alert.alert("Please fill in all fields")
+        return;
+      }
+      gameObject = {
+        location,
+        referee,
+        team1Uid: team1,
+        team2Uid: team2,
+        status,
+        text,
+        date: date.getTime()
+      }
     }
 
     this.setState({loading:true})
-    this.state.events.addEvent(eventsObject).then(() => {
+    this.state.games.addGame(gameObject).then(() => {
       this.setState({
         loading:false,
       })
-      Alert.alert("Event succesfully uploaded");
+      Alert.alert("Game succesfully uploaded");
     })
     //goBack
   }
@@ -185,5 +224,8 @@ class AdminAddGame extends Component{
       borderColor: Colors.PrimaryText,
       marginLeft: 20,
       marginRight: 20
+    },
+    statusContainer: {
+      marginTop: 20,
     }
   });

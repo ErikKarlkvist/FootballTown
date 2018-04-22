@@ -11,7 +11,9 @@
     "babel-preset-env": "^1.6.1",
     "react": "^16.3.1",
     "react-native": "0.54.2",
+    "react-native-collapsing-toolbar": "^1.0.0-beta.8",
     "react-native-firebase": "^3.3.1",
+    "react-native-nested-scroll-view": "^6.0.1",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11"
   },

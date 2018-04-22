@@ -12,6 +12,8 @@ export default class Events {
         title: tmpEvents.title,
         teams: tmpEvents.teams || [],
         text: tmpEvents.text,
+        location: tmpEvents.location,
+        price: tmpEvents.price,
         imageUrl: tmpEvents.text,
         price: tmpEvents.price,
         date: tmpEvents.date,
@@ -43,6 +45,8 @@ export default class Events {
 
       const newEvent = {
         title: tmpEvents.title,
+        location: tmpEvents.location,
+        price: tmpEvents.price,
         teams: tmpEvents.teams,
         text: tmpEvents.text,
         imageUrl: tmpEvents.text
@@ -53,7 +57,7 @@ export default class Events {
 
     async getEvents(){
       if(this.events.length > 0){
-        return Promise.resolve(this.news)
+        return Promise.resolve(this.events)
       } else {
         try {
           const events = await firebase.firestore().collection("events").get()

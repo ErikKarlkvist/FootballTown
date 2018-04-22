@@ -7,7 +7,7 @@ import AdminHeaderButton from "./AdminHeaderButton"
 import AdminAddEvents from "../views/AdminAddEvents"
 import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
-
+import News_page from '../views/News_page'
 class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
@@ -16,7 +16,6 @@ class NewsComponent extends Component {
         <AdminHeaderButton navigation={navigation}/>
       ),
     }
-
   };
 
   constructor(props) {
@@ -91,7 +90,8 @@ class NewsComponent extends Component {
 
 // Opens a newsarticle and gives it the newsarticle
   openNewsArticle(newsArticle) {
-    this.props.navigation.navigate('Details',{newsArticle})
+    this.props.navigation.navigate('Detail',{newsArticle});
+
   }
 
   render() {
@@ -160,11 +160,8 @@ class NewsStory extends Component {
     super(props)
   }
   render() {
-    newsStory = this.props.navigation.state.params.newsArticle;
     return(
-    <View>
-    <Text>{newsStory.title}</Text>
-    </View>
+    <News_page newsStory= {this.props.navigation.state.params.newsArticle}/>
     );
   }
 }
@@ -173,7 +170,7 @@ class NewsStory extends Component {
 // Main stacknavigator layout
 export default StackNavigator({
   NewsFeed: { screen: NewsComponent },
-  Details: { screen: NewsStory },
+  Detail: { screen: NewsStory },
   AdminAddGame: {screen: AdminAddGame},
   AdminAddEvents: {screen: AdminAddEvents},
   AdminAddNews: {screen: AdminAddNews},
@@ -187,7 +184,6 @@ const styles = StyleSheet.create({
     margin: 1,
     flex: 1, flexDirection: 'row',
     height: '10%',
-    width: '100%'
   },
   newsTitle: {
     marginTop: 5,

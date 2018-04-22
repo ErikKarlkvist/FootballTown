@@ -72,7 +72,7 @@ export default class FootballScore extends Component {
         style={{
           paddingVertical: 20,
           borderTopWidth: 1,
-          borderColor: "#CED0CE"
+          borderColor: "purple"
         }}
       >
       </View>

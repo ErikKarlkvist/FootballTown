@@ -1,6 +1,8 @@
 
+
+
 import React, {Component} from 'react';
-import Ranks_page from '../views/Ranks_page'
+import Matches_page from '../views/Matches_page'
 import {
   Platform,
   StyleSheet,
@@ -10,16 +12,16 @@ import {
   ScrollView
 } from 'react-native';
 
-class RanksComponent extends Component{
+class Coming_MatchesComp extends Component{
   render() {
     return (
-   <Ranks_page/>
+   <Matches_page/>
 
 
     );
   }
 }
-export default RanksComponent;
+export default Coming_MatchesComp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,

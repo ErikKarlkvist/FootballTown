@@ -7,16 +7,16 @@ import {
   View,
   Button,
 } from 'react-native';
-import MatchComponent from '../component/MatchComponent';
+//import MatchComponent from '../component/MatchComponent';
 import RanksComponent from'../component/RanksComponent';
-
+import Coming_MatchesComp from'../component/Coming_MatchesComp';
 import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 
 class GameMatches extends Component{
   render() {
   return (
-    <MatchComponent />
+    <Coming_MatchesComp />
   );
   }
 }

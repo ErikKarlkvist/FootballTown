@@ -84,16 +84,9 @@ const styles = StyleSheet.create({
   optionPanel: {
     height: 200,
     width: 150,
-    zIndex: 2,
     position: "absolute",
     top: 22,
     right: 10,
-    elevation: 10,
-    overflow: "visible",
-    shadowOpacity: 1,
-    shadowColor: Colors.PrimaryText,
-    shadowOffset: {width:0,height:0},
-    backgroundColor: Colors.CardBackground
   },
   underline: {
     borderBottomWidth: 1,

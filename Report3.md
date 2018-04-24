@@ -136,7 +136,7 @@ Create Event View | *2 hours* | *Pooriya: 2 hours*
 Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
 News Article View | *4 hours* | *Johan: 4 hours*
-Game Details View | *5* | *Johan: 3 hours, Rahwa: 2*
+Game Details View | *7* | *Johan: 3 hours, Rahwa: 4*
 News Feed View | *6 hours* | *Tobias: 6 hours*
 Homepage view | *4 hours* | *Tobias: 4 hours*
 

@@ -10,6 +10,8 @@ target 'FootballTownApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'FootballTownAppTests' do
     inherit! :search_paths
     # Pods for testing

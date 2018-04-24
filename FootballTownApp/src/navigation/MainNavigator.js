@@ -66,7 +66,7 @@ tabBarPosition:'bottom',
  tabBarOptions: {
  style: {
   backgroundColor: '#FFFFFF',
-  marginBottom: -10,
+  marginBottom: Platform.select({ ios: 0, android: -10, }),
 },
 indicatorStyle: {
   backgroundColor: '#FFFFFF',

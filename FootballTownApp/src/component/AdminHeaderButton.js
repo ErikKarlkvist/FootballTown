@@ -33,34 +33,12 @@ class AdminHeaderButton extends Component{
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => {this.setState({displayOptions: true})}}>
-          <Icon name={"more-vert"} size={20}/>
+        <TouchableOpacity onPress={() => {this.props.navigation.navigate("Admin")}}>
+          <Icon name={"add"} size={20}/>
         </TouchableOpacity>
-        {this.state.displayOptions && this.renderOptions()}
       </View>
     );
   }
-
-  renderOptions(){
-    return (
-      <TouchableOpacity onPress={() => {this.setState({displayOptions: false})}} style ={styles.optionsContainer}>
-        <View style={styles.optionPanel}>
-          <Text style={styles.optionsTitle}>Admin Panel</Text>
-          <View style={styles.underline}/>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("AdminAddGame")}>
-            <Text style={styles.optionsText}>Create Game</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {this.props.navigation.navigate("AdminAddNews")}}>
-            <Text style={styles.optionsText}>Create News Article</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {this.props.navigation.navigate("AdminAddEvents")}}>
-            <Text style={styles.optionsText}>Create Event</Text>
-          </TouchableOpacity>
-        </View>
-      </TouchableOpacity>
-    )
-  }
-
 
 }
 
@@ -72,14 +50,19 @@ const height = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
     width: 20,
-    height: 20
+    height: 20,
+    marginRight: 10
   },
   optionsContainer: {
     width,
     height,
     position: "absolute",
     top: 0,
-    left: -width + 20,
+    left: 0,
+    right: width,
+    bottom: 0,
+    backgroundColor: "black",
+    zIndex: 1000
   },
   optionPanel: {
     height: 200,

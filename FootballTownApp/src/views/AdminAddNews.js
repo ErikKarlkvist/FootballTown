@@ -23,6 +23,12 @@ import Factory from "../database/Factory"
 import TextInput from "../component/TextInput"
 import {Colors, Fonts} from "../config/UIConfig"
 class AdminAddNews extends Component{
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: "Add News"
+    }
+  };
+
   constructor(props){
     super(props);
     this.state = {

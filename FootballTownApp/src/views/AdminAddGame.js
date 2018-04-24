@@ -49,6 +49,12 @@ class AdminAddGame extends Component{
     }
   }
 
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: "Add game"
+    }
+  };
+
   componentDidMount(){
     this.state.teams.getTeams().then((teams) => {
       this.setState({fetchedTeams:teams})
@@ -95,8 +101,8 @@ class AdminAddGame extends Component{
             <View style={styles.underline}/>
           </View>
 
-          {showGoals && <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 1 goals"} value={this.state.goals1} onChangeText={(text) => {this.setState({goals1: text})}}/>}
-          {showGoals && <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 2 goals"} value={this.state.goals2} onChangeText={(text) => {this.setState({goals2: text})}}/>}
+          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 1 goals"} value={this.state.goals1} onChangeText={(text) => {this.setState({goals1: text})}}/>
+          <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Team 2 goals"} value={this.state.goals2} onChangeText={(text) => {this.setState({goals2: text})}}/>
 
           <DatePicker style = {{marginTop: 20}} title={"Game Date"} date={this.state.date} onDateChange={(newDate) => {this.setState({date: newDate})}}/>
           <View style= {styles.buttonContainer}>

@@ -26,6 +26,13 @@ import {Colors, Fonts} from "../config/UIConfig"
 import DatePicker from "../component/DatePicker"
 import ListPicker from "../component/ListPicker"
 class AdminAddEvents extends Component{
+
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: "Add Events"
+    }
+  };
+
   constructor(props){
     super(props);
     this.state = {

@@ -2,6 +2,7 @@ import {EventComponent, EventsStory} from "../component/EventComponent"
 import AdminAddEvents from "../views/AdminAddEvents"
 import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
+import Admin from "../views/Admin"
 import {NewsComponent, NewsStory} from "../component/NewsComponent"
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
@@ -20,6 +21,7 @@ const NewsStack = StackNavigator({
   AdminAddGame: {screen: AdminAddGame},
   AdminAddEvents: {screen: AdminAddEvents},
   AdminAddNews: {screen: AdminAddNews},
+  Admin: {screen: Admin}
 });
 
 

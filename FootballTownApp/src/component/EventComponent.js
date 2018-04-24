@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import AdminHeaderButton from "./AdminHeaderButton"
+ export class EventComponent extends Component {
 
+   static navigationOptions = ({navigation}) => {
+     return {
+       header: null,
+       headerColor: Colors.Primary,
+       headerRight: (
+         <AdminHeaderButton navigation={navigation}/>
+       ),
+     }
+   };
 
-
- class EventComponent extends Component {
   constructor(props) {
   	super(props);
 
@@ -19,9 +27,6 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
     fetchedEvents: [],
     navigator: props.navigator,
 	};
-
-  console.log(props)
-
   }
 
   componentDidMount(){
@@ -111,6 +116,8 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
     }
 }
 class EventsListItem extends Component {
+
+
   constructor(props) {
     super(props);
 }
@@ -145,7 +152,16 @@ getExceptText(length) {
 }
 
 
-class EventsStory extends Component {
+export class EventsStory extends Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      headerTintColor: Colors.Primary,
+      headerRight: (
+        <AdminHeaderButton navigation={navigation}/>
+      ),
+    }
+  };
+
   constructor(props) {
     super(props)
   }
@@ -161,15 +177,6 @@ class EventsStory extends Component {
     );
   }
 }
-
-
-// Main stacknavigator layout
-export default StackNavigator({
-  EventsFeed: { screen: EventComponent },
-  Details2: { screen: EventsStory },
-});
-
-
 
 
 const styles = StyleSheet.create({

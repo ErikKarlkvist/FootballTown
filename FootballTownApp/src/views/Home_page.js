@@ -17,7 +17,7 @@ import {
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
 import FootballScore from "../component/FootballScore"
-import NewsComponent from "../component/NewsComponent"
+import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
 class Home_page extends Component{
 

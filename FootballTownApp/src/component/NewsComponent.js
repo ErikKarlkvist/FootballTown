@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
@@ -8,10 +8,10 @@ import AdminAddEvents from "../views/AdminAddEvents"
 import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
 import News_page from '../views/News_page'
-class NewsComponent extends Component {
+export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTitle: "News",
+      header: null,
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),
@@ -20,7 +20,7 @@ class NewsComponent extends Component {
 
   constructor(props) {
   	super(props);
-
+    console.log(props.navigation)
   	this.state = {
   		loading: false,
   		page: 1,
@@ -101,9 +101,9 @@ class NewsComponent extends Component {
         <FlatList
           data={this.state.fetchedNews}
           renderItem={({ item }) => (
-            <TouchableHighlight onPress={() => this.openNewsArticle(item)}>
+            <TouchableOpacity onPress={() => this.openNewsArticle(item)}>
             <NewsListItem newsStory = {item}/>
-            </TouchableHighlight>
+            </TouchableOpacity>
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
@@ -155,7 +155,15 @@ shortIngressText(ingress, length) {
 }
 
 
-class NewsStory extends Component {
+export class NewsStory extends Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      headerTintColor: Colors.Primary,
+      headerRight: (
+        <AdminHeaderButton navigation={navigation}/>
+      ),
+    }
+  };
   constructor(props) {
     super(props)
   }
@@ -165,16 +173,6 @@ class NewsStory extends Component {
     );
   }
 }
-
-
-// Main stacknavigator layout
-export default StackNavigator({
-  NewsFeed: { screen: NewsComponent },
-  Detail: { screen: NewsStory },
-  AdminAddGame: {screen: AdminAddGame},
-  AdminAddEvents: {screen: AdminAddEvents},
-  AdminAddNews: {screen: AdminAddNews},
-});
 
 
 

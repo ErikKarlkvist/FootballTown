@@ -10,6 +10,14 @@ export const GlobalStyles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'left',
   },
+  subtitle: {
+    color: Colors.PrimaryText,
+    fontFamily: Fonts.Default,
+    fontSize: 25,
+    fontWeight: '300',
+    textAlign: 'left',
+    marginBottom: 10,
+  },
   ingress: {
     fontSize: 15,
     fontWeight: 'bold',
@@ -26,5 +34,6 @@ export const GlobalStyles = StyleSheet.create({
   articleContainer: {
     padding: 14,
   },
+
 
 });

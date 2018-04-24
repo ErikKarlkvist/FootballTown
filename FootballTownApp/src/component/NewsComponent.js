@@ -209,14 +209,12 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     fontSize: 16,
     fontWeight: 'bold',
-    color: Colors.PrimaryText
+    color: Colors.PrimaryText,
   },
   newsText:{
     color: 'gray',
     marginLeft: 2,
     fontSize: 12,
-    width: '50%',
-    overflow: 'hidden' 
   },
   newsList:{
     padding: 10,

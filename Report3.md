@@ -110,18 +110,32 @@ To summarise, the agile techniques we focused on this sprint complemented each o
 Pair programming was good when we learned about React Native but it also limited how much we were able to do. Two or three team members were doing the same thing and each task took longer time than if we would have done it individually. Therefore we should be able to increase the workload of the upcoming sprints when we move away from pair programming to more individual work.
 
 # Sprint 3 Log
-Per sprint, fill out one sprint log section and its subsections.
-
 ## Commitment
-List the features/stories that the team committed to finish during the sprint.
+During this sprint we commited to:
+* Create app concept plan & designs
+* Overhaul the bottom navigation to match concept
+* Creating the admin view
+* Create Article views for Events and News
+* Create feed views for Events, News, Matches and Ranks
+* Testing created components
+
+
 
 ## Work Done
 Log what was accomplished, and how.
 Please report on all activities; for example, in addition to coding, planning and design discussion.
 
 Feature | Time estimated | Time spent per team member
---------|----------------|--------
-*Name and ID of each feature* | *X hours* | *Member A: Y hours, Member B: Z hours*
+--------|----------------|----------------------------
+*Sprint Discussion* | *7 hours* | *Each team member: 1 hour*
+*Planning Poker* | *3.5 hours* | *Each team member: 0.5 hours*
+*Design Mockup* | *18 hours* | *Alex: 11 hours, Pooriya: 7 hours*
+*Overhaul bottom navigation* | *3 hours* | *Alex: 3 hours*
+Create Admin Vew | *5 hours* | * Erik: 5 hours*
+Backend database functionality | *2 hours* | *Erik: 2 hours*
+General Bug fixing | *3 hours* | *Erik: 3 hours*
+
+
 
 ## Reflections
 Reflect on how the work worked.

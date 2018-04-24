@@ -117,7 +117,7 @@ During this sprint we commited to:
 * Creating the admin view
 * Create Article views for Events and News
 * Create feed views for Events, News, Matches and Ranks
-* Testing created components
+* Testing the created components
 
 
 
@@ -132,6 +132,7 @@ Feature | Time estimated | Time spent per team member
 *Design Mockup* | *18 hours* | *Alex: 11 hours, Pooriya: 7 hours*
 *Overhaul bottom navigation* | *3 hours* | *Alex: 3 hours*
 Create Admin Vew | *5 hours* | * Erik: 5 hours*
+Create Event Vew | *2 hours* | * Pooriya: 2 hours*
 Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
 

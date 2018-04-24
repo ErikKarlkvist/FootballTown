@@ -147,6 +147,19 @@ Even though the notion of pair programming was adopted during this sprint, membe
 
 
 
+##Scrum Meetings 
+
+
+##Product Owner/Customer
+
+##Code Ownership and Refactoring
+
+##Continous Integration
+
+##Communication Channels
+
+
+
 Reflect on how the work worked.
 This data will form the basis for your final reflection.
 As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.

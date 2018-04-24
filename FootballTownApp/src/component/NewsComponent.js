@@ -28,6 +28,7 @@ export class NewsComponent extends Component {
       news: Factory.getNewsInstance(),
       fetchedNews: [],
       navigator: props.navigator,
+      itemCount: this.props.itemCount,
   	};
 
   }
@@ -54,12 +55,11 @@ export class NewsComponent extends Component {
     this.refreshData();
   };
 
-  handleLoadMore = () => {
-    this.setState(
-      {
-        page: this.state.page + 1
-      },
-    );
+  // Render new items once the user presses the "More button"
+  loadNewNewsArticle = () => {
+    if (this.state.itemCount < this.state.fetchedNews.length) {
+      this.setState((prevState) => ({ itemCount: (prevState.itemCount + 1) }));
+    }
   };
 
   renderSeparator = () => {
@@ -75,18 +75,20 @@ export class NewsComponent extends Component {
     );
   };
   renderHeader = () => {
-    return(
-      <View style={styles.newsTopbar}>
-          <Text style={styles.newsTopBarTitle}>Title</Text>
-          <View style={styles.loadMore}>
-            <Button 
-              onPress={this.refreshData}
-              title={"More"}
-              color={Colors.Primary}
-            />
-          </View>
-      </View>
-    );
+      return(
+        <View style={styles.newsTopbar}>
+            <Text style={styles.newsTopBarTitle}>{this.props.title}</Text>
+            {this.props.loadMessage == null?
+              <View style={styles.loadMore}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.openNewsArticle(item)}
+                >
+                  <Text style={styles.loadText}>{this.props.loadMessage}</Text>
+                  </TouchableOpacity>
+              </View>: null }
+        </View>
+      );
   };
 
   renderFooter = () => {
@@ -98,7 +100,6 @@ export class NewsComponent extends Component {
 // Opens a newsarticle and gives it the newsarticle
   openNewsArticle(newsArticle) {
     this.props.navigation.navigate('Detail',{newsArticle});
-
   }
 
   render() {
@@ -106,7 +107,7 @@ export class NewsComponent extends Component {
       return (
         <View style={styles.newsList}>
           <FlatList
-            data={this.state.fetchedNews}
+            data={this.state.fetchedNews.slice(0, this.state.itemCount)}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => this.openNewsArticle(item)}>
                 <NewsListItem newsStory = {item}/>
@@ -118,9 +119,7 @@ export class NewsComponent extends Component {
             ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
-            onEndReached={this.handleLoadMore}
             onEndReachedThreshold={50}
-            initialNumToRender={2}
           />
         </View>
         );
@@ -214,6 +213,7 @@ const styles = StyleSheet.create({
   },
   newsList:{
     padding: 10,
+    width: '100%'
 
   },
   newsTopBarTitle:{
@@ -227,6 +227,9 @@ const styles = StyleSheet.create({
   },
   loadMore: {
     marginLeft: 'auto',
+  },
+  loadText: {
+    color: Colors.Primary,
   }
 
 });

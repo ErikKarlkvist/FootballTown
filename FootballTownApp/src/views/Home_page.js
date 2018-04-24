@@ -21,6 +21,7 @@ import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
 class Home_page extends Component{
 
+
   constructor(){
     super()
     Factory.getGamesInstance().getGames().then((events) => {
@@ -32,8 +33,9 @@ class Home_page extends Component{
       return (
         <ScrollView>
           <View style={styles.container}>
+             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation}/>
+
             <FootballScore />
-             <NewsComponent />
           </View>
         </ScrollView>
       );
@@ -86,7 +88,6 @@ class Home_page extends Component{
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
-      marginTop: 30
     },
     welcome: {
       fontSize: 20,

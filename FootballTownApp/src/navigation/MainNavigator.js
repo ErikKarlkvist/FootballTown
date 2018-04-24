@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import {TabNavigator} from 'react-navigation';
-import Home_page from '../views/Home_page'
+import Home from './HomeScreenNavigation'
 import Event_page from '../views/Event_page'
 import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
@@ -23,7 +23,7 @@ import AdminAddGame from "../views/AdminAddGame"
 
 const AppTabNavigator=TabNavigator({
   Home:{
-    screen:Home_page,
+    screen:Home,
     navigationOptions: {
           tabBarLabel: 'Home',
           tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'home', 'ios-home-outline', 'ios-home')

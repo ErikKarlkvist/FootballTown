@@ -11,6 +11,7 @@ import {
 import RanksComponent from'../component/RanksComponent';
 import Coming_MatchesComp from'../component/Coming_MatchesComp';
 import Icon from 'react-native-vector-icons/Ionicons'
+import {Colors} from "../config/UIConfig"
 //MaterialIcons'
 
 class GameMatches extends Component{
@@ -33,20 +34,17 @@ export default TabNavigator(
   Matches: {screen: GameMatches},
   Ranks: {screen: GameRanks},
 
-},{});
-
-
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-
-  });
+},{
+animationEnabled: true,
+swipeEnabled: true,
+tabBarOptions: {
+style: {
+ backgroundColor: Colors.Primary,
+ marginBottom: Platform.select({ ios: 0, android: -10, }),
+},
+ labelStyle:{
+            fontWeight: 'bold',
+            },
+ activeTintColor: Colors.PrimaryDarkText,
+ inactiveTintColor: Colors.PrimaryDarkText2,
+ }});

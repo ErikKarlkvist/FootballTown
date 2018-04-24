@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     flex: 1, flexDirection: 'row',
     height: '5%',
     margin: 0,
-    padding: 5
+    padding: 5,
 
   },
   loadMore: {

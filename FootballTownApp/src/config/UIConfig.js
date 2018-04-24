@@ -9,6 +9,7 @@ export const Colors = {
   PrimaryLightText: "#000",
   PrimaryDark: "#ab000d",
   PrimaryDarkText: "#fff",
+  PrimaryDarkText2: "#CFD8DC",
   CardBackground: "#fff",
   ListBackground: "#fff",
   PrimaryBackground: "#F5F5F5",

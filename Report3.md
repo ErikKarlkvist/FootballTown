@@ -118,6 +118,8 @@ During this sprint we commited to:
 * Create Article views for Events and News
 * Create feed views for Events, News, Matches and Ranks
 * Testing the created components
+* Create the home page
+* Ovehaul the look of the application
 
 
 
@@ -137,10 +139,70 @@ Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
 News Article View | *4 hours* | *Johan: 4 hours*
 Game Details View | *?* | *Johan: 3 hours, Rahwa: ?*
+News Feed View | *6 hours* | *Tobias: 6 hours*
+Homepage view | *4 hours* | *Tobias: 4 hours*
 
 
 ## Reflections
-The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occured during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks.
+The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occured during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than the previous ones, making concurrent progress more possible than before. 
+
+## Backlog Refinement
+We spent some time refining the backlog this sprint. Initially we had Epics and some user stories, but to break these down into more manageble chunks we spent some time refinging these by discussing the epics trying to break these down as far as possible. Once the epics were broken down planning poker was conducted. The tasks that were to be undertaken during this sprint were the following: 
+
+### 1.0 Admin View & Functionalities [EPIC]
+The admin views and functionality will contain the necessary views and tools for an admin to add items to the backend, for example games and events.
+ * 1.1 Create/Edit Event
+	As an admin I want the functionality to create and edit events 
+ * 1.2 Create/Edit News Article
+	As an admin I want the functionality to create and edit news articles. 
+ * 1.3 Create/Edit Game
+	As an admin I want the functionality to create and edit Games. 
+
+### 2.0 Homescreen View [EPIC]
+ * 2.1 Display Recent relevant information
+	As a user I want a simple representation of the relevant recent information for the cup so I can keep up to track quickly.
+
+### 3.0 Feed View [Epic]
+The feed view will contain news and events
+
+ * 3.1 Top Bar Navigation
+	As a user i want a top bar navigation to switch between two feed tabs, one for news and one for events. To be able to separate these
+
+ * 3.2 Event Tab
+	As a user i want a tab to view a list of upcoming events for the football cup. 
+
+ * 3.3 News Tab
+	As a user i want a tab to view a list of recent news related to the football cup
+
+ * 3.4 Event Page
+	As a user i want a event page to display the information about a specific event once clicked on in the feed to learn more about that. 
+
+ * 3.5 News Page
+	As a user i want a event page to display the information about a news article once clicked on in the feed to learn more about that. 
+
+
+### 4.0 Games View [Epic]
+Information about games and the current points for the different teams 
+
+ * 4.1 Top Bar Navigation
+	As a user i want a top bar navigation to switch between two games tabs, one for upcoming and played games and one for the points of the different teams. To be able to separate these
+
+ * 4.2 Games Tab
+	As a user i want a tab to view a list of upcoming events for the football cup. 
+
+ * 4.3 Points Tab
+	As a user i want a tab to view the current scores in the cup for the different teams
+
+ * 4.4 Game Page
+	As a user i want a game page to display the information about a specific game once clicked on in the feed to learn more about that.  
+
+
+
+
+## Planning Poker
+To approximate how exhaustive the different tasks were, planning poker was conducted. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus. 
+
+The total points of the tasks are to be used in the upcoming sprint planning as an estimation of our velocity, thus giving us an approximation of how much we are able to do the next sprint. 
 
 
 ## Pair Programming 

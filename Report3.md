@@ -119,7 +119,7 @@ During this sprint we commited to:
 * Testing the created components
 * Create the home page
 * Ovehaul the look of the application
-* Create mockup 
+* Create Mockup 
 
 ## Work Done
 Log what was accomplished, and how.
@@ -191,7 +191,7 @@ Information about games and the current points for the different teams
  * **4.4 Game Page:**
 	As a user I want a game page to display the information about a specific game when selected from the games feed.
 
-### 5.0 mockup 
+### 5.0 Mockup 
    we creat a  mockup or prototype to show the designe and the functionality of the application looks like and in order to help as  while we implementing it.
 
 ## Planning Poker

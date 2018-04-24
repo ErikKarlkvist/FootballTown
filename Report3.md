@@ -157,11 +157,10 @@ Customer’s level of satisfaction about the progress and development of the app
 ## Code Ownership and Refactoring
 During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it.
 
-
 ## Continous Integration
 
 ## Communication Channels
-
+As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics.
 
 
 Reflect on how the work worked.

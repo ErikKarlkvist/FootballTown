@@ -119,6 +119,7 @@ During this sprint we commited to:
 * Testing the created components
 * Create the home page
 * Ovehaul the look of the application
+* Create mockup 
 
 ## Work Done
 Log what was accomplished, and how.
@@ -189,6 +190,9 @@ Information about games and the current points for the different teams
 
  * **4.4 Game Page:**
 	As a user I want a game page to display the information about a specific game when selected from the games feed.
+
+### 5.0 mockup 
+   we creat a  mockup or prototype to show the designe and the functionality of the application looks like and in order to help as  while we implementing it.
 
 ## Planning Poker
 Planning poker is one of the Key agile practices we used while we develop our project in this sprit .To approximate how exhaustive the different tasks were, planning poker was conducted. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus. 

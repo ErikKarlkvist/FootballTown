@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
@@ -20,7 +20,8 @@ class NewsComponent extends Component {
 
   constructor(props) {
   	super(props);
-
+    console.log("Hello")
+    console.log(this.props); 
   	this.state = {
   		loading: false,
   		page: 1,
@@ -37,7 +38,7 @@ class NewsComponent extends Component {
     this.refreshData()
   }
 
-  refreshData() {
+  refreshData = () =>{
     this.setState({loading:true})
     this.state.news.getNews().then((news) => {
       console.log(news)
@@ -60,8 +61,6 @@ class NewsComponent extends Component {
       {
         page: this.state.page + 1
       },
-        // Fetch more data
-
     );
   };
 
@@ -77,15 +76,25 @@ class NewsComponent extends Component {
       />
     );
   };
+  renderHeader = () => {
+    return(
+      <View style={styles.newsTopbar}>
+          <Text style={styles.newsTopBarTitle}>Title</Text>
+          <View style={styles.loadMore}>
+            <Button 
+              onPress={this.refreshData}
+              title={"More"}
+              color={Colors.Primary}
+            />
+          </View>
+      </View>
+    );
+  };
 
   renderFooter = () => {
     return (
-      <View style={{marginTop: 5, flex: 1,
-    justifyContent: 'flex-end'}}>
-
-      <Text>More</Text>
-      </View>
-    );
+      <View></View>
+      );
   };
 
 // Opens a newsarticle and gives it the newsarticle
@@ -98,22 +107,23 @@ class NewsComponent extends Component {
     if(!this.state.loading && this.state.fetchedNews != []) {
       return (
         <View style={styles.newsList}>
-        <FlatList
-          data={this.state.fetchedNews}
-          renderItem={({ item }) => (
-            <TouchableHighlight onPress={() => this.openNewsArticle(item)}>
-            <NewsListItem newsStory = {item}/>
-            </TouchableHighlight>
-          )}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={this.renderSeparator}
-          ListHeaderComponent={this.renderHeader}
-          ListFooterComponent={this.renderFooter}
-          onRefresh={this.handleRefresh}
-          refreshing={this.state.refreshing}
-          onEndReached={this.handleLoadMore}
-          onEndReachedThreshold={50}
-        />
+          <FlatList
+            data={this.state.fetchedNews}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => this.openNewsArticle(item)}>
+                <NewsListItem newsStory = {item}/>
+              </TouchableOpacity>
+            )}
+            keyExtractor={item => item.id}
+            ItemSeparatorComponent={this.renderSeparator}
+            ListHeaderComponent={this.renderHeader}
+            ListFooterComponent={this.renderFooter}
+            onRefresh={this.handleRefresh}
+            refreshing={this.state.refreshing}
+            onEndReached={this.handleLoadMore}
+            onEndReachedThreshold={50}
+            initialNumToRender={2}
+          />
         </View>
         );
     } else {
@@ -161,7 +171,7 @@ class NewsStory extends Component {
   }
   render() {
     return(
-    <News_page newsStory= {this.props.navigation.state.params.newsArticle}/>
+      <News_page newsStory= {this.props.navigation.state.params.newsArticle}/>
     );
   }
 }
@@ -184,32 +194,45 @@ const styles = StyleSheet.create({
     margin: 1,
     flex: 1, flexDirection: 'row',
     height: '10%',
+    padding: 3,
+    backgroundColor: Colors.ListBackground,
+    shadowColor: '#000000',
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: '#ddd',
+    elevation: 1,
+
   },
   newsTitle: {
     marginTop: 5,
+    paddingTop: 1,
     marginLeft: 2,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText
   },
   newsText:{
-  color: 'gray',
-  marginLeft: 2,
-  fontSize: 12,
+    color: 'gray',
+    marginLeft: 2,
+    fontSize: 12,
+    width: '50%',
+    overflow: 'hidden' 
   },
   newsList:{
     padding: 10,
-    backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 2,
-    elevation: 1,
 
+  },
+  newsTopBarTitle:{
+    fontSize: 22,
+
+  },
+  newsTopbar: {
+    flex: 1, flexDirection: 'row',
+    height: '5%',
+
+  },
+  loadMore: {
+    marginLeft: 'auto',
   }
+
 });

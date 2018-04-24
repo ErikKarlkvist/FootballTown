@@ -118,7 +118,7 @@ During this sprint we commited to:
 * Create feed views for Events, News, Matches and Ranks
 * Testing the created components
 * Create the home page
-* Ovehaul the look of the application
+* Overhaul the look of the application
 * Create Mockup 
 
 ## Work Done
@@ -136,7 +136,7 @@ Create Event View | *2 hours* | *Pooriya: 2 hours*
 Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
 News Article View | *4 hours* | *Johan: 4 hours*
-Game Details View | *7 hours* | *Johan: 3 hours, Rahwa: 4*
+Game Details View | *7 hours* | *Johan: 4 hours, Rahwa: 4*
 News Feed View | *6 hours* | *Tobias: 6 hours*
 Homepage view | *4 hours* | *Tobias: 4 hours*
 Games Navigation | *4 hours* | *Goitom: 2 hours, Rahwa:2 hours*
@@ -198,7 +198,7 @@ Information about games and the current points for the different teams
    we creat a  mockup or prototype to show the designe and the functionality of the application looks like and in order to help as  while we implementing it.
 
 ## Planning Poker
-Planning poker is one of the Key agile practices we used while we develop our project in this sprit .To approximate how exhaustive the different tasks were, planning poker was conducted. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus.
+Planning poker is one of the Key agile practices we used while we develop our project in this sprint .To approximate how exhaustive the different tasks were, planning poker was conducted. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus.
 
 The total points of the tasks are to be used in the upcoming sprint planning as an estimation of our velocity, thus giving us an approximation of how much we can do the next sprint. This was advantageous in planning however took quite a while to conduct. Also, as we have not been working together as a agile team for a long time period we occasionally found it difficult to guage timings accurately.
 

@@ -131,11 +131,12 @@ Feature | Time estimated | Time spent per team member
 *Planning Poker* | *3.5 hours* | *Each team member: 0.5 hours*
 *Design Mockup* | *18 hours* | *Alex: 11 hours, Pooriya: 7 hours*
 *Overhaul bottom navigation* | *3 hours* | *Alex: 3 hours*
-Create Admin Vew | *5 hours* | * Erik: 5 hours*
-Create Event Vew | *2 hours* | * Pooriya: 2 hours*
+Create Admin View | *5 hours* | *Erik: 5 hours*
+Create Event View | *2 hours* | *Pooriya: 2 hours*
 Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
-
+News Article View | *4 hours* | *Johan: 4 hours*
+Game Details View | *?* | *Johan: 3 hours, Rahwa: ?*
 
 
 ## Reflections

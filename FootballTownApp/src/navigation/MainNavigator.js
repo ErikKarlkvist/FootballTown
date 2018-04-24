@@ -18,6 +18,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../config/UIConfig'
 import Iconm from 'react-native-vector-icons/MaterialIcons';
 import AdminAddGame from "../views/AdminAddGame"
+import Game_Details_page from "../views/Game_Details_page"
 
   //export default MainScreen;
 

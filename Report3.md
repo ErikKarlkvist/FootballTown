@@ -142,6 +142,11 @@ General Bug fixing | *3 hours* | *Erik: 3 hours*
 The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occured during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks.
 
 
+## Pair Programming 
+Even though the notion of pair programming was adopted during this sprint, members did not sit with each other to code as much as the previous sprints. This was mainly due to the fact that the team strived for working more at home in order save more time and keep up with the lager work load and try to stay connected to the group via the chat. However once the members met during the meetings, they went through each other’s issues and problem. This allowed the members with better programming skills helping others with their issues. 
+
+
+
 Reflect on how the work worked.
 This data will form the basis for your final reflection.
 As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.

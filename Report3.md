@@ -60,7 +60,6 @@ During this sprint we committed to doing the following:
 
 ## Work Done
 
-
 Feature | Time estimated | Time spent per team member
 --------|----------------|--------
 *1: Nav bar* | *4 hours* | *Goitom 2.5 hours, Rahwa 2.5 hours*
@@ -121,8 +120,6 @@ During this sprint we commited to:
 * Create the home page
 * Ovehaul the look of the application
 
-
-
 ## Work Done
 Log what was accomplished, and how.
 Please report on all activities; for example, in addition to coding, planning and design discussion.
@@ -131,7 +128,7 @@ Feature | Time estimated | Time spent per team member
 --------|----------------|----------------------------
 *Sprint Discussion* | *7 hours* | *Each team member: 1 hour*
 *Planning Poker* | *3.5 hours* | *Each team member: 0.5 hours*
-*Design Mockup* | *18 hours* | *Alex: 11 hours, Pooriya: 7 hours*
+*Design Mockup* | *17 hours* | *Alex: 10 hours, Pooriya: 7 hours*
 *Overhaul bottom navigation* | *3 hours* | *Alex: 3 hours*
 Create Admin View | *5 hours* | *Erik: 5 hours*
 Create Event View | *2 hours* | *Pooriya: 2 hours*
@@ -142,88 +139,80 @@ Game Details View | *?* | *Johan: 3 hours, Rahwa: ?*
 News Feed View | *6 hours* | *Tobias: 6 hours*
 Homepage view | *4 hours* | *Tobias: 4 hours*
 
-
 # Reflections
-The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occured during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than the previous ones, making concurrent progress more possible than before. 
+The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occurred during development. All team members showed up to all meetings with a positive attitude. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than previously, making concurrent progress more easily than before. 
 
 ## Backlog Refinement
-We spent some time refining the backlog this sprint. Initially we had Epics and some user stories, but to break these down into more manageble chunks we spent some time refinging these by discussing the epics trying to break these down as far as possible. Once the epics were broken down planning poker was conducted. The tasks that were to be undertaken during this sprint were the following: 
+We spent some time refining the backlog this sprint. Initially we had Epics and some user stories, but to break these down into more manageable chunks we spent some time refining these by discussing the epics trying to break these down as far as possible. Once the epics were broken down planning poker was conducted. The tasks that were to be undertaken during this sprint were the following: 
 
 ### 1.0 Admin View & Functionalities [EPIC]
 The admin views and functionality will contain the necessary views and tools for an admin to add items to the backend, for example games and events.
- * 1.1 Create/Edit Event
-	As an admin I want the functionality to create and edit events 
- * 1.2 Create/Edit News Article
+ * **1.1 Create/Edit Event:**
+	As an admin I want the functionality to create and edit events.
+ * **1.2 Create/Edit News Article:**
 	As an admin I want the functionality to create and edit news articles. 
- * 1.3 Create/Edit Game
+ * **1.3 Create/Edit Game:**
 	As an admin I want the functionality to create and edit Games. 
 
 ### 2.0 Homescreen View [EPIC]
- * 2.1 Display Recent relevant information
+ * **2.1 Display Recent relevant information:**
 	As a user I want a simple representation of the relevant recent information for the cup so I can keep up to track quickly.
 
 ### 3.0 Feed View [Epic]
-The feed view will contain news and events
+The feed view will contain news and events.
 
- * 3.1 Top Bar Navigation
-	As a user i want a top bar navigation to switch between two feed tabs, one for news and one for events. To be able to separate these
+ * **3.1 Top Bar Navigation:**
+	As a user I want to be able to switch between two feed tabs, one for news and one for events. (Implemented through a set of tabs in the top bar)
+ * **3.2 Event Tab:**
+	As a user I want a tab to view a list of upcoming events for the football cup. 
 
- * 3.2 Event Tab
-	As a user i want a tab to view a list of upcoming events for the football cup. 
+ * **3.3 News Tab:**
+	As a user I want a tab to view a list of recent news related to the football cup.
 
- * 3.3 News Tab
-	As a user i want a tab to view a list of recent news related to the football cup
+ * **3.4 Event Page:**
+	As a user I want an event page to display the information about a specific event when selected from the events feed. 
 
- * 3.4 Event Page
-	As a user i want a event page to display the information about a specific event once clicked on in the feed to learn more about that. 
-
- * 3.5 News Page
-	As a user i want a event page to display the information about a news article once clicked on in the feed to learn more about that. 
-
+ * **3.5 News Page:**
+	As a user I want a news page to display the information about a news article when selected from the news feed. 
 
 ### 4.0 Games View [Epic]
 Information about games and the current points for the different teams 
 
- * 4.1 Top Bar Navigation
-	As a user i want a top bar navigation to switch between two games tabs, one for upcoming and played games and one for the points of the different teams. To be able to separate these
+ * **4.1 Top Bar Navigation:**
+	As a user I want to be able to switch between two games tabs, one for news and one for events. (Implemented through a set of tabs in the top bar)
 
- * 4.2 Games Tab
-	As a user i want a tab to view a list of upcoming events for the football cup. 
+ * **4.2 Games Tab:**
+	As a user I want a tab to view a list of upcoming events for the football cup. 
 
- * 4.3 Points Tab
-	As a user i want a tab to view the current scores in the cup for the different teams
+ * **4.3 Points Tab:**
+	As a user I want a tab to view the current scores in the cup for the different teams.
 
- * 4.4 Game Page
-	As a user i want a game page to display the information about a specific game once clicked on in the feed to learn more about that.  
-
-
-
+ * **4.4 Game Page:**
+	As a user I want a game page to display the information about a specific game when selected from the games feed.
 
 ## Planning Poker
 To approximate how exhaustive the different tasks were, planning poker was conducted. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus. 
 
-The total points of the tasks are to be used in the upcoming sprint planning as an estimation of our velocity, thus giving us an approximation of how much we are able to do the next sprint. 
+The total points of the tasks are to be used in the upcoming sprint planning as an estimation of our velocity, thus giving us an approximation of how much we can do the next sprint. This was advantageous in planning however took quite a while to conduct. Also, as we have not been working together as a agile team for a long time period we occasionally found it difficult to guage timings accurately.
 
 
 ## Pair Programming 
-Even though the notion of pair programming was adopted during this sprint, members did not sit with each other to code as much as the previous sprints. This was mainly due to the fact that the team strived for working more at home in order save more time and keep up with the lager work load and try to stay connected to the group via the chat. However once the members met during the meetings, they went through each other’s issues and problem. This allowed the members with better programming skills helping others with their issues. 
+Even though the notion of pair programming was adopted during this sprint, members did not sit with each other to code as much as the previous sprints. This was because the team strived to work more at home in order save time and keep up with the larger work-load. We found Slack particularly useful for keeping in touch. We often used the meetings to go through each other’s issues and problem. This allowed the members with better programming skills helping others with their issues. 
 
 ## Scrum Board
-To be able to keep track of who is doing what in the project, we are using a scrum board with all the tasks to be done, as well as the backlog for future sprints. This scrum board is hosted on Trello. Every time a developer starts a task, they put their name on the card and move it into the "In progress" section of the board. When they are eventually done, they move it into the testing column and later into the "done" column. This is very good as it reduces the risk of people doing the same things when they are unsure of what to do. 
+To be able to keep track of who is doing what in the project, we are using a scrum board with all the tasks to be done, as well as the backlog for future sprints. This scrum board is hosted on Trello. Every time a developer starts a task, they put their name on the card and move it into the "In progress" section of the board. When they are eventually done, they move it into the testing column and later into the "done" column. This proved useful as it reduces the risk of people doing the same tasks when they are unsure of what to do. 
 
 ## Scrum Meetings 
-Scrum meetings which is one of the backbones of the agile methodology played a crucial role in keeping members up to date with each other’s progress and project’s current situation. During these meetings, members give a short summary of what they have been working on and how it went with their tasks. In regards to individual's progress, members gave each other feedbacks and comments. Furthumore, future ideas and plans were discussed and backlog prepared and updated for the upcoming sprint. When setting the 
+Scrum meetings, one of the backbones of the agile methodology, played a crucial role in keeping members up to date with each other’s progress and the project’s current situation. During these meetings, members give a short summary of what they have been working on and how it went with their tasks. In regard to individual's progress, members gave each other feedback and comments. Furthermore, future ideas and plans were discussed whilst a backlog was prepared and updated for the upcoming sprint. We found the time these meetings took worthwhile.
 
 ## Product Owner/Customer
-Customer’s level of satisfaction about the progress and development of the application seemed more satisfactory compared to the previous sprint, when she requested for more features and asked for prioritization of tasks. Additionally, the customer appeared to be happy with the layout of the application and the available set of features.
+The customer’s level of satisfaction regarding progress and development of the application was higher compared to the previous sprint, when she requested for more features and asked for prioritization of tasks. Additionally, the customer appeared to be happy with the layout of the application and the available set of features.
 
 ## Code Ownership and Refactoring
-During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it.
+During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus, a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it, resulting in faster iteration and overall better productivity. The only trade-off was slightly more conflicts.
 
 ## Continous Integration
-Travis was used to carry out testing of the application. This allows the running of the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. Nevertheless, installing Travis and its usage has brought some challenges to the team. 
-
-
+Travis was used to carry out testing of the application. This allows the running of the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. Whilst installing Travis and keeping it operating continuously presented challenges it proved useful for keeping track of our project and its status. 
 
 ## Communication Channels
 As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics. 

@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 //import MatchComponent from '../component/MatchComponent';
 import RanksComponent from'../component/RanksComponent';
-import Coming_MatchesComp from'../component/Coming_MatchesComp';
+import Matches_page from'./Matches_page';
 import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 
 class GameMatches extends Component{
   render() {
   return (
-    <Coming_MatchesComp />
+    <Matches_page />
   );
   }
 }

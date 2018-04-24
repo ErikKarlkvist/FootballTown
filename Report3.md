@@ -139,6 +139,9 @@ General Bug fixing | *3 hours* | *Erik: 3 hours*
 
 
 ## Reflections
+The group worked sufficiently and worked as a team to carry out the tasks defined in the backlog and tackle the problem that occur during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks.
+
+
 Reflect on how the work worked.
 This data will form the basis for your final reflection.
 As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.

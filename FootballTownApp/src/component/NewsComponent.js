@@ -78,7 +78,7 @@ export class NewsComponent extends Component {
       return(
         <View style={styles.newsTopbar}>
             <Text style={styles.newsTopBarTitle}>{this.props.title}</Text>
-            {this.props.loadMessage == null?
+            {this.props.loadMessage != null?
               <View style={styles.loadMore}>
                 <TouchableOpacity
                   style={styles.button}
@@ -152,7 +152,7 @@ shortIngressText(ingress, length) {
         style={{width: 70, height: 70}}
         source={{uri: this.props.newsStory.imageUrl}}
         />
-        <View>
+        <View style={styles.storyText}>
        <Text style={styles.newsTitle}>{this.props.newsStory.title}</Text>
        <Text style={styles.newsText}>{this.shortIngressText(this.props.newsStory.ingress,100)}</Text>
        </View>
@@ -198,6 +198,10 @@ const styles = StyleSheet.create({
     elevation: 1,
 
   },
+  storyText: {
+    flex: 1, flexDirection: 'column',
+    paddingLeft: 2
+  },
   newsTitle: {
     marginTop: 5,
     paddingTop: 1,
@@ -223,10 +227,15 @@ const styles = StyleSheet.create({
   newsTopbar: {
     flex: 1, flexDirection: 'row',
     height: '5%',
+    margin: 0,
+    padding: 5
 
   },
   loadMore: {
     marginLeft: 'auto',
+    margin: 0,
+    padding: 5,
+    fontSize: 18,
   },
   loadText: {
     color: Colors.Primary,

@@ -8,10 +8,10 @@ import AdminAddEvents from "../views/AdminAddEvents"
 import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
 import News_page from '../views/News_page'
-class NewsComponent extends Component {
+export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTitle: "News",
+      header: null,
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),
@@ -20,8 +20,6 @@ class NewsComponent extends Component {
 
   constructor(props) {
   	super(props);
-    console.log("Hello")
-    console.log(this.props); 
   	this.state = {
   		loading: false,
   		page: 1,
@@ -165,7 +163,15 @@ shortIngressText(ingress, length) {
 }
 
 
-class NewsStory extends Component {
+export class NewsStory extends Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      headerTintColor: Colors.Primary,
+      headerRight: (
+        <AdminHeaderButton navigation={navigation}/>
+      ),
+    }
+  };
   constructor(props) {
     super(props)
   }
@@ -175,16 +181,6 @@ class NewsStory extends Component {
     );
   }
 }
-
-
-// Main stacknavigator layout
-export default StackNavigator({
-  NewsFeed: { screen: NewsComponent },
-  Detail: { screen: NewsStory },
-  AdminAddGame: {screen: AdminAddGame},
-  AdminAddEvents: {screen: AdminAddEvents},
-  AdminAddNews: {screen: AdminAddNews},
-});
 
 
 

@@ -42,7 +42,6 @@ export default TabNavigator(
 {
   News: {screen: NewsFeed},
   Events: {screen: EventsFeed},
-
 });
 
 

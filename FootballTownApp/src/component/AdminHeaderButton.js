@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   optionPanel: {
     height: 200,
     width: 150,
+    zIndex: 10,
     position: "absolute",
     top: 22,
     right: 10,

@@ -11,7 +11,7 @@ import Home_page from '../views/Home_page'
 import Event_page from '../views/Event_page'
 import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
-import Feed_page from '../views/Feed_page'
+import Feed from './FeedNavigation'
 import News_page from '../views/News_page'
 import Games_page from '../views/Games_page';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -31,7 +31,7 @@ const AppTabNavigator=TabNavigator({
 
     },
     Feed:{
-    screen:Feed_page,
+    screen:Feed,
     navigationOptions: {
           tabBarLabel: 'Feed',
           tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'event', 'ios-paper-outline', 'ios-paper')

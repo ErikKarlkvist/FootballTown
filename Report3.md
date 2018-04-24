@@ -221,6 +221,9 @@ Customer’s level of satisfaction about the progress and development of the app
 During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it.
 
 ## Continous Integration
+Travis was used to carry out testing of the application. This allows the running of the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. Nevertheless, installing Travis and its usage has brought some challenges to the team. 
+
+
 
 ## Communication Channels
 As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics. 

@@ -136,12 +136,12 @@ Create Event View | *2 hours* | *Pooriya: 2 hours*
 Backend database functionality | *2 hours* | *Erik: 2 hours*
 General Bug fixing | *3 hours* | *Erik: 3 hours*
 News Article View | *4 hours* | *Johan: 4 hours*
-Game Details View | *7* | *Johan: 3 hours, Rahwa: 4*
+Game Details View | *7 hours* | *Johan: 3 hours, Rahwa: 4*
 News Feed View | *6 hours* | *Tobias: 6 hours*
 Homepage view | *4 hours* | *Tobias: 4 hours*
-Games Top Bar Navigation | *4 hours* | *Goitom: 2 hours,Rahwa:2 hours*
+Games Navigation | *4 hours* | *Goitom: 2 hours, Rahwa:2 hours*
 Games Tab | *4 hours* | *Goitom: 4 hours*
-Points Tab | *3 hours* | *Goitom: 1.5 hours,Rahwa:1.5 hours*
+Points Tab | *3 hours* | *Goitom: 1.5 hours, Rahwa:1.5 hours*
 
 # Reflections
 The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occurred during development. All team members showed up to all meetings with a positive attitude. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than previously, making concurrent progress more easily than before.
@@ -223,30 +223,9 @@ Travis was used to carry out testing of the application. This allows the running
 
 ## Communication Channels
 As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics.
+
 ## Incremental Design
-During the first two sprint we have been working based on simple designs on the white board that includes the basic functionalities  of our project. But in this sprint we were able to come up with the most final design of our project through continuous discussion with the team members and our customer.
-The designs are now finalized as mock ups and uploaded to our project directory in order to have common understanding among the team members and the customer to avoid major modifications while the project is in its around final stage.
-## Work	at	a	sustainable	pace
-In order to avoid quality degradations and errors by covering the major works of the project
- in the eleventh hour, we were able to work with sustainable	pace but not too slow.
- This really helps us to utilize our full energy  wisely, and open the path to learn from every sprint.
+During the first two sprint we have been working based on simple white board designs that includes the basic functionalities of our project. But in this sprint we produced a rich design of our project through continuous discussion with the team members and our customer. The designs are now finalized as mock ups and uploaded to our project directory in order to have common understanding among the team members and the customer to avoid major modifications while the project is in its around final stage.
 
-Reflect on how the work worked.
-This data will form the basis for your final reflection.
-As the postmortem will be a writeup, it's fine to use shorthand notes, bullet list, and similar.
-Keep within 1000-1500 words.
-
-Discuss any deviations from the sprint commitment.
-
-Reflect on the agile practice practiced:
-
-- Did your experience correspond to or contradict with what literature claims?
-
-    - Analysis of why. Mostly interesting if something unexpected happens, but even
-      if everything runs according to plan, reflecting on the underlying mechanisms
-      can be interesting.
-
-- How did the practices interact?
-  Did they complement or counteract each other?
-
-- How efficient were the practices, given the time they took to use?
+## Work at a sustainable pace
+In order to avoid degrading quality and errors we worked at a sustainable pace. This really helded utilize our efforts wisely and learn from every sprint.

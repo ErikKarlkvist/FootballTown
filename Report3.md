@@ -148,7 +148,7 @@ Even though the notion of pair programming was adopted during this sprint, membe
 
 
 ##Scrum Meetings 
-
+Scrum meetings which is one of the backbones of the agile methodology played a crucial role in keeping members up to date with each other’s progress and project’s current situation. During these meetings, members give a short summary of what they have been working on and how it went with their tasks. In regards to individual's progress, members gave each other feedbacks and comments. Furthumore, future ideas and plans were discuccsed and backlog prepared and updated for the upcoming sprint.
 
 ##Product Owner/Customer
 

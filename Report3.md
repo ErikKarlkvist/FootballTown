@@ -143,7 +143,7 @@ News Feed View | *6 hours* | *Tobias: 6 hours*
 Homepage view | *4 hours* | *Tobias: 4 hours*
 
 
-## Reflections
+# Reflections
 The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occured during development. Team members showed up during all meetings and showed a positive attitude during these sessions. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than the previous ones, making concurrent progress more possible than before. 
 
 ## Backlog Refinement
@@ -208,7 +208,8 @@ The total points of the tasks are to be used in the upcoming sprint planning as 
 ## Pair Programming 
 Even though the notion of pair programming was adopted during this sprint, members did not sit with each other to code as much as the previous sprints. This was mainly due to the fact that the team strived for working more at home in order save more time and keep up with the lager work load and try to stay connected to the group via the chat. However once the members met during the meetings, they went through each other’s issues and problem. This allowed the members with better programming skills helping others with their issues. 
 
-
+## Scrum Board
+To be able to keep track of who is doing what in the project, we are using a scrum board with all the tasks to be done, as well as the backlog for future sprints. This scrum board is hosted on Trello. Every time a developer starts a task, they put their name on the card and move it into the "In progress" section of the board. When they are eventually done, they move it into the testing column and later into the "done" column. This is very good as it reduces the risk of people doing the same things when they are unsure of what to do. 
 
 ## Scrum Meetings 
 Scrum meetings which is one of the backbones of the agile methodology played a crucial role in keeping members up to date with each other’s progress and project’s current situation. During these meetings, members give a short summary of what they have been working on and how it went with their tasks. In regards to individual's progress, members gave each other feedbacks and comments. Furthumore, future ideas and plans were discussed and backlog prepared and updated for the upcoming sprint. When setting the 
@@ -222,7 +223,7 @@ During this sprint, there were less problems with GitHub and version control as 
 ## Continous Integration
 
 ## Communication Channels
-As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics.
+As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics. 
 
 
 Reflect on how the work worked.

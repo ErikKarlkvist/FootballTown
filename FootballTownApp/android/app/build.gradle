@@ -137,6 +137,8 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-nested-scroll-view')
+    compile project(':react-native-collapsing-toolbar')
     compile(project(':react-native-firebase')) {
         transitive = false
     }

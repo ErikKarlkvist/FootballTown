@@ -3,6 +3,7 @@ import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator,
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import AdminHeaderButton from "./AdminHeaderButton"
+import Events_page from "../views/Events_page"
  export class EventComponent extends Component {
 
    static navigationOptions = ({navigation}) => {
@@ -166,14 +167,8 @@ export class EventsStory extends Component {
     super(props)
   }
   render() {
-    eventsStory = this.props.navigation.state.params.eventsArticle;
     return(
-    <View>
-    <Text>{eventsStory.title}</Text>
-    <Text> Location: </Text>
-    <Text> Time and date: </Text>
-    <Text> Test desc of the event: </Text>
-    </View>
+<Events_page eventsStory= {this.props.navigation.state.params.eventsArticle}/>
     );
   }
 }

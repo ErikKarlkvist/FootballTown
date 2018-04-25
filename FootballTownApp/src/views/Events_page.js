@@ -35,6 +35,7 @@ class Events_page extends Component{
             style={{width: screenWidth, height: imageHeight}}
             source={{uri: this.props.eventsStory.imageUrl}}
           />
+          <View>
             <Text style={GlobalStyles.text}>{this.props.eventsStory.title}</Text>
             <Text style={GlobalStyles.text}>{this.props.eventsStory.text}</Text>
             <Text style={GlobalStyles.text}>Location: {this.props.eventsStory.location}</Text>

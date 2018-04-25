@@ -142,7 +142,7 @@ class GamesListItem extends Component {
                 <Text style={styles.scores}>{this.props.gamesStory.goals1}</Text>
                 <Text style={styles.gamesTitle}>-</Text>
                 <Text style={styles.scores}>{this.props.gamesStory.goals2}</Text>
-                <Thumbnail source ={{uri: this.props.gamesStory.team1Flag}}/>
+                <Thumbnail source ={{uri: this.props.gamesStory.team2Flag}}/>
                 <Text style={styles.gamesTitle}>{this.props.gamesStory.team2}</Text>
             </CardItem>
        </Card>

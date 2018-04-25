@@ -219,7 +219,7 @@ The customer’s level of satisfaction regarding progress and development of the
 During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus, a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it, resulting in faster iteration and overall better productivity. The only trade-off was slightly more conflicts.
 
 ## Continuous Integration
-Travis was used to carry out testing of the application. This allows the running of the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. Whilst installing Travis and keeping it operating continuously presented challenges it proved useful for keeping track of our project and its status.
+Travis was originally the team's first choice for carrying out the testing of application. However implementing Travis in our project and  getting it to work with Firebase, has not been easy. The team is still working on the issue to be able to carry out the testing. Using Travis would utimatly allow us to run the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. 
 
 ## Communication Channels
 As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics.

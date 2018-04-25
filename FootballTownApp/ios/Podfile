@@ -10,13 +10,13 @@ target 'FootballTownApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
-  target 'FootballTownAppTests' do
-    inherit! :search_paths
+end
 
-    pod 'Firebase/Core'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Firestore'
-    # Pods for testing
-  end
+target 'FootballTownAppTests' do
+  #inherit! :search_paths
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  # Pods for testing
 end

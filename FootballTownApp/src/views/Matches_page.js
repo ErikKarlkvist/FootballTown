@@ -10,7 +10,8 @@ import {Card,CardItem,
 Thumbnail,Body,
 Left,Right,
 Icon,ListItem,List,
-Container,Content
+Container,Content,
+ScrollView
 } from 'native-base'
 
 import Factory from '../database/Factory';
@@ -97,28 +98,21 @@ export default class Matches_page extends Component {
     );
   };
 
-// Opens a newsarticle and gives it the newsarticle
- /*openNewsArticle(newsArticle) {
-    this.props.navigation.navigate('Detail',{newsArticle});
-
-  }
-*/
-
 render() {
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
-        <View style={styles.gamesList}>
+        <View>
+           <Text style={styles.gamesTitle}>Latest Scores</Text>
+            <Text note>29-05-2018</Text>
         <FlatList
           data={this.state.fetchedgames}
           renderItem={({ item }) => (
-            //<TouchableHighlight onPress={() => this.openNewsArticle(item)}>
             <GamesListItem gamesStory = {item}/>
-            //</TouchableHighlight>
           )}
           keyExtractor={item => item.id}
-          ItemSeparatorComponent={this.renderSeparator}
-          ListHeaderComponent={this.renderHeader}
-          ListFooterComponent={this.renderFooter}
+          //ItemSeparatorComponent={this.renderSeparator}
+          //ListHeaderComponent={this.renderHeader}
+          //ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
           onEndReached={this.handleLoadMore}
@@ -138,31 +132,24 @@ class GamesListItem extends Component {
   constructor(props) {
     super(props);
 }
-
-// Returns the news text to be shown for a given article
-/*shortIngressText(ingress, length) {
-  if(ingress < length) {
-    return ingress
-  } else {
-    return (ingress.substring(0,length) + "...")
-  }
-}
-*/
-
   render() {
     console.log(this.props.gamesStory)
-    return (
-      <View style={styles.gamesStory}>
-        <Thumbnail source ={require('./ball.jpg')}/>
-        <View>
-       <Text style={styles.gamesTitle}>{this.props.gamesStory.team1}</Text>
-       <Text style={styles.scores}>{this.props.gamesStory.goals1}</Text>
+     return (
+        <Card>
+            <CardItem cardBody style={{height:80,width:null,flex:1}}>
+                <Text style={styles.gamesTitle}>{this.props.gamesStory.team1}</Text>
+                <Thumbnail source ={{uri: this.props.gamesStory.team1Flag}}/>
+                <Text style={styles.scores}>{this.props.gamesStory.goals1}</Text>
+                <Text style={styles.gamesTitle}>-</Text>
+                <Text style={styles.scores}>{this.props.gamesStory.goals2}</Text>
+                <Thumbnail source ={{uri: this.props.gamesStory.team1Flag}}/>
+                <Text style={styles.gamesTitle}>{this.props.gamesStory.team2}</Text>
+            </CardItem>
+       </Card>
 
 
 
 
-       </View>
-       </View>
     );
   }
 }

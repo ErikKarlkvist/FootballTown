@@ -6,13 +6,14 @@ import {
   View,
   ScrollView,
   Image,
-  Dimensions
+  Dimensions,
+  Icon
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
+
 
 
 
@@ -34,7 +35,7 @@ class Events_page extends Component{
             style={{width: screenWidth, height: imageHeight}}
             source={{uri: this.props.eventsStory.imageUrl}}
           />
-          <View style={GlobalStyles.articleContainer}>
+            <Text style={GlobalStyles.text}>{this.props.eventsStory.title}</Text>
             <Text style={GlobalStyles.text}>{this.props.eventsStory.text}</Text>
             <Text style={GlobalStyles.text}>Location: {this.props.eventsStory.location}</Text>
             <Text style={GlobalStyles.text}>Price: {this.props.eventsStory.price}</Text>

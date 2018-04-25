@@ -168,7 +168,7 @@ export class EventsStory extends Component {
   }
   render() {
     return(
-<Events_page eventsStory= {this.props.navigation.state.params.eventsArticle}/>
+      <Events_page eventsStory= {this.props.navigation.state.params.eventsArticle}/>
     );
   }
 }

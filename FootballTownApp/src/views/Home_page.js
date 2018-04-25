@@ -34,8 +34,6 @@ class Home_page extends Component{
         <ScrollView>
           <View style={styles.container}>
              <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation}/>
-
-            <FootballScore />
           </View>
         </ScrollView>
       );

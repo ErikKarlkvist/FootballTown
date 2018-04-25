@@ -4,7 +4,9 @@ import App from '../App';
 import RNFirebase from 'react-native-firebase'
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import Factory from "../src/database/Factory"
 
+const Games = Factory.getGamesInstance();
 
 beforeEach(() => {
   RNFirebase.initializeApp()
@@ -17,3 +19,9 @@ it('renders correctly', () => {
    <App />
   );
 });
+
+it('loads games correctly', () => {
+  Games.getGames().then((games) => {
+    expect(games.length).toBe(0)
+  })
+})

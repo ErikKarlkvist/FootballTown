@@ -26,20 +26,21 @@ class Game_Details_page extends Component{
   }
 
   render() {
+      const game = this.props.navigation.state.params.game
       return (
         <ScrollView>
           <View style={styles.summary}>
             <View style={styles.teamIcon}>
               <Thumbnail large source ={require('./ball.jpg')}/>
-              <Text style={styles.teamName}>{this.props.game.team1}</Text>
+              <Text style={styles.teamName}>{game.team1}</Text>
             </View>
             <View style={styles.result}>
-              <Text style={styles.resultText}>{this.props.game.goals1} - {this.props.game.goals2}</Text>
-              <Text style={styles.statusText}>{this.props.game.status}</Text>
+              <Text style={styles.resultText}>{game.goals1} - {game.goals2}</Text>
+              <Text style={styles.statusText}>{game.status}</Text>
             </View>
             <View style={styles.teamIcon}>
               <Thumbnail large source ={require('./ball.jpg')}/>
-              <Text style={styles.teamName}>{this.props.game.team2}</Text>
+              <Text style={styles.teamName}>{game.team2}</Text>
             </View>
           </View>
 
@@ -50,20 +51,20 @@ class Game_Details_page extends Component{
 
             <View style={styles.additionalInfoView}>
               <Icon color="grey" name="map-marker" size={25} style={styles.icon}/>
-              <Text style={styles.additionalInfoText}>this.props.game.location</Text>
+              <Text style={styles.additionalInfoText}>game.location</Text>
             </View>
 
             <View style={styles.additionalInfoView}>
               <Icon color="grey" name="calendar" size={25} style={styles.icon}/>
-              <Text style={styles.additionalInfoText}>{this.props.game.date}</Text>
+              <Text style={styles.additionalInfoText}>{game.date}</Text>
             </View>
 
             <View style={styles.additionalInfoView}>
               <Icon color="grey" name="flag" size={25} style={styles.icon}/>
-              <Text style={styles.additionalInfoText}>{this.props.game.referee}</Text>
+              <Text style={styles.additionalInfoText}>{game.referee}</Text>
             </View>
 
-            <Text style={GlobalStyles.text}>{this.props.game.text}</Text>
+            <Text style={GlobalStyles.text}>{game.text}</Text>
           </View>
 
         </ScrollView>

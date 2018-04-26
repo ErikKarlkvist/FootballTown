@@ -149,7 +149,7 @@ shortIngressText(ingress, length) {
     return (
       <View style={styles.newsStory}>
       <Image
-        style={{width: 70, height: 70}}
+        style={{width: 85, minHeight: 85}}
         source={{uri: this.props.newsStory.imageUrl}}
         />
         <View style={styles.storyText}>
@@ -186,17 +186,16 @@ export class NewsStory extends Component {
 
 const styles = StyleSheet.create({
   newsStory: {
-    margin: 1,
+    margin: 3,
     flex: 1, flexDirection: 'row',
-    height: '10%',
-    padding: 3,
+    minHeight: 90,
+    padding: 5,
     backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    elevation: 1,
-
+    shadowColor: 'black',
+    elevation: 2,
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 2, height: 2}
   },
   storyText: {
     flex: 1, flexDirection: 'column',
@@ -205,15 +204,18 @@ const styles = StyleSheet.create({
   newsTitle: {
     marginTop: 5,
     paddingTop: 1,
-    marginLeft: 2,
+    marginLeft: 5,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText,
   },
   newsText:{
     color: 'gray',
-    marginLeft: 2,
+    marginLeft: 5,
     fontSize: 12,
+    marginTop: 5,
+    marginRight: 5,
+    marginBottom: 5
   },
   newsList:{
     padding: 10,

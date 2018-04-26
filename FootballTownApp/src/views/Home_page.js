@@ -11,7 +11,8 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView
+  ScrollView,
+  StatusBar
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
@@ -19,6 +20,8 @@ import {TabNavigator} from 'react-navigation';
 import FootballScore from "../component/FootballScore"
 import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
+import {Colors} from "../config/UIConfig"
+
 class Home_page extends Component{
 
 
@@ -32,6 +35,10 @@ class Home_page extends Component{
   render() {
       return (
         <ScrollView>
+          <StatusBar
+           backgroundColor={Colors.PrimaryDark}
+           barStyle="light-content"
+          />
           <View style={styles.container}>
              <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation}/>
           </View>
@@ -85,7 +92,7 @@ class Home_page extends Component{
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+      backgroundColor: Colors.Background,
     },
     welcome: {
       fontSize: 20,

@@ -13,7 +13,7 @@ import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
 import Feed from './FeedNavigation'
 import News_page from '../views/News_page'
-import Games_page from '../views/Games_page';
+import GamesNavigation from './GamesNavigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Colors} from '../config/UIConfig'
 import Iconm from 'react-native-vector-icons/MaterialIcons';
@@ -40,7 +40,7 @@ const AppTabNavigator=TabNavigator({
 
     },
     Games:{
-      screen:Games_page,
+      screen:GamesNavigation,
       navigationOptions: {
             tabBarLabel: 'Games',
             tabBarIcon: ({ tintColor, focused }) => getIcon(focused, tintColor, 'format-list-numbered', 'ios-list-outline', 'ios-list')

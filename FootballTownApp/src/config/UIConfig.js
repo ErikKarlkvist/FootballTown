@@ -7,7 +7,7 @@ export const Colors = {
   PrimaryText: "#000",
   PrimaryLight: "#ff6f60",
   PrimaryLightText: "#000",
-  PrimaryDark: "#ab000d",
+  PrimaryDark: "#4b626d",
   PrimaryDarkText: "#fff",
   PrimaryDarkText2: "#CFD8DC",
   CardBackground: "#fff",

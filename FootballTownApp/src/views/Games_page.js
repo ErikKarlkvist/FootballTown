@@ -35,6 +35,7 @@ export default TabNavigator(
   Ranks: {screen: GameRanks},
 
 },{
+tabBarPosition: "top",
 animationEnabled: true,
 swipeEnabled: true,
 tabBarOptions: {

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import {Button, AppRegistry,
 Text, FlatList, View, StyleSheet,
 Image, ActivityIndicator,
-TouchableHighlight} from 'react-native';
+TouchableOpacity} from 'react-native';
 
 import {Card,CardItem,
 Thumbnail,Body,
@@ -17,11 +17,12 @@ ScrollView
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
-
+import AdminHeaderButton from "../component/AdminHeaderButton"
 export default class Matches_page extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTitle: "Matches",
+      header: null,
+      title: "Matches",
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),
@@ -99,25 +100,26 @@ export default class Matches_page extends Component {
   };
 
 render() {
+    console.log(this.props.navigation)
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
-        <View>
-           <Text style={styles.gamesTitle}>Latest Scores</Text>
-            <Text note>29-05-2018</Text>
-        <FlatList
-          data={this.state.fetchedgames}
-          renderItem={({ item }) => (
-            <GamesListItem gamesStory = {item}/>
-          )}
-          keyExtractor={item => item.id}
-          //ItemSeparatorComponent={this.renderSeparator}
-          //ListHeaderComponent={this.renderHeader}
-          //ListFooterComponent={this.renderFooter}
-          onRefresh={this.handleRefresh}
-          refreshing={this.state.refreshing}
-          onEndReached={this.handleLoadMore}
-          onEndReachedThreshold={50}
-        />
+        <View style={{flex:1}}>
+           <Text style={styles.headerTitle}>Latest Scores</Text>
+           <Text note>29-05-2018</Text>
+          <FlatList
+            data={this.state.fetchedgames}
+            renderItem={({ item }) => (
+              <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
+            )}
+            keyExtractor={item => item.id}
+            //ItemSeparatorComponent={this.renderSeparator}
+            //ListHeaderComponent={this.renderHeader}
+            //ListFooterComponent={this.renderFooter}
+            onRefresh={this.handleRefresh}
+            refreshing={this.state.refreshing}
+            onEndReached={this.handleLoadMore}
+            onEndReachedThreshold={0}
+          />
         </View>
         );
     } else {
@@ -133,64 +135,102 @@ class GamesListItem extends Component {
     super(props);
 }
   render() {
-    console.log(this.props.gamesStory)
      return (
-        <Card>
-            <CardItem cardBody style={{height:80,width:null,flex:1}}>
-                <Text style={styles.gamesTitle}>{this.props.gamesStory.team1}</Text>
-                <Thumbnail source ={{uri: this.props.gamesStory.team1Flag}}/>
-                <Text style={styles.scores}>{this.props.gamesStory.goals1}</Text>
-                <Text style={styles.gamesTitle}>-</Text>
-                <Text style={styles.scores}>{this.props.gamesStory.goals2}</Text>
-                <Thumbnail source ={{uri: this.props.gamesStory.team2Flag}}/>
-                <Text style={styles.gamesTitle}>{this.props.gamesStory.team2}</Text>
-            </CardItem>
-       </Card>
-
-
-
-
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Games_Details_Page", {game: this.props.gamesStory})} style={styles.gamesList}>
+              <View style={styles.team}>
+                <Text style={styles.team1Title}>{this.props.gamesStory.team1}</Text>
+                <Image style={styles.image} source ={{uri: this.props.gamesStory.team1Flag}}/>
+                <Text style={styles.scores1}>{this.props.gamesStory.goals1}</Text>
+              </View>
+              <Text style={styles.dash}>-</Text>
+              <View style={styles.team}>
+                <Text style={styles.scores2}>{this.props.gamesStory.goals2}</Text>
+                <Image style={styles.image} source ={{uri: this.props.gamesStory.team2Flag}}/>
+                <Text style={styles.team2Title}>{this.props.gamesStory.team2}</Text>
+              </View>
+          </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  gamesStory: {
-    margin: 1,
-    flex: 1, flexDirection: 'row',
-    height: '10%',
-  },
-  gamesTitle: {
-    marginTop: 5,
-    marginLeft: 2,
+  headerTitle: {
+    marginTop: 20,
+    marginLeft: 10,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText
   },
-  gamesText:{
-  color: 'gray',
-  marginLeft: 2,
-  fontSize: 12,
+  team1Title: {
+    marginTop: 5,
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.PrimaryText,
+    maxWidth: 120,
+    marginRight: 10,
+    flex: 1
+  },
+  team2Title: {
+    marginTop: 5,
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.PrimaryText,
+    maxWidth: 120,
+    marginRight: 10,
+    flex: 1
+  },
+  dash: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.PrimaryText,
   },
   gamesList:{
     padding: 10,
     backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
+    shadowColor: 'black',
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 1,
     borderBottomWidth: 0,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 1,
-
+    flexDirection: "row",
+    alignItems: "center",
   },
-  scores:{
+  scores1:{
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
-    alignItems: 'center'
-    }
+    alignItems: 'center',
+    minWidth: 20,
+    marginLeft: 5,
+    marginRight: 5,
+    textAlign: "right"
+  },
+  scores2:{
+    color: 'black',
+    fontSize: 18,
+    fontWeight: 'bold',
+    alignItems: 'center',
+    minWidth: 20,
+    marginLeft: 5,
+    marginRight: 5,
+    textAlign: "left"
+  },
+  image: {
+    height: 35,
+    width: 35,
+    flex: 0.3
+  },
+  team: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0.5
+  }
 });

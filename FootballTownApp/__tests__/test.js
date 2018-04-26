@@ -8,17 +8,16 @@ import Factory from "../src/database/Factory"
 
 const Games = Factory.getGamesInstance();
 
-beforeEach(() => {
   RNFirebase.initializeApp()
   RNFirebase.reset()
-})
+
 
 // Commenting out this for now.
-it('renders correctly', () => {
-  const tree = renderer.create(
-   <App />
-  );
-});
+// it('renders correctly', () => {
+//   const tree = renderer.create(
+//    <App />
+//   );
+// });
 
 it('loads games correctly', () => {
   Games.getGames().then((games) => {

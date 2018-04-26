@@ -1,17 +1,17 @@
-exports.User = () => {
+import firebase from "react-native-firebase"
+export default class User {
 
-  let user = {
-    firstName: "Erik",
-    lastName: "Karlkvist"
+  constructor(){
+      this.user = []
   }
 
-  return {
-    getUser(){
-      return getUser();
-    }
+  getUser(){
+    return this.user;
   }
 
-  function getUser(){
-    return user;
+  signInAnonymously(){
+    firebase.auth().signInAnonymously().then((response) => {
+      console.log(response)
+    })
   }
 }

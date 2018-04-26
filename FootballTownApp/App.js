@@ -2,16 +2,22 @@ import React from 'react';
 import { AppRegistry, Text, View, YellowBox, StatusBar } from 'react-native';
 //import firebase from 'react-native-firebase'
 import MainNavigator from './src/navigation/MainNavigator';
-const User = require("./src/database/User").User()
 import MatchComponent from './src/component/MatchComponent';
 import {Colors} from "./src/config/UIConfig"
+import Factory from "./src/database/Factory"
 
 export default class App extends React.Component {
+
+  constructor(){
+    super()
+    const User = Factory.getUserInstance();
+    User.signInAnonymously();
+  }
 
   render() {
       return(
 
-      <MainNavigator/>
+        <MainNavigator/>
       );
   }
 }

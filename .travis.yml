@@ -8,7 +8,7 @@ node_js:
 install:
 - npm install
 - cd ios/
-- pod install
+- pod update
 - cd ..
 script:
 - npm test

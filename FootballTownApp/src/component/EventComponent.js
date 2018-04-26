@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
 import Factory from '../database/Factory';
-import {Colors} from '../config/UIConfig'
-import AdminHeaderButton from "./AdminHeaderButton"
-import Events_page from "../views/Events_page"
+import {Colors} from '../config/UIConfig';
+import AdminHeaderButton from "./AdminHeaderButton";
+import Events_page from "../views/Events_page";
+import Ionicons from "react-native-vector-icons/Ionicons";
  export class EventComponent extends Component {
 
    static navigationOptions = ({navigation}) => {
@@ -71,19 +72,8 @@ import Events_page from "../views/Events_page"
   };
 
   renderFooter = () => {
-    if (this.state.loading || this.state.refreshing) {
-      return (
-        <View style={{marginTop: 5, flex: 1}}>
-      <ActivityIndicator size="large" color={Colors.Primary} />
-      </View>
-      );
-    }
-    else
     return (
-      <View style={{marginTop: 5, flex: 1,
-    justifyContent: 'flex-end'}}>
-
-      <Text>More</Text>
+      <View>
       </View>
     );
   };
@@ -109,7 +99,6 @@ import Events_page from "../views/Events_page"
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
-          onEndReached={this.handleLoadMore}
           onEndReachedThreshold={50}
         />
         </View>
@@ -143,9 +132,9 @@ getExceptText(length) {
         />
         <View>
        <Text style={styles.eventsTitle}>{this.props.title}</Text>
-       <Text style={styles.eventsText}>{this.getExceptText(75)} </Text>
-       <Text style={styles.eventsText}>Location : {this.props.location}</Text>
-       <Text style={styles.eventsText}>Price : {this.props.price}</Text>
+       <Text style={styles.eventsText}>{this.getExceptText(110)} </Text>
+       <Text style={styles.locationPriceText}> <Ionicons name='md-navigate' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
+       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={12} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>
     );

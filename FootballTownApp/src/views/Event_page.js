@@ -16,6 +16,11 @@ import {
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
 
+
+
+
+
+
 class Event_page extends Component{
   render() {
       return (

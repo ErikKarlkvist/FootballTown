@@ -20,10 +20,9 @@ import {StackNavigator } from 'react-navigation';
 export default class Ranks_page extends Component {
   static navigationOptions = ({navigation}) => {
     return {
+      header: null,
       headerTitle: "Ranks",
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
+      title: "Ranks"
     }
   };
 

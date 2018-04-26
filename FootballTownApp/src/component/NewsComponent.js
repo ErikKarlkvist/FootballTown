@@ -165,7 +165,9 @@ shortIngressText(ingress, length) {
 export class NewsStory extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      headerTintColor: Colors.Primary,
+      headerColor: Colors.PrimaryDarkText,
+      title: 'News',
+      headerTitle: 'News',
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),

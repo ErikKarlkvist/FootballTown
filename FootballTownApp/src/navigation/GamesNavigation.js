@@ -4,15 +4,15 @@ import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
 import Admin from "../views/Admin"
 import Matches_page from "../views/Matches_page"
-import RanksComponent from'../component/RanksComponent';
+import Ranks_page from'../views/Ranks_page';
 import {NewsComponent, NewsStory} from "../component/NewsComponent"
 import { TabNavigator, StackNavigator } from 'react-navigation';
-import {Colors} from "../config/UIConfig"
+import {Colors, Fonts} from "../config/UIConfig"
 import Game_Details_Page from "../views/Game_Details_page"
 const TabNav = TabNavigator(
 {
   News: {screen: Matches_page},
-  Events: {screen: RanksComponent},
+  Events: {screen: Ranks_page},
 
 },{
 tabBarPosition:'top',
@@ -29,6 +29,20 @@ tabBarPosition:'top',
     inactiveTintColor: Colors.PrimaryDarkText2
 }});
 
+const navigationConfig = {
+  initialRouteName: 'NewsFeed',
+  navigationOptions: {
+    headerStyle:{
+      backgroundColor: Colors.Primary,
+    },
+    headerTitleStyle: {
+      color: Colors.PrimaryDarkText,
+      fontFamily: Fonts.Default,
+    },
+    headerTintColor: "white",
+
+  }
+}
 
 const NewsStack = StackNavigator({
   NewsFeed: { screen: TabNav },
@@ -37,7 +51,7 @@ const NewsStack = StackNavigator({
   AdminAddEvents: {screen: AdminAddEvents},
   AdminAddNews: {screen: AdminAddNews},
   Admin: {screen: Admin}
-});
+},navigationConfig);
 
 
 

@@ -34,7 +34,7 @@ class AdminHeaderButton extends Component{
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => {this.props.navigation.navigate("Admin")}}>
-          <Icon name={"add"} size={20}/>
+          <Icon name={"add"} color={"white"} size={20}/>
         </TouchableOpacity>
       </View>
     );

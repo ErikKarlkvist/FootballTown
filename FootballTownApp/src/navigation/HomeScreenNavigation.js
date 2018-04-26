@@ -3,6 +3,18 @@ import Home_page from "../views/Home_page"
 import {StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
 
+const navigationConfig = {
+  navigationOptions: {
+    headerStyle:{
+      backgroundColor: Colors.Primary,
+    },
+    headerTitleStyle: {
+      color: Colors.PrimaryDarkText,
+      fontFamily: Fonts.Default,
+    },
+    headerTintColor: "white",
+  }
+}
 
 
 const HomeStack = StackNavigator({
@@ -16,12 +28,12 @@ const HomeStack = StackNavigator({
       headerTitleStyle: {
         color: Colors.PrimaryDarkText,
         fontFamily: Fonts.Default,
-        
       }
     })},
   Detail: { screen: NewsStory },
-  
-});
+
+}, navigationConfig);
+
 
 
 

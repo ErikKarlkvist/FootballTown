@@ -7,16 +7,6 @@ import Events_page from "../views/Events_page";
 import Ionicons from "react-native-vector-icons/Ionicons";
  export class EventComponent extends Component {
 
-   static navigationOptions = ({navigation}) => {
-     return {
-       header: null,
-       headerColor: Colors.Primary,
-       headerRight: (
-         <AdminHeaderButton navigation={navigation}/>
-       ),
-     }
-   };
-
   constructor(props) {
   	super(props);
 
@@ -143,9 +133,12 @@ getExceptText(length) {
 
 
 export class EventsStory extends Component {
+
   static navigationOptions = ({navigation}) => {
     return {
-      headerTintColor: Colors.Primary,
+      headerColor: Colors.PrimaryDarkText,
+      title: 'Event',
+      headerTitle: 'Event',
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),

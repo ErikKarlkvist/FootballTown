@@ -76,26 +76,27 @@ class Game_Details_page extends Component{
 
   const styles = StyleSheet.create({
     result: {
-      flex: 1,
+      flex: 0.3,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#474747',
       height: 100,
       borderRadius: 5,
+      marginTop: 50
     },
     summary: {
       backgroundColor: '#a8a8a8',
       flex: 0.3,
       flexDirection: 'row',
       height: 200,
-      alignItems: 'center',
       justifyContent: 'center',
       display: 'flex',
+
     },
     teamIcon: {
       alignItems: 'center',
-      justifyContent: 'center',
-      margin: 30,
+      marginTop: 40,
+      flex: 0.3
     },
     resultText: {
       fontSize: 35,

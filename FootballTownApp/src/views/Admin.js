@@ -25,8 +25,8 @@ import {Colors, Fonts} from "../config/UIConfig"
 class Admin extends Component{
   static navigationOptions = ({navigation}) => {
     return {
-      title: "Admin Options",
-      
+      title: 'Admin Options',
+      headerTitle: 'Admin Options',
     }
   };
 

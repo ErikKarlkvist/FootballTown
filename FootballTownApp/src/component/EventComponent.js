@@ -72,19 +72,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
   };
 
   renderFooter = () => {
-    if (this.state.loading || this.state.refreshing) {
-      return (
-        <View style={{marginTop: 5, flex: 1}}>
-      <ActivityIndicator size="large" color={Colors.Primary} />
-      </View>
-      );
-    }
-    else
     return (
-      <View style={{marginTop: 5, flex: 1,
-    justifyContent: 'flex-end'}}>
-
-      <Text>More</Text>
+      <View>
       </View>
     );
   };
@@ -110,7 +99,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
-          onEndReached={this.handleLoadMore}
           onEndReachedThreshold={50}
         />
         </View>
@@ -145,8 +133,8 @@ getExceptText(length) {
         <View>
        <Text style={styles.eventsTitle}>{this.props.title}</Text>
        <Text style={styles.eventsText}>{this.getExceptText(110)} </Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-navigate' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location : {this.props.location}</Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={12} style={{ marginLeft:'1%', color: "black" }}/> Price : {this.props.price}</Text>
+       <Text style={styles.locationPriceText}> <Ionicons name='md-navigate' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
+       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={12} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>
     );

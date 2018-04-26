@@ -7,9 +7,11 @@ import renderer from 'react-test-renderer';
 import Factory from "../src/database/Factory"
 
 const Games = Factory.getGamesInstance();
+const News = Factory.getNewsInstance();
+const Events = Factory.getEventsInstance();
 
-  RNFirebase.initializeApp()
-  RNFirebase.reset()
+RNFirebase.initializeApp()
+RNFirebase.reset()
 
 
 // Commenting out this for now.
@@ -22,5 +24,11 @@ const Games = Factory.getGamesInstance();
 it('loads games correctly', () => {
   Games.getGames().then((games) => {
     expect(games.length).toBe(0)
+  })
+})
+
+it('loads news correctly', () => {
+  News.getNews().then((news) => {
+    expect(news.length).toBe(0)
   })
 })

@@ -38,25 +38,22 @@ render() {
 
               <Image
             style={{width: 30, height: 30}}
-            source={{uri: this.props.team1Flag}}
+            source={{uri: this.props.team1}}
              />
-           <Text style={styles.teams}> {this.props.game.team1}</Text>
+           <Text style={styles.teams}> {this.props.games.team1}</Text>
           <Text style={styles.scores}>{this.props.games.score1}</Text>
           <Text> - </Text>
           <Text style={styles.scores}>{this.props.games.score2}</Text>
            <Text style={styles.teams}> {this.props.games.team2}</Text>
 
-           <Image source={require('./ball.jpg')} style={{width: 30, height:30}}/>
-      </CardItem>
+             </CardItem>
             <CardItem>
                 <View style={GlobalStyles.articleContainer}>
                  <Text style={GlobalStyles.ingress}>Details</Text>
                  </View>
            </CardItem>
            <CardItem bordered  alignItems='center'>
-              <Image
-              source={require('./ball.jpg')}
-               />
+            
 
                <Icon name='location' size={20} color='' style={style.location}/>
                <Text style={GlobalStyles.ingress}>Allianz Arena, Munchen, Germany</Text>

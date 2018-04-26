@@ -51,8 +51,22 @@ export default class Matches_page extends Component {
   refreshData() {
     this.setState({loading:true})
     this.state.games.getGames().then((games) => {
-      console.log(games)
-      this.setState({loading: false, refreshing: false, fetchedgames:games})
+      const latest = []
+      const upcoming = []
+      games.forEach(game => {
+        if(game.status === "pending"){
+          upcoming.push(game)
+        } else {
+          latest.push(game)
+        }
+      })
+      latest.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      upcoming.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      this.setState({loading: false, refreshing: false, upcoming, latest})
     })
   }
 
@@ -104,10 +118,24 @@ render() {
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
         <View style={{flex:1}}>
-           <Text style={styles.headerTitle}>Latest Scores</Text>
-           <Text note>29-05-2018</Text>
+          <Text style={styles.headerTitle}>Upcoming Matches</Text>
           <FlatList
-            data={this.state.fetchedgames}
+            data={this.state.upcoming}
+            renderItem={({ item }) => (
+              <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
+            )}
+            keyExtractor={item => item.id}
+            //ItemSeparatorComponent={this.renderSeparator}
+            //ListHeaderComponent={this.renderHeader}
+            //ListFooterComponent={this.renderFooter}
+            onRefresh={this.handleRefresh}
+            refreshing={this.state.refreshing}
+            onEndReached={this.handleLoadMore}
+            onEndReachedThreshold={0}
+          />
+          <Text style={styles.headerTitle}>Latest Matches</Text>
+          <FlatList
+            data={this.state.latest}
             renderItem={({ item }) => (
               <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
             )}
@@ -157,8 +185,8 @@ const styles = StyleSheet.create({
   headerTitle: {
     marginTop: 20,
     marginLeft: 10,
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    marginBottom: 10,
     color: Colors.PrimaryText
   },
   team1Title: {

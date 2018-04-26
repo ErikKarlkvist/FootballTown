@@ -48,3 +48,24 @@ it('add news correctly', () => {
     })
   })
 })
+
+it('remove news correctly', () => {
+  News.getNews().then((news) => {
+    expect(news.length).toBe(0)
+    const newNews = {
+      title: 'Title',
+      ingress: 'Ingress',
+      text: 'iadssijadoasdjoidas',
+      imageUrl: 'koadsdsaokdsodsa',
+    }
+    News.addNews(newNews)
+    News.getNews().then(news => {
+      expect(news.length).toBe(1)
+      const id = news[0].id
+      News.removeNews(id)
+      News.getNews().then(news => {
+        expect(news.length).toBe(0)
+      })
+    })
+  })
+})

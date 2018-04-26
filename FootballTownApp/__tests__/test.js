@@ -32,3 +32,19 @@ it('loads news correctly', () => {
     expect(news.length).toBe(0)
   })
 })
+
+it('add news correctly', () => {
+  News.getNews().then((news) => {
+    expect(news.length).toBe(0)
+    const newNews = {
+      title: 'Title',
+      ingress: 'Ingress',
+      text: 'iadssijadoasdjoidas',
+      imageUrl: 'koadsdsaokdsodsa',
+    }
+    News.addNews(newNews)
+    News.getNews().then(news => {
+      expect(news.length).toBe(1)
+    })
+  })
+})

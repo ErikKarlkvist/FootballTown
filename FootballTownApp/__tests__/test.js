@@ -69,3 +69,34 @@ it('remove news correctly', () => {
     })
   })
 })
+//testing for event
+it('loads games correctly', () => {
+  Games.getGames().then((games) => {
+    expect(games.length).toBe(0)
+  })
+})
+it('loads Events correctly', () => {
+  Events.getEvents().then((Events) => {
+    expect(Events.length).toBe(0)
+  })
+})
+it('add Event correctly', () => {
+  Events.getEvents().then((events) => {
+    expect(events.length).toBe(0)
+    const newEvent = {
+      title: "title",
+      teams: "teams",
+      text: "text",
+      location: "the location",
+      price: "the price",
+      imageUrl: "image source ",
+      price: "the price of the event",
+      date: "the date of the event",
+      location: "the location of the event ",
+    }
+    Events.addEvent(newEvent)
+    Events.getEvent().then(events => {
+      expect(events.length).toBe(1)
+    })
+  })
+})

@@ -2,6 +2,7 @@ import {NewsStory} from "../component/NewsComponent"
 import Home_page from "../views/Home_page"
 import {StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
+import AdminHeaderButton from "../component/AdminHeaderButton"
 
 const navigationConfig = {
   navigationOptions: {
@@ -18,20 +19,8 @@ const navigationConfig = {
 
 
 const HomeStack = StackNavigator({
-  HomeScreen: { screen: Home_page,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Football Town',
-      headerTitle: 'Football Town',
-      headerStyle:{
-        backgroundColor: Colors.Primary,
-      },
-      headerTitleStyle: {
-        color: Colors.PrimaryDarkText,
-        fontFamily: Fonts.Default,
-      }
-    })},
+  HomeScreen: { screen: Home_page },
   Detail: { screen: NewsStory },
-
 }, navigationConfig);
 
 

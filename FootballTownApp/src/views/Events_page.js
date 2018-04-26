@@ -13,6 +13,7 @@ import {
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 
 
@@ -35,12 +36,11 @@ class Events_page extends Component{
             style={{width: screenWidth, height: imageHeight}}
             source={{uri: this.props.eventsStory.imageUrl}}
           />
-          <View>
-            <Text style={GlobalStyles.text}>{this.props.eventsStory.title}</Text>
+          <View style={GlobalStyles.articleContainer}>
+            <Text style={GlobalStyles.title}>{this.props.eventsStory.title}</Text>
             <Text style={GlobalStyles.text}>{this.props.eventsStory.text}</Text>
-            <Text style={GlobalStyles.text}>Location: {this.props.eventsStory.location}</Text>
-            <Text style={GlobalStyles.text}>Price: {this.props.eventsStory.price}</Text>
-
+            <Text style={GlobalStyles.text}><Ionicons name='md-navigate' size={15} style={{ marginLeft:'3%', padding: 10, color: "black" }}/> Location: {this.props.eventsStory.location}</Text>
+            <Text style={GlobalStyles.text}><Ionicons name='md-pricetags' size={13} style={{ marginLeft:'3%', padding: 10, color: "black" }}/> Price: {this.props.eventsStory.price}</Text>
           </View>
         </ScrollView>
       );

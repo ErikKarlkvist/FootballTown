@@ -12,7 +12,7 @@ import {
   Text,
   View
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/Ionicons'
+import Ionicons from "react-native-vector-icons/Ionicons";
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
 
@@ -20,9 +20,8 @@ class Near_By_page extends Component{
   render() {
       return (
         <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to Near by Search
-          </Text>
+        <Ionicons name='md-navigate' size={30} style={{ marginLeft:5, padding:5, color: "grey" }}/>
+          <Ionicons name='md-pricetags' size={30} style={{ marginLeft:5, padding:5, color: "grey" }}/>
         </View>
       );
     }

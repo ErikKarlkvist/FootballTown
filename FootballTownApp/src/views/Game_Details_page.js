@@ -25,6 +25,10 @@ class Game_Details_page extends Component{
     super(props);
   }
 
+  longToDate(millisec) {
+    return (new Date(millisec).toUTCString());
+  }
+
   render() {
       const game = this.props.navigation.state.params.game
       return (
@@ -51,12 +55,12 @@ class Game_Details_page extends Component{
 
             <View style={styles.additionalInfoView}>
               <Icon color="grey" name="map-marker" size={25} style={styles.icon}/>
-              <Text style={styles.additionalInfoText}>game.location</Text>
+              <Text style={styles.additionalInfoText}>{game.location}</Text>
             </View>
 
             <View style={styles.additionalInfoView}>
               <Icon color="grey" name="calendar" size={25} style={styles.icon}/>
-              <Text style={styles.additionalInfoText}>{game.date}</Text>
+              <Text style={styles.additionalInfoText}>{this.longToDate(game.date)}</Text>
             </View>
 
             <View style={styles.additionalInfoView}>

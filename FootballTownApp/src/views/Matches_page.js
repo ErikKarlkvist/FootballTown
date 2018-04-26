@@ -15,7 +15,7 @@ ScrollView
 } from 'native-base'
 
 import Factory from '../database/Factory';
-import {Colors} from '../config/UIConfig'
+import {Colors, Fonts} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
 import AdminHeaderButton from "../component/AdminHeaderButton"
 export default class Matches_page extends Component {
@@ -197,7 +197,8 @@ const styles = StyleSheet.create({
     color: Colors.PrimaryText,
     maxWidth: 120,
     marginRight: 10,
-    flex: 1
+    flex: 1,
+    textAlign: "left"
   },
   team2Title: {
     marginTop: 5,
@@ -207,7 +208,8 @@ const styles = StyleSheet.create({
     color: Colors.PrimaryText,
     maxWidth: 120,
     marginRight: 10,
-    flex: 1
+    flex: 1,
+    textAlign: "right"
   },
   dash: {
     fontSize: 16,

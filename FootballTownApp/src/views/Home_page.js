@@ -20,10 +20,18 @@ import {TabNavigator} from 'react-navigation';
 import FootballScore from "../component/FootballScore"
 import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
+import AdminHeaderButton from "../component/AdminHeaderButton"
 import {Colors} from "../config/UIConfig"
 
 class Home_page extends Component{
 
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Football Town',
+    headerTitle: "Football Town",
+    headerRight: (
+      <AdminHeaderButton navigation={navigation}/>
+    ),
+  })
 
   constructor(){
     super()

@@ -26,8 +26,8 @@ import {Colors} from "../config/UIConfig"
 class Home_page extends Component{
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Football Town',
-    headerTitle: "Football Town",
+    title: 'Footcity',
+    headerTitle: "Footcity",
     headerRight: (
       <AdminHeaderButton navigation={navigation}/>
     ),

@@ -38,7 +38,8 @@ class CustomTextInput extends Component{
             onChangeText={this.props.onChangeText}
             style={[styles.input, this.props.inputStyle]}
             underlineColorAndroid={"rgba(0,0,0,0)"}
-            multiline={true}
+            secureTextEntry={this.props.secureTextEntry}
+            multiline={this.props.secureTextEntry ? false : true}
             keyboardType={this.props.keyboardType}
           />
           <View style={styles.underline}/>

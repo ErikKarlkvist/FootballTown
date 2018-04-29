@@ -139,9 +139,6 @@ export class EventsStory extends Component {
       headerColor: Colors.PrimaryDarkText,
       title: 'Event',
       headerTitle: 'Event',
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
 

@@ -14,7 +14,7 @@ export default class Events {
         text: tmpEvents.text,
         location: tmpEvents.location,
         price: tmpEvents.price,
-        imageUrl: tmpEvents.text,
+        imageUrl: tmpEvents.imageUrl,
         price: tmpEvents.price,
         date: tmpEvents.date,
         location: tmpEvents.location,

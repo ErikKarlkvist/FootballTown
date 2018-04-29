@@ -8,7 +8,6 @@ import {
 
 import {TabNavigator} from 'react-navigation';
 import Home from './HomeScreenNavigation'
-import Event_page from '../views/Event_page'
 import My_Team_page from '../views/My_Team_page'
 import Near_By_page from '../views/Near_By_page'
 import Feed from './FeedNavigation'

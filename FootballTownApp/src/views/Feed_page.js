@@ -5,15 +5,14 @@
      StyleSheet,
      Text,
      View,
-     Button,
    } from 'react-native';
    //import MatchComponent from '../component/MatchComponent';
    import RanksComponent from'../component/RanksComponent';
-   import Coming_MatchesComp from'../component/Coming_MatchesComp';
+   import Coming_MatchesComp from'../component/Coming_MatchesComp'; // why is this imported?
    import Icon from 'react-native-vector-icons/Ionicons'
    import {Colors} from "../config/UIConfig"
    //MaterialIcons'
-   
+
    class NewsFeed extends Component{
     render() {
       return (
@@ -28,7 +27,7 @@
       );
     }
    }
-   
+
    export default TabNavigator(
   {
     News: {screen: NewsFeed},
@@ -48,4 +47,3 @@
     inactiveTintColor: Colors.PrimaryDarkText2,
     }
   });
-   

@@ -1,8 +1,10 @@
 
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+- Display a picture of the team or just a
+- Display a team's name
+- View a team's wins/losses/draws/points
+- View
+- A description of a team
  */
 
 import React, { Component } from 'react';
@@ -10,38 +12,55 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView,
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator} from 'react-navigation';
+import {Colors} from "../config/UIConfig";
+import Team_page from "../views/Team_page"
 
-class My_Team_page extends Component{
+
+
+
+class MyTeam extends Component{
   render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to my My Team Page!!
-          </Text>
-        </View>
-      );
-    }
+    return (
+      <Team_page />
+    );
   }
+ }
 
-  export default My_Team_page;
+  class Players extends Component{
+  render() {
+    return (
+      <View>
+        <Text>Players</Text>
+      </View>
+    );
+  }
+}
 
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+
+
+  export default TabNavigator({
+    Team: {screen: MyTeam},
+    squad: {screen: Players},
+  },{
+   animationEnabled: true,
+   swipeEnabled: true,
+   tabBarOptions: {
+   style: {
+    backgroundColor: Colors.Primary,
+    marginBottom: Platform.select({ ios: 0, android: -10, }),
+
+  },
+    labelStyle:{
+      fontWeight: 'bold',
     },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-
+    activeTintColor: Colors.PrimaryDarkText,
+    inactiveTintColor: Colors.PrimaryDarkText2,
+    }
   });

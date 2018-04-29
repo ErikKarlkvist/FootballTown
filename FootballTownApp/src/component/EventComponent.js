@@ -4,6 +4,7 @@ import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig';
 import AdminHeaderButton from "./AdminHeaderButton";
 import Events_page from "../views/Events_page";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from "react-native-vector-icons/Ionicons";
  export class EventComponent extends Component {
 
@@ -117,14 +118,14 @@ getExceptText(length) {
     return (
       <View style={styles.eventsStory}>
       <Image
-        style={{width: 85, height: 75, marginTop: '2%'}}
+        style={{width: 95, height: 85, marginTop: '2%'}}
         source={{uri: this.props.image}}
         />
         <View>
        <Text style={styles.eventsTitle}>{this.props.title}</Text>
        <Text style={styles.eventsText}>{this.getExceptText(110)} </Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-navigate' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={12} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
+       <Text style={styles.locationPriceText}> <Icon name='map-marker' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
+       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={13} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>
     );
@@ -157,12 +158,12 @@ const styles = StyleSheet.create({
   eventsStory: {
     margin: 1,
     flex: 1, flexDirection: 'row',
-    height: 90,
+    height: 100,
     width: '100%'
   },
   eventsTitle: {
 
-    marginLeft: 2,
+    marginLeft: 5,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText,

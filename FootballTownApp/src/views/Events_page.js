@@ -6,14 +6,14 @@ import {
   View,
   ScrollView,
   Image,
-  Dimensions,
-  Icon
+  Dimensions
 } from 'react-native';
 //MaterialIcons'
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 
@@ -38,7 +38,7 @@ class Events_page extends Component{
           />
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.title}>{this.props.eventsStory.title}</Text>
-            <Text style={GlobalStyles.text}><Ionicons name='md-navigate' size={15} style={{ marginLeft:'3%', padding: 10, color: "black" }}/> Location: {this.props.eventsStory.location}</Text>
+            <Text style={GlobalStyles.text}><Icon name='map-marker' size={15} style={{ marginLeft:'3%', padding: 10, color: "black" }}/> Location: {this.props.eventsStory.location}</Text>
             <Text style={GlobalStyles.text}><Ionicons name='md-pricetags' size={13} style={{ marginLeft:'3%', padding: 10, color: "black" }}/> Price: {this.props.eventsStory.price}</Text>
             <Text style={GlobalStyles.text}>{this.props.eventsStory.text}</Text>
           </View>

@@ -1,9 +1,8 @@
 
 /**
-- Display a picture of the team or just a
+- Display a picture of the team or just a their logo
 - Display a team's name
 - View a team's wins/losses/draws/points
-- View
 - A description of a team
  */
 
@@ -47,7 +46,7 @@ class MyTeam extends Component{
 
   export default TabNavigator({
     Team: {screen: MyTeam},
-    squad: {screen: Players},
+    Players: {screen: Players},
   },{
    animationEnabled: true,
    swipeEnabled: true,

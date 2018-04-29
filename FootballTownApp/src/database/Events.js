@@ -27,7 +27,7 @@ export default class Events {
     }
 
     removeEvents(id){
-      for (const i = 0; i < this.events.lengconst; i++) {
+      for (const i = 0; i < this.events.length; i++) {
         if (this.events[i].id === id){
           this.events.splice(i, 1);
         }

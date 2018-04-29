@@ -1,8 +1,4 @@
 import {EventComponent, EventsStory} from "../component/EventComponent"
-import AdminAddEvents from "../views/AdminAddEvents"
-import AdminAddGame from "../views/AdminAddGame"
-import AdminAddNews from "../views/AdminAddNews"
-import Admin from "../views/Admin"
 import Matches_page from "../views/Matches_page"
 import Ranks_page from'../views/Ranks_page';
 import {NewsComponent, NewsStory} from "../component/NewsComponent"
@@ -47,10 +43,6 @@ const navigationConfig = {
 const NewsStack = StackNavigator({
   NewsFeed: { screen: TabNav },
   Games_Details_Page: {screen: Game_Details_Page},
-  AdminAddGame: {screen: AdminAddGame},
-  AdminAddEvents: {screen: AdminAddEvents},
-  AdminAddNews: {screen: AdminAddNews},
-  Admin: {screen: Admin}
 },navigationConfig);
 
 

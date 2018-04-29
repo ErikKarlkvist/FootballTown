@@ -10,13 +10,13 @@ export default class App extends React.Component {
 
   constructor(){
     super()
-    const User = Factory.getUserInstance();
-    User.signInAnonymously();
+    Factory.getUserInstance().getAuthorization()
+    Factory.getUserInstance().logout()
+    //Factory.getUserInstance().loginAdmin("admin@footcity.com", "tester")
   }
 
   render() {
       return(
-
         <MainNavigator/>
       );
   }

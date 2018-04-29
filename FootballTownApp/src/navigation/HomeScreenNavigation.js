@@ -2,7 +2,10 @@ import {NewsStory} from "../component/NewsComponent"
 import Home_page from "../views/Home_page"
 import {StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
-import AdminHeaderButton from "../component/AdminHeaderButton"
+import AdminAddEvents from "../views/AdminAddEvents"
+import AdminAddGame from "../views/AdminAddGame"
+import AdminAddNews from "../views/AdminAddNews"
+import Admin from "../views/Admin"
 
 const navigationConfig = {
   navigationOptions: {
@@ -21,6 +24,10 @@ const navigationConfig = {
 const HomeStack = StackNavigator({
   HomeScreen: { screen: Home_page },
   Detail: { screen: NewsStory },
+  AdminAddGame: {screen: AdminAddGame},
+  AdminAddEvents: {screen: AdminAddEvents},
+  AdminAddNews: {screen: AdminAddNews},
+  Admin: {screen: Admin}
 }, navigationConfig);
 
 

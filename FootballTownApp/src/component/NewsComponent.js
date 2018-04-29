@@ -12,9 +12,6 @@ export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
 
@@ -168,9 +165,6 @@ export class NewsStory extends Component {
       headerColor: Colors.PrimaryDarkText,
       title: 'News',
       headerTitle: 'News',
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
   constructor(props) {

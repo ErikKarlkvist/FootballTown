@@ -6,6 +6,22 @@ export default class Teams {
         this.teams = []
     }
 
+    // async duplicatePlayer(){
+    //   let player = await firebase.firestore().collection("players").doc("lqLIqW7sh6KfX8ezlmTB").get()
+    //   player = player.data()
+    //   for(let i = 0; i < 109; i++){
+    //     firebase.firestore().collection("players").add(player)
+    //   }
+    // }
+
+    async duplicateTeams(){
+      let team = await firebase.firestore().collection("teams").doc("YD2GnG9JeiYs8L0lzEdw").get()
+      team = team.data()
+      for(let i = 0; i < 9; i++){
+        firebase.firestore().collection("teams").add(team)
+      }
+    }
+
     addTeam(tmpTeam){
       const newEvent = {
         name: tmpTeam.title,

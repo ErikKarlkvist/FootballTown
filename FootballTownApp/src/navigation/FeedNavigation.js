@@ -55,10 +55,6 @@ const NewsStack = StackNavigator({
   })},
   Details2: {screen: EventsStory},
   Detail: { screen: NewsStory },
-  AdminAddGame: {screen: AdminAddGame},
-  AdminAddEvents: {screen: AdminAddEvents},
-  AdminAddNews: {screen: AdminAddNews},
-  Admin: {screen: Admin}
 }, navigationConfig);
 
 

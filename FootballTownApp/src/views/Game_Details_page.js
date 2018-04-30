@@ -35,7 +35,7 @@ class Game_Details_page extends Component{
         <ScrollView>
           <View style={styles.summary}>
             <View style={styles.teamIcon}>
-              <Thumbnail large source ={require('./ball.jpg')}/>
+              <Image style={styles.image} source={{uri: game.team1Flag}}/>
               <Text style={styles.teamName}>{game.team1}</Text>
             </View>
             <View style={styles.result}>
@@ -43,7 +43,7 @@ class Game_Details_page extends Component{
               <Text style={styles.statusText}>{game.status}</Text>
             </View>
             <View style={styles.teamIcon}>
-              <Thumbnail large source ={require('./ball.jpg')}/>
+              <Image style={styles.image} source={{uri: game.team2Flag}}/>
               <Text style={styles.teamName}>{game.team2}</Text>
             </View>
           </View>
@@ -119,6 +119,7 @@ class Game_Details_page extends Component{
       fontFamily: Fonts.Default,
       color: Colors.PrimaryLightText,
       marginTop: 10,
+      textAlign: 'center',
     },
     additionalInfoText: {
       fontSize: 15,
@@ -132,5 +133,10 @@ class Game_Details_page extends Component{
     },
     icon: {
       marginRight: 5,
-    }
+    },
+    image: {
+      height: 75,
+      width: 75,
+      resizeMode: 'contain',
+    },
   });

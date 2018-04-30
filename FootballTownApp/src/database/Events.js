@@ -55,8 +55,8 @@ export default class Events {
       return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getEvents(){
-      if(this.events.length > 0){
+    async getEvents(force){
+      if(this.events.length > 0 && !force){
         return Promise.resolve(this.events)
       } else {
         try {

@@ -5,6 +5,8 @@ import {Colors, Fonts} from "../config/UIConfig"
 import AdminAddEvents from "../views/AdminAddEvents"
 import AdminAddGame from "../views/AdminAddGame"
 import AdminAddNews from "../views/AdminAddNews"
+import AdminAddPlayer from "../views/AdminAddPlayer"
+import AdminAddTeam from "../views/AdminAddTeam"
 import Admin from "../views/Admin"
 
 const navigationConfig = {
@@ -27,6 +29,8 @@ const HomeStack = StackNavigator({
   AdminAddGame: {screen: AdminAddGame},
   AdminAddEvents: {screen: AdminAddEvents},
   AdminAddNews: {screen: AdminAddNews},
+  AdminAddPlayer: {screen: AdminAddPlayer},
+  AdminAddTeam: {screen: AdminAddTeam},
   Admin: {screen: Admin}
 }, navigationConfig);
 

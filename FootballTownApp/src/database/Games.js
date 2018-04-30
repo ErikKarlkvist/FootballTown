@@ -64,9 +64,9 @@ export default class Games {
       return firebase.firestore().collection("games").doc(newGame.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getGames(){
+    async getGames(force){
       //onst games = await firebase.firestore().collection("games").get()
-      if(this.games.length > 0){
+      if(this.games.length > 0 && !force){
         return Promise.resolve(this.games)
       } else {
         try {

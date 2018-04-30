@@ -59,6 +59,12 @@ class Admin extends Component{
           <TouchableOpacity onPress={() => this.props.navigation.navigate("AdminAddNews")}>
             <Text style={styles.title}>Add News</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("AdminAddPlayer")}>
+            <Text style={styles.title}>Add Player</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("AdminAddTeam")}>
+            <Text style={styles.title}>Add Team</Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={this.logout}>
             <Text style={styles.title}>Log out</Text>
           </TouchableOpacity>

@@ -50,8 +50,8 @@ export default class News {
       return firebase.firestore().collection("news").doc(newNews.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getNews(){
-      if(this.news.length > 0){
+    async getNews(force){
+      if(this.news.length > 0 && !force){
         return Promise.resolve(this.news)
       } else {
         const news = await firebase.firestore().collection("news").get()

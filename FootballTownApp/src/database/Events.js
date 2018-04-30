@@ -15,9 +15,7 @@ export default class Events {
         location: tmpEvents.location,
         price: tmpEvents.price,
         imageUrl: tmpEvents.imageUrl,
-        price: tmpEvents.price,
         date: tmpEvents.date,
-        location: tmpEvents.location,
         createdAt: new Date().getTime()
       }
       return firebase.firestore().collection("events").add(newEvent).then((ref) => {

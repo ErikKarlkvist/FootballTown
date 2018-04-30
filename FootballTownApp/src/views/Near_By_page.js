@@ -20,8 +20,7 @@ class Near_By_page extends Component{
   render() {
       return (
         <View style={styles.container}>
-        <Ionicons name='md-navigate' size={30} style={{ marginLeft:5, padding:5, color: "grey" }}/>
-          <Ionicons name='md-pricetags' size={30} style={{ marginLeft:5, padding:5, color: "grey" }}/>
+        <Text>Welcome to maps, budds</Text>
         </View>
       );
     }

@@ -76,11 +76,19 @@ export default class Events {
             eventsData.push(result)
           })
 
-          this.events = eventsData;
+          this.events = this.sortOnDate(eventsData);
           return Promise.resolve(eventsData)
         }catch (e) {
           Alert.alert("Couldn't get events", e.message)
         }
       }
     }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      return events
+    }
+
 };

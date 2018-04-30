@@ -96,6 +96,7 @@ export default class Games {
             })
 
             if(!team1 || !team2){
+              console.log(result.id)
               throw Error("No such team")
             }
 

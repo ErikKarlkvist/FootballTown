@@ -1,12 +1,7 @@
-/* import React, { Component } from 'react';
+import React, { Component } from 'react';
 import {AppRegistry, Text, View, StyleSheet, Image } from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig';
-
-let tempImage = "https://images.pexels.com/photos/39562/the-ball-stadion-football-the-pitch-39562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-const dimensions = Dimensions.get('window');
-const imageHeight = Math.round(dimensions.width * 9 / 16);
-const screenWidth = dimensions.width;
 
 
 
@@ -95,7 +90,7 @@ componentDidMount(){
   }
 
   // Returns the news text to be shown for a given article
-/*  getExceptText(length) {
+ getExceptText(length) {
     if(this.props.except != null) {
       return this.props.except;
     } else if(this.props.text.length < length) {
@@ -119,4 +114,3 @@ componentDidMount(){
       );
     }
   }
-*/

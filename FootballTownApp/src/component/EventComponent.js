@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig';
 import AdminHeaderButton from "./AdminHeaderButton";
@@ -80,13 +80,12 @@ import Ionicons from "react-native-vector-icons/Ionicons";
         <FlatList
           data={this.state.fetchedEvents}
           renderItem={({ item }) => (
-            <TouchableHighlight onPress={() => this.openEventsArticle(item)}>
+            <TouchableOpacity  onPress={() => this.openEventsArticle(item)}>
             <EventsListItem title={item.title} location={item.location} price={item.price} text={item.text} image={item.imageUrl}/>
-            </TouchableHighlight>
+            </TouchableOpacity >
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
-          ListHeaderComponent={this.renderHeader}
           ListFooterComponent={this.renderFooter}
           onRefresh={this.handleRefresh}
           refreshing={this.state.refreshing}
@@ -118,14 +117,14 @@ getExceptText(length) {
     return (
       <View style={styles.eventsStory}>
       <Image
-        style={{width: 95, height: 85, marginTop: '2%'}}
+        style={{width: 105, height: 95, marginTop: '2%'}}
         source={{uri: this.props.image}}
         />
         <View>
        <Text style={styles.eventsTitle}>{this.props.title}</Text>
-       <Text style={styles.eventsText}>{this.getExceptText(110)} </Text>
-       <Text style={styles.locationPriceText}> <Icon name='map-marker' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={13} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
+       <Text style={styles.eventsText}>{this.getExceptText(160)} </Text>
+       <Text style={styles.locationPriceText}>   <Icon name='map-marker' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
+       <Text style={styles.locationPriceText}>   <Ionicons name='md-pricetags' size={13} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>
     );
@@ -156,42 +155,36 @@ export class EventsStory extends Component {
 
 const styles = StyleSheet.create({
   eventsStory: {
-    margin: 1,
+    margin: 3,
     flex: 1, flexDirection: 'row',
-    height: 100,
-    width: '100%'
+    minHeight: 110,
+    padding: 5,
+    backgroundColor: Colors.ListBackground,
+    shadowColor: 'black',
+    elevation: 3,
+    shadowRadius: 1,
+    shadowOpacity: 0.2,
+    shadowOffset: {width: 2, height: 2}
   },
   eventsTitle: {
-
+    marginTop: 5,
+    paddingTop: 1,
     marginLeft: 5,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText,
   },
   eventsText:{
-  color: 'gray',
-  marginLeft: '3%',
-  fontSize: 12,
-  },
-  locationPriceText:{
-  color: 'gray',
-  marginLeft: '3%',
-  fontSize: 13,
-  color: Colors.PrimaryText,
+    color: 'gray',
+    marginLeft: 5,
+    fontSize: 12,
+    marginTop: 2,
+    marginRight: 5,
+    marginBottom: 3,
+
   },
   eventsList:{
     padding: 10,
-    backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 2,
-    elevation: 1,
-
+    width: '100%'
   }
 });

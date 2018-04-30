@@ -50,6 +50,7 @@ class MyTeam extends Component{
   },{
    animationEnabled: true,
    swipeEnabled: true,
+    tabBarPosition:'top',
    tabBarOptions: {
    style: {
     backgroundColor: Colors.Primary,

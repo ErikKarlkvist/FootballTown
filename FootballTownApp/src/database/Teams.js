@@ -75,8 +75,39 @@ export default class Teams {
           teamsData.push(result)
         })
 
-        this.teams = teamsData;
-        return Promise.resolve(teamsData)
+        const promises = [];
+        const teamInstance = this;
+        teamsData.forEach((team) =>{
+          promises.push(teamInstance.getPlayers(team))
+        })
+
+        const result = await Promise.all(promises)
+
+        this.teams = result;
+        console.log(result)
+        return Promise.resolve(result)
+      }
+    }
+
+    async getPlayers(team){
+      const promises = []
+      const teamInstance = this;
+      team.players.forEach((id) => {
+        promises.push(teamInstance.getPlayerForTeam(id))
+      })
+      const result = await Promise.all(promises)
+      team.players = result;
+      return Promise.resolve(team)
+    }
+
+    async getPlayerForTeam(id) {
+      try {
+        const snapshot = await firebase.firestore().collection("players").doc(id).get()
+        const player = snapshot.data()
+        player.id = snapshot.id;
+        return Promise.resolve(player)
+      }catch(e){
+        return Promise.resolve("NO SUCH PLAYER ID")
       }
     }
 };

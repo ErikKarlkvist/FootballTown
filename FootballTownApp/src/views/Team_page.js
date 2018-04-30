@@ -50,7 +50,7 @@ export default class Team_page extends Component {
         </View>
 
         <View style={styles.container}>
-          <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+          <Table borderStyle={{borderWidth: 0.5, borderColor: 'black'}}>
             <Row data={state.tableHead} style={styles.head} textStyle={styles.textHead}/>
             <Rows data={state.tableData} textStyle={styles.text}/>
           </Table>
@@ -73,17 +73,19 @@ const styles = StyleSheet.create({
         },
   head: {
      height: 40,
-     backgroundColor: '#f1f8ff',
+     backgroundColor: '#607D8B',
         },
   text: {
     margin: 6,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'black'
 
   },
   textHead:{
     margin: 6,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#fff'
 
         }
 });

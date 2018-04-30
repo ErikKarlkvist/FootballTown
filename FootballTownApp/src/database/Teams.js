@@ -14,24 +14,44 @@ export default class Teams {
     //   }
     // }
 
-    async duplicateTeams(){
-      let team = await firebase.firestore().collection("teams").doc("YD2GnG9JeiYs8L0lzEdw").get()
-      team = team.data()
-      for(let i = 0; i < 9; i++){
-        firebase.firestore().collection("teams").add(team)
+    // async duplicateTeams(){
+    //   let team = await firebase.firestore().collection("teams").doc("YD2GnG9JeiYs8L0lzEdw").get()
+    //   team = team.data()
+    //   for(let i = 0; i < 9; i++){
+    //     firebase.firestore().collection("teams").add(team)
+    //   }
+    // }
+
+    addPlayer(tmpPlayer){
+      const newPlayer = {
+        firstName: tmpPlayer.firstName,
+        lastName: tmpPlayer.lastName,
+        imageUrl: tmpPlayer.imageUrl,
+        position: tmpPlayer.position,
+        squadNumber: tmpPlayer.squadNumber,
+        createdAt: new Date().getTime()
       }
+      return firebase.firestore().collection("players").add(newPlayer)
     }
 
     addTeam(tmpTeam){
-      const newEvent = {
-        name: tmpTeam.title,
-        flag: tmpTeam.teams || [],
+      const newTeam = {
+        name: tmpTeam.name,
+        flag: tmpTeam.flag,
         points: tmpTeam.points || 0,
+        draws: tmpTeam.draws || 0,
+        gamesPlayed: tmpTeam.gamesPlayed || 0,
+        goalsConceded: tmpTeam.goalsConceded || 0,
+        goalsScored: tmpTeam.goalsScored || 0,
+        rank: tmpTeam.rank || 0,
+        wins: tmpTeam.wins || 0,
+        losses: tmpTeam.losses || 0,
+        players: tmpTeam.players || [],
         createdAt: new Date().getTime()
       }
-      return firebase.firestore().collection("teams").add(tmpTeam).then((ref) => {
-        newEvent.id = ref.id;
-        this.events.push(newEvent);
+      return firebase.firestore().collection("teams").add(newTeam).then((ref) => {
+        newTeam.id = ref.id;
+        this.teams.push(newTeam);
       })
     }
 
@@ -62,8 +82,8 @@ export default class Teams {
       return firebase.firestore().collection("events").doc(newTeam.id).set(newTeam,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getTeams(){
-      if(this.teams > 0){
+    async getTeams(force){
+      if(this.teams > 0 && !force){
         return Promise.resolve(this.teams)
       } else {
         const teams = await firebase.firestore().collection("teams").get()
@@ -75,8 +95,51 @@ export default class Teams {
           teamsData.push(result)
         })
 
-        this.teams = teamsData;
-        return Promise.resolve(teamsData)
+        const promises = [];
+        const teamInstance = this;
+        teamsData.forEach((team) =>{
+          promises.push(teamInstance.getPlayers(team))
+        })
+
+        const result = await Promise.all(promises)
+
+        this.teams = result;
+        console.log(result)
+        return Promise.resolve(result)
+      }
+    }
+
+    async getPlayers(team){
+      const promises = []
+      const teamInstance = this;
+      team.players.forEach((id) => {
+        promises.push(teamInstance.getPlayerForTeam(id))
+      })
+      const result = await Promise.all(promises)
+      team.players = result;
+      return Promise.resolve(team)
+    }
+
+    async getAllPlayers(){
+      const players = await firebase.firestore().collection("players").get()
+
+      const playersData = [];
+      players.forEach((snapshot) => {
+        result = snapshot.data()
+        result.id = snapshot.id;
+        playersData.push(result)
+      })
+      return Promise.resolve(playersData)
+    }
+
+    async getPlayerForTeam(id) {
+      try {
+        const snapshot = await firebase.firestore().collection("players").doc(id).get()
+        const player = snapshot.data()
+        player.id = snapshot.id;
+        return Promise.resolve(player)
+      }catch(e){
+        return Promise.resolve("NO SUCH PLAYER ID")
       }
     }
 };

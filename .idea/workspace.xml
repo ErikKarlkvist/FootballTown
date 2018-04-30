@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4276555d-760c-40a2-a55a-d58fd521af20" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Feed_page.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/Feed_page.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/AdminAddPlayer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/AdminAddTeam.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Feed_page.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Games_page.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/App.js" afterPath="$PROJECT_DIR$/FootballTownApp/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/package-lock.json" afterPath="$PROJECT_DIR$/FootballTownApp/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/database/Events.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/database/Events.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/database/Games.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/database/Games.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/database/News.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/database/News.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/database/Teams.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/database/Teams.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/database/User.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/database/User.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/navigation/HomeScreenNavigation.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/navigation/HomeScreenNavigation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Admin.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/Admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Home_page.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/Home_page.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/My_Team_page.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/My_Team_page.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +41,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -44,7 +58,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
@@ -60,6 +73,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
@@ -165,7 +179,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

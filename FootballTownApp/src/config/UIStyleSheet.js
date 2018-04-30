@@ -30,6 +30,7 @@ export const GlobalStyles = StyleSheet.create({
     color: Colors.PrimaryText,
     fontFamily: Fonts.Body,
     marginTop: 16,
+
   },
   articleContainer: {
     padding: 14,

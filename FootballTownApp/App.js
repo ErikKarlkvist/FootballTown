@@ -11,7 +11,9 @@ export default class App extends React.Component {
   constructor(){
     super()
     Factory.getUserInstance().getAuthorization()
-    Factory.getUserInstance().logout()
+    // Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
+    Factory.getUserInstance().getFollowingTeam().then((team) => {console.log(team)})
+    //Factory.getUserInstance().logout()
     //Factory.getUserInstance().loginAdmin("admin@footcity.com", "tester")
   }
 

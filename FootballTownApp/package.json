@@ -17,6 +17,7 @@
     "react-native-firebase": "^3.3.1",
     "react-native-nested-scroll-view": "^6.0.1",
     "react-native-simple-table": "0.0.3",
+    "react-native-table-component": "^1.1.8",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11"
   },

@@ -53,8 +53,8 @@ export default class Events {
       return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getEvents(){
-      if(this.events.length > 0){
+    async getEvents(force){
+      if(this.events.length > 0 && !force){
         return Promise.resolve(this.events)
       } else {
         try {
@@ -74,11 +74,19 @@ export default class Events {
             eventsData.push(result)
           })
 
-          this.events = eventsData;
+          this.events = this.sortOnDate(eventsData);
           return Promise.resolve(eventsData)
         }catch (e) {
           Alert.alert("Couldn't get events", e.message)
         }
       }
     }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      return events
+    }
+
 };

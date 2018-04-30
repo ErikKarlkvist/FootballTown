@@ -13,7 +13,6 @@ export default class User {
   async getAuthorization() {
     firebase.auth().onAuthStateChanged(async (auth) => {
       if (auth) {
-        console.log(auth._user)
         let admin = await firebase.firestore().collection("users").doc(auth._user.uid).get()
         admin = admin.data()
         if(admin.role === "admin"){
@@ -26,10 +25,8 @@ export default class User {
   async loginAdmin(email, password) {
     try {
       const auth = await firebase.auth().signInAndRetrieveDataWithEmailAndPassword(email, password)
-      console.log(auth)
       let admin = await firebase.firestore().collection("users").doc(auth.user.uid).get()
       admin = admin.data()
-      console.log("success", admin)
       if(admin.role === "admin"){
         this.isAdmin = true;
       }
@@ -63,11 +60,34 @@ export default class User {
   async getFollowingTeam(id){
     try {
       const id = await AsyncStorage.getItem('userTeam')
-      const team = await firebase.firestore().collection("teams").doc(id).get()
-      return Promise.resolve(team.data())
+      const snapshot = await firebase.firestore().collection("teams").doc(id).get()
+      const team = await this.getPlayers(snapshot.data())
+      return Promise.resolve(team)
     } catch (error) {
       return Promise.resolve("error")
       // Error saving data
+    }
+  }
+
+  async getPlayers(team){
+    const promises = []
+    const teamInstance = this;
+    team.players.forEach((id) => {
+      promises.push(teamInstance.getPlayerForTeam(id))
+    })
+    const result = await Promise.all(promises)
+    team.players = result;
+    return Promise.resolve(team)
+  }
+
+  async getPlayerForTeam(id) {
+    try {
+      const snapshot = await firebase.firestore().collection("players").doc(id).get()
+      const player = snapshot.data()
+      player.id = snapshot.id;
+      return Promise.resolve(player)
+    }catch(e){
+      return Promise.resolve("NO SUCH PLAYER ID")
     }
   }
 

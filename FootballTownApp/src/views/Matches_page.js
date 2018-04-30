@@ -256,7 +256,8 @@ const styles = StyleSheet.create({
   image: {
     height: 35,
     width: 35,
-    flex: 0.3
+    flex: 0.3,
+    resizeMode: 'contain',
   },
   team: {
     flexDirection: "row",

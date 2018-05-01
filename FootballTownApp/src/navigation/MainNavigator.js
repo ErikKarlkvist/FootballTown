@@ -7,17 +7,17 @@ import {
 } from 'react-native';
 
 import {TabNavigator} from 'react-navigation';
-import Home from './HomeScreenNavigation'
-import My_Team_page from '../views/My_Team_page'
-import Near_By_page from '../views/Near_By_page'
-import Feed from './FeedNavigation'
-import News_page from '../views/News_page'
+import Home from './HomeScreenNavigation';
+import My_Team_page from '../views/My_Team_page';
+import Near_By_page from '../views/Near_By_page';
+import Feed from './FeedNavigation';
+import News_page from '../views/News_page';
 import GamesNavigation from './GamesNavigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Colors} from '../config/UIConfig'
+import {Colors} from '../config/UIConfig';
 import Iconm from 'react-native-vector-icons/MaterialIcons';
-import AdminAddGame from "../views/AdminAddGame"
-import Game_Details_page from "../views/Game_Details_page"
+import AdminAddGame from "../views/AdminAddGame";
+import Game_Details_page from "../views/Game_Details_page";
 
   //export default MainScreen;
 

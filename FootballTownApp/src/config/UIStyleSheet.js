@@ -38,3 +38,49 @@ export const GlobalStyles = StyleSheet.create({
 
 
 });
+
+export const PromptStyles = StyleSheet.create({
+
+  title: {
+    color: Colors.PrimaryText,
+    fontFamily: Fonts.Default,
+    fontSize: 28,
+    fontWeight: '400',
+    textAlign: 'left',
+    alignSelf:'flex-start'
+  },
+  button: {
+    paddingLeft: 80,
+  },
+  buttonContainer: {
+    alignSelf:'flex-end',
+    width: '50%',
+  },
+  pickerContainer: {
+    backgroundColor:'rgba(255,255,255,0.8)',
+    elevation: 1,
+    width: '100%',
+    marginTop:16,
+    marginBottom:16,
+    padding:4,
+
+  },
+  picker: {
+    height: 50,
+    width: '100%',
+  },
+
+  box: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    margin: 8,
+    padding: 8, 
+    marginTop: 'auto',
+    marginBottom:'auto',
+    backgroundColor:'rgba(255,255,255,0.8)',
+  },
+  page: {
+    flex: 1,
+  }
+});

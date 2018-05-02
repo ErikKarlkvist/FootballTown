@@ -46,7 +46,7 @@ export default class Team_page extends Component {
 
   componentDidMount(){
     this.setState({loading: true})
-    //Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
+    Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
     Factory.getUserInstance().getFollowingTeam().then((team) => {
       this.setState({
         loading: false,

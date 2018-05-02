@@ -1,3 +1,4 @@
+
 /**
 - Display a picture of the team or just a their logo
 - Display a team's name
@@ -12,12 +13,14 @@ import {
   Text,
   View,
   ScrollView,
+  Image,
 } from 'react-native';
+//import Icon from 'react-native-vector-icons/Ionicons'
+//MaterialIcons'
 import {TabNavigator, StackNavigator} from 'react-navigation';
 import {Colors} from "../config/UIConfig";
 import Team_page from "../views/Team_page";
 import PickTeam from "../views/PickTeam";
-import Players_Page from "../views/Players_page";
 
 
 
@@ -25,43 +28,48 @@ import Players_Page from "../views/Players_page";
 
 class MyTeam extends Component{
   render() {
-  //  if(false){
+//  if(Team_page !== []){
     return (
-      <Team_page />
-    );
-/*  }else{
-    return(
-      <PickTeam/>
+        <Team_page/>
     )
-  } */
+/*  else{
+    return(
+      <PickTeam />
+    )
+ } */
   }
  }
 
-class Players extends Component{
+  class Players extends Component{
   render() {
     return (
-      <Players_Page />
+      <View>
+        <Text>Players</Text>
+      </View>
     );
   }
 }
 
-export default TabNavigator({
-  Summary: {screen: MyTeam},
-  Players: {screen: Players},
-  },
-  {
-    animationEnabled: true,
-    swipeEnabled: true,
+
+
+
+  export default TabNavigator({
+    Team: {screen: MyTeam},
+    Players: {screen: Players},
+  },{
+   animationEnabled: true,
+   swipeEnabled: true,
     tabBarPosition:'top',
-    tabBarOptions: {
-    style: {
-      backgroundColor: Colors.Primary,
-      marginBottom: Platform.select({ ios: 0, android: -10, }),
-    },
+   tabBarOptions: {
+   style: {
+    backgroundColor: Colors.Primary,
+    marginBottom: Platform.select({ ios: 0, android: -10, }),
+
+  },
     labelStyle:{
       fontWeight: 'bold',
     },
     activeTintColor: Colors.PrimaryDarkText,
     inactiveTintColor: Colors.PrimaryDarkText2,
-  }
-});
+    }
+  });

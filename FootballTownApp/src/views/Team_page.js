@@ -38,7 +38,7 @@ export default class Team_page extends Component {
       fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [
-        ['1', '2', '3', '4', '30']
+        ['2', '2', '3', '4', '30']
 
       ]
     };
@@ -46,7 +46,7 @@ export default class Team_page extends Component {
 
   componentDidMount(){
     this.setState({loading: true})
-    //Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
+    Factory.getUserInstance().setFollowingTeam("HqII9sg9ZKLuZnLjX5ow")
     Factory.getUserInstance().getFollowingTeam().then((team) => {
       this.setState({
         loading: false,
@@ -84,6 +84,9 @@ export default class Team_page extends Component {
       </ScrollView>
     )
   }
+
+
+
 }
 
 const styles = StyleSheet.create({
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
   alignItems: 'flex-start',
     width: 120,
     height: 120,
-    padding: 19
+
   }
 
 });

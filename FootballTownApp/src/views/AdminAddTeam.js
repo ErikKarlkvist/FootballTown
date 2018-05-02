@@ -37,14 +37,16 @@ class AdminAddTeam extends Component{
       teams: Factory.getTeamsInstance(),
       name: "",
       flag: "",
-      points: 0,
-      draws: 0,
-      gamesPlayed: 0,
-      goalsConceded: 0,
-      goalsScored: 0,
-      rank: 0,
-      wins: 0,
-      losses: 0,
+      headerImage: "",
+      text: "",
+      points: "0",
+      draws: "0",
+      gamesPlayed: "0",
+      goalsConceded: "0",
+      goalsScored: "0",
+      rank: "0",
+      wins: "0",
+      losses: "0",
       players: [],
       fetchedPlayers: [],
       loading: false
@@ -64,6 +66,8 @@ class AdminAddTeam extends Component{
         <View style={styles.container}>
           <TextInput title={"Featured Flag URL"} value={this.state.flag} onChangeText={(text) => {this.setState({flag: text})}}/>
           <TextInput style = {{marginTop: 20}} title={"Name"} value={this.state.name} onChangeText={(text) => {this.setState({name: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Header Image URL"} value={this.state.headerImage} onChangeText={(text) => {this.setState({headerImage: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Description"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
           <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Points"} value={this.state.points} onChangeText={(text) => {this.setState({points: text})}}/>
           <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Wins"} value={this.state.wins} onChangeText={(text) => {this.setState({wins: text})}}/>
           <TextInput style = {{marginTop: 20}} keyboardType={"numeric"} title={"Draws"} value={this.state.draws} onChangeText={(text) => {this.setState({draws: text})}}/>
@@ -78,7 +82,6 @@ class AdminAddTeam extends Component{
             renderItem={({ item }) => (
               <ListPicker title={`${item.firstName} ${item.lastName}`} value={this.state.players.includes(item.id)} onValueChange={() => {return this.addPlayer(item)}}/>
             )}
-            style={{height: 300}}
             extraData={this.state}
             keyExtractor={item => item.id}
           />
@@ -115,6 +118,8 @@ class AdminAddTeam extends Component{
     const {
       name,
       flag,
+      headerImage,
+      text,
       points,
       draws,
       gamesPlayed,
@@ -126,14 +131,16 @@ class AdminAddTeam extends Component{
       players,
     } = this.state
 
-    if(!flag || !name){
-      Alert.alert("Please fill at least name and flag")
+    if(!flag || !name || !headerImage || !text){
+      Alert.alert("Please fill at least name, flag, header image and Description")
       return;
     }
 
     const teamsObject = {
       name,
       flag,
+      headerImage,
+      text,
       points,
       draws,
       gamesPlayed,

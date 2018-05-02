@@ -38,6 +38,8 @@ export default class Teams {
       const newTeam = {
         name: tmpTeam.name,
         flag: tmpTeam.flag,
+        headerImage: tmpTeam.headerImage,
+        text: tmpTeam.text,
         points: tmpTeam.points || 0,
         draws: tmpTeam.draws || 0,
         gamesPlayed: tmpTeam.gamesPlayed || 0,
@@ -63,7 +65,7 @@ export default class Teams {
         }
       }
 
-      return firebase.firestore().collection("games").doc(id).remove()
+      return firebase.firestore().collection("teams").doc(id).delete()
     }
 
     updateTeam(tmpTeams){
@@ -117,7 +119,7 @@ export default class Teams {
         promises.push(teamInstance.getPlayerForTeam(id))
       })
       const result = await Promise.all(promises)
-      team.players = result;
+      team.players = result.sort();
       return Promise.resolve(team)
     }
 
@@ -130,7 +132,7 @@ export default class Teams {
         result.id = snapshot.id;
         playersData.push(result)
       })
-      return Promise.resolve(playersData)
+      return Promise.resolve(playersData.sort())
     }
 
     async getPlayerForTeam(id) {

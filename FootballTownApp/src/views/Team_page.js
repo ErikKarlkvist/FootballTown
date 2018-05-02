@@ -11,8 +11,8 @@ import {
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
-
 import { Table, Row, Rows } from 'react-native-table-component';
+import TeamDesc from "../component/TeamDesc";
 
 
 let tempImage = "https://images.pexels.com/photos/39562/the-ball-stadion-football-the-pitch-39562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";

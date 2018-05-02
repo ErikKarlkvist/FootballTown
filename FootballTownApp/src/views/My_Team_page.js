@@ -18,23 +18,24 @@ import {
 //MaterialIcons'
 import {TabNavigator, StackNavigator} from 'react-navigation';
 import {Colors} from "../config/UIConfig";
-import Team_page from "../views/Team_page"
-import PickTeam from "../views/PickTeam"
+import Team_page from "../views/Team_page";
+import PickTeam from "../views/PickTeam";
+
 
 
 
 
 class MyTeam extends Component{
   render() {
-    if(false){
+  //  if(false){
     return (
       <Team_page />
     );
-  }else{
+/*  }else{
     return(
       <PickTeam/>
     )
-  }
+  } */
   }
  }
 

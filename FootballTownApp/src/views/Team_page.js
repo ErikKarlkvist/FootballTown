@@ -30,13 +30,12 @@ export default class Team_page extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       loading: false,
       page: 1,
       errors: null,
       refreshing: false,
       user: Factory.getUserInstance(),
-      fetchedTeam: null,
+      fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [
         ['1', '2', '3', '4', '30']
@@ -53,7 +52,6 @@ export default class Team_page extends Component {
         loading: false,
         fetchedTeam: team,
       })
-      console.log(user)
     })
   }
 
@@ -63,7 +61,7 @@ export default class Team_page extends Component {
       <ScrollView>
         <Image
         style={{width: screenWidth, height: imageHeight}}
-        source={{uri: tempImage}}/>
+        source={{uri: this.state.fetchedTeam.headerImage}}/>
 
         <View style={GlobalStyles.articleContainer}>
           <View><Text>{this.state.fetchedTeam.name}</Text></View>

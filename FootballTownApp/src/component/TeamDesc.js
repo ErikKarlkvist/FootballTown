@@ -5,7 +5,9 @@ import {Colors} from '../config/UIConfig';
 
 
 
-export default class FootballScore extends Component {
+
+
+export default class TeamDesc extends Component {
   constructor(props) {
   	super(props);const Teams = Factory.getTeamsInstance();
 
@@ -14,20 +16,22 @@ export default class FootballScore extends Component {
       page: 1,
       errors: null,
       refreshing: false,
-      team: Factory.getTeamsInstance(),
+      user: Factory.getUserInstance(),
       fetchedTeam: null
     };
 }
 
 componentDidMount(){
   this.setState({loading: true})
-  this.state.team.getTeams().then((team) => {
-    this.setState({
+  Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
+  Factory.getUserInstance().getFollowingTeam().then((user) =>
+  {console.log(user)})
+  this.setState({
       loading: false,
-      fetchedTeam: team,
+      fetchedTeam: user,
     })
-  })
-}
+  }
+
 
 
   refresh = () => {
@@ -49,27 +53,11 @@ componentDidMount(){
 
     );
   };
-
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: "100%",
-          backgroundColor: "#FFF",
-        }}
-      />
-    );
-  };
-
-
   render() {
     return (
 
           data={this.state.fetchedTeam}
-          renderItem={({ item }) => (
-            <View> team={item.name} </View>
-          )}
+          <View> team={data.name} </View>
           keyExtractor={item => item.id}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
@@ -80,37 +68,4 @@ componentDidMount(){
           onEndReachedThreshold={50}
     );
   }
-  }
-
-  class ShowTeamView extends Component {
-
-
-    constructor(props) {
-      super(props);
-  }
-
-  // Returns the news text to be shown for a given article
- getExceptText(length) {
-    if(this.props.except != null) {
-      return this.props.except;
-    } else if(this.props.text.length < length) {
-      return this.props.text
-    } else {
-      return (this.props.text.substring(0,length) + "...")
-    }
-  } */
-
-  /*  render() {
-      return (
-
-        <Image
-        style={{width: screenWidth, height: imageHeight}}
-        source={{uri: tempImage}}/>
-
-          <View>
-         <Text >{this.props.name}</Text>
-         </View>
-
-      );
-    }
-  }
+}

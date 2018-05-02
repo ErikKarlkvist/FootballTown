@@ -11,6 +11,8 @@ import {
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
+import Factory from '../database/Factory';
+
 
 import { Table, Row, Rows } from 'react-native-table-component';
 
@@ -20,50 +22,110 @@ const screenWidth = dimensions.width;
 
 
 export default class Players_page extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            page: 1,
+            errors: null,
+            refreshing: false,
+        team: Factory.getNewsInstance(),
+        fetchedNews: [],
+        navigator: props.navigator,
+        itemCount: this.props.itemCount,
+        };
+  
+    }
+  
+    componentDidMount(){
+      this.refreshData()
+    }
+  
+    refreshData = () =>{
+      this.setState({loading:true})
+      this.state.news.getNews(true).then((news) => {
+        console.log(news)
+        this.setState({loading: false, refreshing: false, fetchedNews: news})
+      })
+    }
+  
+    handleRefresh = () => {
+      this.setState(
+        {
+          page: 1,
+          refreshing: true
+        }
+      );
+      this.refreshData();
+    };
+  
+
+    render() {
+        const state = this.state;
+        return (
+            <ScrollView style={styles.viewContainer}>
+            <View style={styles.playerContainer}>
+                <View style={styles.playerNumberContainer}>
+                    <View style={styles.playerNumberCircle}>
+                <Text style={styles.playerNumber}>1</Text>
+                </View>
+                </View>
+                <View style={styles.playerInfoContainer}>
+                    <Text style={styles.playerName}>Mick Jagger</Text>
+                    <Text style={styles.playerPosition}>Right Defense</Text>
+                </View>
+                <View style={styles.playerImageContainer}>
+                    <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
+                </View>
+            </View>
+    
+            <View style={styles.playerContainer}>
+                <View style={styles.playerNumberContainer}>
+                    <View style={styles.playerNumberCircle}>
+                <Text style={styles.playerNumber}>7</Text>
+                </View>
+                </View>
+                <View style={styles.playerInfoContainer}>
+                    <Text style={styles.playerName}>Captain America</Text>
+                    <Text style={styles.playerPosition}>Mascot</Text>
+                </View>
+                <View style={styles.playerImageContainer}>
+                    <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
+                </View>
+            </View>
+            </ScrollView>
+        )
+    }
+}
+        
+    
+
+class PlayerItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
-  }
+}
 
   render() {
-    const state = this.state;
     return (
-      <ScrollView style={styles.viewContainer}>
         <View style={styles.playerContainer}>
             <View style={styles.playerNumberContainer}>
                 <View style={styles.playerNumberCircle}>
-            <Text style={styles.playerNumber}>1</Text>
+            <Text style={styles.playerNumber}>{this.props.player.squadNumber}</Text>
             </View>
             </View>
             <View style={styles.playerInfoContainer}>
-                <Text style={styles.playerName}>Mick Jagger</Text>
-                <Text style={styles.playerPosition}>Right Defense</Text>
+                <Text style={styles.playerName}>{this.props.player.firstName} {this.props.player.lastName}</Text>
+                <Text style={styles.playerPosition}>{this.props.player.position}</Text>
             </View>
             <View style={styles.playerImageContainer}>
-                <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
+                <Image resizeMode="contain" style={styles.playerImage} source={{uri: this.props.player.imageURL}}/>
             </View>
         </View>
-
-        <View style={styles.playerContainer}>
-            <View style={styles.playerNumberContainer}>
-                <View style={styles.playerNumberCircle}>
-            <Text style={styles.playerNumber}>7</Text>
-            </View>
-            </View>
-            <View style={styles.playerInfoContainer}>
-                <Text style={styles.playerName}>Captain America</Text>
-                <Text style={styles.playerPosition}>Mascot</Text>
-            </View>
-            <View style={styles.playerImageContainer}>
-                <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
-            </View>
-        </View>
-      </ScrollView>
-    )
+    );
   }
 }
 
+ 
 const styles = StyleSheet.create({
   viewContainer: {
     paddingTop: 16,

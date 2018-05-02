@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import {AppRegistry, Text, View, StyleSheet, Image } from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig';
+import Team_page from "../views/Team_page";
 
 export default class TeamDesc extends Component {
   constructor(props) {
@@ -36,3 +37,4 @@ export default class TeamDesc extends Component {
     );
   }
 }
+*/

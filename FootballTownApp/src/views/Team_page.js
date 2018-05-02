@@ -59,15 +59,19 @@ export default class Team_page extends Component {
     const state = this.state;
     return (
       <ScrollView>
+
         <Image
         style={{width: screenWidth, height: imageHeight}}
         source={{uri: this.state.fetchedTeam.headerImage}}/>
 
-        <View style={GlobalStyles.articleContainer}>
-          <View><Text>{this.state.fetchedTeam.name}</Text></View>
-        </View>
-
-        <View style={styles.container}>
+          <View >
+          <Text style={styles.teamTitle}>
+          <Image
+          style={styles.flagStyle}
+          source={{uri: this.state.fetchedTeam.flag}}/>
+          {this.state.fetchedTeam.name}</Text>
+          </View >
+          <View style={styles.container}>
           <Table borderStyle={{borderWidth: 0.5, borderColor: 'black'}}>
             <Row data={state.tableHead} style={styles.head} textStyle={styles.textHead}/>
             <Rows data={state.tableData} textStyle={styles.text}/>
@@ -75,7 +79,7 @@ export default class Team_page extends Component {
           </View>
 
           <View style={GlobalStyles.articleContainer}>
-            <Text style={GlobalStyles.text}>{teamText}</Text>
+            <Text style={GlobalStyles.text}>{this.state.fetchedTeam.text}</Text>
           </View>
       </ScrollView>
     )
@@ -86,6 +90,7 @@ const styles = StyleSheet.create({
   container: { flex: 1,
     padding: 10,
     paddingTop: 10,
+
 
 
         },
@@ -100,10 +105,27 @@ const styles = StyleSheet.create({
 
   },
   textHead:{
-    margin: 6,
+
+    margin: 3,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#fff'
 
-        }
+  },
+  teamTitle:{
+
+      color: Colors.PrimaryText,
+      fontFamily: Fonts.Default,
+      fontSize: 36,
+      fontWeight: '400',
+      textAlign: 'center',
+
+  },
+  flagStyle:{
+  alignItems: 'flex-start',
+    width: 120,
+    height: 120,
+    padding: 19
+  }
+
 });

@@ -15,6 +15,7 @@ export const Colors = {
   ArticleBackground: "#fff",
   CardViewBackground: "#f9f9f9",
   PrimaryBackground: "#F5F5F5",
+  Warning: "#d65151",
   Link: "#4286f4"
 }
 

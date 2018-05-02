@@ -11,8 +11,9 @@ import {
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
-
 import { Table, Row, Rows } from 'react-native-table-component';
+import Factory from '../database/Factory';
+
 
 
 let tempImage = "https://images.pexels.com/photos/39562/the-ball-stadion-football-the-pitch-39562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
@@ -29,12 +30,29 @@ export default class Team_page extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
+      page: 1,
+      errors: null,
+      refreshing: false,
+      user: Factory.getUserInstance(),
+      fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [
         ['1', '2', '3', '4', '30']
 
       ]
-    }
+    };
+  }
+
+  componentDidMount(){
+    this.setState({loading: true})
+    //Factory.getUserInstance().setFollowingTeam("Mx7bWLt3BsrwWEX4XCDn")
+    Factory.getUserInstance().getFollowingTeam().then((team) => {
+      this.setState({
+        loading: false,
+        fetchedTeam: team,
+      })
+    })
   }
 
   render() {
@@ -43,10 +61,10 @@ export default class Team_page extends Component {
       <ScrollView>
         <Image
         style={{width: screenWidth, height: imageHeight}}
-        source={{uri: tempImage}}/>
+        source={{uri: this.state.fetchedTeam.headerImage}}/>
 
         <View style={GlobalStyles.articleContainer}>
-          <Text style={GlobalStyles.title}>{teamTitle}</Text>
+          <View><Text>{this.state.fetchedTeam.name}</Text></View>
         </View>
 
         <View style={styles.container}>

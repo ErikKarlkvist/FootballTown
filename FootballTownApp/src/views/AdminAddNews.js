@@ -31,13 +31,27 @@ class AdminAddNews extends Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      news: Factory.getNewsInstance(),
-      imageUrl: "",
-      title: "",
-      ingress: "",
-      text: "",
-      loading: false
+    if(this.props.navigation.state.params.newsStory){
+      const newsStory = this.props.navigation.state.params.newsStory
+      this.state = {
+        news: Factory.getNewsInstance(),
+        imageUrl: newsStory.imageUrl,
+        title: newsStory.title,
+        ingress: newsStory.ingress,
+        text: newsStory.text,
+        loading: false,
+        update: true
+      }
+    } else {
+      this.state = {
+        news: Factory.getNewsInstance(),
+        imageUrl: "",
+        title: "",
+        ingress: "",
+        text: "",
+        loading: false,
+        update: false
+      }
     }
   }
 
@@ -51,7 +65,7 @@ class AdminAddNews extends Component{
           <TextInput style = {{marginTop: 20}} inputStyle = {{height: 80}} title={"Article Summary"} value={this.state.ingress} onChangeText={(text) => {this.setState({ingress: text})}}/>
           <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Article Body"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
           <View style= {styles.buttonContainer}>
-            <Button color={Colors.Primary} title={"Save"} onPress = {this.saveNews}/>
+            <Button color={Colors.Primary} title={this.state.update ? "Update" : "Save"} onPress = {this.saveNews}/>
           </View>
         </View>
         </ScrollView>
@@ -80,13 +94,18 @@ class AdminAddNews extends Component{
       text
     }
 
-    this.setState({loading:true})
-    this.state.news.addNews(newsObject).then(() => {
-      this.setState({
-        loading:false,
+    if(this.state.update){
+      this.state.news.updateNews(newsObject)
+      Alert.alert("News succesfully updated");
+      this.props.navigation.state.params.refresh(newsObject)
+    } else {
+      this.state.news.addNews(newsObject).then(() => {
+        this.setState({
+          loading:false,
+        })
+        Alert.alert("News succesfully uploaded");
       })
-      Alert.alert("News succesfully uploaded");
-    })
+    }
     //goBack
   }
 }

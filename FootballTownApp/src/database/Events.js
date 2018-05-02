@@ -31,7 +31,7 @@ export default class Events {
         }
       }
 
-      return firebase.firestore().collection("games").doc(newGame.id).remove()
+      return firebase.firestore().collection("events").doc(id).delete()
     }
 
     updateEvents(tmpEvents){

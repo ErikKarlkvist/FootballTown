@@ -36,6 +36,7 @@ export default class Games {
       return firebase.firestore().collection("games").add(newGame).then((ref) => {
         newGame.id = ref.id;
         this.games.push(newGame);
+        this.games = this.sortOnDate(this.games)
       })
     }
 
@@ -54,6 +55,7 @@ export default class Games {
           this.games[i] = tmpGame;
         }
       }
+
       const newGame = {
         team1: tmpGame.team1Uid,
         team2: tmpGame.team2Uid,
@@ -109,11 +111,18 @@ export default class Games {
             cleanedResult.push(result)
           }
 
-          this.games = cleanedResult;
+          this.games = this.sortOnDate(cleanedResult);
           return Promise.resolve(cleanedResult)
         }catch(e) {
           Alert.alert("Something went wrong", e.message)
         }
       }
+    }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      return events
     }
 };

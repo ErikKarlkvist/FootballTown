@@ -18,6 +18,7 @@ export default class News {
       return firebase.firestore().collection("news").add(newNews).then((ref) => {
         newNews.id = ref.id;
         this.news.push(newNews);
+        this.news = this.sortOnDate(this.news)
       }).catch((e) => {
         Alert.alert("Something went wrong", e.message);
       })
@@ -62,9 +63,15 @@ export default class News {
           result.id = snapshot.id;
           newsData.push(result)
         })
-        console.log(newsData)
-        this.news = newsData;
+        this.news = this.sortOnDate(newsData);
         return Promise.resolve(newsData)
       }
+    }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+      return events
     }
 };

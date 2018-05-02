@@ -52,6 +52,7 @@ export default class Teams {
       return firebase.firestore().collection("teams").add(newTeam).then((ref) => {
         newTeam.id = ref.id;
         this.teams.push(newTeam);
+        this.teams.sort()
       })
     }
 

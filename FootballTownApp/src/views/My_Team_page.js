@@ -21,41 +21,49 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 import {Colors} from "../config/UIConfig";
 import Team_page from "../views/Team_page";
 import PickTeam from "../views/PickTeam";
+import Players_page from "../views/Players_page";
+import Factory from "../database/Factory";
 
 
-
-
-
-class MyTeam extends Component{
-  render() {
-//  if(Team_page !== []){
-    return (
-        <Team_page/>
-    )
-/*  else{
-    return(
-      <PickTeam />
-    )
- } */
+export default class Checker extends Component {
+  constructor(){
+    super()
+    this.state = {
+      hasSelectedTeam: false
+    }
   }
- }
 
-  class Players extends Component{
+  componentDidMount(){
+    Factory.getUserInstance().getFollowingTeam().then((team) => {
+      console.log(team)
+      let hasSelectedTeam = false
+      if(team && team.id){
+        console.log("team exists")
+        hasSelectedTeam = true
+      }
+      this.setState({hasSelectedTeam})
+    })
+  }
+
   render() {
-    return (
-      <View>
-        <Text>Players</Text>
-      </View>
-    );
+  if(this.state.hasSelectedTeam){
+    return <NavBar reload={this.state.hasSelectedTeam}/>
+  }else{
+    return(
+      <PickTeam setHasSelected={this.setHasSelected}/>
+    )
+    } 
+  }
+
+  setHasSelected = (hasSelectedTeam) => {
+    this.setState({hasSelectedTeam})
   }
 }
 
 
-
-
-  export default TabNavigator({
-    Team: {screen: MyTeam},
-    Players: {screen: Players},
+const NavBar = TabNavigator({
+    Team: {screen: Team_page},
+    Players: {screen: Players_page},
   },{
    animationEnabled: true,
    swipeEnabled: true,

@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  FlatList,
 } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
@@ -25,74 +26,38 @@ export default class Players_page extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false,
-            page: 1,
-            errors: null,
-            refreshing: false,
-        team: Factory.getNewsInstance(),
-        fetchedNews: [],
-        navigator: props.navigator,
-        itemCount: this.props.itemCount,
+          loading: false,
+          errors: null,
+          refreshing: false,
+          user: Factory.getUserInstance(),
+          fetchedTeam: {},
+          players: []
+
         };
-  
-    }
-  
+      }
+    
     componentDidMount(){
-      this.refreshData()
+        this.setState({loading: true})
+        this.state.user.getFollowingTeam().then((team) => {
+          this.setState({
+            loading: false,
+            fetchedTeam: team,
+            players: team.players
+          })
+        })
     }
-  
-    refreshData = () =>{
-      this.setState({loading:true})
-      this.state.news.getNews(true).then((news) => {
-        console.log(news)
-        this.setState({loading: false, refreshing: false, fetchedNews: news})
-      })
-    }
-  
-    handleRefresh = () => {
-      this.setState(
-        {
-          page: 1,
-          refreshing: true
-        }
-      );
-      this.refreshData();
-    };
-  
 
     render() {
         const state = this.state;
         return (
             <ScrollView style={styles.viewContainer}>
-            <View style={styles.playerContainer}>
-                <View style={styles.playerNumberContainer}>
-                    <View style={styles.playerNumberCircle}>
-                <Text style={styles.playerNumber}>1</Text>
-                </View>
-                </View>
-                <View style={styles.playerInfoContainer}>
-                    <Text style={styles.playerName}>Mick Jagger</Text>
-                    <Text style={styles.playerPosition}>Right Defense</Text>
-                </View>
-                <View style={styles.playerImageContainer}>
-                    <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
-                </View>
-            </View>
-    
-            <View style={styles.playerContainer}>
-                <View style={styles.playerNumberContainer}>
-                    <View style={styles.playerNumberCircle}>
-                <Text style={styles.playerNumber}>7</Text>
-                </View>
-                </View>
-                <View style={styles.playerInfoContainer}>
-                    <Text style={styles.playerName}>Captain America</Text>
-                    <Text style={styles.playerPosition}>Mascot</Text>
-                </View>
-                <View style={styles.playerImageContainer}>
-                    <Image resizeMode="contain" style={styles.playerImage} source={{uri: 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p11334.png'}}/>
-                </View>
-            </View>
+            <FlatList
+            data={this.state.players}
+            renderItem={({ item }) => (
+                <PlayerItem player = {item}/>
+            )}
+            keyExtractor={item => item.id}
+          />
             </ScrollView>
         )
     }
@@ -166,10 +131,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   playerImageContainer: {
-      flex: 1,
-      padding: 8,
-      borderBottomColor: Colors.PrimaryLight,
-      borderBottomWidth: 1,
+    flex: 1,
+    padding: 8,
+    borderBottomColor: Colors.PrimaryLight,
+    borderBottomWidth: 1,
+    justifyContent: 'center',
   },
   playerImage: {
       height: undefined,

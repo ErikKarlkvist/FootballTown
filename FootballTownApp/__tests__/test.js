@@ -71,6 +71,31 @@ it('remove news correctly', () => {
     })
   })
 })
+// update news
+it('update news correctly', () => {
+  News.getNews().then((news) => {
+    expect(news.length).toBe(0)
+    const newNews = {
+      title: 'Title',
+      ingress: 'Ingress',
+      text: 'iadssijadoasdjoidas',
+      imageUrl: 'koadsdsaokdsodsa',
+    }
+    News.addNews(newNews)
+    News.getNews().then(news => {
+      expect(news.length).toBe(1)
+      const id = news[0].id
+      News.removeNews(id)
+      News.getNews().then(news => {
+      expect(news.length).toBe(0)
+      News.updateNews(id)
+      News.getNews().then(news => {
+        expect(news.length).toBe(1)
+      })
+    })
+  })
+})
+})
 //testing for event
 it('loads games correctly', () => {
   Games.getGames().then((games) => {
@@ -127,6 +152,36 @@ it('Remove Event correctly', () => {
     })
   })
 })
+// update events
+it('update Event correctly', () => {
+  Events.getEvents().then((events) => {
+    expect(events.length).toBe(0)
+    const newEvent = {
+      title: "title",
+      teams: "teams",
+      text: "text",
+      location: "the location",
+      price: "the price",
+      imageUrl: "image source ",
+      price: "the price of the event",
+      date: "the date of the event",
+      location: "the location of the event ",
+    }
+    Events.addEvent(newEvent)
+    Events.getEvent().then(events => {
+      expect(events.length).toBe(1)
+      const id = events[0].id
+      Events.removeEvents(id)
+      Events.getEvents().then(events => {
+        expect(events.length).toBe(0)
+        Events.updateEvents(id)
+        Events.getEvents().then(events => {
+          expect(events.length).toBe(1)
+      })
+    })
+  })
+})
+})
 //testing for Gomes
 it('loads games correctly', () => {
   Games.getGames().then((games) => {
@@ -177,6 +232,36 @@ it('Remove Games correctly', () => {
     })
   })
   })
+  //update the games
+  it('update Games correctly', () => {
+    Games.getGames().then((games) => {
+      expect(games.length).toBe(0)
+      const newGame = {
+        title: "title",
+        teams: "teams",
+        text: "text",
+        location: "the location",
+        price: "the price",
+        imageUrl: "image source ",
+        price: "the price of the event",
+        date: "the date of the event",
+        location: "the location of the event ",
+      }
+      Games.addGames(newGame)
+    Games.getGames().then(games => {
+        expect(games.length).toBe(1)
+        const id = games[0].id
+        Games.removeGames(id)
+        Games.getGames().then(games => {
+          expect(games.length).toBe(0)
+          Games.updateGames(id)
+          Games.getGames().then(games => {
+            expect(games.length).toBe(1)
+        })
+      })
+    })
+    })
+    })
 // testing teams
 it('loads Teams correctly', () => {
   Teams.getTeams().then((teams) => {
@@ -218,8 +303,8 @@ Teams.getTeams().then((teams) => {
     })
   })
 })
-//
-it('updateteam Teams correctly', () => {
+//update team
+it('update team Teams correctly', () => {
 Teams.getTeams().then((teams) => {
     expect(teams.length).toBe(0)
     const newTeams = {
@@ -240,5 +325,12 @@ Teams.getTeams().then((teams) => {
 
       })
     })
+  })
+})
+})
+// testing for the user
+it('check if the user load correctly', () => {
+  Users.getUser().then((user) => {
+    expect(user.length).toBe(0)
   })
 })

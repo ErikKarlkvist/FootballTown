@@ -3,11 +3,8 @@ import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIn
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig'
 import {StackNavigator } from 'react-navigation';
-import AdminHeaderButton from "./AdminHeaderButton"
-import AdminAddEvents from "../views/AdminAddEvents"
-import AdminAddGame from "../views/AdminAddGame"
-import AdminAddNews from "../views/AdminAddNews"
 import News_page from '../views/News_page'
+
 export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
@@ -36,7 +33,7 @@ export class NewsComponent extends Component {
 
   refreshData = () =>{
     this.setState({loading:true})
-    this.state.news.getNews().then((news) => {
+    this.state.news.getNews(true).then((news) => {
       console.log(news)
       this.setState({loading: false, refreshing: false, fetchedNews: news})
     })
@@ -96,7 +93,7 @@ export class NewsComponent extends Component {
 
 // Opens a newsarticle and gives it the newsarticle
   openNewsArticle(newsArticle) {
-    this.props.navigation.navigate('Detail',{newsArticle});
+    this.props.navigation.navigate('Detail',{newsArticle, refresh:this.refreshData});
   }
 
   render() {

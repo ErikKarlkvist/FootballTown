@@ -46,7 +46,7 @@ export default class Games {
           this.games.splice(i, 1);
         }
       }
-      return firebase.firestore().collection("games").doc(newGame.id).remove()
+      return firebase.firestore().collection("games").doc(id).delete()
     }
 
     updateGames(tmpGame){

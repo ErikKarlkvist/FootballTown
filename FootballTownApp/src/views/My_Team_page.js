@@ -13,28 +13,30 @@ import {
   Text,
   View,
   ScrollView,
+  Image,
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
 import {TabNavigator, StackNavigator} from 'react-navigation';
 import {Colors} from "../config/UIConfig";
-import Team_page from "../views/Team_page"
-import PickTeam from "../views/PickTeam"
+import Team_page from "../views/Team_page";
+import PickTeam from "../views/PickTeam";
+
 
 
 
 
 class MyTeam extends Component{
   render() {
-    if(false){
+//  if(Team_page !== []){
     return (
-      <Team_page />
-    );
-  }else{
-    return(
-      <PickTeam/>
+        <Team_page/>
     )
-  }
+/*  else{
+    return(
+      <PickTeam />
+    )
+ } */
   }
  }
 

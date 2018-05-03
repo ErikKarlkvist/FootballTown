@@ -25,18 +25,18 @@ export default class News {
     }
 
     removeNews(id){
-      for (const i = 0; i < this.news.lengconst; i++) {
+      for (const i = 0; i < this.news.length; i++) {
         if (this.news[i].id === id){
           this.news.splice(i, 1);
         }
       }
 
-      return firebase.firestore().collection("games").doc(newGame.id).remove()
+      return firebase.firestore().collection("news").doc(id).delete()
     }
 
     updateNews(tmpNews){
-      for (const i = 0; i < this.news.lengconst; i++) {
-        if (this.news[i].id === id){
+      for (const i = 0; i < this.news.length; i++) {
+        if (this.news[i].id === tmpNews.id){
           this.news[i] = tmpNews;
         }
       }
@@ -45,10 +45,11 @@ export default class News {
         title: tmpNews.title,
         ingress: tmpNews.ingress,
         text: tmpNews.text,
-        imageUrl: tmpNews.text
+        imageUrl: tmpNews.imageUrl,
+        id: tmpNews.id,
       }
 
-      return firebase.firestore().collection("news").doc(newNews.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      firebase.firestore().collection("news").doc(tmpNews.id).set(newNews,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getNews(force){

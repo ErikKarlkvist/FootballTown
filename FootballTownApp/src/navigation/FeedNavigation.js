@@ -1,12 +1,11 @@
 import {EventComponent, EventsStory} from "../component/EventComponent"
-import AdminAddEvents from "../views/AdminAddEvents"
-import AdminAddGame from "../views/AdminAddGame"
-import AdminAddNews from "../views/AdminAddNews"
-import Admin from "../views/Admin"
 import AdminHeaderButton from "../component/AdminHeaderButton"
-import {NewsComponent, NewsStory} from "../component/NewsComponent"
+import {NewsComponent} from "../component/NewsComponent"
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
+import AdminAddNews from "../views/AdminAddNews"
+import AdminAddEvents from "../views/AdminAddEvents"
+import News_page from "../views/News_page"
 
 const TabNav = TabNavigator(
 {
@@ -54,7 +53,9 @@ const NewsStack = StackNavigator({
     headerTitle: 'Feed',
   })},
   Details2: {screen: EventsStory},
-  Detail: { screen: NewsStory },
+  Detail: { screen: News_page },
+  AdminAddNews: {screen: AdminAddNews},
+  AdminAddEvents: {screen: AdminAddEvents}
 }, navigationConfig);
 
 

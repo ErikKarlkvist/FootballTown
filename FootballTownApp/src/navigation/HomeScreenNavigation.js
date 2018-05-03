@@ -8,6 +8,7 @@ import AdminAddNews from "../views/AdminAddNews"
 import AdminAddPlayer from "../views/AdminAddPlayer"
 import AdminAddTeam from "../views/AdminAddTeam"
 import Admin from "../views/Admin"
+import News_page from "../views/News_page"
 
 const navigationConfig = {
   navigationOptions: {
@@ -25,7 +26,7 @@ const navigationConfig = {
 
 const HomeStack = StackNavigator({
   HomeScreen: { screen: Home_page },
-  Detail: { screen: NewsStory },
+  Detail: { screen: News_page },
   AdminAddGame: {screen: AdminAddGame},
   AdminAddEvents: {screen: AdminAddEvents},
   AdminAddNews: {screen: AdminAddNews},

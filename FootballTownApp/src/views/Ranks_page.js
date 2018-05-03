@@ -3,18 +3,18 @@ import React, { Component } from 'react';
 import {Button, AppRegistry,
 Text, FlatList, View, StyleSheet,
 Image, ActivityIndicator,
-TouchableHighlight} from 'react-native';
+TouchableHighlight, ScrollView} from 'react-native';
 
 import {Card,CardItem,
 Thumbnail,Body,
 Left,Right,
 Icon,ListItem,List,
 Container,Content,
-ScrollView
 } from 'native-base'
 
 import Factory from '../database/Factory';
-import {Colors} from '../config/UIConfig'
+import {Colors, Fonts} from '../config/UIConfig';
+import {GlobalStyles} from '../config/UIStyleSheet';
 import {StackNavigator } from 'react-navigation';
 
 export default class Ranks_page extends Component {
@@ -100,7 +100,6 @@ render() {
     if(!this.state.loading && this.state.fetchedteams!= []) {
       return (
         <View>
-           <Text style={styles.gamesTitle}>Current Ranks</Text>
         <FlatList
           data={this.state.fetchedteams}
           renderItem={({ item }) => (
@@ -119,7 +118,9 @@ render() {
         );
     } else {
       return(
+        <View style = {styles.loader}>
         <ActivityIndicator size="large" color={Colors.Primary} />
+        </View>
         );
     }
     }
@@ -132,59 +133,80 @@ class TeamsListItem extends Component {
   render() {
     console.log(this.props.TeamsStory)
      return (
-        <Card>
-            <CardItem cardBody style={{height:80,width:null,flex:1}}>
-                <Text style={styles.gamesTitle}>1</Text>
-                <Thumbnail source ={{uri: this.props.TeamsStory.flag}}/>
-                <Text style={styles.gamesTitle}>{this.props.TeamsStory.name}</Text>
-                <Text style={styles.scores}>{this.props.TeamsStory.points}</Text>
-            </CardItem>
-       </Card>
 
+      <View style={styles.rankContainer}>
+        <View style={styles.positionContainer}>
+            <Text style={styles.positionNumber}>1</Text>
+        </View>
+        <View style={styles.teamImageContainer}>
+            <Image resizeMode="contain" style={styles.teamImage} source={{uri: this.props.TeamsStory.flag}}/>
+        </View>
+        <View style={styles.teamNameContainer}>
+            <Text style={styles.teamName}>{this.props.TeamsStory.name}</Text>
+        </View>
+        <View style={styles.teamPointsContainer}>
+            <Text style={styles.teamPoints}>{this.props.TeamsStory.points} pts</Text>
+        </View>
 
-
-
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  gamesStory: {
-    margin: 1,
-    flex: 1, flexDirection: 'row',
-    height: '10%',
+  viewContainer: {
   },
-  gamesTitle: {
-    marginTop: 5,
-    marginLeft: 2,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: Colors.PrimaryText
-  },
-  gamesText:{
-  color: 'gray',
-  marginLeft: 2,
-  fontSize: 12,
-  },
-  gamesList:{
-    padding: 10,
-    backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 2,
+  rankContainer: {
+    margin: 4,
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: Colors.CardBackground,
     elevation: 1,
+  },
+  positionContainer: {
+    padding: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  positionNumber: {
+      fontWeight: 'bold',
+      fontSize: 16,
+  },
+  teamNameContainer: {
+    flex: 4,
+    paddingLeft: 0,
+    padding: 8,
+    justifyContent: 'center',
 
   },
-  scores:{
-    color: 'black',
-    fontSize: 18,
+  teamName: {
     fontWeight: 'bold',
-    flexDirection: 'row'
-    }
+    color: Colors.PrimaryText,
+    fontSize: 16,
+  },
+  teamImageContainer: {
+    flex: 1,
+    padding: 8,
+    justifyContent: 'center',
+  },
+  teamPointsContainer: {
+    flex: 1,
+    padding: 8,
+    justifyContent: 'center',
+    maxWidth: 64,
+  },
+  teamImage: {
+      height: undefined,
+      width: undefined,
+      maxHeight: 56,
+      minHeight: 44,
+      flex: 1,
+  },
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

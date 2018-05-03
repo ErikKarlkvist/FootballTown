@@ -53,11 +53,10 @@ class PickTeam extends Component{
         pickerItems: pickerItems,
       })
     })
-}
+  }
 
 
   render() {
-    console.log(this.state.selectedTeam)
     return (
       <ImageBackground
         style={{width: '100%', height: '100%',}}

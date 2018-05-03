@@ -14,6 +14,7 @@ import {
   View,
   ScrollView,
   Image,
+  ActivityIndicator
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
@@ -29,7 +30,8 @@ export default class Checker extends Component {
   constructor(){
     super()
     this.state = {
-      hasSelectedTeam: false
+      hasSelectedTeam: false,
+      hasLoaded: false
     }
   }
 
@@ -37,32 +39,45 @@ export default class Checker extends Component {
     Factory.getUserInstance().getFollowingTeam().then((team) => {
       console.log(team)
       let hasSelectedTeam = false
-      if(team && team.id){
+      if(team && team.name){
         console.log("team exists")
         hasSelectedTeam = true
       }
-      this.setState({hasSelectedTeam})
+      this.setState({hasSelectedTeam, hasLoaded: true})
     })
   }
 
   render() {
-  if(this.state.hasSelectedTeam){
-    return <NavBar reload={this.state.hasSelectedTeam}/>
-  }else{
-    return(
-      <PickTeam setHasSelected={this.setHasSelected}/>
-    )
-    } 
-  }
+    if(this.state.hasSelectedTeam){
+      return <NavBar setHasSelected={this.setHasSelected} reload={this.state.hasSelectedTeam}/>
+    }else if(this.state.hasLoaded){
+      return(
+        <PickTeam setHasSelected={this.setHasSelected}/>
+      )
+    } else {
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={Colors.PrimaryDark}/>
+        </View>
+      )
+    }
+}
 
   setHasSelected = (hasSelectedTeam) => {
     this.setState({hasSelectedTeam})
   }
 }
 
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+});
 
 const NavBar = TabNavigator({
-    Team: {screen: Team_page},
+    Team: { screen: Team_page },
     Players: {screen: Players_page},
   },{
    animationEnabled: true,

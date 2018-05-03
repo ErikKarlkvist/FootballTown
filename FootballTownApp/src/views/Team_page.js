@@ -7,11 +7,13 @@ import {
   ScrollView,
   Image,
   Dimensions,
-  FlatList
+  FlatList,
+  Picker,
+  Button
 } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
-import {GlobalStyles} from '../config/UIStyleSheet';
+import {GlobalStyles, PromptStyles} from '../config/UIStyleSheet';
 import { Table, Row, Rows } from 'react-native-table-component';
 import Factory from '../database/Factory';
 
@@ -32,16 +34,35 @@ export default class Team_page extends Component {
       errors: null,
       refreshing: false,
       user: Factory.getUserInstance(),
+      teams: Factory.getTeamsInstance(),
       fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [[]]
 
     };
+    console.log(this.props)
   }
 
   componentDidMount(){
     this.setState({loading: true})
-    Factory.getUserInstance().setFollowingTeam("HqII9sg9ZKLuZnLjX5ow")
+    this.getData()
+
+    this.state.teams.getTeams().then((teams) => {
+      var pickerItems = []
+      var fetchedTeams = []
+      for (const UID in teams) {
+        const items = <Picker.Item label={teams[UID].name} value={UID} />
+        pickerItems.push(items)
+        fetchedTeams.push(teams[UID])
+      }
+      this.setState({
+        fetchedTeams: fetchedTeams,
+        pickerItems: pickerItems,
+      })
+    })
+  }
+
+  getData(){
     Factory.getUserInstance().getFollowingTeam().then((team) => {
       const tableData = []
       const insideData = [team.rank, team.wins, team.draws, team.losses, team.points]
@@ -90,8 +111,28 @@ export default class Team_page extends Component {
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.text}>{this.state.fetchedTeam.text}</Text>
           </View>
+          <View style={PromptStyles.box}>
+            <Text style={PromptStyles.title}>Change Team</Text>
+            <View style={PromptStyles.pickerContainer}>
+              <Picker
+                selectedValue={this.state.selectedTeam}
+                style={PromptStyles.picker}
+                onValueChange={(itemValue, itemIndex) => this.setState({selectedTeam: itemValue})}>
+                {this.state.pickerItems}
+              </Picker>
+            </View>
+            <View style={PromptStyles.buttonContainer}>
+              <Button style={PromptStyles.button} color={Colors.Primary} title={"Change"} onPress = {this.onPress} />
+            </View>
+          </View>
       </ScrollView>
     )
+  }
+
+  onPress = () => {
+    console.log(this.state.fetchedTeams[this.state.selectedTeam].id)
+    Factory.getUserInstance().setFollowingTeam(this.state.fetchedTeams[this.state.selectedTeam].id)
+    this.getData()
   }
 
 

@@ -25,7 +25,7 @@ export default class Events {
     }
 
     removeEvents(id){
-      for (const i = 0; i < this.events.lengconst; i++) {
+      for (const i = 0; i < this.events.length; i++) {
         if (this.events[i].id === id){
           this.events.splice(i, 1);
         }
@@ -50,7 +50,7 @@ export default class Events {
         imageUrl: tmpEvents.text
       }
 
-      return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("events").doc(newEvent.id).update(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getEvents(force){

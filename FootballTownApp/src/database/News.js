@@ -49,7 +49,7 @@ export default class News {
         id: tmpNews.id,
       }
 
-      firebase.firestore().collection("news").doc(tmpNews.id).set(newNews,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("news").doc(tmpNews.id).update(newNews).catch((error) => {Alert.alert("Couldn't save", error.message)})
     }
 
     async getNews(force){

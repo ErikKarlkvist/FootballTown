@@ -31,7 +31,7 @@ class AdminAddNews extends Component{
 
   constructor(props){
     super(props);
-    if(this.props.navigation.state.params.newsStory){
+    if(this.props.navigation.state.params && this.props.navigation.state.params.newsStory){
       const newsStory = this.props.navigation.state.params.newsStory
       this.state = {
         news: Factory.getNewsInstance(),

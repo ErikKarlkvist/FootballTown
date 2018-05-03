@@ -303,8 +303,14 @@ Teams.getTeams().then((teams) => {
     })
   })
 })
+<<<<<<< HEAD
 //update team
 it('update team Teams correctly', () => {
+=======
+//
+
+it('updateteam Teams correctly', () => {
+>>>>>>> d8d95d8ebdbd70d4c1d5db8dc319fca290779c2c
 Teams.getTeams().then((teams) => {
     expect(teams.length).toBe(0)
     const newTeams = {
@@ -328,9 +334,12 @@ Teams.getTeams().then((teams) => {
   })
 })
 })
+<<<<<<< HEAD
 // testing for the user
 it('check if the user load correctly', () => {
   Users.getUser().then((user) => {
     expect(user.length).toBe(0)
   })
 })
+=======
+>>>>>>> d8d95d8ebdbd70d4c1d5db8dc319fca290779c2c

@@ -52,7 +52,7 @@ export default class Events {
         imageUrl: tmpEvents.text
       }
 
-      return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("events").doc(newEvent.id).update(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getEvents(){

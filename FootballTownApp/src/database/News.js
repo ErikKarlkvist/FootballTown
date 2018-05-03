@@ -47,7 +47,7 @@ export default class News {
         imageUrl: tmpNews.text
       }
 
-      return firebase.firestore().collection("news").doc(newNews.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("news").doc(newNews.id).update(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getNews(){

@@ -59,7 +59,7 @@ export default class Teams {
         imageUrl: tmpTeams.text
       }
 
-      return firebase.firestore().collection("events").doc(newTeam.id).set(newTeam,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("events").doc(newTeam.id).update(newTeam,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getTeams(){

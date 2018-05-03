@@ -61,7 +61,7 @@ export default class Games {
         goals2:  tmpGame.goals2,
         date: tmpGame.date
       }
-      return firebase.firestore().collection("games").doc(newGame.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("games").doc(newGame.id).update(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getGames(){

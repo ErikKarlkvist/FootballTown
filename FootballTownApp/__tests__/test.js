@@ -219,6 +219,7 @@ Teams.getTeams().then((teams) => {
   })
 })
 //
+
 it('updateteam Teams correctly', () => {
 Teams.getTeams().then((teams) => {
     expect(teams.length).toBe(0)
@@ -241,4 +242,5 @@ Teams.getTeams().then((teams) => {
       })
     })
   })
+})
 })

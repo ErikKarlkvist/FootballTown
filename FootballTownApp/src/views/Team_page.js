@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  FlatList
 } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
@@ -26,6 +27,7 @@ const imageHeight = Math.round(dimensions.width * 9 / 16);
 const screenWidth = dimensions.width;
 
 
+
 export default class Team_page extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +39,8 @@ export default class Team_page extends Component {
       user: Factory.getUserInstance(),
       fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
-      tableData: [
-        ['2', '2', '3', '4', '30']
+      tableData: [[]]
 
-      ]
     };
   }
 
@@ -48,11 +48,27 @@ export default class Team_page extends Component {
     this.setState({loading: true})
     Factory.getUserInstance().setFollowingTeam("HqII9sg9ZKLuZnLjX5ow")
     Factory.getUserInstance().getFollowingTeam().then((team) => {
+      const tableData = []
+      const insideData = [team.rank, team.wins, team.draws, team.losses, team.points]
+      tableData.push(insideData)
       this.setState({
         loading: false,
         fetchedTeam: team,
+        tableData: tableData
       })
     })
+  }
+
+  FlatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 0.2,
+          width: "100%",
+          backgroundColor: "#607D8B",
+        }}
+      />
+    );
   }
 
   render() {
@@ -129,6 +145,20 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
 
-  }
+  },
+  MainContainer :{
+
+// Setting up View inside content in Vertically center.
+justifyContent: 'center',
+flex:1,
+margin: 10
+
+},
+
+item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
 
 });

@@ -16,7 +16,7 @@ ScrollView
 
 import Factory from '../database/Factory';
 import {Colors, Fonts} from '../config/UIConfig'
-import {StackNavigator } from 'react-navigation';
+import {StackNavigator} from 'react-navigation';
 import AdminHeaderButton from "../component/AdminHeaderButton"
 export default class Matches_page extends Component {
   static navigationOptions = ({navigation}) => {
@@ -40,6 +40,8 @@ export default class Matches_page extends Component {
       games: Factory.getGamesInstance(),
       fetchedgames: [],
       navigator: props.navigator,
+      upcoming: [],
+      latest: [],
   	};
 
   }
@@ -51,22 +53,22 @@ export default class Matches_page extends Component {
   refreshData() {
     this.setState({loading:true})
     this.state.games.getGames().then((games) => {
-      const latest = []
-      const upcoming = []
+      const lat = []
+      const upc = []
       games.forEach(game => {
         if(game.status === "pending"){
-          upcoming.push(game)
+          upc.push(game)
         } else {
-          latest.push(game)
+          lat.push(game)
         }
       })
-      latest.sort(function(a,b){
+      lat.sort(function(a,b){
         return new Date(b.date) - new Date(a.date);
       });
-      upcoming.sort(function(a,b){
+      upc.sort(function(a,b){
         return new Date(b.date) - new Date(a.date);
       });
-      this.setState({loading: false, refreshing: false, upcoming, latest})
+      this.setState({loading: false, refreshing: false, upcoming: upc, latest: lat})
     })
   }
 
@@ -120,7 +122,7 @@ render() {
         <View style={{flex:1}}>
           <Text style={styles.headerTitle}>Upcoming Matches</Text>
           <FlatList
-            data={this.state.upcoming}
+            data={this.state.upcoming.slice(0, this.props.itemCount)}
             renderItem={({ item }) => (
               <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
             )}
@@ -135,7 +137,7 @@ render() {
           />
           <Text style={styles.headerTitle}>Latest Matches</Text>
           <FlatList
-            data={this.state.latest}
+            data={this.state.latest.slice(0,this.props.itemCount)}
             renderItem={({ item }) => (
               <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
             )}

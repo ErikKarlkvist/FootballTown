@@ -6,6 +6,7 @@ import AdminHeaderButton from "./AdminHeaderButton";
 import Events_page from "../views/Events_page";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from "react-native-vector-icons/Ionicons";
+
  export class EventComponent extends Component {
 
   constructor(props) {
@@ -123,7 +124,7 @@ getExceptText(length) {
         <View>
        <Text style={styles.eventsTitle}>{this.props.title}</Text>
        <Text style={styles.eventsText}>{this.getExceptText(160)} </Text>
-       <Text style={styles.locationPriceText}>   <Icon name='map-marker' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
+       <Text style={styles.locationPriceText}>   <Icon name='map-marker' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location.name}</Text>
        <Text style={styles.locationPriceText}>   <Ionicons name='md-pricetags' size={13} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>

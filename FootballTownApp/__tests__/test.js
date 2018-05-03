@@ -10,6 +10,7 @@ const Games = Factory.getGamesInstance();
 const News = Factory.getNewsInstance();
 const Events = Factory.getEventsInstance();
 const Teams = Factory.getTeamsInstance();
+const Users = Factory. getUserInstance();
 
 RNFirebase.initializeApp()
 RNFirebase.reset()
@@ -215,5 +216,35 @@ Teams.getTeams().then((teams) => {
         expect(teams.length).toBe(0)
       })
     })
+  })
+})
+//
+it('updateteam Teams correctly', () => {
+Teams.getTeams().then((teams) => {
+    expect(teams.length).toBe(0)
+    const newTeams = {
+      name: "name",
+      flag:"flag",
+      points:"points",
+    }
+  Teams.addTeam(newTeams)
+    Teams.getTeams().then(teams => {
+      expect(teams.length).toBe(1)
+      const id = teams[0].id
+    Teams.removeTeam(id)
+    Teams.getTeams().then(teams => {
+        expect(teams.length).toBe(0)
+        Teams.updateTeam(id)
+        Teams.getTeams().then(teams => {
+            expect(teams.length).toBe(1)
+
+      })
+    })
+  })
+})
+// test for the user
+it('see if the user information is  correctly', (Users) => {
+  Expect (firebase.auth().signInAnonymously().then((response) => {
+  console.log(response) , true)
   })
 })

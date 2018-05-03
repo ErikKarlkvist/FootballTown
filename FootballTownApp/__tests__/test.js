@@ -243,8 +243,8 @@ Teams.getTeams().then((teams) => {
   })
 })
 // test for the user
-it('see if the user information is  correctly', (Users) => {
+/*it('see if the user information is  correctly', (Users) => {
   Expect (firebase.auth().signInAnonymously().then((response) => {
   console.log(response) , true)
   })
-})
+})*/

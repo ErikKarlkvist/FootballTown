@@ -1,49 +1,44 @@
 /**
-  Location page, show yourt current locations and locations for events and games 
+  Location page, show the users current locations and locations for events and games 
 **/
 
 import React, { Component } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker,AnimatedRegion } from 'react-native-maps'
+import Factory from '../database/Factory';
 import {
-  Platform,
   StyleSheet,
-  Text,
   View,
   PermissionsAndroid
 } from 'react-native';
-import Ionicons from "react-native-vector-icons/Ionicons";
-//MaterialIcons'
-import {TabNavigator} from 'react-navigation';
+import {Colors} from '../config/UIConfig';
+
 const DEFAULT_LAT_DELTA =0.0922;
 const DEFAULT_LONG_DELTA = 0.0421;
+
 class Near_By_page extends Component{
   constructor(props) {
     super(props);
     this.state= {
       // Change for town in which to hold cup
       region: {
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      },
-      markers: [{key: 1,
-        latlng: {
-        latitude: 37.78825,
-        longitude: -122.4324,
+        latitude: 0,
+        longitude: 0,
         latitudeDelta: DEFAULT_LAT_DELTA,
         longitudeDelta: DEFAULT_LONG_DELTA,
       },
-        title: "Yolo",
-        description: "I like cake",
-        pinColor: "#FF69B4",
-
-      }] // List of interesting places. 
+      eventsFactory: Factory.getEventsInstance(),
+      events: [],
     }
   }
+  // Once the component has launched, fetch the events and the current location of the user. 
   componentDidMount() {
-    return getCurrentLocation().then(position => {
+    this.state.eventsFactory.getEvents().then((events) => {
+      console.log("Successfully fetched events to the map view. ")
+      this.setState({events: events})
+    })
+    getCurrentLocation().then(position => {
         if(position) {
+          console.log("Successfully fetched the user position")
           this.setState({
             region: {
               latitude: position.coords.latitude,
@@ -52,6 +47,8 @@ class Near_By_page extends Component{
               longitudeDelta: DEFAULT_LONG_DELTA,
           },
           })
+        } else {
+          console.log("Unable to fetch the users location.")
         }
 
     })
@@ -69,12 +66,12 @@ class Near_By_page extends Component{
 
 
         >
-        {this.state.markers.map(marker => (
+        {this.state.events.map(event => (
           <Marker 
-            coordinate={marker.latlng}
-            title={marker.title}
-            description={marker.description}
-            pinColor={marker.pinColor}
+            coordinate={event.location}
+            title={event.title}
+            description={event.text.substring(0.50) + '...'}
+            pinColor={Colors.DefaultMapPinColor}
             />
           ))}
 
@@ -89,17 +86,7 @@ class Near_By_page extends Component{
 
   export default Near_By_page;
 
-  export const setRegion = (position) => {
-    this.setState({
-            region: {
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-              latitudeDelta: DEFAULT_LAT_DELTA,
-              longitudeDelta: DEFAULT_LONG_DELTA,
-          },
-        })
-  }
-
+// Returns the current location of the user. 
 const getCurrentLocation = () => {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(position => resolve(position), e => reject(e));

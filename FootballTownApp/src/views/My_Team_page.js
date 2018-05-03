@@ -14,6 +14,7 @@ import {
   View,
   ScrollView,
   Image,
+  ActivityIndicator
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
@@ -21,41 +22,63 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 import {Colors} from "../config/UIConfig";
 import Team_page from "../views/Team_page";
 import PickTeam from "../views/PickTeam";
+import Players_page from "../views/Players_page";
+import Factory from "../database/Factory";
 
 
-
-
-
-class MyTeam extends Component{
-  render() {
-//  if(Team_page !== []){
-    return (
-        <Team_page/>
-    )
-/*  else{
-    return(
-      <PickTeam />
-    )
- } */
+export default class Checker extends Component {
+  constructor(){
+    super()
+    this.state = {
+      hasSelectedTeam: false,
+      hasLoaded: false
+    }
   }
- }
 
-  class Players extends Component{
+  componentDidMount(){
+    Factory.getUserInstance().getFollowingTeam().then((team) => {
+      console.log(team)
+      let hasSelectedTeam = false
+      if(team && team.name){
+        console.log("team exists")
+        hasSelectedTeam = true
+      }
+      this.setState({hasSelectedTeam, hasLoaded: true})
+    })
+  }
+
   render() {
-    return (
-      <View>
-        <Text>Players</Text>
-      </View>
-    );
+    if(this.state.hasSelectedTeam){
+      return <NavBar setHasSelected={this.setHasSelected} reload={this.state.hasSelectedTeam}/>
+    }else if(this.state.hasLoaded){
+      return(
+        <PickTeam setHasSelected={this.setHasSelected}/>
+      )
+    } else {
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={Colors.PrimaryDark}/>
+        </View>
+      )
+    }
+}
+
+  setHasSelected = (hasSelectedTeam) => {
+    this.setState({hasSelectedTeam})
   }
 }
 
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+});
 
-
-
-  export default TabNavigator({
-    Team: {screen: MyTeam},
-    Players: {screen: Players},
+const NavBar = TabNavigator({
+    Team: { screen: Team_page },
+    Players: {screen: Players_page},
   },{
    animationEnabled: true,
    swipeEnabled: true,

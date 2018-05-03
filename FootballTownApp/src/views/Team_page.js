@@ -7,23 +7,22 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  FlatList,
+  Picker,
+  Button
 } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
-import {GlobalStyles} from '../config/UIStyleSheet';
+import {GlobalStyles, PromptStyles} from '../config/UIStyleSheet';
 import { Table, Row, Rows } from 'react-native-table-component';
 import Factory from '../database/Factory';
 
 
 
-let tempImage = "https://images.pexels.com/photos/39562/the-ball-stadion-football-the-pitch-39562.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-let teamTitle = "Arsenal FC";
-let teamText = "Arsenal F.C. is a professional football club based in Islington, London, England, that plays in the Premier League, the top flight of English football. The club has won 13 League titles, a record 13 FA Cups, two League Cups, the League Centenary Trophy, 15 FA Community Shields, one UEFA Cup Winners' Cup and one Inter-Cities Fairs Cup. It is also the only English club to go a 38-match league season unbeaten, receiving the nickname The Invincibles, and a special gold Premier League trophy.";
-
-
 const dimensions = Dimensions.get('window');
 const imageHeight = Math.round(dimensions.width * 9 / 16);
 const screenWidth = dimensions.width;
+
 
 
 export default class Team_page extends Component {
@@ -35,42 +34,73 @@ export default class Team_page extends Component {
       errors: null,
       refreshing: false,
       user: Factory.getUserInstance(),
+      teams: Factory.getTeamsInstance(),
       fetchedTeam: {},
       tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
-      tableData: [
-        ['2', '2', '3', '4', '30']
+      tableData: [[]]
 
-      ]
     };
+    console.log(this.props)
   }
 
   componentDidMount(){
     this.setState({loading: true})
-    Factory.getUserInstance().setFollowingTeam("HqII9sg9ZKLuZnLjX5ow")
+    this.getData()
+
+    this.state.teams.getTeams().then((teams) => {
+      var pickerItems = []
+      var fetchedTeams = []
+      for (const UID in teams) {
+        const items = <Picker.Item label={teams[UID].name} value={UID} />
+        pickerItems.push(items)
+        fetchedTeams.push(teams[UID])
+      }
+      this.setState({
+        fetchedTeams: fetchedTeams,
+        pickerItems: pickerItems,
+      })
+    })
+  }
+
+  getData(){
     Factory.getUserInstance().getFollowingTeam().then((team) => {
+      const tableData = []
+      const insideData = [team.rank, team.wins, team.draws, team.losses, team.points]
+      tableData.push(insideData)
       this.setState({
         loading: false,
         fetchedTeam: team,
+        tableData: tableData
       })
     })
+  }
+
+  FlatListItemSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 0.2,
+          width: "100%",
+          backgroundColor: "#607D8B",
+        }}
+      />
+    );
   }
 
   render() {
     const state = this.state;
     return (
       <ScrollView>
-
         <Image
         style={{width: screenWidth, height: imageHeight}}
         source={{uri: this.state.fetchedTeam.headerImage}}/>
 
-          <View >
-          <Text style={styles.teamTitle}>
+          <View style={styles.team}>
           <Image
           style={styles.flagStyle}
           source={{uri: this.state.fetchedTeam.flag}}/>
-          {this.state.fetchedTeam.name}</Text>
-          </View >
+          <Text style={styles.teamTitle}>{this.state.fetchedTeam.name}</Text>
+          </View>
           <View style={styles.container}>
           <Table borderStyle={{borderWidth: 0.5, borderColor: 'black'}}>
             <Row data={state.tableHead} style={styles.head} textStyle={styles.textHead}/>
@@ -81,8 +111,28 @@ export default class Team_page extends Component {
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.text}>{this.state.fetchedTeam.text}</Text>
           </View>
+          <View style={PromptStyles.box}>
+            <Text style={PromptStyles.title}>Change Team</Text>
+            <View style={PromptStyles.pickerContainer}>
+              <Picker
+                selectedValue={this.state.selectedTeam}
+                style={PromptStyles.picker}
+                onValueChange={(itemValue, itemIndex) => this.setState({selectedTeam: itemValue})}>
+                {this.state.pickerItems}
+              </Picker>
+            </View>
+            <View style={PromptStyles.buttonContainer}>
+              <Button style={PromptStyles.button} color={Colors.Primary} title={"Change"} onPress = {this.onPress} />
+            </View>
+          </View>
       </ScrollView>
     )
+  }
+
+  onPress = () => {
+    console.log(this.state.fetchedTeams[this.state.selectedTeam].id)
+    Factory.getUserInstance().setFollowingTeam(this.state.fetchedTeams[this.state.selectedTeam].id)
+    this.getData()
   }
 
 
@@ -94,8 +144,6 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 10,
 
-
-
         },
   head: {
      height: 40,
@@ -105,30 +153,39 @@ const styles = StyleSheet.create({
     margin: 6,
     textAlign: 'center',
     color: 'black'
-
+  },
+  team: {
+    flex: 0.3,
+    flexDirection: 'row',
+    height: 50,
+    display: 'flex',
+    margin: 10,
+    justifyContent: 'center',
   },
   textHead:{
-
     margin: 3,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#fff'
-
   },
   teamTitle:{
-
       color: Colors.PrimaryText,
       fontFamily: Fonts.Default,
       fontSize: 36,
       fontWeight: '400',
-      textAlign: 'center',
-
+      justifyContent: 'center',
   },
   flagStyle:{
-  alignItems: 'flex-start',
-    width: 120,
-    height: 120,
+    alignItems: 'flex-start',
+    width: 50,
+    height: 50,
+    resizeMode: 'contain',
+  },
 
-  }
+item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
 
 });

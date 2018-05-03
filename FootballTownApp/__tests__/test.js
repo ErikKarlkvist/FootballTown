@@ -182,6 +182,7 @@ it('loads Teams correctly', () => {
     expect(teams.length).toBe(0)
   })
 })
+
 it('add Teams correctly', () => {
   Teams.getTeams().then((teams) => {
     expect(teams.length).toBe(0)
@@ -196,6 +197,7 @@ it('add Teams correctly', () => {
     })
   })
 })
+
 it('remove Teams correctly', () => {
 Teams.getTeams().then((teams) => {
     expect(teams.length).toBe(0)

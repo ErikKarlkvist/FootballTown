@@ -16,7 +16,8 @@ export const Colors = {
   CardViewBackground: "#f9f9f9",
   PrimaryBackground: "#F5F5F5",
   Warning: "#d65151",
-  Link: "#4286f4"
+  Link: "#4286f4",
+  DefaultMapPinColor: "#607D8B",
 }
 
 const iOSFonts = {

@@ -49,11 +49,9 @@ export class NewsComponent extends Component {
     this.refreshData();
   };
 
-  // Render new items once the user presses the "More button"
-  loadNewNewsArticle = () => {
-    if (this.state.itemCount < this.state.fetchedNews.length) {
-      this.setState((prevState) => ({ itemCount: (prevState.itemCount + 1) }));
-    }
+  // Redirect to news page on more-click 
+  goToFeed = () => {
+    {this.props.navigation.navigate('Feed')}
   };
 
   renderSeparator = () => {
@@ -76,7 +74,7 @@ export class NewsComponent extends Component {
               <View style={styles.loadMore}>
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => this.openNewsArticle(item)}
+                  onPress={() => this.goToFeed()}
                 >
                   <Text style={styles.loadText}>{this.props.loadMessage}</Text>
                   </TouchableOpacity>

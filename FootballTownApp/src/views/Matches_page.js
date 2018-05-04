@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     margin: 0,
     padding: 5
-    
+
   },
   loadText: {
     color: Colors.Primary,

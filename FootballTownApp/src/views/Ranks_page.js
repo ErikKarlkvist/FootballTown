@@ -46,12 +46,15 @@ export default class Ranks_page extends Component {
   }
 
   refreshData() {
-    this.setState({loading:true})
-    this.state.ranks.getTeams().then((ranks) => {
-      console.log(ranks)
-      this.setState({loading: false, refreshing: false, fetchedteams:ranks})
-    })
-  }
+     this.setState({loading:true})
+     this.state.ranks.getTeams().then((ranks) => {
+        ranks.sort(function(a,b){
+         return (a.rank) - (b.rank);
+       });
+
+       this.setState({loading: false, refreshing: false, fetchedteams:ranks})
+     })
+   }
 
   handleRefresh = () => {
     this.setState(
@@ -61,16 +64,6 @@ export default class Ranks_page extends Component {
       }
     );
     this.refreshData();
-  };
-
-  handleLoadMore = () => {
-    this.setState(
-      {
-        page: this.state.page + 1
-      },
-        // Fetch more data
-
-    );
   };
 
   renderSeparator = () => {
@@ -86,15 +79,6 @@ export default class Ranks_page extends Component {
     );
   };
 
-  renderFooter = () => {
-    return (
-      <View style={{marginTop: 5, flex: 1,
-    justifyContent: 'flex-end'}}>
-
-      <Text>More</Text>
-      </View>
-    );
-  };
 
 render() {
     if(!this.state.loading && this.state.fetchedteams!= []) {
@@ -136,7 +120,7 @@ class TeamsListItem extends Component {
 
       <View style={styles.rankContainer}>
         <View style={styles.positionContainer}>
-            <Text style={styles.positionNumber}>1</Text>
+            <Text style={styles.positionNumber}>{this.props.TeamsStory.rank}</Text>
         </View>
         <View style={styles.teamImageContainer}>
             <Image resizeMode="contain" style={styles.teamImage} source={{uri: this.props.TeamsStory.flag}}/>

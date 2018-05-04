@@ -228,7 +228,6 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
     margin: 0,
     padding: 5,
-    fontSize: 18,
   },
   loadText: {
     color: Colors.Primary,

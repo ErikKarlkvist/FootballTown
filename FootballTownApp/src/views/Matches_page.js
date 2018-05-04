@@ -16,9 +16,9 @@ ScrollView
 
 import Factory from '../database/Factory';
 import {Colors, Fonts} from '../config/UIConfig'
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator, withNavigation} from 'react-navigation';
 import AdminHeaderButton from "../component/AdminHeaderButton"
-export default class Matches_page extends Component {
+class Matches_page extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
@@ -104,6 +104,22 @@ export default class Matches_page extends Component {
       />
     );
   };
+    renderHeader = () => {
+      return(
+        <View style={styles.gamesTopbar}>
+            <Text style={styles.gamesTopbarTitle}>Recent Matches</Text>
+            {this.props.loadMessage != null?
+              <View style={styles.loadMore}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.goToMatchesPage()}
+                >
+                  <Text style={styles.loadText}>{this.props.loadMessage}</Text>
+                  </TouchableOpacity>
+              </View>: null }
+        </View>
+      );
+  };
 
   renderFooter = () => {
     return (
@@ -115,12 +131,15 @@ export default class Matches_page extends Component {
     );
   };
 
+goToMatchesPage = () => {
+  {this.props.navigation.navigate('Games')}
+}
+
 render() {
     console.log(this.props.navigation)
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
         <View style={{flex:1}}>
-          <Text style={styles.headerTitle}>Upcoming Matches</Text>
           <FlatList
             data={this.state.upcoming.slice(0, this.props.itemCount)}
             renderItem={({ item }) => (
@@ -128,7 +147,7 @@ render() {
             )}
             keyExtractor={item => item.id}
             //ItemSeparatorComponent={this.renderSeparator}
-            //ListHeaderComponent={this.renderHeader}
+            ListHeaderComponent={this.renderHeader}
             //ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
@@ -159,6 +178,7 @@ render() {
     }
     }
 }
+export default withNavigation(Matches_page);
 
 class GamesListItem extends Component {
   constructor(props) {
@@ -266,5 +286,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 0.5
+  },
+  gamesTopbarTitle:{
+    fontSize: 22,
+
+  },
+  gamesTopbar: {
+    flex: 1, flexDirection: 'row',
+    height: '5%',
+    margin: 0,
+    padding: 10,
+
+  },
+  loadMore: {
+    marginLeft: 'auto',
+    margin: 0,
+    padding: 5
+    
+  },
+  loadText: {
+    color: Colors.Primary,
   }
 });

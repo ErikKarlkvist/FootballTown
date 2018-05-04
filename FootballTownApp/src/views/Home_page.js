@@ -50,10 +50,9 @@ class Home_page extends Component{
            barStyle="light-content"
           />
           <View style={styles.container}>
-             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"More..."}/>
+             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"}/>
           </View>
-
-          <Matches_page itemCount={3} navigation={this.props.navigation}/>
+          <Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
 
         </ScrollView>
       );

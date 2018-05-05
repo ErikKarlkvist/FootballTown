@@ -120,7 +120,7 @@ During this sprint we commited to:
 * Testing the created components
 * Create the home page
 * Overhaul the look of the application
-* Create Mockup 
+* Create Mockup
 
 ## Work Done
 Log what was accomplished, and how.
@@ -145,7 +145,7 @@ Games Tab | *4 hours* | *Goitom: 4 hours*
 Points Tab | *3 hours* | *Goitom: 1.5 hours, Rahwa:1.5 hours*
 
 # Reflections
-The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occurred during development. All team members showed up to all meetings with a positive attitude. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than previously, making concurrent progress more easily than before. Further, all the different agile practices used complemented each other and made the structuring and administration of this sprint easier than the ones before. The different practices used in the sprint are described below. 
+The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occurred during development. All team members showed up to all meetings with a positive attitude. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than previously, making concurrent progress more easily than before. Further, all the different agile practices used complemented each other and made the structuring and administration of this sprint easier than the ones before. The different practices used in the sprint are described below.
 
 ## Backlog Refinement
 We spent some time refining the backlog this sprint. Initially we had Epics and some user stories, but to break these down into more manageable chunks we spent some time refining these by discussing the epics trying to break these down as far as possible. Once the epics were broken down planning poker was conducted. The tasks that were to be undertaken during this sprint were the following:
@@ -195,8 +195,8 @@ Information about games and the current points for the different teams
  * **4.4 Game Page:**
 	As a user I want a game page to display the information about a specific game when selected from the games feed.
 
-### 5.0 Mockup 
-	We also decided on creating mockups for the different screens that would be created during the course of the sprint, as to help us with the design and to get a consistant look and feel in the application. 
+### 5.0 Mockup
+	We also decided on creating mockups for the different screens that would be created during the course of the sprint, as to help us with the design and to get a consistant look and feel in the application.
 
 ## Planning Poker
 Planning poker is one of the Key agile practices we used while we develop our project in this sprint, this was used to approximate how exhaustive the different tasks were. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus.
@@ -220,7 +220,7 @@ The customer’s level of satisfaction regarding progress and development of the
 During this sprint, there were less problems with GitHub and version control as almost all the members had gained decent knowledge about the GIT commands and how they can collaborate with GitHub. In the beginning the group used various branches to work on their tasks but that seemed to be tedious and inefficient as each individual branch was not updated with other’s latest work. Thus, a branch was created called “develop” which was dedicated to this sprint and everyone pulled and pushed to it, resulting in faster iteration and overall better productivity. The only trade-off was slightly more conflicts.
 
 ## Continuous Integration
-Travis was originally the team's first choice for carrying out the testing of application. However implementing Travis in our project and  getting it to work with Firebase, has not been easy. The team is still working on the issue to be able to carry out the testing. Using Travis would utimatly allow us to run the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email. 
+Travis was originally the team's first choice for carrying out the testing of application. However implementing Travis in our project and  getting it to work with Firebase, has not been easy. The team is still working on the issue to be able to carry out the testing. Using Travis would utimatly allow us to run the application whenever a new change is made to the project and if this change makes the application not run, we are notified via an email.
 
 ## Communication Channels
 As in the last sprint, we were using Slack as our primary communication channel. This week we also created a shared folder on Google Drive where we put a document with user stories and epics.
@@ -238,7 +238,7 @@ During this sprint we commited to:
 * Create Team Selection such that information about a given team can be viewed
 * Create a splash screen.
 * Show  players in a team
-* Finalize Start screen 
+* Finalize Start screen
 * Get overall similar look and feel in the application
 * Testing the created components
 
@@ -250,21 +250,22 @@ Feature | Time estimated | Time spent per team member
 *Sprint Discussion* | *7 hours* | *Each team member: 1 hour*
 *Map implementation* | *4.5 hours* |*Tobias: 4.5 hours*
 *Splash Screen* | *1 hour* | * Tobias: 1 hour*
+*Teams Rank page * | *  hour* | * Goitom: 4 hours, Alexander *
 
 # Reflections
-During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable. 
+During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable.
 
 ## Pair Programming
-Similar to the previous sprint, pair programming was not largely utalized this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a simular approach to the pair programming methodology. 
+Similar to the previous sprint, pair programming was not largely utalized this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a simular approach to the pair programming methodology.
 
 ## Scrum Board
-The scrum board was utalized in this sprint as well, similar to the previous one. It gave an understanding of what was in progress and how much was left to do. 
+The scrum board was utalized in this sprint as well, similar to the previous one. It gave an understanding of what was in progress and how much was left to do.
 
 ## Scrum Meetings
-The scrum meetings consisted of cathing up on what everyone was doing and also working together as described in the *pair programming* section. 
+The scrum meetings consisted of cathing up on what everyone was doing and also working together as described in the *pair programming* section.
 
 ## Product Owner/Customer
-The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe. 
+The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe.
 
 ## Code Ownership and Refactoring
 [Write something here, no idea what]
@@ -273,9 +274,11 @@ The customer satisfaction after the previous sprint was positive, the customer v
 [Write about the testing here]
 
 ## Continuous Integration
-As testing was more utalized in this sprint, continous integration became more useful. This gave an approximation whether the changes made made the tests fail or pass. 
+After each team has worked separately on specific feature based on the catalog on the scrum board, continuous integration has been done by the team seating together. More than  the previous two sprints
+In this sprints continuous integration has been carried out heavily. since  testing was more utilized in this sprint and  the product is in its final stage continuous integration were more useful.
+This gave an approximation whether the changes made the tests fail or pass.
+working alone, each team  produces hundreds  or thousands of line of code. This work may have some integration bugs when it is integrated with his/her team members work. But seating together during integration has helped us avoiding such flaws as their earlier stages.
+
 
 ## Communication Channels
-Slack was laregly utalized as the main platform for communication. 
-
-
+Slack was laregly utalized as the main platform for communication.

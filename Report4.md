@@ -262,13 +262,13 @@ Feature | Time estimated | Time spent per team member
 
 
 # Reflections
-During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable. All the promised functionalities of the application seem to be fully implemented. Although, some minor styling may be done after the final sprint to make the application look as good as possible.
+During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was manageable. All the promised functionalities of the application seem to be implemented, but good be polished a bit more. Some minor styling may be done after the final sprint to make the application look as good as possible.
 
 ## Pair Programming
-Similar to the previous sprint, pair programming was not largely utalized this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a simular approach to the pair programming methodology.
+Similar to the previous sprint, pair programming was not largely utilised this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a similar approach to the pair programming methodology. The main reason pair programming was not used was a lack of time, where we wanted to deliver as much as possible each sprint.
 
 ## Scrum Board
-The scrum board was utalized in this sprint as well, similar to the previous one. It gave an understanding of what was in progress and how much was left to do.
+The scrum board was utilised in this sprint as well, similar to the previous one. It gave an understanding of what was in progress and how much was left to do. However, sometimes the scrum board was forgotten and there were occasions were team members worked on the same thing without knowing about it. While the scrum board is good within itself, it requires that each team members actively uses it. Most team members have been good at this, but there have been moments of bad communication within the group.  
 
 ## Scrum Meetings
 The scrum meetings consisted of cathing up on what everyone was doing and also working together as described in the *pair programming* section. The meetings seem very beneficial for the success of the project as members assisted each other with their problems or even gave each other new ideas for making the code better.
@@ -277,7 +277,7 @@ The scrum meetings consisted of cathing up on what everyone was doing and also w
 The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe.
 
 ## Code Ownership and Refactoring
-As predicted, there were almost no problems with Github and version control. All members seem to be adopted to GitHub and how it works.
+As predicted, there were almost no problems with Github and version control. All members seem to be adopted to GitHub and how it works. We did some refactoring, mainly moving the navigators from inside views to their own classes, which made the structure of the files better. Overall the file structure is rather lackluster, but due to time limitations it has not been a priority. If this was an actual application that were to be released, then we would probably spend more time cleaning up and be more consistent with the architecture and naming. For example, at the moment some files are named using camelcase, and some using underscores. Also the internal definition of what a component is versus a view has not been clear to all group members, leading to some unnecessary confusing when looking for specific parts in the code.   
 
 ## Testing
 Testing using travis has worked well this sprint and we've written test for the database classes, where we tested Login User and CRUD for Events, News, Teams and Games. We added some rendering tests for the main tab views. However we found it hard to test more than this since we don't do any heavy computations, we just downloads data from the database and display it. Since we are using firebase, most of the backend code is given by the library, and is not tested by us. We also couldn't test anything with actual HTTP calls, since firebase doesn't allow that. We therefor had to mock all functions that we use in firebase, which took a lot of effort and time. All in all, we've learned how to setup a testing environment for react native, as well as creating mockups, while developing this app, but not much in terms of actual testing and how to do test driven development.
@@ -290,4 +290,4 @@ working alone, each team  produces hundreds  or thousands of line of code. This 
 
 
 ## Communication Channels
-Slack was laregly utalized as the main platform for communication.
+Slack was largely utilised as the main platform for communication.

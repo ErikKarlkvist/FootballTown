@@ -86,6 +86,12 @@ indicatorStyle: {
 })
 
 export default AppTabNavigator
+
+export const openPositionInMapView = (position) => {
+  
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

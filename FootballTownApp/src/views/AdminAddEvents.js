@@ -35,18 +35,46 @@ class AdminAddEvents extends Component{
 
   constructor(props){
     super(props);
-    this.state = {
-      events: Factory.getEventsInstance(),
-      teams: Factory.getTeamsInstance(),
-      imageUrl: "",
-      title: "",
-      date: new Date(),
-      text: "",
-      loading: false,
-      location: "",
-      price: "",
-      fetchedTeams: [],
-      pickedTeams: [],
+    console.log(props.navigation.state.params)
+    if(props.navigation.state.params && props.navigation.state.params.eventsStory){
+      const eventsStory = props.navigation.state.params.eventsStory
+      const pickedTeams = []
+      eventsStory.teams.forEach(team => {pickedTeams.push(team.id)})
+      this.state = {
+        events: Factory.getEventsInstance(),
+        teams: Factory.getTeamsInstance(),
+        imageUrl: eventsStory.imageUrl,
+        title: eventsStory.title,
+        date: new Date(),
+        text: eventsStory.text,
+        loading: false,
+        location: eventsStory.location,
+        price: eventsStory.price,
+        location: eventsStory.location.name,
+        lat: eventsStory.location.latitiude,
+        lng: eventsStory.location.longitude,
+        price: eventsStory.price,
+        fetchedTeams: [],
+        pickedTeams,
+        update: true
+      }
+    } else {
+      this.state = {
+        events: Factory.getEventsInstance(),
+        teams: Factory.getTeamsInstance(),
+        imageUrl: "",
+        title: "",
+        date: new Date(),
+        text: "",
+        loading: false,
+        lat: "",
+        location: "",
+        lng: "",
+        price: "",
+        fetchedTeams: [],
+        pickedTeams: [],
+        update: false
+      }
     }
   }
 
@@ -64,7 +92,9 @@ class AdminAddEvents extends Component{
           <TextInput title={"Featured Image URL"} value={this.state.imageUrl} onChangeText={(text) => {this.setState({imageUrl: text})}}/>
           <TextInput style = {{marginTop: 20}} title={"Event Title"} value={this.state.title} onChangeText={(text) => {this.setState({title: text})}}/>
           <TextInput style = {{marginTop: 20}} inputStyle = {{height: 120}} title={"Event Body"} value={this.state.text} onChangeText={(text) => {this.setState({text: text})}}/>
-          <TextInput style = {{marginTop: 20}} title={"Event Location"} value={this.state.location} onChangeText={(text) => {this.setState({location: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Location Name"} value={this.state.location} onChangeText={(text) => {this.setState({location: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Location Latitiude"} value={this.state.lat} onChangeText={(text) => {this.setState({lat: text})}}/>
+          <TextInput style = {{marginTop: 20}} title={"Event Location Longitude"} value={this.state.lng} onChangeText={(text) => {this.setState({lng: text})}}/>
           <TextInput style = {{marginTop: 20}} title={"Event Price"} value={this.state.price} onChangeText={(text) => {this.setState({price: text})}}/>
 
           <Text style = {styles.title}>Teams in event</Text>
@@ -109,11 +139,17 @@ class AdminAddEvents extends Component{
   }
 
   saveEvent = () => {
-    const {imageUrl, title, text, date, pickedTeams, price, location} = this.state
+    const {imageUrl, title, text, date, pickedTeams, price, location, lat, lng} = this.state
 
-    if(!imageUrl || !title || !price || !text || !location){
+    if(!imageUrl || !title || !price || !text || !location || !lat || !lng){
       Alert.alert("Please fill in all fields")
       return;
+    }
+
+    const locationObject = {
+      name: location,
+      latitiude: lat,
+      longitude: lng
     }
 
     const eventsObject = {
@@ -121,18 +157,25 @@ class AdminAddEvents extends Component{
       title,
       text,
       price,
-      location,
+      location: locationObject,
       teams: pickedTeams,
-      date: date.getTime()
+      date: date.getTime(),
+      id: this.props.navigation.state.params.eventsStory.id
     }
 
-    this.setState({loading:true})
-    this.state.events.addEvent(eventsObject).then(() => {
-      this.setState({
-        loading:false,
+    if(this.state.update){
+      this.state.events.updateEvents(eventsObject)
+      Alert.alert("Events succesfully updated");
+      this.props.navigation.state.params.refresh(eventsObject)
+    } else {
+      this.setState({loading:true})
+      this.state.events.addEvent(eventsObject).then(() => {
+        this.setState({
+          loading:false,
+        })
+        Alert.alert("Event succesfully uploaded");
       })
-      Alert.alert("Event succesfully uploaded");
-    })
+    }
     //goBack
   }
 }

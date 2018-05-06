@@ -16,12 +16,13 @@ import {
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator,withNavigation} from 'react-navigation';
 import FootballScore from "../component/FootballScore"
 import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
 import AdminHeaderButton from "../component/AdminHeaderButton"
-import {Colors} from "../config/UIConfig"
+import {Colors} from "../config/UIConfig";
+import Matches_page from "../views/Matches_page";
 
 class Home_page extends Component{
 
@@ -38,7 +39,7 @@ class Home_page extends Component{
     Factory.getGamesInstance().getGames().then((events) => {
       console.log(events)
     })
-    
+
   }
 
   render() {
@@ -49,8 +50,10 @@ class Home_page extends Component{
            barStyle="light-content"
           />
           <View style={styles.container}>
-             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation}/>
+             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"}/>
           </View>
+          <Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
+
         </ScrollView>
       );
     }
@@ -93,12 +96,11 @@ class Home_page extends Component{
 
 
 
-  export default Home_page;
+  export default withNavigation(Home_page);
 
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: Colors.Background,

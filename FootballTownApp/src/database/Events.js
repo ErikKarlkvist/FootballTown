@@ -36,21 +36,22 @@ export default class Events {
 
     updateEvents(tmpEvents){
       for (const i = 0; i < this.events.length; i++) {
-        if (this.events[i].id === id){
+        if (this.events[i].id === tmpEvents.id){
           this.events[i] = tmpEvents;
         }
       }
 
       const newEvent = {
         title: tmpEvents.title,
+        teams: tmpEvents.teams || [],
+        text: tmpEvents.text,
         location: tmpEvents.location,
         price: tmpEvents.price,
-        teams: tmpEvents.teams,
-        text: tmpEvents.text,
-        imageUrl: tmpEvents.text
+        imageUrl: tmpEvents.imageUrl,
+        date: tmpEvents.date,
       }
 
-      return firebase.firestore().collection("events").doc(newEvent.id).update(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("events").doc(tmpEvents.id).update(newEvent).catch((error) => {Alert.alert("Couldn't save", error.message)})
     }
 
     async getEvents(force){

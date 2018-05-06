@@ -249,11 +249,11 @@ Feature | Time estimated | Time spent per team member
 --------|----------------|----------------------------
 *Sprint Discussion* | *7 hours* | *Each team member: 1 hour*
 *Map implementation* | *4.5 hours* |*Tobias: 4.5 hours*
-*Splash Screen* | *1 hour* | * Tobias: 1 hour*
-*Teams Rank page * | *  hour* | * Goitom: 4 hours, Alexander *
-*Styling the Event page* | *0.5 hour* | * Pooriya: 0.5 hour*
-*The My-Team view* | *2 hour* | * Pooriya: 2 hour*
-*The My-Team connection to database* | *3 hour* | * Pooriya: 3 hour*
+*Splash Screen* | *1 hour* | *Tobias: 1 hour*
+*Teams Rank page * | *  hour* | *Goitom: 4 hours, Alexander *
+*Styling the Event page* | *0.5 hour* | *Pooriya: 0.5 hour*
+*The My-Team view* | *2 hour* | *Pooriya: 2 hour*
+*The My-Team connection to database* | *3 hour* | *Pooriya: 3 hour*
 
 
 # Reflections

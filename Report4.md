@@ -254,7 +254,7 @@ Feature | Time estimated | Time spent per team member
 *Styling the Event page* | *0.5 hour* | *Pooriya: 0.5 hour*
 *The My-Team view* | *2 hour* | *Pooriya: 2 hour*
 *The My-Team connection to database* | *3 hour* | *Pooriya: 3 hour*
-*Write Tests*| *3 hour* | *Rahwa: 3 hour*
+*Write Tests*| *4 hour* | *Rahwa: 4 hour*
 
 
 

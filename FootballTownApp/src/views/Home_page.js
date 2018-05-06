@@ -23,6 +23,7 @@ import Factory from "../database/Factory"
 import AdminHeaderButton from "../component/AdminHeaderButton"
 import {Colors} from "../config/UIConfig";
 import Matches_page from "../views/Matches_page";
+import Ranks_page from "../views/Ranks_page";
 
 class Home_page extends Component{
 
@@ -53,6 +54,9 @@ class Home_page extends Component{
              <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"}/>
           </View>
           <Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
+
+          <Text style={styles.headerTitle}>Table</Text>
+          <Ranks_page itemCount={5} navigation={this.props.navigation} loadMessage={"MORE"}/>
 
         </ScrollView>
       );
@@ -109,6 +113,13 @@ class Home_page extends Component{
       fontSize: 20,
       textAlign: 'center',
       margin: 10,
+    },
+    headerTitle: {
+      marginTop: 20,
+      marginLeft: 10,
+      fontSize: 20,
+      marginBottom: 10,
+      color: Colors.PrimaryText
     },
 
   });

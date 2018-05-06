@@ -85,7 +85,7 @@ render() {
       return (
         <View>
         <FlatList
-          data={this.state.fetchedteams}
+          data={this.state.fetchedteams.slice(0, this.props.itemCount)}
           renderItem={({ item }) => (
             <TeamsListItem TeamsStory = {item}/>
           )}

@@ -6,7 +6,8 @@ import {
   View,
   ScrollView,
   Image,
-  Dimensions
+  Dimensions,
+  Alert
 } from 'react-native';
 
 import {Thumbnail} from 'native-base';
@@ -14,6 +15,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
+import Button from "../component/Button"
+import Factory from "../database/Factory"
 
   const dimensions = Dimensions.get('window');
   const imageHeight = Math.round(dimensions.width * 9 / 16);
@@ -23,14 +26,46 @@ class Game_Details_page extends Component{
 
   constructor(props){
     super(props);
+    this.state = {
+      user: Factory.getUserInstance(),
+      games: Factory.getGamesInstance(),
+      gamesStory: props.navigation.state.params.game
+    }
   }
 
   longToDate(millisec) {
     return (new Date(millisec).toUTCString());
   }
 
+  initDelete = () => {
+    Alert.alert(
+      "You are about to delete the article",
+      "Are you sure you want to proceed?",
+      [
+        {text:"Cancel", onPress: () => {}},
+        {text:"Yes, delete it", onPress: this.delete}
+      ]
+    )
+  }
+
+  delete = () => {
+    this.state.games.removeGame(this.state.gamesStory.id)
+    this.props.navigation.state.params.refresh()
+    this.props.navigation.goBack()
+  }
+
+  edit = () => {
+    this.props.navigation.navigate("AdminAddGame", {gamesStory: this.state.gamesStory, refresh: this.refresh})
+  }
+
+  refresh = (gamesStory) => {
+    console.log(gamesStory)
+    this.props.navigation.state.params.refresh()
+    this.setState({gamesStory})
+  }
+
   render() {
-      const game = this.props.navigation.state.params.game
+      const game = this.state.gamesStory
       return (
         <ScrollView>
           <View style={styles.summary}>
@@ -47,8 +82,6 @@ class Game_Details_page extends Component{
               <Text style={styles.teamName}>{game.team2}</Text>
             </View>
           </View>
-
-
 
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.subtitle}>Details</Text>
@@ -70,6 +103,11 @@ class Game_Details_page extends Component{
 
             <Text style={GlobalStyles.text}>{game.text}</Text>
           </View>
+
+          {this.state.user.getIsAdmin() && <View style={{flexDirection: "row", margin: 20}}>
+            <Button buttonStyle={{flex: 1, backgroundColor:Colors.Primary, marginRight: 10}} title={"Edit"} onPress={this.edit}/>
+            <Button buttonStyle={{flex: 1, backgroundColor:Colors.Warning, marginLeft: 10}} title={"Delete"} onPress={this.initDelete}/>
+          </View>}
 
         </ScrollView>
       );

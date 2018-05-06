@@ -40,7 +40,7 @@ export default class Games {
       })
     }
 
-    removeGames(id){
+    removeGame(id){
       for (const i = 0; i < this.games.lengconst; i++) {
         if (this.games[i].id === id){
           this.games.splice(i, 1);
@@ -50,8 +50,8 @@ export default class Games {
     }
 
     updateGames(tmpGame){
-      for (const i = 0; i < this.games.lengconst; i++) {
-        if (this.games[i].id === id){
+      for (const i = 0; i < this.games.length; i++) {
+        if (this.games[i].id === tmpGame.id){
           this.games[i] = tmpGame;
         }
       }
@@ -59,11 +59,12 @@ export default class Games {
       const newGame = {
         team1: tmpGame.team1Uid,
         team2: tmpGame.team2Uid,
-        goals1:  tmpGame.goals1,
-        goals2:  tmpGame.goals2,
-        date: tmpGame.date
+        date: tmpGame.date,
+        status: tmpGame.status,
+        referee: tmpGame.referee,
+        text: tmpGame.text,
       }
-      return firebase.firestore().collection("games").doc(newGame.id).update(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("games").doc(tmpGame.id).update(newGame).catch((error) => {Alert.alert("Couldn't save")})
     }
 
     async getGames(force){

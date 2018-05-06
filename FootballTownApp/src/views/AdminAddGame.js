@@ -32,20 +32,41 @@ class AdminAddGame extends Component{
     super(props);
     this.team1 = ""
     this.team2 = ""
-    this.state = {
-      games: Factory.getGamesInstance(),
-      teams: Factory.getTeamsInstance(),
-      date: new Date(),
-      loading: false,
-      fetchedTeams: [],
-      team1: "",
-      team2: "",
-      goals1: "",
-      goals2: "",
-      status: "",
-      referee: "",
-      location: "",
-      text: ""
+    if(this.props.navigation.state.params && this.props.navigation.state.params.gamesStory){
+      const gamesStory = this.props.navigation.state.params.gamesStory
+      console.log(gamesStory)
+      this.state = {
+        games: Factory.getGamesInstance(),
+        teams: Factory.getTeamsInstance(),
+        date: new Date(),
+        loading: false,
+        fetchedTeams: [],
+        team1: gamesStory.team1Uid.id,
+        team2: gamesStory.team2Uid.id,
+        goals1: gamesStory.goals1,
+        goals2: gamesStory.goals2,
+        status: gamesStory.status,
+        referee: gamesStory.referee,
+        location: gamesStory.location,
+        text: gamesStory.text,
+        update: true
+      }
+    } else {
+      this.state = {
+        games: Factory.getGamesInstance(),
+        teams: Factory.getTeamsInstance(),
+        date: new Date(),
+        loading: false,
+        fetchedTeams: [],
+        team1: "",
+        team2: "",
+        goals1: "",
+        goals2: "",
+        status: "",
+        referee: "",
+        location: "",
+        text: ""
+      }
     }
   }
 
@@ -98,6 +119,8 @@ class AdminAddGame extends Component{
             <ListPicker title={"Active"} value={this.state.status === "active"} onValueChange={() => {this.setStatus("active")}}/>
             <ListPicker title={"Pending"} value={this.state.status === "pending"} onValueChange={() => {this.setStatus("pending")}}/>
             <ListPicker title={"Over"} value={this.state.status === "over"} onValueChange={() => {this.setStatus("over")}}/>
+            <ListPicker title={"Full time"} value={this.state.status === "Full time"} onValueChange={() => {this.setStatus("Full time")}}/>
+            <ListPicker title={"Half time"} value={this.state.status === "Half time"} onValueChange={() => {this.setStatus("Half time")}}/>
             <View style={styles.underline}/>
           </View>
 
@@ -172,7 +195,8 @@ class AdminAddGame extends Component{
         goals1,
         goals2,
         text,
-        date: date.getTime()
+        date: date.getTime(),
+        id: this.props.navigation.state.params.gamesStory.id
       }
     } else {
       if(!status || !referee || !team1 || !team2){
@@ -186,17 +210,25 @@ class AdminAddGame extends Component{
         team2Uid: team2,
         status,
         text,
+        id: this.props.navigation.state.params.gamesStory.id,
         date: date.getTime()
       }
     }
 
-    this.setState({loading:true})
-    this.state.games.addGame(gameObject).then(() => {
-      this.setState({
-        loading:false,
+
+    if(this.state.update){
+      this.state.games.updateGames(gameObject)
+      Alert.alert("News succesfully updated");
+      this.props.navigation.state.params.refresh(gameObject)
+    } else {
+      this.setState({loading:true})
+      this.state.games.addGame(gameObject).then(() => {
+        this.setState({
+          loading:false,
+        })
+        Alert.alert("Game succesfully uploaded");
       })
-      Alert.alert("Game succesfully uploaded");
-    })
+    }
     //goBack
   }
 }

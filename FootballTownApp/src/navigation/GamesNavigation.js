@@ -5,6 +5,7 @@ import {NewsComponent, NewsStory} from "../component/NewsComponent"
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
 import Game_Details_Page from "../views/Game_Details_page"
+import AdminAddGame from "../views/AdminAddGame"
 const TabNav = TabNavigator(
 {
   News: {screen: Matches_page},
@@ -43,6 +44,7 @@ const navigationConfig = {
 const NewsStack = StackNavigator({
   NewsFeed: { screen: TabNav },
   Games_Details_Page: {screen: Game_Details_Page},
+  AdminAddGame: {screen: AdminAddGame}
 },navigationConfig);
 
 

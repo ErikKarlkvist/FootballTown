@@ -91,14 +91,17 @@ class AdminAddNews extends Component{
       imageUrl,
       title,
       ingress,
-      text
+      text,
+      id: this.props.navigation.state.params.newsStory.id
     }
+
 
     if(this.state.update){
       this.state.news.updateNews(newsObject)
       Alert.alert("News succesfully updated");
       this.props.navigation.state.params.refresh(newsObject)
     } else {
+      this.setState({loading:true})
       this.state.news.addNews(newsObject).then(() => {
         this.setState({
           loading:false,

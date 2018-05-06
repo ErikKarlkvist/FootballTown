@@ -48,7 +48,8 @@ export default class News {
         imageUrl: tmpNews.imageUrl,
         id: tmpNews.id,
       }
-
+      console.log(this.news)
+      console.log(tmpNews.id)
       return firebase.firestore().collection("news").doc(tmpNews.id).update(newNews).catch((error) => {Alert.alert("Couldn't save", error.message)})
     }
 

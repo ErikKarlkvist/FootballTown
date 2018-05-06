@@ -48,9 +48,9 @@ export default class Matches_page extends Component {
     this.refreshData()
   }
 
-  refreshData() {
+  refreshData = () => {
     this.setState({loading:true})
-    this.state.games.getGames().then((games) => {
+    this.state.games.getGames(true).then((games) => {
       const latest = []
       const upcoming = []
       games.forEach(game => {
@@ -122,7 +122,7 @@ render() {
           <FlatList
             data={this.state.upcoming}
             renderItem={({ item }) => (
-              <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
+              <GamesListItem onPress={this.onPress} navigation = {this.props.navigation} gamesStory = {item}/>
             )}
             keyExtractor={item => item.id}
             //ItemSeparatorComponent={this.renderSeparator}
@@ -137,7 +137,7 @@ render() {
           <FlatList
             data={this.state.latest}
             renderItem={({ item }) => (
-              <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
+              <GamesListItem onPress={this.onPress} navigation = {this.props.navigation} gamesStory = {item}/>
             )}
             keyExtractor={item => item.id}
             //ItemSeparatorComponent={this.renderSeparator}
@@ -156,29 +156,35 @@ render() {
         );
     }
     }
+
+    onPress = (gamesStory) => {
+      this.props.navigation.navigate("Games_Details_Page", {game: gamesStory, refresh:this.refreshData})
+    }
+
 }
 
 class GamesListItem extends Component {
   constructor(props) {
     super(props);
-}
+  }
   render() {
      return (
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Games_Details_Page", {game: this.props.gamesStory})} style={styles.gamesList}>
-              <View style={styles.team}>
-                <Text style={styles.team1Title}>{this.props.gamesStory.team1}</Text>
-                <Image style={styles.image} source ={{uri: this.props.gamesStory.team1Flag}}/>
-                <Text style={styles.scores1}>{this.props.gamesStory.goals1}</Text>
-              </View>
-              <Text style={styles.dash}>-</Text>
-              <View style={styles.team}>
-                <Text style={styles.scores2}>{this.props.gamesStory.goals2}</Text>
-                <Image style={styles.image} source ={{uri: this.props.gamesStory.team2Flag}}/>
-                <Text style={styles.team2Title}>{this.props.gamesStory.team2}</Text>
-              </View>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.onPress(this.props.gamesStory)} style={styles.gamesList}>
+            <View style={styles.team}>
+              <Text style={styles.team1Title}>{this.props.gamesStory.team1}</Text>
+              <Image style={styles.image} source ={{uri: this.props.gamesStory.team1Flag}}/>
+              <Text style={styles.scores1}>{this.props.gamesStory.goals1}</Text>
+            </View>
+            <Text style={styles.dash}>-</Text>
+            <View style={styles.team}>
+              <Text style={styles.scores2}>{this.props.gamesStory.goals2}</Text>
+              <Image style={styles.image} source ={{uri: this.props.gamesStory.team2Flag}}/>
+              <Text style={styles.team2Title}>{this.props.gamesStory.team2}</Text>
+            </View>
+        </TouchableOpacity>
     );
   }
+
 }
 
 const styles = StyleSheet.create({

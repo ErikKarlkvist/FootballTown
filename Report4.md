@@ -144,6 +144,7 @@ Games Navigation | *4 hours* | *Goitom: 2 hours, Rahwa:2 hours*
 Games Tab | *4 hours* | *Goitom: 4 hours*
 Points Tab | *3 hours* | *Goitom: 1.5 hours, Rahwa:1.5 hours*
 
+
 # Reflections
 The group worked as a team to carry out the tasks defined in the backlog and tackle the problems that occurred during development. All team members showed up to all meetings with a positive attitude. Each member contributed to the progress of the project relative to their level of programming competence. Once again team-work and pair-programming played a major role in accomplishment of tasks. This sprint the work was more divided than previously, making concurrent progress more easily than before. Further, all the different agile practices used complemented each other and made the structuring and administration of this sprint easier than the ones before. The different practices used in the sprint are described below.
 
@@ -263,6 +264,8 @@ Feature | Time estimated | Time spent per team member
 *Admin update Events, Games and News* | *4 hours* | *Erik: 4 hours*
 *Fixing bugs and styles* | *2 hours* | *Erik: 2 hours*
 *Generally helping others* | *2 hours* | *Erik: 2 hours*
+*Adding realistic data to database* | *3 hours* | *Johan: 3 hours*
+*Adding games and table to the homepage* | 3.5 hours* | *Johan: 3.5 hours*
 
 
 # Reflections

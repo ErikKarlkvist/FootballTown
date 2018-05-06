@@ -271,7 +271,7 @@ The customer satisfaction after the previous sprint was positive, the customer v
 [Write something here, no idea what]
 
 ## Testing
-[Write about the testing here]
+Testing using travis has worked well this sprint and we've written test for the database classes, where we tested CRUD for Events, News, Teams and Games. We added some rendering tests for the main tab views. However we found it hard to test more than this since we don't do any heavy computations, we just downloads data from the database and display it. Since we are using firebase, most of the backend code is given by the library, and is not tested by us. We also couldn't test anything with actual HTTP calls, since firebase doesn't allow that. We therefor had to mock all functions that we use in firebase, which took a lot of effort and time. All in all, we've learned how to setup a testing environment for react native, as well as creating mockups, while developing this app, but not much in terms of actual testing and how to do test driven development.
 
 ## Continuous Integration
 After each team has worked separately on specific feature based on the catalog on the scrum board, continuous integration has been done by the team seating together. More than  the previous two sprints

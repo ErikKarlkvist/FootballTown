@@ -265,7 +265,7 @@ Feature | Time estimated | Time spent per team member
 *Fixing bugs and styles* | *2 hours* | *Erik: 2 hours*
 *Generally helping others* | *2 hours* | *Erik: 2 hours*
 *Adding realistic data to database* | *3 hours* | *Johan: 3 hours*
-*Adding games and table to the homepage* | 3.5 hours* | *Johan: 3.5 hours*
+*Adding games and table to the homepage* | *3.5 hours* | *Johan: 3.5 hours*
 
 
 # Reflections

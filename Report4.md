@@ -251,6 +251,10 @@ Feature | Time estimated | Time spent per team member
 *Map implementation* | *4.5 hours* |*Tobias: 4.5 hours*
 *Splash Screen* | *1 hour* | * Tobias: 1 hour*
 *Teams Rank page * | *  hour* | * Goitom: 4 hours, Alexander *
+*Styling the Event page* | *0.5 hour* | * Pooriya: 0.5 hour*
+*The My-Team view* | *2 hour* | * Pooriya: 2 hour*
+*The My-Team connection to database* | *3 hour* | * Pooriya: 3 hour*
+
 
 # Reflections
 During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable. All the promised functionalities of the application seem to be fully implemented. Although, some minor styling may be done after the final sprint to make the application look as good as possible. 

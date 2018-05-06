@@ -153,27 +153,6 @@ export default class Team_page extends Component {
 }
 
 const styles = StyleSheet.create({
-  statsContainer: { flex: 1,
-    padding: 10,
-    paddingTop: 10,
-  },
-  head: {
-     height: 40,
-  },
-  text: {
-    margin: 6,
-    textAlign: 'center',
-    color: 'black',
-    fontWeight:'bold',
-    flexDirection: 'row',
-  },
-  stats: {
-    textAlign: 'center',
-    color: 'black',
-    fontWeight:'bold',
-    fontSize: 20,
-    flexDirection: 'row',
-  },
   header: {
     display: 'flex',
     flexDirection: 'row',
@@ -186,32 +165,38 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'flex-start',
   },
+  teamName:{
+    color: Colors.PrimaryText,
+    fontFamily: Fonts.Default,
+    fontSize: 36,
+    fontWeight: '400',
+    justifyContent: 'flex-start',
+},
+logo:{
+  height: undefined,
+  width: undefined,
+  flex: 1,
+},
   logoContainer: {
     width: 72,
     padding: 8,
     justifyContent: 'center',
   },
+  statsContainer: { flex: 1,
+    padding: 10,
+    paddingTop: 10,
+  },
+  stats: {
+    textAlign: 'center',
+    color: 'black',
+    fontWeight:'bold',
+    fontSize: 20,
+    flexDirection: 'row',
+  },
   textHead:{
     fontWeight: 'normal',
     textAlign: 'center',
     color: Colors.Primary,
-  },
-  teamName:{
-      color: Colors.PrimaryText,
-      fontFamily: Fonts.Default,
-      fontSize: 36,
-      fontWeight: '400',
-      justifyContent: 'flex-start',
-  },
-  logo:{
-    height: undefined,
-    width: undefined,
-    flex: 1,
-  },
-item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
   },
   changeTeamContainer : {
     borderTopColor: Colors.PrimaryLight,
@@ -219,5 +204,4 @@ item: {
     margin: 16,
     paddingTop: 16,
   },
-
 });

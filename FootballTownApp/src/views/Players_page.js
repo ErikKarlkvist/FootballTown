@@ -13,6 +13,7 @@ import {TabNavigator} from 'react-navigation';
 import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles} from '../config/UIStyleSheet';
 import Factory from '../database/Factory';
+import Loader from '../views/Loader';
 
 
 import { Table, Row, Rows } from 'react-native-table-component';
@@ -48,7 +49,12 @@ export default class Players_page extends Component {
     }
 
     render() {
-        const state = this.state;
+      const state = this.state;
+      if(this.state.loading){
+        return (
+          <Loader/>
+        );
+      } else {
         return (
             <ScrollView style={styles.viewContainer}>
             <FlatList
@@ -59,10 +65,10 @@ export default class Players_page extends Component {
             keyExtractor={item => item.id}
           />
             </ScrollView>
-        )
+        );
+      }
     }
-}
-        
+}      
     
 
 class PlayerItem extends Component {

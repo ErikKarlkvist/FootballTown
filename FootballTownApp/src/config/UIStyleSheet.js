@@ -33,7 +33,7 @@ export const GlobalStyles = StyleSheet.create({
 
   },
   articleContainer: {
-    padding: 14,
+    padding: 16,
   },
 
 

@@ -16,6 +16,7 @@ import {Colors, Fonts} from '../config/UIConfig';
 import {GlobalStyles, PromptStyles} from '../config/UIStyleSheet';
 import { Table, Row, Rows } from 'react-native-table-component';
 import Factory from '../database/Factory';
+import Loader from '../views/Loader';
 
 
 
@@ -36,7 +37,7 @@ export default class Team_page extends Component {
       user: Factory.getUserInstance(),
       teams: Factory.getTeamsInstance(),
       fetchedTeam: {},
-      tableHead: ['Position', 'Wins', 'Draws', 'Losses', 'Points'],
+      tableHead: ['Pos', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [[]]
 
     };
@@ -89,30 +90,42 @@ export default class Team_page extends Component {
 
   render() {
     const state = this.state;
+    if(this.state.loading){
+      return (
+        <Loader/>
+      );
+    } else {
     return (
       <ScrollView>
         <Image
         style={{width: screenWidth, height: imageHeight}}
         source={{uri: this.state.fetchedTeam.headerImage}}/>
-
-          <View style={styles.team}>
-          <Image
-          style={styles.flagStyle}
-          source={{uri: this.state.fetchedTeam.flag}}/>
-          <Text style={styles.teamTitle}>{this.state.fetchedTeam.name}</Text>
+          
+          <View style={styles.header}>
+            <View style={styles.logoContainer}>
+              <Image
+              resizeMode="contain"
+              style={styles.logo}
+              source={{uri: this.state.fetchedTeam.flag}}/>
+            </View>
+            <View style={styles.teamNameContainer}>
+              <Text style={styles.teamName}>{this.state.fetchedTeam.name}</Text>
+            </View>
           </View>
-          <View style={styles.container}>
-          <Table borderStyle={{borderWidth: 0.5, borderColor: 'black'}}>
+          
+          <View style={styles.statsContainer}>
+          <Table borderStyle={{borderWidth: 0}}>
             <Row data={state.tableHead} style={styles.head} textStyle={styles.textHead}/>
-            <Rows data={state.tableData} textStyle={styles.text}/>
+            <Rows data={state.tableData} textStyle={styles.stats}/>
           </Table>
           </View>
-
+          
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.text}>{this.state.fetchedTeam.text}</Text>
           </View>
-          <View style={PromptStyles.box}>
-            <Text style={PromptStyles.title}>Change Team</Text>
+          
+          <View style={styles.changeTeamContainer}>
+            <Text style={GlobalStyles.subtitle}>Change Team</Text>
             <View style={PromptStyles.pickerContainer}>
               <Picker
                 selectedValue={this.state.selectedTeam}
@@ -128,7 +141,7 @@ export default class Team_page extends Component {
       </ScrollView>
     )
   }
-
+  }
   onPress = () => {
     console.log(this.state.fetchedTeams[this.state.selectedTeam].id)
     Factory.getUserInstance().setFollowingTeam(this.state.fetchedTeams[this.state.selectedTeam].id)
@@ -140,52 +153,71 @@ export default class Team_page extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1,
+  statsContainer: { flex: 1,
     padding: 10,
     paddingTop: 10,
-
-        },
+  },
   head: {
      height: 40,
-     backgroundColor: '#607D8B',
-        },
+  },
   text: {
     margin: 6,
     textAlign: 'center',
-    color: 'black'
-  },
-  team: {
-    flex: 0.3,
+    color: 'black',
+    fontWeight:'bold',
     flexDirection: 'row',
-    height: 50,
+  },
+  stats: {
+    textAlign: 'center',
+    color: 'black',
+    fontWeight:'bold',
+    fontSize: 20,
+    flexDirection: 'row',
+  },
+  header: {
     display: 'flex',
-    margin: 10,
+    flexDirection: 'row',
+    padding: 8,
+  },
+  teamNameContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    display: 'flex',
+    padding: 8,
+    justifyContent: 'flex-start',
+  },
+  logoContainer: {
+    width: 72,
+    padding: 8,
     justifyContent: 'center',
   },
   textHead:{
-    margin: 3,
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     textAlign: 'center',
-    color: '#fff'
+    color: Colors.Primary,
   },
-  teamTitle:{
+  teamName:{
       color: Colors.PrimaryText,
       fontFamily: Fonts.Default,
       fontSize: 36,
       fontWeight: '400',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
   },
-  flagStyle:{
-    alignItems: 'flex-start',
-    width: 50,
-    height: 50,
-    resizeMode: 'contain',
+  logo:{
+    height: undefined,
+    width: undefined,
+    flex: 1,
   },
-
 item: {
     padding: 10,
     fontSize: 18,
     height: 44,
+  },
+  changeTeamContainer : {
+    borderTopColor: Colors.PrimaryLight,
+    borderTopWidth: 1,
+    margin: 16,
+    paddingTop: 16,
   },
 
 });

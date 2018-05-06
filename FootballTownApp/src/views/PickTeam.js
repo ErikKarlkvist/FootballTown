@@ -59,39 +59,39 @@ class PickTeam extends Component{
 
   render() {
     console.log(this.state.selectedTeam)
-    if(!this.state.loading){
+    if(this.state.loading){
       return (
         <ImageBackground
-          style={{width: '100%', height: '100%',}}
-          source={require('../resources/football-stadium.jpg')}
-        >
-        <ScrollView centerContent={true} style={PromptStyles.page}
-          contentContainerStyle={{flexGrow: 1}}>
-          <View style={PromptStyles.box}>
-            <Text style={PromptStyles.title}>Show your support</Text>
-            <View style={PromptStyles.pickerContainer}>
-              <Picker
-                selectedValue={this.state.selectedTeam}
-                style={PromptStyles.picker}
-                mode = "dropdown"
-                onValueChange={(itemValue, itemIndex) => this.setState({selectedTeam: itemValue})}>
-                {this.state.pickerItems}
-              </Picker>
-            </View>
-            <View style={PromptStyles.buttonContainer}>
-              <Button style={PromptStyles.button} color={Colors.Primary} title={"Lets Go!"} onPress = {this.onPress} />
-            </View>
-          </View>
-        </ScrollView>
+        style={{width: '100%', height: '100%', justifyContent: 'center', alignItems:'center',}}
+        source={require('../resources/football-stadium.jpg')}
+      >
+        <ActivityIndicator size="large" color={'white'}/>
       </ImageBackground>
       );
     } else {
       return (
         <ImageBackground
-          style={{width: '100%', height: '100%', justifyContent: 'center', alignItems:'center',}}
-          source={require('../resources/football-stadium.jpg')}
+        style={{width: '100%', height: '100%',}}
+        source={require('../resources/football-stadium.jpg')}
         >
-          <ActivityIndicator size="large" color={'white'}/>
+        <ScrollView centerContent={true} style={PromptStyles.page}
+        contentContainerStyle={{flexGrow: 1}}>
+        <View style={PromptStyles.box}>
+          <Text style={PromptStyles.title}>Show your support</Text>
+          <View style={PromptStyles.pickerContainer}>
+            <Picker
+              selectedValue={this.state.selectedTeam}
+              style={PromptStyles.picker}
+              mode = "dropdown"
+              onValueChange={(itemValue, itemIndex) => this.setState({selectedTeam: itemValue})}>
+              {this.state.pickerItems}
+            </Picker>
+          </View>
+          <View style={PromptStyles.buttonContainer}>
+            <Button style={PromptStyles.button} color={Colors.Primary} title={"Lets Go!"} onPress = {this.onPress} />
+          </View>
+        </View>
+        </ScrollView>
         </ImageBackground>
       )
     }

@@ -196,7 +196,7 @@ Information about games and the current points for the different teams
 	As a user I want a game page to display the information about a specific game when selected from the games feed.
 
 ### 5.0 Mockup
-	We also decided on creating mockups for the different screens that would be created during the course of the sprint, as to help us with the design and to get a consistant look and feel in the application.
+We also decided on creating mockups for the different screens that would be created during the course of the sprint, as to help us with the design and to get a consistant look and feel in the application.
 
 ## Planning Poker
 Planning poker is one of the Key agile practices we used while we develop our project in this sprint, this was used to approximate how exhaustive the different tasks were. As per standard practices the planning poker consisted of every team member assigning a score to each task based on their understanding of the difficulty of the task. Once every team member had given the task a score, the two team members with the smallest and highest score discussed with the group why they gave the task the score they did to try to reach a consensus.
@@ -250,9 +250,13 @@ Feature | Time estimated | Time spent per team member
 *Sprint Discussion* | *7 hours* | *Each team member: 1 hour*
 *Map implementation* | *4.5 hours* |*Tobias: 4.5 hours*
 *Splash Screen* | *1 hour* | *Tobias: 1 hour*
-*Teams Rank page * | *  hour* | *Goitom: 4 hours, Alexander *
-*Styling the Event page* | *0.5 hour* | *Pooriya: 0.5 hour*
-*The My-Team view* | *2 hour* | *Pooriya: 2 hour*
+*Teams Rank page* | *5 hours* | *Goitom: 4 hours, Alex: 0.5 hours*
+*Styling the Event page* | *0.5 hours* | *Pooriya: 0.5 hours*
+*Team view* | *2 hours* | *Pooriya: 2 hour*
+*Team view styling* | *2 hours* | *Alex: 2 hours*
+*Pick team view* | *3 hours* | *Alex: 3 hours*
+*Players view* | *3 hours* | *Alex: 3 hours*
+*App logo & icon*| *2 hours* | *Alex: 2 hours*
 *The My-Team connection to database* | *3 hour* | *Pooriya: 3 hour*
 *Write Tests*| *4 hour* | *Rahwa: 4 hour*
 *Create Team Admin View* | *2 hours* | *Erik: 2 hours*

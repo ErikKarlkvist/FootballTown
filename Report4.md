@@ -253,7 +253,7 @@ Feature | Time estimated | Time spent per team member
 *Teams Rank page * | *  hour* | * Goitom: 4 hours, Alexander *
 
 # Reflections
-During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable.
+During this sprint we continued to work in the same fashion as in the earlier sprints, we also had some idea of our velocity given the completed tasks in the former sprint. However, as this is our final sprint we did not do any planning poker but instead took on finishing all of the tasks as we felt that this was managable. All the promised functionalities of the application seem to be fully implemented. Although, some minor styling may be done after the final sprint to make the application look as good as possible. 
 
 ## Pair Programming
 Similar to the previous sprint, pair programming was not largely utalized this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a simular approach to the pair programming methodology.
@@ -262,13 +262,13 @@ Similar to the previous sprint, pair programming was not largely utalized this s
 The scrum board was utalized in this sprint as well, similar to the previous one. It gave an understanding of what was in progress and how much was left to do.
 
 ## Scrum Meetings
-The scrum meetings consisted of cathing up on what everyone was doing and also working together as described in the *pair programming* section.
+The scrum meetings consisted of cathing up on what everyone was doing and also working together as described in the *pair programming* section. The meetings seem very beneficial for the success of the project as members assisted each other with their problems or even gave each other new ideas for making the code better.
 
 ## Product Owner/Customer
 The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe.
 
 ## Code Ownership and Refactoring
-[Write something here, no idea what]
+As predicted, there were almost no problems with Github and version control. All members seem to be adopted to GitHub and how it works. 
 
 ## Testing
 Testing using travis has worked well this sprint and we've written test for the database classes, where we tested CRUD for Events, News, Teams and Games. We added some rendering tests for the main tab views. However we found it hard to test more than this since we don't do any heavy computations, we just downloads data from the database and display it. Since we are using firebase, most of the backend code is given by the library, and is not tested by us. We also couldn't test anything with actual HTTP calls, since firebase doesn't allow that. We therefor had to mock all functions that we use in firebase, which took a lot of effort and time. All in all, we've learned how to setup a testing environment for react native, as well as creating mockups, while developing this app, but not much in terms of actual testing and how to do test driven development.

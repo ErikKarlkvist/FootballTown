@@ -107,7 +107,7 @@ class Matches_page extends Component {
     renderHeader = () => {
       return(
         <View style={styles.gamesTopbar}>
-            <Text style={styles.gamesTopbarTitle}>Recent Matches</Text>
+            <Text style={styles.gamesTopbarTitle}>Upcoming Matches</Text>
             {this.props.loadMessage != null?
               <View style={styles.loadMore}>
                 <TouchableOpacity
@@ -140,6 +140,7 @@ render() {
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
         <View style={{flex:1}}>
+          <Text style={styles.headerTitle}>Upcoming Matches</Text>
           <FlatList
             data={this.state.upcoming.slice(0, this.props.itemCount)}
             renderItem={({ item }) => (
@@ -147,7 +148,7 @@ render() {
             )}
             keyExtractor={item => item.id}
             //ItemSeparatorComponent={this.renderSeparator}
-            ListHeaderComponent={this.renderHeader}
+            //ListHeaderComponent={this.renderHeader}
             //ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
@@ -295,7 +296,7 @@ const styles = StyleSheet.create({
   },
   gamesTopbarTitle:{
     fontSize: 22,
-
+    color: Colors.PrimaryText
   },
   gamesTopbar: {
     flex: 1, flexDirection: 'row',

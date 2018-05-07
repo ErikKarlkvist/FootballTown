@@ -267,6 +267,7 @@ Feature | Time estimated | Time spent per team member
 *Adding realistic data to database* | *3 hours* | *Johan: 3 hours*
 *Adding games and table to the homepage* | *3.5 hours* | *Johan: 3.5 hours*
 *Fixing page with game details* | *0.5 hours* | *Johan: 0.5 hours*
+*Linking "Load more" buttons to corresponding screen from homepage | *1 hour* | *Tobias: 1hour*
 
 
 # Reflections
@@ -276,18 +277,18 @@ During this sprint we continued to work in the same fashion as in the earlier sp
 Like the previous sprint, pair programming was not largely utilised this sprint as each member have an understanding about how the framework works. However, we did spend time working together such that potential errors could be quickly solved which yields somewhat of a similar approach to the pair programming methodology. The main reason pair programming was not used was a lack of time, where we wanted to deliver as much as possible each sprint.
 
 ## Scrum Board
-The scrum board was utilised in this sprint as well, similarly to the previous one. It gave an understanding of what was in progress and how much was left to do. However, sometimes the scrum board was forgotten and there were occasions were team members worked on the same thing without knowing about it. While the scrum board is good within itself, it requires that each team members actively uses it. Most team members have been good at this, but there have been moments of bad communication within the group.  
+The scrum board was utilised in this sprint as well, similarly to the previous one. It gave an understanding of what was in progress and how much was left to do. However, sometimes the scrum board was forgotten and there were occasions were team members worked on the same thing without knowing about it. While the scrum board is good within itself, it requires that each team members actively uses it. Most team members have been good at this, but there have been moments of bad communication within the group. This miscomunication and lack of scrum board usage may be reduced in a real-life setting in which the programmers work in the same enviroment (office) and have access to a physical scrum board, such as a white board with post-it-notes. As this is not feasable in this kind of educational project, a digital scrum board such as trello yields a simular result. However, as previously stated, this requires that the team members actively uses it. 
 
 ## Scrum Meetings
-The scrum meetings consisted of catching up on what everyone was doing and working together as described in the *pair programming* section. The meetings seem very beneficial for the success of the project as members assisted each other with their problems or even gave each other new ideas for making the code better.
+The scrum meetings consisted of catching up on what everyone was doing and working together as described in the *pair programming* section. The meetings seem very beneficial for the success of the project as members assisted each other with their problems or even gave each other new ideas for making the code better. However, the meetings during this sprint was less formal and did not really reflect a scrum meeting in its ordinary fashion. The meetings were more an oppertunity to discuss the work we were undertaking, help each other with potential problems that had arisen and try to get the look of our individual parts to become consistent. 
 
 ## Product Owner/Customer
-The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe.
+The customer satisfaction after the previous sprint was positive, the customer vented their opinions and wishes for this sprint and we as a development team tried to reach a consensus on what could be delivered within the final timeframe. As the number of sprints was very limited, the wishes of the customer may not have had developed/changed as much as in a real life project which made our approach to the project somewhat linear as the initial planned version of our app largely reflect what is in our final version. In a real life setting, scope creep may be more apparent thus making larger compromises needed. 
 
 ## Code Ownership and Refactoring
 As predicted, there were almost no problems with GitHub and version control. All members seem to be adopted to GitHub and how it works. We did some refactoring, mainly moving the navigators from inside views to their own classes, which made the structure of the files better.
 
-Overall the file structure is rather lacklustre, but due to time limitations it has not been a priority. If this was an actual application that were to be released, then we would probably spend more time cleaning up and be more consistent with the architecture and naming. For example, some files are named using camelCase, and some using underscores. The internal definition of what a component is versus a view has not been clear to all group members, leading to some unnecessary confusing when looking for specific parts in the code. Finally, indentation is also heavily inconsistent, in some places two spaces were used, others 4 and also alignment is often incorrect. The spacing issue is most likely due to the team using different text editors. 
+Overall the file structure is rather lacklustre, but due to time limitations it has not been a priority. If this was an actual application that were to be released, then we would probably spend more time cleaning up and be more consistent with the architecture and naming. For example, some files are named using camelCase, and some using underscores. The internal definition of what a component is versus a view has not been clear to all group members, leading to some unnecessary confusing when looking for specific parts in the code. Finally, indentation is also heavily inconsistent, in some places two spaces were used, others 4 and also alignment is often incorrect. The spacing issue is most likely due to the team using different text editors. These problems could largely be combated by defining code- and naming conventions at the beginning of the project and by having code reviews during the development cycles. 
 
 ## Testing
 Testing using Travis has worked well this sprint and we've written test for the database classes, where we tested Login User and CRUD for Events, News, Teams and Games. We added some rendering tests for the main tab views, however found it hard to test more than this since we don't do any heavy computations, we just downloads data from the database and display it.
@@ -304,4 +305,4 @@ Working alone, each team member produces many line of code which may have some i
 
 
 ## Communication Channels
-Slack was largely utilised as the main platform for communication. This was consistent with communication in previous sprints and we have no new observations regarding its usefulness.
+Slack was largely utilised as the main platform for communication. This was consistent with communication in previous sprints and we have no new observations regarding its usefulness. 

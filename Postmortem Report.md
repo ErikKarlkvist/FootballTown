@@ -308,6 +308,33 @@ Working alone, each team member produces many line of code which may have some i
 Slack was largely utilised as the main platform for communication. This was consistent with communication in previous sprints and we have no new observations regarding its usefulness.
 
 # Postmortem
+## Commitment
+write something here!
+## Work Done
+Below follows the various tasks conducted in this sprint
+
+Feature | Time estimated | Time spent per team member
+--------|----------------|----------------------------
+*Sprint Discussion* | * hours* | *Each team member:  hour*
+# Reflections
+write something here!
+## Pair Programming
+write something here!
+## Scrum Board
+write something here!
+## Scrum Meeting
+write something here!
+## Product Owner/customer
+write something here!
+## Code ownership and refactoring
+write something !
+## Testing
+write something!
+## Continuous Integration
+write something
+## Communication channel
+write something!
+
 Once the project is finished, summarize your experiences. The postmortem part shall be 2000-3000 words long.
 
 Considering the following:

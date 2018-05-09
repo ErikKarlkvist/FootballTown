@@ -34,8 +34,12 @@ export const GlobalStyles = StyleSheet.create({
   },
   articleContainer: {
     padding: 16,
+    flex: 1,
   },
 
+  articleScrollView:{
+    backgroundColor: Colors.ArticleBackground,
+  },
 
 });
 

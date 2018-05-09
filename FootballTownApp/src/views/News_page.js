@@ -40,7 +40,7 @@ constructor(props){
 
 render() {
     return (
-      <ScrollView>
+      <ScrollView style={GlobalStyles.articleScrollView}>
         <Image
           style={{width: screenWidth, height: imageHeight}}
           source={{uri: this.state.newsStory.imageUrl}}

@@ -38,7 +38,7 @@ class Events_page extends Component{
 
   render() {
       return (
-        <ScrollView>
+        <ScrollView style={GlobalStyles.articleScrollView}>
           <Image
             style={{width: screenWidth, height: imageHeight}}
             source={{uri: this.state.eventsStory.imageUrl}}

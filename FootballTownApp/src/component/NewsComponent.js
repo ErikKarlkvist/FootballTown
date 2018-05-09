@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
-import {Colors} from '../config/UIConfig'
+import {Colors} from '../config/UIConfig';
 import {StackNavigator } from 'react-navigation';
-import News_page from '../views/News_page'
+import News_page from '../views/News_page';
+import Loader from '../views/Loader';
 
 export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
@@ -54,18 +55,6 @@ export class NewsComponent extends Component {
     {this.props.navigation.navigate('Feed')}
   };
 
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 0.5,
-          width: "100%",
-          opacity: 0.2,
-          backgroundColor: "gray",
-        }}
-      />
-    );
-  };
   renderHeader = () => {
       return(
         <View style={styles.newsTopbar}>
@@ -106,18 +95,18 @@ export class NewsComponent extends Component {
               </TouchableOpacity>
             )}
             keyExtractor={item => item.id}
-            ItemSeparatorComponent={this.renderSeparator}
             ListHeaderComponent={this.renderHeader}
             ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
             onEndReachedThreshold={50}
+            contentContainerStyle={styles.viewContainer}
           />
         </View>
         );
     } else {
       return(
-        <ActivityIndicator size="large" color={Colors.Primary} />
+        <Loader />
         );
     }
     }
@@ -176,17 +165,17 @@ export class NewsStory extends Component {
 
 
 const styles = StyleSheet.create({
+  viewContainer: {
+    paddingBottom: 8,
+  },
   newsStory: {
-    margin: 3,
+    marginHorizontal: 8,
+    marginVertical: 4,
     flex: 1, flexDirection: 'row',
     minHeight: 90,
-    padding: 5,
+    padding: 8,
     backgroundColor: Colors.ListBackground,
-    shadowColor: 'black',
-    elevation: 2,
-    shadowRadius: 1,
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 2, height: 2}
+    elevation: 1,    
   },
   storyText: {
     flex: 1, flexDirection: 'column',
@@ -209,25 +198,20 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   newsList:{
-    padding: 10,
     width: '100%'
-
   },
   newsTopBarTitle:{
     fontSize: 22,
-
   },
   newsTopbar: {
     flex: 1, flexDirection: 'row',
-    height: '5%',
     margin: 0,
-    padding: 5,
-
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   loadMore: {
     marginLeft: 'auto',
     margin: 0,
-    padding: 5,
   },
   loadText: {
     color: Colors.Primary,

@@ -67,7 +67,7 @@ class Game_Details_page extends Component{
   render() {
       const game = this.state.gamesStory
       return (
-        <ScrollView>
+        <ScrollView style={GlobalStyles.articleScrollView}>
           <View style={styles.summary}>
             <View style={styles.teamIcon}>
               <Image style={styles.image} source={{uri: game.team1Flag}}/>

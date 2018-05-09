@@ -10,6 +10,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Image,
   View,
   ScrollView,
   StatusBar
@@ -28,8 +29,9 @@ import Ranks_page from "../views/Ranks_page";
 class Home_page extends Component{
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'FootCity',
-    headerTitle: "FootCity",
+    title: 'Footcity',
+    headerLeft: (<Image resizeMode="contain" style={styles.logo} source={require('../resources/footcity-icon.png')} />),
+    headerTitle: "Footcity",
     headerRight: (
       <AdminHeaderButton navigation={navigation}/>
     ),
@@ -120,6 +122,11 @@ class Home_page extends Component{
       fontSize: 20,
       marginBottom: 10,
       color: Colors.PrimaryText
+    },
+    logo: {
+      height: 28,
+      width: 28,
+      marginLeft: 16,
     },
 
   });

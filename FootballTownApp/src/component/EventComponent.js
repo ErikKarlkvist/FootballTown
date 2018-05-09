@@ -6,6 +6,7 @@ import AdminHeaderButton from "./AdminHeaderButton";
 import Events_page from "../views/Events_page";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Loader from '../views/Loader';
 
  export class EventComponent extends Component {
 
@@ -44,19 +45,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
     );
   };
 
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 0.5,
-          width: "100%",
-          opacity: 0.2,
-          backgroundColor: "gray",
-        }}
-      />
-    );
-  };
-
   renderFooter = () => {
     return (
       <View>
@@ -91,19 +79,17 @@ import Ionicons from "react-native-vector-icons/Ionicons";
               </TouchableOpacity >
             )}
             keyExtractor={item => item.id}
-            ItemSeparatorComponent={this.renderSeparator}
             ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
             onEndReachedThreshold={50}
+            contentContainerStyle={styles.viewContainer}
           />
           </View>
           );
       }else {
         return (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color={Colors.PrimaryDark}/>
-          </View>
+          <Loader />
         )
       }
     }
@@ -135,7 +121,7 @@ getExceptText(length) {
         />
         <View style ={styles.storyText}>
          <Text style={styles.eventsTitle}>{this.props.title}</Text>
-         <Text style={styles.eventsText}>{this.getExceptText(160)} </Text>
+         <Text style={styles.eventsText}>{this.getExceptText(100)} </Text>
          <Text style={styles.iconText}>   <Icon name='map-marker' size={15} style={{ marginRight:5, color: "black" }}/> Location: {this.props.location.name}</Text>
          <Text style={styles.iconText}>   <Ionicons name='md-pricetags' size={13} style={{ marginLeft:3, color: "black" }}/> Price: {this.props.price}</Text>
        </View>
@@ -167,17 +153,18 @@ export class EventsStory extends Component {
 
 
 const styles = StyleSheet.create({
+  viewContainer: {
+    paddingVertical: 8,
+  },
   eventsStory: {
-    margin: 3,
+    marginHorizontal: 8,
+    marginVertical: 4,
     flex: 1, flexDirection: 'row',
     minHeight: 90,
-    padding: 5,
+    padding: 8,
     backgroundColor: Colors.ListBackground,
     shadowColor: 'black',
-    elevation: 2,
-    shadowRadius: 1,
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 2, height: 2}
+    elevation: 1,
   },
   storyText: {
     flex: 1, flexDirection: 'column',
@@ -204,13 +191,6 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   eventsList:{
-    padding: 10,
     width: '100%',
-
-  },
-  loadingContainer: {
-    flex:1,
-    justifyContent: "center",
-    alignItems: "center"
   },
 });

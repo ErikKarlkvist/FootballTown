@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet, Image} from 'react-native';
 import {Colors} from '../config/UIConfig'
-import Matches_page from '../views/Matches_page'
+
 export default class MatchComponent extends Component{
 render(){
   return(

@@ -5,24 +5,15 @@ import {Button, AppRegistry,
 Text, FlatList, View, StyleSheet,
 Image, ActivityIndicator,
 TouchableOpacity} from 'react-native';
-
-import {Card,CardItem,
-Thumbnail,Body,
-Left,Right,
-Icon,ListItem,List,
-Container,Content,
-ScrollView
-} from 'native-base'
-
 import Factory from '../database/Factory';
 import {Colors, Fonts} from '../config/UIConfig'
 import {StackNavigator, withNavigation} from 'react-navigation';
 import AdminHeaderButton from "../component/AdminHeaderButton"
-class Matches_page extends Component {
+class UpComing_Matches_page extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
-      title: "Matches",
+      title: "Coming Matches",
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),
@@ -41,7 +32,7 @@ class Matches_page extends Component {
       fetchedgames: [],
       navigator: props.navigator,
       upcoming: [],
-      latest: [],
+
   	};
 
   }
@@ -53,22 +44,18 @@ class Matches_page extends Component {
   refreshData = () => {
     this.setState({loading:true})
     this.state.games.getGames().then((games) => {
-      const lat = []
+
       const upc = []
       games.forEach(game => {
         if(game.status === "pending"){
           upc.push(game)
-        } else {
-          lat.push(game)
         }
       })
-      lat.sort(function(a,b){
-        return new Date(b.date) - new Date(a.date);
-      });
+
       upc.sort(function(a,b){
         return new Date(b.date) - new Date(a.date);
       });
-      this.setState({loading: false, refreshing: false, upcoming: upc, latest: lat})
+      this.setState({loading: false, refreshing: false, upcoming: upc})
     })
   }
 
@@ -107,7 +94,11 @@ class Matches_page extends Component {
     renderHeader = () => {
       return(
         <View style={styles.gamesTopbar}>
+
+            <Text style={styles.gamesTopbarTitle}>Coming Matches</Text>
+
             <Text style={styles.gamesTopbarTitle}>Upcoming Matches</Text>
+
             {this.props.loadMessage != null?
               <View style={styles.loadMore}>
                 <TouchableOpacity
@@ -147,6 +138,7 @@ render() {
               <GamesListItem onPress={this.onPress} navigation = {this.props.navigation} gamesStory = {item}/>
             )}
             keyExtractor={item => item.id}
+
             //ItemSeparatorComponent={this.renderSeparator}
             //ListHeaderComponent={this.renderHeader}
             //ListFooterComponent={this.renderFooter}
@@ -155,21 +147,8 @@ render() {
             onEndReached={this.handleLoadMore}
             onEndReachedThreshold={0}
           />
-          <Text style={styles.headerTitle}>Latest Matches</Text>
-          <FlatList
-            data={this.state.latest.slice(0,this.props.itemCount)}
-            renderItem={({ item }) => (
-              <GamesListItem onPress={this.onPress} navigation = {this.props.navigation} gamesStory = {item}/>
-            )}
-            keyExtractor={item => item.id}
-            //ItemSeparatorComponent={this.renderSeparator}
-            //ListHeaderComponent={this.renderHeader}
-            //ListFooterComponent={this.renderFooter}
-            onRefresh={this.handleRefresh}
-            refreshing={this.state.refreshing}
-            onEndReached={this.handleLoadMore}
-            onEndReachedThreshold={0}
-          />
+
+
         </View>
         );
     } else {
@@ -184,7 +163,7 @@ render() {
     }
 
 }
-export default withNavigation(Matches_page);
+export default withNavigation(UpComing_Matches_page);
 
 class GamesListItem extends Component {
   constructor(props) {

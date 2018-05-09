@@ -22,9 +22,10 @@ import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
 import AdminHeaderButton from "../component/AdminHeaderButton"
 import {Colors} from "../config/UIConfig";
-import Matches_page from "../views/Matches_page";
-import Ranks_page from "../views/Ranks_page";
 
+import UpComing_Matches_page from "../views/UpComing_Matches_page";
+import Latest_Matches_page from "../views/Latest_Matches_page";
+import Ranks_page from "../views/Ranks_page";
 class Home_page extends Component{
 
   static navigationOptions = ({ navigation }) => ({
@@ -53,7 +54,11 @@ class Home_page extends Component{
           <View style={styles.container}>
              <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"}/>
           </View>
-          <Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
+
+          <UpComing_Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
+
+
+          <Latest_Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Latest matches"}/>
 
           <Text style={styles.headerTitle}>Table</Text>
           <Ranks_page itemCount={5} navigation={this.props.navigation} loadMessage={"MORE"}/>

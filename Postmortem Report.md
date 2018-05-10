@@ -1,5 +1,7 @@
-# Agile Development Processes Postmortem Report  
- ##  Team 7
+# Agile Development Processes Postmortem Report
+  
+## Team 7
+ 
  * Goitom Abrehaley
  * Tobias Alldén
  * Rahwa Araya
@@ -7,6 +9,8 @@
  * Alexander Graham
  * Erik Karlkvist
  * Johan Ljungberg
+ 
+ 
 ---
 # Project Description
 The project is to create an application for a football cup held in a city. The application will contain information about upcoming matches, scores for played matches, rankings etc and also having the possibility for users to find nearby restaurants and events, and admin functionality to post events, change scores etc. The definition of the project is as follows
@@ -319,9 +323,13 @@ Feature | Time estimated | Time spent per team member
 # Reflections
 write something here!
 ## Pair Programming
-write something here!
+Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework. 
+
+One of the main advantages of using pair programming is that the code will supposidely yield a more qualitative code than if a single programmer were to write the code as the other "ovelooking" programmer can spot potential errors and technical debt that may find its way into the code. However, this is more plausable once both of the programmers are knowledgable in the framework/language they are working in. As such, given that the majority of the team were unfamiliar with the framework we might as such not have noticed the full set of advantages related to pair programming, but it did help us get familiar with the framework faster.
 ## Scrum Board
-write something here!
+The scrum board proved to be a very valuable asset to our team during the course of the project. The board allowed us to keep track on the current state of the project such as completed tasks, tasks in progress etc, it further allowed for a backlog where new ideas and items delayed to future sprint could reside. As such, the scrum board was one of the central practices used in the project. 
+
+The scrum board was realized using trello as we did not have the nessecary resources for a physical scrum board. The online version gave the same functionality as a physical one would. However, there were some drawbacks with the board, such as people forgetting to update the cards. One example of this was when several people would work on the same task as the individual that had initially taken on finishing the task had forgot to update the task to "in progress" on the board. This caused unnessacary duplicate work and potential delays to the project. On the positive side, these duplications of work were often discovered early and did as such not cause too much of a distraction to the project. Having a physical scrum board could potentially fix this issue as a developer could physically "take" the task if it were written on, for example a post-it-note. But overall the board was an extremely important asset to the team. 
 ## Scrum Meeting
 write something here!
 ## Product Owner/customer

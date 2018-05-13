@@ -331,7 +331,7 @@ The scrum board proved to be a very valuable asset to our team during the course
 
 The scrum board was realized using trello as we did not have the nessecary resources for a physical scrum board. The online version gave the same functionality as a physical one would. However, there were some drawbacks with the board, such as people forgetting to update the cards. One example of this was when several people would work on the same task as the individual that had initially taken on finishing the task had forgot to update the task to "in progress" on the board. This caused unnessacary duplicate work and potential delays to the project. On the positive side, these duplications of work were often discovered early and did as such not cause too much of a distraction to the project. Having a physical scrum board could potentially fix this issue as a developer could physically "take" the task if it were written on, for example a post-it-note. But overall the board was an extremely important asset to the team. 
 ## Scrum Meeting
-write something here!
+In over all the project we found scrum meeting is the most important and useful agile practice. In each meeting, every group member has participated and tried to share their experiences and challenges faced. Moreover, this practice was productive on sharing what experience and challenges has gotten during the project work and to figured out which tasks done, and which does not. It was vital to facilitate the development of the project iterations and track the project progress  
 ## Product Owner/customer
 write something here!
 ## Code ownership and refactoring
@@ -341,7 +341,9 @@ write something!
 ## Continuous Integration
 write something
 ## Communication channel
-write something!
+We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack. 
+
+
 
 Once the project is finished, summarize your experiences. The postmortem part shall be 2000-3000 words long.
 

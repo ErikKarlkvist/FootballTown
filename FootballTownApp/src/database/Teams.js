@@ -9,7 +9,7 @@ export default class Teams {
     // async duplicatePlayer(){
     //   let player = await firebase.firestore().collection("players").doc("lqLIqW7sh6KfX8ezlmTB").get()
     //   player = player.data()
-    //   for(let i = 0; i < 109; i++){
+    //   for(let i = 0; i < 300; i++){
     //     firebase.firestore().collection("players").add(player)
     //   }
     // }

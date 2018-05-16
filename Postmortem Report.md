@@ -326,6 +326,9 @@ write something here!
 Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework. 
 
 One of the main advantages of using pair programming is that the code will supposidely yield a more qualitative code than if a single programmer were to write the code as the other "ovelooking" programmer can spot potential errors and technical debt that may find its way into the code. However, this is more plausable once both of the programmers are knowledgable in the framework/language they are working in. As such, given that the majority of the team were unfamiliar with the framework we might as such not have noticed the full set of advantages related to pair programming, but it did help us get familiar with the framework faster.
+
+As the project went forward and members were assigned to their own tasks, pair programming started to look differently. Each person were to write some code until the next sprint and if they had any issues, they discussed it during the next meeting. This allowed a rather quick and effective pair programming session for the group where it made the members to work together when it was necessary. 
+
 ## Scrum Board
 The scrum board proved to be a very valuable asset to our team during the course of the project. The board allowed us to keep track on the current state of the project such as completed tasks, tasks in progress etc, it further allowed for a backlog where new ideas and items delayed to future sprint could reside. As such, the scrum board was one of the central practices used in the project. 
 

@@ -1,7 +1,7 @@
 # Agile Development Processes Postmortem Report
-  
+
 ## Team 7
- 
+
  * Goitom Abrehaley
  * Tobias Alldén
  * Rahwa Araya
@@ -9,8 +9,8 @@
  * Alexander Graham
  * Erik Karlkvist
  * Johan Ljungberg
- 
- 
+
+
 ---
 # Project Description
 The project is to create an application for a football cup held in a city. The application will contain information about upcoming matches, scores for played matches, rankings etc and also having the possibility for users to find nearby restaurants and events, and admin functionality to post events, change scores etc. The definition of the project is as follows
@@ -323,30 +323,35 @@ Feature | Time estimated | Time spent per team member
 # Reflections
 write something here!
 ## Pair Programming
-Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework. 
+Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework.
 
 One of the main advantages of using pair programming is that the code will supposidely yield a more qualitative code than if a single programmer were to write the code as the other "ovelooking" programmer can spot potential errors and technical debt that may find its way into the code. However, this is more plausable once both of the programmers are knowledgable in the framework/language they are working in. As such, given that the majority of the team were unfamiliar with the framework we might as such not have noticed the full set of advantages related to pair programming, but it did help us get familiar with the framework faster.
 
-As the project went forward and members were assigned to their own tasks, pair programming started to look differently. Each person were to write some code until the next sprint and if they had any issues, they discussed it during the next meeting. This allowed a rather quick and effective pair programming session for the group where it made the members to work together when it was necessary. 
+As the project went forward and members were assigned to their own tasks, pair programming started to look differently. Each person were to write some code until the next sprint and if they had any issues, they discussed it during the next meeting. This allowed a rather quick and effective pair programming session for the group where it made the members to work together when it was necessary.
 
 ## Scrum Board
-The scrum board proved to be a very valuable asset to our team during the course of the project. The board allowed us to keep track on the current state of the project such as completed tasks, tasks in progress etc, it further allowed for a backlog where new ideas and items delayed to future sprint could reside. As such, the scrum board was one of the central practices used in the project. 
+The scrum board proved to be a very valuable asset to our team during the course of the project. The board allowed us to keep track on the current state of the project such as completed tasks, tasks in progress etc, it further allowed for a backlog where new ideas and items delayed to future sprint could reside. As such, the scrum board was one of the central practices used in the project.
 
-The scrum board was realized using trello as we did not have the nessecary resources for a physical scrum board. The online version gave the same functionality as a physical one would. However, there were some drawbacks with the board, such as people forgetting to update the cards. One example of this was when several people would work on the same task as the individual that had initially taken on finishing the task had forgot to update the task to "in progress" on the board. This caused unnessacary duplicate work and potential delays to the project. On the positive side, these duplications of work were often discovered early and did as such not cause too much of a distraction to the project. Having a physical scrum board could potentially fix this issue as a developer could physically "take" the task if it were written on, for example a post-it-note. But overall the board was an extremely important asset to the team. 
+The scrum board was realized using trello as we did not have the nessecary resources for a physical scrum board. The online version gave the same functionality as a physical one would. However, there were some drawbacks with the board, such as people forgetting to update the cards. One example of this was when several people would work on the same task as the individual that had initially taken on finishing the task had forgot to update the task to "in progress" on the board. This caused unnessacary duplicate work and potential delays to the project. On the positive side, these duplications of work were often discovered early and did as such not cause too much of a distraction to the project. Having a physical scrum board could potentially fix this issue as a developer could physically "take" the task if it were written on, for example a post-it-note. But overall the board was an extremely important asset to the team.
 ## Scrum Meeting
 In over all the project we found scrum meeting is the most important and useful agile practice. In each meeting, every group member has participated and tried to share their experiences and challenges faced. Moreover, this practice was productive on sharing what experience and challenges has gotten during the project work and to figured out which tasks done, and which does not. It was vital to facilitate the development of the project iterations and track the project progress.
 
-During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs. 
+During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs.
 ## Product Owner/customer
-Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences. 
+Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences.
 ## Code ownership and refactoring
-write something !
+During the early sprints the responsibility of setting up the GitHub version control and continuous integration builds tools, such as Travis was under the responsibility of specific group members. This due to most of the group members were new to GitHub version control and the React Native framework. But as we were able to proceed with the higher sprints this responsibility was shared among all group members. This has really helped us to minimize the set-up time for the project environment.
+Throughout all sprints, we worked based on the features on the backlog. The backlog was populated with features/modules based on the interest of our customer. The team was able to prioritize and select specific modules for each sprint. The selected module was moved to the todo catalog. Every group member was given a freedom to choose a module to work with from the todo catalog. After choosing a feature/module the group member put his/her name in the module and moved it from the todo catalog to in progress catalog of that sprint. After he/she was done with the module he/she moved it from in progress catalog to testing catalog. When every testing and integration of the module with other modules was gone well, the feature was finally moved to done catalog.
+ After the feature was done the team was using collective code ownership. i.e.  anyone within the team was given the right to modify the module as far as he/she could enhance its features/there was no strict “ok” requirement from the module owner to modify it. This had its own positive and negative sides. To start with positive side, every module was not under the sole control of a specific group member means, if any group member thought something was missed and wanted to add it, he /she was able to do it easily with no more restrictions. This might have helped us, if any one of our team member was not able to complete the course. From the negative side, when a group member used to modify a specific module, other modules dependent that module was messed up.
+Our experience on the project really complements with the literature where it says “during collective code ownership anyone on the team can improve any part of the system at any time. But    one of the worst risks is a general degradation due to inconsiderate extensions (“creeping featurism”)”.
+ Finally, even though the team has tried its best to implement refactoring, such as pulling out common modules to a separate module to avoid duplications here and there, we haven’t followed strict coding standards. To mention some of them, some files are named using camelCase, and some using underscores. Indentation is also heavily inconsistent, in some places two spaces were used, but in others 4 space was used. The spacing issue is most likely due to the team was using different text editors. These problems could have been largely combated by defining code- and naming conventions at the beginning of the project and by having code reviews during the development cycles. This counteracts with the literature where it says “agile methods include the idea that teams should adhere to strict coding standards to help quality”.
+
 ## Testing
 write something!
 ## Continuous Integration
 write something
 ## Communication channel
-We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack. 
+We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack.
 
 
 

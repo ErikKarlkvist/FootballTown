@@ -370,7 +370,10 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
-# - Business case:
+# - Concept of project:
+We were given the task to create a software tool for a football cup. This tool would then be used by tourists and fans so they could keep track of things like results, upcoming games, restaurants and shops in the area etc. An admin should be able to manage the content (news, games, results etc.) through the same application.
+
+Our final product is a smartphone application which cover all those areas. It can show news, events, games, a table and a map with all happenings placed. An admin can log in and edit stuff that exist in the app and also add new stuff through an admin view. We have also added functionality for a user to follow teams to see information about them and the players in the squad. There is also a homepage which shows a few games, news and the top teams in the table.
 # - Frameworks used:
 # - Application walkthrough:
 <img src="./ProjectOutcomeImages/HomePageSmall.jpg"
@@ -383,3 +386,4 @@ What would you do differently in a future but similar project?
      alt="Markdown Monster icon"
      style="float: left; margin-left: 10px; margin-top: -22px; height: 250px;" />
 Document the project, for example using screenshots.
+# - Reflection of outcome

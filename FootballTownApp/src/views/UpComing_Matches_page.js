@@ -43,7 +43,7 @@ class UpComing_Matches_page extends Component {
 
   refreshData = () => {
     this.setState({loading:true})
-    this.state.games.getGames().then((games) => {
+    this.state.games.getGames(true).then((games) => {
 
       const upc = []
       games.forEach(game => {

@@ -37,6 +37,7 @@ export default class Team_page extends Component {
       user: Factory.getUserInstance(),
       teams: Factory.getTeamsInstance(),
       fetchedTeam: {},
+      selectedTeam: 0,
       tableHead: ['Pos', 'Wins', 'Draws', 'Losses', 'Points'],
       tableData: [[]]
 
@@ -100,7 +101,7 @@ export default class Team_page extends Component {
         <Image
         style={{width: screenWidth, height: imageHeight}}
         source={{uri: this.state.fetchedTeam.headerImage}}/>
-          
+
           <View style={styles.header}>
             <View style={styles.logoContainer}>
               <Image
@@ -112,18 +113,18 @@ export default class Team_page extends Component {
               <Text style={styles.teamName}>{this.state.fetchedTeam.name}</Text>
             </View>
           </View>
-          
+
           <View style={styles.statsContainer}>
           <Table borderStyle={{borderWidth: 0}}>
             <Row data={state.tableHead} style={styles.head} textStyle={styles.textHead}/>
             <Rows data={state.tableData} textStyle={styles.stats}/>
           </Table>
           </View>
-          
+
           <View style={GlobalStyles.articleContainer}>
             <Text style={GlobalStyles.text}>{this.state.fetchedTeam.text}</Text>
           </View>
-          
+
           <View style={styles.changeTeamContainer}>
             <Text style={GlobalStyles.subtitle}>Change Team</Text>
             <View style={PromptStyles.pickerContainer}>

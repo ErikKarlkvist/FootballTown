@@ -86,13 +86,14 @@ class AdminAddNews extends Component{
       Alert.alert("Please fill in all fields")
       return;
     }
+    const id = (this.props.navigation && this.props.navigation.state && this.props.navigation.state.params && this.props.navigation.state.params.newsStory) ? this.props.navigation.state.params.newsStory.id : ""
 
     const newsObject = {
       imageUrl,
       title,
       ingress,
       text,
-      id: this.props.navigation.state.params.newsStory.id
+      id
     }
 
 

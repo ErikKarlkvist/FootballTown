@@ -42,7 +42,7 @@ class Latest_Matches_page extends Component {
 
   refreshData() {
     this.setState({loading:true})
-    this.state.games.getGames().then((games) => {
+    this.state.games.getGames(true).then((games) => {
       const lat = []
       games.forEach(game => {
         if(game.status !="pending"){
@@ -117,7 +117,7 @@ class Latest_Matches_page extends Component {
   };
 
 goToMatchesPage = () => {
-  {this.props.navigation.navigate('Games')}
+  {this.props.navigation.navigate('Games', {refresh:this.handleRefresh})}
 }
 render() {
     console.log(this.props.navigation)

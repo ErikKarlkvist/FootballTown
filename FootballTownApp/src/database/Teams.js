@@ -54,7 +54,7 @@ export default class Teams {
       return firebase.firestore().collection("teams").add(newTeam).then((ref) => {
         newTeam.id = ref.id;
         this.teams.push(newTeam);
-        this.teams.sort()
+        this.teams = sortTeams(this.teams)
       })
     }
 
@@ -64,6 +64,7 @@ export default class Teams {
           this.teams.splice(i, 1);
         }
       }
+      this.teams = sortTeams(this.teams)
 
       return firebase.firestore().collection("teams").doc(id).delete()
     }
@@ -74,7 +75,7 @@ export default class Teams {
           this.teams[i] = tmpEvents;
         }
       }
-
+      this.teams = sortTeams(this.teams)
       const newTeam = {
         name: tmpTeams.title,
         teams: tmpTeams.teams,
@@ -106,7 +107,7 @@ export default class Teams {
 
         const result = await Promise.all(promises)
 
-        this.teams = result;
+        this.teams = sortTeams(result);
         console.log(result)
         return Promise.resolve(result)
       }
@@ -146,3 +147,14 @@ export default class Teams {
       }
     }
 };
+
+function sortTeams(teams) {
+  teams.sort((a,b) => {
+    return b.points - a.points
+  })
+  for(const index in teams){
+    teams[index].rank = parseInt(index)+1
+  }
+  console.log("teams",teams)
+  return teams;
+}

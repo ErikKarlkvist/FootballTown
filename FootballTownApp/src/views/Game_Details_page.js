@@ -50,7 +50,6 @@ class Game_Details_page extends Component{
 
   delete = () => {
     this.state.games.removeGame(this.state.gamesStory.id)
-    this.props.navigation.state.params.refresh()
     this.props.navigation.goBack()
   }
 
@@ -60,7 +59,6 @@ class Game_Details_page extends Component{
 
   refresh = (gamesStory) => {
     console.log(gamesStory)
-    this.props.navigation.state.params.refresh()
     this.setState({gamesStory})
   }
 

@@ -51,8 +51,8 @@ class AdminAddEvents extends Component{
         location: eventsStory.location,
         price: eventsStory.price,
         location: eventsStory.location.name,
-        lat: eventsStory.location.latitiude,
-        lng: eventsStory.location.longitude,
+        lat: String(eventsStory.location.latitude),
+        lng: String(eventsStory.location.longitude),
         price: eventsStory.price,
         fetchedTeams: [],
         pickedTeams,
@@ -148,9 +148,19 @@ class AdminAddEvents extends Component{
 
     const locationObject = {
       name: location,
-      latitiude: lat,
-      longitude: lng
+      latitude: parseFloat(lat),
+      longitude: parseFloat(lng)
     }
+
+    const cleanedPick = []
+
+    for(const index in pickedTeams){
+      if(pickedTeams[index]){
+        cleanedPick.push(pickedTeams[index])
+      }
+    }
+
+    const id = (this.props.navigation && this.props.navigation.state && this.props.navigation.state.params && this.props.navigation.state.params.eventsStory) ? this.props.navigation.state.params.eventsStory.id : ""
 
     const eventsObject = {
       imageUrl,
@@ -158,9 +168,9 @@ class AdminAddEvents extends Component{
       text,
       price,
       location: locationObject,
-      teams: pickedTeams,
+      teams: cleanedPick,
       date: date.getTime(),
-      id: this.props.navigation.state.params.eventsStory.id
+      id
     }
 
     if(this.state.update){

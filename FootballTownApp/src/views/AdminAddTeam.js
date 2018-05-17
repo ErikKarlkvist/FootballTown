@@ -154,6 +154,7 @@ class AdminAddTeam extends Component{
 
     this.setState({loading:true})
     this.state.teams.addTeam(teamsObject).then(() => {
+      this.state.teams.getTeams(true)
       this.setState({
         loading:false,
       })

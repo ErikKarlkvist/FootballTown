@@ -181,6 +181,7 @@ class AdminAddGame extends Component{
     const {location, referee, date, team1, team2, status, goals1, goals2, text} = this.state
     console.log(location, referee, date, team1, team2, status, goals1, goals2)
     let gameObject = {}
+    const id = (this.props.navigation && this.props.navigation.state && this.props.navigation.state.params && this.props.navigation.state.params.gamesStory) ? this.props.navigation.state.params.gamesStory.id : ""
     if(status && status !== "pending"){
       if(!referee || !team1 || !team2 || !goals1 || !goals2){
         Alert.alert("Please fill in all fields")
@@ -196,7 +197,7 @@ class AdminAddGame extends Component{
         goals2,
         text,
         date: date.getTime(),
-        id: this.props.navigation.state.params.gamesStory.id
+        id
       }
     } else {
       if(!status || !referee || !team1 || !team2){
@@ -210,7 +211,7 @@ class AdminAddGame extends Component{
         team2Uid: team2,
         status,
         text,
-        id: this.props.navigation.state.params.gamesStory.id,
+        id,
         date: date.getTime()
       }
     }
@@ -219,10 +220,12 @@ class AdminAddGame extends Component{
     if(this.state.update){
       this.state.games.updateGames(gameObject)
       Alert.alert("News succesfully updated");
+      this.state.games.getGames(true)
       this.props.navigation.state.params.refresh(gameObject)
     } else {
       this.setState({loading:true})
       this.state.games.addGame(gameObject).then(() => {
+        this.state.games.getGames(true)
         this.setState({
           loading:false,
         })

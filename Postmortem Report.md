@@ -332,9 +332,6 @@ The scrum board was realized using trello as we did not have the nessecary resou
 In over all the project we found scrum meeting is the most important and useful agile practice. In each meeting, every group member has participated and tried to share their experiences and challenges faced. Moreover, this practice was productive on sharing what experience and challenges has gotten during the project work and to figured out which tasks done, and which does not. It was vital to facilitate the development of the project iterations and track the project progress.
 
 During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs.
-
-It is hard to say that we were practicing the scrum meeting as it describes in the literature. as the literature describe the scrum meeting was supposed to be managed by the Scrum Master. Not only that the scrum meeting was out of the practice because we were helping each other with potential problems that had arisen and try to get the look of our individual parts to become consistent.
-
 ## Product Owner/customer
 Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences.
 ## Code ownership and refactoring
@@ -354,8 +351,7 @@ Considering that there were no complicated computation in the application, testi
 Additionally, most of the backend code is carried out by the Firebase library where it was not testable. For this reason, functions used in Firebase was mocked to be able to be carry out tests on. Even though this process took extra time and effort, the team learned how to setup a testing environment for react native, as well as creating mock-ups during the development of the application.
 
 ## Continuous Integration
-To manage continuous integration, Travis was originally the team's first choice. However, implementing Travis in our project and getting it to work with Firebase, has not been easy. As result, continuous integration was carried out by the team members seating together. Since the team members was using different git hub branch at the early sprints of the project, seating together and integrating the works of each team member was lasting couple of hours. The team finally decided to use one branch called “develop”. After that every member was working on this branch. As a result, integrating of each module was very simple. i.e. lasted only couple of minutes. This really complements with the literature where it says, “Software projects have increasingly gone to much shorter integration cycles: not months or weeks but days or even hours”.
-
+write something
 ## Communication channel
 We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack.
 
@@ -371,22 +367,80 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
-# - Concept of project:
-We were given the task to create a software tool for a football cup. This tool would then be used by tourists and fans so they could keep track of things like results, upcoming games, restaurants and shops in the area etc. An admin should be able to manage the content (news, games, results etc.) through the same application.
-
-Our final product is a smartphone application which cover all those areas. It can show news, events, games, a table and a map with all happenings placed. An admin can log in and edit stuff that exist in the app and also add new stuff through an admin view. We have also added functionality for a user to follow teams to see information about them and the players in the squad. There is also a homepage which shows a few games, news and the top teams in the table.
+# - Business case:
 # - Frameworks used:
 # - Application walkthrough:
+In this section we will describe the application at it currents stage, discuss the different screens and how the functionality works. We will start of with the main tab navigator and the screens in it. All data shown in the screenshots are retrieved from a live database that we created.
+
 <div>
-<img src="./ProjectOutcomeImages/HomePageSmall.jpg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-top: 0px; height: 250px;" />
-<img src="./ProjectOutcomeImages/NewsFeed.jpg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-left: 10px; margin-top: 0px; height: 250px;" />
-<img src="./ProjectOutcomeImages/EventsFeed.jpg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-left: 10px; margin-top: 0px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/HomePageSmall.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/NewsFeed.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/EventsFeed.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
 </div>
-Document the project, for example using screenshots.
-# - Reflection of outcome
+
+The left image above this text displays the home page. In the tab bar at the bottom the "Home"-tab with the house icon is highlighted with the app colour, which is a dark blue/grey colour. Each view in the app has a header, displaying where in the application you are. Since this is the home screen, the app logo and name is in the header. The plus sign is for admin functionality, where you can login and add things like news, events, etc. The content of the main screen is basically a summary of other tabs. At the top you can see the latest news, after that upcoming matches are shown, followed by the latest matches. At the bottom of the main screen the top 5 teams are shown.
+
+The middle screen display the latest news, and the screen to the right displays upcoming events. These are both tabs in the tab feed. We initially wanted the events to be dependent on the teams you followed, but they ended up being more general events for everyone. These are all managed by the admin who can create, update and delete events and news. The admin also manages teams, games and players.
+
+<div>
+  <img src="./ProjectOutcomeImages/LatestMatchesFeed.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/RanksFeed.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/MapsView.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+</div>
+
+The left screen above displays the latest matches and their scores. This is part of the Games tab, where Upcoming Matches, Latest Matches and Ranks are sub-tabs. The Upcoming matches looks like the latest matches, but since they haven't been played yet they do not have scores. Clicking on any of these games will open a detailed view of the game where you can read a description of the game, the location and date. The middle screen above depicts the ranks that the teams currently has, which is based on the scores the team has accumulated this far.
+
+The screen to the right is the maps view, where you can see where your position is and where the events positions are. The blue markers are event locations, and they use latitude and longitude information stored in the database for location mapping. We used Google maps for this since it is free and highly documented.
+
+<div>
+  <img src="./ProjectOutcomeImages/TeamView.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/ChangeTeam.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/PlayersFeed.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+</div>
+
+These screens above are all from the teams tab. The left and middle are both from the sub-tab Team, where you can see your teams stats like wins, losses and rank, together with a description of the team. The middle screen is the same tab but scrolled down, and shows the change team selector. If you change team the new teams data will be visible, and you will be marked as supporting that new team instead. The screen to the right display the players in each team, with their name, image, position and number. We have over 400 players added manually to the database.
+
+<div>
+  <img src="./ProjectOutcomeImages/AdminLogin.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/AdminOptions.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+   <img src="./ProjectOutcomeImages/PlayersFeed.jpg"
+        alt="Markdown Monster icon"
+        style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+</div>
+
+The last part of the app are admin functions. The screens above show what the admin can do. The left screen is a simple login, which is the first thing you see when clicking on the plus sign on the Home-page. Once the admin successfully logins, they are redirected to the middle screen where they can choose to add something new.
+
+<div>
+  <img src="./ProjectOutcomeImages/TeamView.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+  <img src="./ProjectOutcomeImages/ChangeTeam.jpg"
+       alt="Markdown Monster icon"
+       style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
+
+</div>
+
+
+The screen to the right is the bottom of a news detail, and once the admin has logged in they can edit and delete it there. The admin only needs to log in once, and then they are kept logged in even if they close the app.

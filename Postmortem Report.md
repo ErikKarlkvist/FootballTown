@@ -345,7 +345,7 @@ Our experience on the project really complements with the literature where it sa
  Finally, even though the team has tried its best to implement refactoring, such as pulling out common modules to a separate module to avoid duplications here and there, we haven’t followed strict coding standards. To mention some of them, some files are named using camelCase, and some using underscores. Indentation is also heavily inconsistent, in some places two spaces were used, but in others 4 space was used. The spacing issue is most likely due to the team was using different text editors. These problems could have been largely combated by defining code- and naming conventions at the beginning of the project and by having code reviews during the development cycles. This counteracts with the literature where it says “agile methods include the idea that teams should adhere to strict coding standards to help quality”.
 
 ## Testing
-Considering that there were no complicated computation in the application, testing was mainly usable when the data was being fetched from the database. For this purpose, test cases were written using Travis where we tested login User and CRUD (Create, Read, Update and Delete functions) for Events, News, Teams and Games as well as rendering tests for the main views of the app. 
+Considering that there were no complicated computation in the application, testing was mainly usable when the data was being fetched from the database. For this purpose, test cases were written using Travis where we tested login User and CRUD (Create, Read, Update and Delete functions) for Events, News, Teams and Games as well as rendering tests for the main views of the app.
 
 Additionally, most of the backend code is carried out by the Firebase library where it was not testable. For this reason, functions used in Firebase was mocked to be able to be carry out tests on. Even though this process took extra time and effort, the team learned how to setup a testing environment for react native, as well as creating mock-ups during the development of the application.
 
@@ -366,7 +366,7 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
-# - Business case: 
-# - Frameworks used: 
-# - Application walkthrough: 
+# - Business case:
+# - Frameworks used:
+# - Application walkthrough:
 Document the project, for example using screenshots.

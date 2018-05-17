@@ -312,14 +312,7 @@ Working alone, each team member produces many line of code which may have some i
 Slack was largely utilised as the main platform for communication. This was consistent with communication in previous sprints and we have no new observations regarding its usefulness.
 
 # Postmortem
-## Commitment
-write something here!
-## Work Done
-Below follows the various tasks conducted in this sprint
 
-Feature | Time estimated | Time spent per team member
---------|----------------|----------------------------
-*Sprint Discussion* | * hours* | *Each team member:  hour*
 # Reflections
 write something here!
 ## Pair Programming

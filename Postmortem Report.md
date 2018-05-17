@@ -332,6 +332,9 @@ The scrum board was realized using trello as we did not have the nessecary resou
 In over all the project we found scrum meeting is the most important and useful agile practice. In each meeting, every group member has participated and tried to share their experiences and challenges faced. Moreover, this practice was productive on sharing what experience and challenges has gotten during the project work and to figured out which tasks done, and which does not. It was vital to facilitate the development of the project iterations and track the project progress.
 
 During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs.
+
+It is hard to say that we were practicing the scrum meeting as it describes in the literature. as the literature describe the scrum meeting was supposed to be managed by the Scrum Master. Not only that the scrum meeting was out of the practice because we were helping each other with potential problems that had arisen and try to get the look of our individual parts to become consistent.
+
 ## Product Owner/customer
 Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences.
 ## Code ownership and refactoring
@@ -351,7 +354,8 @@ Considering that there were no complicated computation in the application, testi
 Additionally, most of the backend code is carried out by the Firebase library where it was not testable. For this reason, functions used in Firebase was mocked to be able to be carry out tests on. Even though this process took extra time and effort, the team learned how to setup a testing environment for react native, as well as creating mock-ups during the development of the application.
 
 ## Continuous Integration
-write something
+To manage continuous integration, Travis was originally the team's first choice. However, implementing Travis in our project and getting it to work with Firebase, has not been easy. As result, continuous integration was carried out by the team members seating together. Since the team members was using different git hub branch at the early sprints of the project, seating together and integrating the works of each team member was lasting couple of hours. The team finally decided to use one branch called “develop”. After that every member was working on this branch. As a result, integrating of each module was very simple. i.e. lasted only couple of minutes. This really complements with the literature where it says, “Software projects have increasingly gone to much shorter integration cycles: not months or weeks but days or even hours”.
+
 ## Communication channel
 We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack.
 
@@ -367,7 +371,10 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
-# - Business case:
+# - Concept of project:
+We were given the task to create a software tool for a football cup. This tool would then be used by tourists and fans so they could keep track of things like results, upcoming games, restaurants and shops in the area etc. An admin should be able to manage the content (news, games, results etc.) through the same application.
+
+Our final product is a smartphone application which cover all those areas. It can show news, events, games, a table and a map with all happenings placed. An admin can log in and edit stuff that exist in the app and also add new stuff through an admin view. We have also added functionality for a user to follow teams to see information about them and the players in the squad. There is also a homepage which shows a few games, news and the top teams in the table.
 # - Frameworks used:
 # - Application walkthrough:
 <div>
@@ -382,3 +389,4 @@ What would you do differently in a future but similar project?
      style="float: left; margin-left: 10px; margin-top: 0px; height: 250px;" />
 </div>
 Document the project, for example using screenshots.
+# - Reflection of outcome

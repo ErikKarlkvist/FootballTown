@@ -359,7 +359,7 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
-# Business case: 
-# Frameworks used: 
-# Application walkthrough: 
+# - Business case: 
+# - Frameworks used: 
+# - Application walkthrough: 
 Document the project, for example using screenshots.

@@ -334,6 +334,9 @@ The scrum board was realized using trello as we did not have the nessecary resou
 In over all the project we found scrum meeting is the most important and useful agile practice. In each meeting, every group member has participated and tried to share their experiences and challenges faced. Moreover, this practice was productive on sharing what experience and challenges has gotten during the project work and to figured out which tasks done, and which does not. It was vital to facilitate the development of the project iterations and track the project progress.
 
 During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs.
+
+It is hard to say that we were practicing the scrum meeting as it describes in the in the literature. as the literature describe the scrum meeting was supposed to be managed by the Scrum Master. Not only that the scrum meeting was out of the practice because we were helping each other with potential problems that had arisen and try to get the look of our individual parts to become consistent.
+
 ## Product Owner/customer
 Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences.
 ## Code ownership and refactoring

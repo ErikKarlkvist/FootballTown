@@ -315,8 +315,8 @@ Slack was largely utilised as the main platform for communication. This was cons
 
 
 # Reflections
-The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also greatly learned the fundamentals of creating a mobile app development under React Native framework. 
-The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as; pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board. Via these methods. 
+The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also greatly learned the fundamentals of creating a mobile app development under React Native framework.
+The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as; pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board. Via these methods.
 ## Pair Programming
 Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework.
 
@@ -354,7 +354,8 @@ Considering that there were no complicated computation in the application, testi
 Additionally, most of the backend code is carried out by the Firebase library where it was not testable. For this reason, functions used in Firebase was mocked to be able to be carry out tests on. Even though this process took extra time and effort, the team learned how to setup a testing environment for react native, as well as creating mock-ups during the development of the application.
 
 ## Continuous Integration
-write something
+To manage continuous integration, Travis was originally the team's first choice. However, implementing Travis in our project and getting it to work with Firebase, has not been easy. As result, continuous integration was carried out by the team members seating together. Since the team members was using different git hub branch at the early sprints of the project, seating together and integrating the works of each team member was lasting couple of hours. The team finally decided to use one branch called “develop”. After that every member was working on this branch. As a result, integrating of each module was very simple. i.e. lasted only couple of minutes. This really complements with the literature where it says, “Software projects have increasingly gone to much shorter integration cycles: not months or weeks but days or even hours”.
+
 ## Communication channel
 We found slack was the most important communication channel. We had a smooth communication among our group members through slack. Every group member enjoyed sharing their views, questions and notification to other group members via slack.
 

@@ -333,7 +333,7 @@ In over all the project we found scrum meeting is the most important and useful 
 
 During these meetings, the members not only talked about the problems they were facing but also their achievement and what they have learnt. Members also reviewed each other’s progress and gave feedback, specially when it came to the User interface and designs.
 
-It is hard to say that we were practicing the scrum meeting as it describes in the in the literature. as the literature describe the scrum meeting was supposed to be managed by the Scrum Master. Not only that the scrum meeting was out of the practice because we were helping each other with potential problems that had arisen and try to get the look of our individual parts to become consistent.
+It is hard to say that we were practicing the scrum meeting as it describes in the literature. as the literature describe the scrum meeting was supposed to be managed by the Scrum Master. Not only that the scrum meeting was out of the practice because we were helping each other with potential problems that had arisen and try to get the look of our individual parts to become consistent.
 
 ## Product Owner/customer
 Meeting the customer on set dates pushed the team members to be accountable for their work and take more responsibility with their tasks. This consequently made the team to work together to accomplish the tasks on the backlog in order to satisfy the customer and get feedback in order to develop the application in regards to customer’s preferences.

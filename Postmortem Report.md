@@ -400,7 +400,7 @@ The middle screen display the latest news, and the screen to the right displays 
        style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
 </div>
 
-The left screen above displays the latest matches and their scores. This is part of the Games tab, where Upcoming Matches, Latest Matches and Ranks are sub-tabs. The Upcoming matches looks like the latest matches, but since they haven't been played yet they do not have scores. Clicking on any of these games will open a detailed view of the game where you can read a description of the game, the location and date. The middle screen above depicts the ranks that the teams currently has, which is based on the scores the team has accumulated this far.
+The left screen below displays the latest matches and their scores. This is part of the Games tab, where Upcoming Matches, Latest Matches and Ranks are sub-tabs. The Upcoming matches looks like the latest matches, but since they haven't been played yet they do not have scores. Clicking on any of these games will open a detailed view of the game where you can read a description of the game, the location and date. The middle screen above depicts the ranks that the teams currently has, which is based on the scores the team has accumulated this far.
 
 The screen to the right is the maps view, where you can see where your position is and where the events positions are. The blue markers are event locations, and they use latitude and longitude information stored in the database for location mapping. We used Google maps for this since it is free and highly documented.
 
@@ -425,22 +425,23 @@ These screens above are all from the teams tab. The left and middle are both fro
   <img src="./ProjectOutcomeImages/AdminOptions.jpg"
        alt="Markdown Monster icon"
        style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
-   <img src="./ProjectOutcomeImages/PlayersFeed.jpg"
+   <img src="./ProjectOutcomeImages/AdminAddNewsEmpty.jpg"
         alt="Markdown Monster icon"
         style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
 </div>
 
-The last part of the app are admin functions. The screens above show what the admin can do. The left screen is a simple login, which is the first thing you see when clicking on the plus sign on the Home-page. Once the admin successfully logins, they are redirected to the middle screen where they can choose to add something new.
+The last part of the app are admin functions. The screens above show what the admin can do. The left screen is a simple login, which is the first thing you see when clicking on the plus sign on the Home-page. Once the admin successfully logins, they are redirected to the middle screen where they can choose to add something new. The screen to the right show how the add news screen looks like. The other add screens look very similar. The admin only needs to log in once, and then they are kept logged in even if they close the app. They contain all the input for adding a new news article. One issue with the current design is adding images, since you have to find an image online and then copy that URL into the app for it to work. We would like to be able to upload images to the database, however this was to complex for this project.  
 
 <div>
-  <img src="./ProjectOutcomeImages/TeamView.jpg"
+  <img src="./ProjectOutcomeImages/NewsDetail.jpg"
        alt="Markdown Monster icon"
        style="float: left; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
-  <img src="./ProjectOutcomeImages/ChangeTeam.jpg"
+  <img src="./ProjectOutcomeImages/AdminEditNews.jpg"
        alt="Markdown Monster icon"
        style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
-
+   <img src="./ProjectOutcomeImages/AdminAddNewsFilled.jpg"
+        alt="Markdown Monster icon"
+        style="float: left; margin-left: 15px; margin-top: 0px; margin-bottom: 10px; height: 250px;" />
 </div>
 
-
-The screen to the right is the bottom of a news detail, and once the admin has logged in they can edit and delete it there. The admin only needs to log in once, and then they are kept logged in even if they close the app.
+The last unique screens in the app are the detailed views. The left and middle one both depict a detailed view of a news article. The detail view of events and games look similar. The middle screen show the bottom of the news detail, and once the admin has logged in they can edit and delete it there. If they press edit, the same screen as before where you add a new news article appears, however this time the data is filled with the current data. The admin can edit any input here and then hit update to update the news article on the database.

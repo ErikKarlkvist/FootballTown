@@ -275,7 +275,6 @@ const styles = StyleSheet.create({
   },
   gamesTopbarTitle:{
     fontSize: 22,
-    color: Colors.PrimaryText
   },
   gamesTopbar: {
     flex: 1, flexDirection: 'row',

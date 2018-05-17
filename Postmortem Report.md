@@ -315,8 +315,8 @@ Slack was largely utilised as the main platform for communication. This was cons
 
 
 # Reflections
-The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also greatly learned the fundamentals of creating a mobile app development under React Native framework. 
-The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as; pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board. Via these methods. 
+The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also greatly learned the fundamentals of creating a mobile app development under React Native framework.
+The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as; pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board. Via these methods.
 ## Pair Programming
 Pair programming was largely utalized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous knowledge working in the framework. The idea was to speed up the learning process by combining knowledge the members had collected reading up on the framework.
 
@@ -370,13 +370,15 @@ What would you do differently in a future but similar project?
 # - Business case:
 # - Frameworks used:
 # - Application walkthrough:
+<div>
 <img src="./ProjectOutcomeImages/HomePageSmall.jpg"
      alt="Markdown Monster icon"
      style="float: left; margin-top: 0px; height: 250px;" />
 <img src="./ProjectOutcomeImages/NewsFeed.jpg"
      alt="Markdown Monster icon"
-     style="float: left; margin-left: 10px; margin-top: -6px; height: 250px;" />
+     style="float: left; margin-left: 10px; margin-top: 0px; height: 250px;" />
 <img src="./ProjectOutcomeImages/EventsFeed.jpg"
      alt="Markdown Monster icon"
-     style="float: left; margin-left: 10px; margin-top: -22px; height: 250px;" />
+     style="float: left; margin-left: 10px; margin-top: 0px; height: 250px;" />
+</div>
 Document the project, for example using screenshots.

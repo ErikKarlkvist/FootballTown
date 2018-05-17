@@ -313,6 +313,7 @@ Slack was largely utilised as the main platform for communication. This was cons
 
 # Postmortem
 
+
 # Reflections
 write something here!
 ## Pair Programming
@@ -358,4 +359,7 @@ Which practices had the most impact on the software developed? Think of both pos
 
 What would you do differently in a future but similar project?
 # Project outcome
+# Business case: 
+# Frameworks used: 
+# Application walkthrough: 
 Document the project, for example using screenshots.

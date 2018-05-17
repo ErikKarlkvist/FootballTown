@@ -369,4 +369,13 @@ What would you do differently in a future but similar project?
 # - Business case:
 # - Frameworks used:
 # - Application walkthrough:
+<img src="./ProjectOutcomeImages/HomePageSmall.jpg"
+     alt="Markdown Monster icon"
+     style="float: left; margin-top: 0px; height: 250px;" />
+<img src="./ProjectOutcomeImages/NewsFeed.jpg"
+     alt="Markdown Monster icon"
+     style="float: left; margin-left: 10px; margin-top: -6px; height: 250px;" />
+<img src="./ProjectOutcomeImages/EventsFeed.jpg"
+     alt="Markdown Monster icon"
+     style="float: left; margin-left: 10px; margin-top: -22px; height: 250px;" />
 Document the project, for example using screenshots.

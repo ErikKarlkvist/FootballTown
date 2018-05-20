@@ -379,6 +379,10 @@ What would you do differently in a future but similar project?
 # Project outcome
 # - Business case:
 # - Frameworks used:
+The application is built using React Native, which is a front-end framework for building applications. The framework is an extension from the React framework which was created to be able to develop fast and modern web pages. The framework is built using javascript and allows for writing cross platform code for iOS and Android with very little native modifications and as such may reduce the development time for developing cross platform applications as there is no need to write two separate versions. 
+
+The back end of the application is handled via Firebase which is a modern database solution that is easy to handle and scales easily. Further, as the setup is rather simple for Firebase the time nessesary for enviroment setup was reduced, increasing the time available for work on the actual application.
+
 # - Application walkthrough:
 In this section we will describe the application at it currents stage, discuss the different screens and how the functionality works. We will start off with the main tab navigator and the screens in it. All data shown in the screenshots are retrieved from a live database that we created.
 

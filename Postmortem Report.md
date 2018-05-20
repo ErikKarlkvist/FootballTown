@@ -316,8 +316,8 @@ Slack was largely utilised as the main platform for communication. This was cons
 
 
 # Reflections
-The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also the fundamentals of creating a mobile app, using the React Native framework.
-The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board. Via these methods.
+The group’s overall impression of the project is positive. The team not only learned and expanded their knowledge regarding agile practices but also learned the fundamentals of creating a mobile app, using the React Native framework.
+The team adopted the essential practices of agile to develop the application that helped the project go forward smoothly and allowed the team to cope with changes very well. Practices such as pair programming, prototyping, test-driven development, refactoring, continuous integration and scrum board were crucial in accomplishing the project. 
 
 ## Pair Programming
 Pair programming was largely utilized in the earlier phases of the project and served as a means for the team members to get familiar with the framework as only one of the team members had previous experience. The idea was to speed up the learning process by combining the knowledge team members had collected from reading up on the framework.

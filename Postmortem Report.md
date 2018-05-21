@@ -355,6 +355,8 @@ Considering that there were no complicated computation in the application, testi
 
 Additionally, most of the backend code is carried out by the Firebase library where it was not testable. For this reason, functions used in Firebase were mocked to be able to be test. Even though this process took extra time and effort, the team learned how to setup a testing environment for react native, as well as creating mock-ups during the development of the application.
 
+We realised during the project that test driven development is not really a feasible practice for all types of software development, and can in some cases actual harm the development process. In our case, we were trying to really do some test driven development but due to issues with travis and lack of testable code, we never had the chance. The code that we finally tested was already written by the time we were ready to do test driven development, and waiting for travis to be fixed would have stalled our progress a lot, since nobody could work before they had data to display. This realisation is also observed in the course book, where the author ranks test driven development as one of the bad and ugly practices. 
+
 ## Continuous Integration
 One of the advantages of using Git was it allowed us to integrate quickly and easily. We could merge branches, see where conflicts occurred and make amendments where required. We did this regularly as a group (between every few hours to every day we worked on the project). Towards the beginning of the project we started with many development branches, however we were finding the code was too widespread and taking longer to put the project together. By the end of the project we were down to about three branches, allowing work on major projects (such as the Maps view) without distrupting others workflow.
 
@@ -365,28 +367,18 @@ We found Slack was the most important communication channel. We had a smooth com
 
 Another important communication channel was verbally in person. We had group code sessions in the same room which made communication **much** faster. This eliminated hold ups as we weren't waiting for responses like you would with Slack. Finally, it allowed for more innovative solutions to problems as there was a lot of input and discussion.
 
-
-
-Once the project is finished, summarize your experiences. The postmortem part shall be 2000-3000 words long.
-
-Considering the following:
-
-With regards to the agile practices, reflect on the combined experience from all sprints.
-
-Which practices had the most impact on the software developed? Think of both positives and negatives.
-
 What would you do differently in a future but similar project?
 # Project outcome
-# - Concept of project:
+## Concept of project:
 We were given the task to create a software tool for a football cup. This tool would then be used by tourists and fans so they could keep track of things like results, upcoming games, restaurants and shops in the area etc. An admin should be able to manage the content (news, games, results etc.) through the same application.
 
 Our final product is a smartphone application which cover all those areas. It can show news, events, games, a table and a map with all happenings placed. An admin can log in and edit stuff that exist in the app and also add new stuff through an admin view. We have also added functionality for a user to follow teams to see information about them and the players in the squad. There is also a homepage which shows a few games, news and the top teams in the table.
-# - Frameworks used:
+## Frameworks used:
 The application is built using React Native, which is a front-end framework for building applications. The framework is an extension from the React framework which was created to be able to develop fast and modern web pages. The framework is built using javascript and allows for writing cross platform code for iOS and Android with very little native modifications and as such may reduce the development time for developing cross platform applications as there is no need to write two separate versions. 
 
 The back end of the application is handled via Firebase which is a modern database solution that is easy to handle and scales easily. Further, as the setup is rather simple for Firebase the time nessesary for enviroment setup was reduced, increasing the time available for work on the actual application.
 
-# - Application walkthrough:
+## Application walkthrough:
 In this section we will describe the application at it currents stage, discuss the different screens and how the functionality works. We will start off with the main tab navigator and the screens in it. All data shown in the screenshots are retrieved from a live database that we created.
 
 <div>

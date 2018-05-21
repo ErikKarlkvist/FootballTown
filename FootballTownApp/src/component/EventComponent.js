@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableHighlight} from 'react-native';
+import {AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
 import {Colors} from '../config/UIConfig';
 import AdminHeaderButton from "./AdminHeaderButton";
 import Events_page from "../views/Events_page";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Loader from '../views/Loader';
+
  export class EventComponent extends Component {
 
   constructor(props) {
@@ -22,20 +25,15 @@ import Ionicons from "react-native-vector-icons/Ionicons";
   }
 
   componentDidMount(){
-    this.setState({loading:true})
-    this.state.events.getEvents().then((events) => {
-      console.log(events)
-      this.setState({loading: false, fetchedEvents: events})
-    })
+    this.refresh();
   }
 
   refresh = () => {
-    this.setState(
-      {
-        page: 1,
-        refreshing: true
-      }
-    );
+    this.setState({loading:true})
+    this.state.events.getEvents(true).then((events) => {
+      console.log(events)
+      this.setState({loading: false, refreshing:false, fetchedEvents: events})
+    })
   };
 
   handleLoadMore = () => {
@@ -44,20 +42,6 @@ import Ionicons from "react-native-vector-icons/Ionicons";
         page: this.state.page + 1
       },
         // Fetch more data
-
-    );
-  };
-
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 0.5,
-          width: "100%",
-          opacity: 0.2,
-          backgroundColor: "gray",
-        }}
-      />
     );
   };
 
@@ -68,31 +52,46 @@ import Ionicons from "react-native-vector-icons/Ionicons";
     );
   };
 
+  handleRefresh = () => {
+    this.setState(
+      {
+        page: 1,
+        refreshing: true
+      }
+    );
+    this.refresh();
+  };
+
 // Opens a newsarticle and gives it the newsarticle
   openEventsArticle(eventsArticle) {
-    this.props.navigation.navigate('Details2',{eventsArticle})
+    this.props.navigation.navigate('Details2',{eventsArticle, refresh:this.refresh})
   }
 
   render() {
-      return (
-        <View style={styles.eventsList}>
-        <FlatList
-          data={this.state.fetchedEvents}
-          renderItem={({ item }) => (
-            <TouchableHighlight onPress={() => this.openEventsArticle(item)}>
-            <EventsListItem title={item.title} location={item.location} price={item.price} text={item.text} image={item.imageUrl}/>
-            </TouchableHighlight>
-          )}
-          keyExtractor={item => item.id}
-          ItemSeparatorComponent={this.renderSeparator}
-          ListHeaderComponent={this.renderHeader}
-          ListFooterComponent={this.renderFooter}
-          onRefresh={this.handleRefresh}
-          refreshing={this.state.refreshing}
-          onEndReachedThreshold={50}
-        />
-        </View>
-        );
+      if(!this.state.loading){
+        return (
+          <View style={styles.eventsList}>
+          <FlatList
+            data={this.state.fetchedEvents}
+            renderItem={({ item }) => (
+              <TouchableOpacity  onPress={() => this.openEventsArticle(item)}>
+              <EventsListItem title={item.title} location={item.location} price={item.price} text={item.text} image={item.imageUrl}/>
+              </TouchableOpacity >
+            )}
+            keyExtractor={item => item.id}
+            ListFooterComponent={this.renderFooter}
+            onRefresh={this.handleRefresh}
+            refreshing={this.state.refreshing}
+            onEndReachedThreshold={50}
+            contentContainerStyle={styles.viewContainer}
+          />
+          </View>
+          );
+      }else {
+        return (
+          <Loader />
+        )
+      }
     }
 }
 class EventsListItem extends Component {
@@ -117,14 +116,14 @@ getExceptText(length) {
     return (
       <View style={styles.eventsStory}>
       <Image
-        style={{width: 85, height: 75, marginTop: '2%'}}
+        style={{width: 105, minHeight: 85}}
         source={{uri: this.props.image}}
         />
-        <View>
-       <Text style={styles.eventsTitle}>{this.props.title}</Text>
-       <Text style={styles.eventsText}>{this.getExceptText(110)} </Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-navigate' size={15} style={{ marginLeft:'1%', color: "black" }}/> Location: {this.props.location}</Text>
-       <Text style={styles.locationPriceText}> <Ionicons name='md-pricetags' size={12} style={{ marginLeft:'1%', color: "black" }}/> Price: {this.props.price}</Text>
+        <View style ={styles.storyText}>
+         <Text style={styles.eventsTitle}>{this.props.title}</Text>
+         <Text style={styles.eventsText}>{this.getExceptText(100)} </Text>
+         <Text style={styles.iconText}>   <Icon name='map-marker' size={15} style={{ marginRight:5, color: "black" }}/> Location: {this.props.location.name}</Text>
+         <Text style={styles.iconText}>   <Ionicons name='md-pricetags' size={13} style={{ marginLeft:3, color: "black" }}/> Price: {this.props.price}</Text>
        </View>
        </View>
     );
@@ -139,9 +138,6 @@ export class EventsStory extends Component {
       headerColor: Colors.PrimaryDarkText,
       title: 'Event',
       headerTitle: 'Event',
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
 
@@ -157,43 +153,44 @@ export class EventsStory extends Component {
 
 
 const styles = StyleSheet.create({
+  viewContainer: {
+    paddingVertical: 8,
+  },
   eventsStory: {
-    margin: 1,
+    marginHorizontal: 8,
+    marginVertical: 4,
     flex: 1, flexDirection: 'row',
-    height: 90,
-    width: '100%'
+    minHeight: 90,
+    padding: 8,
+    backgroundColor: Colors.ListBackground,
+    shadowColor: 'black',
+    elevation: 1,
+  },
+  storyText: {
+    flex: 1, flexDirection: 'column',
+    paddingLeft: 2
   },
   eventsTitle: {
-
-    marginLeft: 2,
+    marginTop: 5,
+    paddingTop: 1,
+    marginLeft: 10,
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.PrimaryText,
   },
-  eventsText:{
-  color: 'gray',
-  marginLeft: '3%',
-  fontSize: 12,
+  iconText: {
+    color: "gray",
+    fontSize: 12
   },
-  locationPriceText:{
-  color: 'gray',
-  marginLeft: '3%',
-  fontSize: 13,
-  color: Colors.PrimaryText,
+  eventsText:{
+    color: 'gray',
+    marginLeft: 10,
+    fontSize: 12,
+    marginTop: 5,
+    marginRight: 5,
+    marginBottom: 5
   },
   eventsList:{
-    padding: 10,
-    backgroundColor: Colors.ListBackground,
-    shadowColor: '#000000',
-    borderWidth: 1,
-    borderRadius: 2,
-    borderColor: '#ddd',
-    borderBottomWidth: 0,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 2,
-    elevation: 1,
-
-  }
+    width: '100%',
+  },
 });

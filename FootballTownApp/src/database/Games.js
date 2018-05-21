@@ -36,37 +36,40 @@ export default class Games {
       return firebase.firestore().collection("games").add(newGame).then((ref) => {
         newGame.id = ref.id;
         this.games.push(newGame);
+        this.games = this.sortOnDate(this.games)
       })
     }
 
-    removeGames(id){
+    removeGame(id){
       for (const i = 0; i < this.games.lengconst; i++) {
         if (this.games[i].id === id){
           this.games.splice(i, 1);
         }
       }
-      return firebase.firestore().collection("games").doc(newGame.id).remove()
+      return firebase.firestore().collection("games").doc(id).delete()
     }
 
     updateGames(tmpGame){
-      for (const i = 0; i < this.games.lengconst; i++) {
-        if (this.games[i].id === id){
+      for (const i = 0; i < this.games.length; i++) {
+        if (this.games[i].id === tmpGame.id){
           this.games[i] = tmpGame;
         }
       }
+
       const newGame = {
         team1: tmpGame.team1Uid,
         team2: tmpGame.team2Uid,
-        goals1:  tmpGame.goals1,
-        goals2:  tmpGame.goals2,
-        date: tmpGame.date
+        date: tmpGame.date,
+        status: tmpGame.status,
+        referee: tmpGame.referee,
+        text: tmpGame.text,
       }
-      return firebase.firestore().collection("games").doc(newGame.id).set(newGame,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("games").doc(tmpGame.id).update(newGame).catch((error) => {Alert.alert("Couldn't save")})
     }
 
-    async getGames(){
+    async getGames(force){
       //onst games = await firebase.firestore().collection("games").get()
-      if(this.games.length > 0){
+      if(this.games.length > 0 && !force){
         return Promise.resolve(this.games)
       } else {
         try {
@@ -96,6 +99,7 @@ export default class Games {
             })
 
             if(!team1 || !team2){
+              console.log(result.id)
               throw Error("No such team")
             }
 
@@ -108,11 +112,18 @@ export default class Games {
             cleanedResult.push(result)
           }
 
-          this.games = cleanedResult;
+          this.games = this.sortOnDate(cleanedResult);
           return Promise.resolve(cleanedResult)
         }catch(e) {
           Alert.alert("Something went wrong", e.message)
         }
       }
+    }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      return events
     }
 };

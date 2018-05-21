@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4276555d-760c-40a2-a55a-d58fd521af20" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/package-lock.json" afterPath="$PROJECT_DIR$/FootballTownApp/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Event_page.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/Event_page.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FootballTownApp/src/views/Near_By_page.js" afterPath="$PROJECT_DIR$/FootballTownApp/src/views/Near_By_page.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +45,6 @@
     <panes>
       <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -63,6 +59,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -167,7 +164,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="707" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="707" extended-state="6" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

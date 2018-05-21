@@ -5,24 +5,15 @@ import {Button, AppRegistry,
 Text, FlatList, View, StyleSheet,
 Image, ActivityIndicator,
 TouchableOpacity} from 'react-native';
-
-import {Card,CardItem,
-Thumbnail,Body,
-Left,Right,
-Icon,ListItem,List,
-Container,Content,
-ScrollView
-} from 'native-base'
-
 import Factory from '../database/Factory';
 import {Colors, Fonts} from '../config/UIConfig'
-import {StackNavigator } from 'react-navigation';
+import {StackNavigator, withNavigation} from 'react-navigation';
 import AdminHeaderButton from "../component/AdminHeaderButton"
-export default class Matches_page extends Component {
+class Latest_Matches_page extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
-      title: "Matches",
+      title: "Latest Matches",
       headerRight: (
         <AdminHeaderButton navigation={navigation}/>
       ),
@@ -40,6 +31,7 @@ export default class Matches_page extends Component {
       games: Factory.getGamesInstance(),
       fetchedgames: [],
       navigator: props.navigator,
+      latest: [],
   	};
 
   }
@@ -50,23 +42,18 @@ export default class Matches_page extends Component {
 
   refreshData() {
     this.setState({loading:true})
-    this.state.games.getGames().then((games) => {
-      const latest = []
-      const upcoming = []
+    this.state.games.getGames(true).then((games) => {
+      const lat = []
       games.forEach(game => {
-        if(game.status === "pending"){
-          upcoming.push(game)
-        } else {
-          latest.push(game)
+        if(game.status !="pending"){
+          lat.push(game)
         }
       })
-      latest.sort(function(a,b){
+      lat.sort(function(a,b){
         return new Date(b.date) - new Date(a.date);
       });
-      upcoming.sort(function(a,b){
-        return new Date(b.date) - new Date(a.date);
-      });
-      this.setState({loading: false, refreshing: false, upcoming, latest})
+
+      this.setState({loading: false, refreshing: false,latest: lat})
     })
   }
 
@@ -102,6 +89,22 @@ export default class Matches_page extends Component {
       />
     );
   };
+    renderHeader = () => {
+      return(
+        <View style={styles.gamesTopbar}>
+            <Text style={styles.gamesTopbarTitle}>Latest Matches</Text>
+            {this.props.loadMessage != null?
+              <View style={styles.loadMore}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => this.goToMatchesPage()}
+                >
+                  <Text style={styles.loadText}>{this.props.loadMessage}</Text>
+                  </TouchableOpacity>
+              </View>: null }
+        </View>
+      );
+  };
 
   renderFooter = () => {
     return (
@@ -113,41 +116,30 @@ export default class Matches_page extends Component {
     );
   };
 
+goToMatchesPage = () => {
+  {this.props.navigation.navigate('Games', {refresh:this.handleRefresh})}
+}
 render() {
     console.log(this.props.navigation)
     if(!this.state.loading && this.state.fetchedgames != []) {
       return (
         <View style={{flex:1}}>
-          <Text style={styles.headerTitle}>Upcoming Matches</Text>
           <FlatList
-            data={this.state.upcoming}
+            data={this.state.latest.slice(0, this.props.itemCount)}
             renderItem={({ item }) => (
               <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
             )}
             keyExtractor={item => item.id}
+
             //ItemSeparatorComponent={this.renderSeparator}
-            //ListHeaderComponent={this.renderHeader}
+            ListHeaderComponent={this.renderHeader}
             //ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
             onEndReached={this.handleLoadMore}
             onEndReachedThreshold={0}
           />
-          <Text style={styles.headerTitle}>Latest Matches</Text>
-          <FlatList
-            data={this.state.latest}
-            renderItem={({ item }) => (
-              <GamesListItem navigation = {this.props.navigation} gamesStory = {item}/>
-            )}
-            keyExtractor={item => item.id}
-            //ItemSeparatorComponent={this.renderSeparator}
-            //ListHeaderComponent={this.renderHeader}
-            //ListFooterComponent={this.renderFooter}
-            onRefresh={this.handleRefresh}
-            refreshing={this.state.refreshing}
-            onEndReached={this.handleLoadMore}
-            onEndReachedThreshold={0}
-          />
+
         </View>
         );
     } else {
@@ -156,7 +148,11 @@ render() {
         );
     }
     }
+
+
+
 }
+export default withNavigation(Latest_Matches_page);
 
 class GamesListItem extends Component {
   constructor(props) {
@@ -256,12 +252,33 @@ const styles = StyleSheet.create({
   image: {
     height: 35,
     width: 35,
-    flex: 0.3
+    flex: 0.3,
+    resizeMode: 'contain',
   },
   team: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     flex: 0.5
+  },
+  gamesTopbarTitle:{
+    fontSize: 22,
+
+  },
+  gamesTopbar: {
+    flex: 1, flexDirection: 'row',
+    height: '5%',
+    margin: 0,
+    padding: 10,
+
+  },
+  loadMore: {
+    marginLeft: 'auto',
+    margin: 0,
+    padding: 5
+
+  },
+  loadText: {
+    color: Colors.Primary,
   }
 });

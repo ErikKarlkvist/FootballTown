@@ -14,10 +14,8 @@ export default class Events {
         text: tmpEvents.text,
         location: tmpEvents.location,
         price: tmpEvents.price,
-        imageUrl: tmpEvents.text,
-        price: tmpEvents.price,
+        imageUrl: tmpEvents.imageUrl,
         date: tmpEvents.date,
-        location: tmpEvents.location,
         createdAt: new Date().getTime()
       }
       return firebase.firestore().collection("events").add(newEvent).then((ref) => {
@@ -27,36 +25,37 @@ export default class Events {
     }
 
     removeEvents(id){
-      for (const i = 0; i < this.events.lengconst; i++) {
+      for (const i = 0; i < this.events.length; i++) {
         if (this.events[i].id === id){
           this.events.splice(i, 1);
         }
       }
 
-      return firebase.firestore().collection("games").doc(newGame.id).remove()
+      return firebase.firestore().collection("events").doc(id).delete()
     }
 
     updateEvents(tmpEvents){
       for (const i = 0; i < this.events.length; i++) {
-        if (this.events[i].id === id){
+        if (this.events[i].id === tmpEvents.id){
           this.events[i] = tmpEvents;
         }
       }
 
       const newEvent = {
         title: tmpEvents.title,
+        teams: tmpEvents.teams || [],
+        text: tmpEvents.text,
         location: tmpEvents.location,
         price: tmpEvents.price,
-        teams: tmpEvents.teams,
-        text: tmpEvents.text,
-        imageUrl: tmpEvents.text
+        imageUrl: tmpEvents.imageUrl,
+        date: tmpEvents.date,
       }
 
-      return firebase.firestore().collection("events").doc(newEvent.id).set(newEvent,{merge:true}).catch((error) => {Alert.alert("Couldn't save")})
+      return firebase.firestore().collection("events").doc(tmpEvents.id).update(newEvent).catch((error) => {Alert.alert("Couldn't save", error.message)})
     }
 
-    async getEvents(){
-      if(this.events.length > 0){
+    async getEvents(force){
+      if(this.events.length > 0 && !force){
         return Promise.resolve(this.events)
       } else {
         try {
@@ -76,11 +75,19 @@ export default class Events {
             eventsData.push(result)
           })
 
-          this.events = eventsData;
+          this.events = this.sortOnDate(eventsData);
           return Promise.resolve(eventsData)
         }catch (e) {
           Alert.alert("Couldn't get events", e.message)
         }
       }
     }
+
+    sortOnDate(events){
+      events.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      return events
+    }
+
 };

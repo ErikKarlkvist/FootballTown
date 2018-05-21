@@ -1,18 +1,17 @@
 import {EventComponent, EventsStory} from "../component/EventComponent"
-import AdminAddEvents from "../views/AdminAddEvents"
-import AdminAddGame from "../views/AdminAddGame"
-import AdminAddNews from "../views/AdminAddNews"
-import Admin from "../views/Admin"
-import Matches_page from "../views/Matches_page"
+import UpComing_Matches_page from "../views/UpComing_Matches_page"
+import Latest_Matches_page from "../views/Latest_Matches_page"
 import Ranks_page from'../views/Ranks_page';
 import {NewsComponent, NewsStory} from "../component/NewsComponent"
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import {Colors, Fonts} from "../config/UIConfig"
 import Game_Details_Page from "../views/Game_Details_page"
+import AdminAddGame from "../views/AdminAddGame"
 const TabNav = TabNavigator(
 {
-  News: {screen: Matches_page},
-  Events: {screen: Ranks_page},
+  Coming_matches: {screen: UpComing_Matches_page},
+  Latest_matches: {screen: Latest_Matches_page},
+  Ranks: {screen: Ranks_page},
 
 },{
 tabBarPosition:'top',
@@ -47,10 +46,7 @@ const navigationConfig = {
 const NewsStack = StackNavigator({
   NewsFeed: { screen: TabNav },
   Games_Details_Page: {screen: Game_Details_Page},
-  AdminAddGame: {screen: AdminAddGame},
-  AdminAddEvents: {screen: AdminAddEvents},
-  AdminAddNews: {screen: AdminAddNews},
-  Admin: {screen: Admin}
+  AdminAddGame: {screen: AdminAddGame}
 },navigationConfig);
 
 

@@ -1,8 +1,9 @@
 
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
+- Display a picture of the team or just a their logo
+- Display a team's name
+- View a team's wins/losses/draws/points
+- A description of a team
  */
 
 import React, { Component } from 'react';
@@ -10,38 +11,88 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView,
+  Image,
+  ActivityIndicator
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator} from 'react-navigation';
+import {Colors} from "../config/UIConfig";
+import Team_page from "../views/Team_page";
+import PickTeam from "../views/PickTeam";
+import Players_page from "../views/Players_page";
+import Factory from "../database/Factory";
 
-class My_Team_page extends Component{
-  render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Welcome to my My Team Page!!
-          </Text>
-        </View>
-      );
+
+export default class Checker extends Component {
+  constructor(){
+    super()
+    this.state = {
+      hasSelectedTeam: false,
+      hasLoaded: false
     }
   }
 
-  export default My_Team_page;
+  componentDidMount(){
+    Factory.getUserInstance().getFollowingTeam().then((team) => {
+      console.log(team)
+      let hasSelectedTeam = false
+      if(team && team.name){
+        console.log("team exists")
+        hasSelectedTeam = true
+      }
+      this.setState({hasSelectedTeam, hasLoaded: true})
+    })
+  }
 
+  render() {
+    if(this.state.hasSelectedTeam){
+      return <NavBar setHasSelected={this.setHasSelected} reload={this.state.hasSelectedTeam}/>
+    }else if(this.state.hasLoaded){
+      return(
+        <PickTeam setHasSelected={this.setHasSelected}/>
+      )
+    } else {
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={Colors.PrimaryDark}/>
+        </View>
+      )
+    }
+}
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
+  setHasSelected = (hasSelectedTeam) => {
+    this.setState({hasSelectedTeam})
+  }
+}
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex:1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+});
+
+const NavBar = TabNavigator({
+    Team: { screen: Team_page },
+    Players: {screen: Players_page},
+  },{
+   animationEnabled: true,
+   swipeEnabled: true,
+    tabBarPosition:'top',
+   tabBarOptions: {
+   style: {
+    backgroundColor: Colors.Primary,
+    marginBottom: Platform.select({ ios: 0, android: -10, }),
+
+  },
+    labelStyle:{
+      fontWeight: 'bold',
     },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-
+    activeTintColor: Colors.PrimaryDarkText,
+    inactiveTintColor: Colors.PrimaryDarkText2,
+    }
   });

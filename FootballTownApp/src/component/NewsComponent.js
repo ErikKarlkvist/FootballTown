@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import {Button, AppRegistry, Text, FlatList, View, StyleSheet, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
 import Factory from '../database/Factory';
-import {Colors} from '../config/UIConfig'
+import {Colors} from '../config/UIConfig';
 import {StackNavigator } from 'react-navigation';
-import AdminHeaderButton from "./AdminHeaderButton"
-import AdminAddEvents from "../views/AdminAddEvents"
-import AdminAddGame from "../views/AdminAddGame"
-import AdminAddNews from "../views/AdminAddNews"
-import News_page from '../views/News_page'
+import News_page from '../views/News_page';
+import Loader from '../views/Loader';
+
 export class NewsComponent extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
 
@@ -39,7 +34,7 @@ export class NewsComponent extends Component {
 
   refreshData = () =>{
     this.setState({loading:true})
-    this.state.news.getNews().then((news) => {
+    this.state.news.getNews(true).then((news) => {
       console.log(news)
       this.setState({loading: false, refreshing: false, fetchedNews: news})
     })
@@ -55,25 +50,11 @@ export class NewsComponent extends Component {
     this.refreshData();
   };
 
-  // Render new items once the user presses the "More button"
-  loadNewNewsArticle = () => {
-    if (this.state.itemCount < this.state.fetchedNews.length) {
-      this.setState((prevState) => ({ itemCount: (prevState.itemCount + 1) }));
-    }
+  // Redirect to news page on more-click 
+  goToFeed = () => {
+    {this.props.navigation.navigate('Feed')}
   };
 
-  renderSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 0.5,
-          width: "100%",
-          opacity: 0.2,
-          backgroundColor: "gray",
-        }}
-      />
-    );
-  };
   renderHeader = () => {
       return(
         <View style={styles.newsTopbar}>
@@ -82,7 +63,7 @@ export class NewsComponent extends Component {
               <View style={styles.loadMore}>
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() => this.openNewsArticle(item)}
+                  onPress={() => this.goToFeed()}
                 >
                   <Text style={styles.loadText}>{this.props.loadMessage}</Text>
                   </TouchableOpacity>
@@ -99,7 +80,7 @@ export class NewsComponent extends Component {
 
 // Opens a newsarticle and gives it the newsarticle
   openNewsArticle(newsArticle) {
-    this.props.navigation.navigate('Detail',{newsArticle});
+    this.props.navigation.navigate('Detail',{newsArticle, refresh:this.refreshData});
   }
 
   render() {
@@ -114,18 +95,18 @@ export class NewsComponent extends Component {
               </TouchableOpacity>
             )}
             keyExtractor={item => item.id}
-            ItemSeparatorComponent={this.renderSeparator}
             ListHeaderComponent={this.renderHeader}
             ListFooterComponent={this.renderFooter}
             onRefresh={this.handleRefresh}
             refreshing={this.state.refreshing}
             onEndReachedThreshold={50}
+            contentContainerStyle={styles.viewContainer}
           />
         </View>
         );
     } else {
       return(
-        <ActivityIndicator size="large" color={Colors.Primary} />
+        <Loader />
         );
     }
     }
@@ -168,9 +149,6 @@ export class NewsStory extends Component {
       headerColor: Colors.PrimaryDarkText,
       title: 'News',
       headerTitle: 'News',
-      headerRight: (
-        <AdminHeaderButton navigation={navigation}/>
-      ),
     }
   };
   constructor(props) {
@@ -187,17 +165,17 @@ export class NewsStory extends Component {
 
 
 const styles = StyleSheet.create({
+  viewContainer: {
+    paddingBottom: 8,
+  },
   newsStory: {
-    margin: 3,
+    marginHorizontal: 8,
+    marginVertical: 4,
     flex: 1, flexDirection: 'row',
     minHeight: 90,
-    padding: 5,
+    padding: 8,
     backgroundColor: Colors.ListBackground,
-    shadowColor: 'black',
-    elevation: 2,
-    shadowRadius: 1,
-    shadowOpacity: 0.2,
-    shadowOffset: {width: 2, height: 2}
+    elevation: 1,    
   },
   storyText: {
     flex: 1, flexDirection: 'column',
@@ -220,26 +198,20 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   newsList:{
-    padding: 10,
     width: '100%'
-
   },
   newsTopBarTitle:{
     fontSize: 22,
-
   },
   newsTopbar: {
     flex: 1, flexDirection: 'row',
-    height: '5%',
     margin: 0,
-    padding: 5,
-
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   loadMore: {
     marginLeft: 'auto',
     margin: 0,
-    padding: 5,
-    fontSize: 18,
   },
   loadText: {
     color: Colors.Primary,

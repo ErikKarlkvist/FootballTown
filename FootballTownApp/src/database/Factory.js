@@ -2,12 +2,14 @@ import News from "./News"
 import Events from "./Events"
 import Games from "./Games"
 import Teams from "./Teams"
+import User from "./User"
 
 var Factory = (function () {
     var newsInstance;
     var eventsInstance;
     var gamesInstance;
     var teamsInstance;
+    var userInstance;
 
     function createNewsInstance() {
         var newsObject = new News()
@@ -27,6 +29,11 @@ var Factory = (function () {
     function createTeamsInstance() {
         var teamsObject = new Teams()
         return teamsObject;
+    }
+
+    function createUserInstance() {
+        var userObject = new User()
+        return userObject;
     }
 
     return {
@@ -53,6 +60,12 @@ var Factory = (function () {
                 teamsInstance = createTeamsInstance();
             }
             return teamsInstance;
+        },
+        getUserInstance: function () {
+            if (!userInstance) {
+                userInstance = createUserInstance();
+            }
+            return userInstance;
         }
     }
 })();

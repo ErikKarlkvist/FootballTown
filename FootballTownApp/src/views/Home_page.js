@@ -10,24 +10,29 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Image,
   View,
   ScrollView,
   StatusBar
 } from 'react-native';
 //import Icon from 'react-native-vector-icons/Ionicons'
 //MaterialIcons'
-import {TabNavigator} from 'react-navigation';
+import {TabNavigator,withNavigation} from 'react-navigation';
 import FootballScore from "../component/FootballScore"
 import {NewsComponent} from "../component/NewsComponent"
 import Factory from "../database/Factory"
 import AdminHeaderButton from "../component/AdminHeaderButton"
-import {Colors} from "../config/UIConfig"
+import {Colors} from "../config/UIConfig";
 
+import UpComing_Matches_page from "../views/UpComing_Matches_page";
+import Latest_Matches_page from "../views/Latest_Matches_page";
+import Ranks_page from "../views/Ranks_page";
 class Home_page extends Component{
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Football Town',
-    headerTitle: "Football Town",
+    title: 'Footcity',
+    headerLeft: (<Image resizeMode="contain" style={styles.logo} source={require('../resources/footcity-icon.png')} />),
+    headerTitle: "Footcity",
     headerRight: (
       <AdminHeaderButton navigation={navigation}/>
     ),
@@ -38,6 +43,7 @@ class Home_page extends Component{
     Factory.getGamesInstance().getGames().then((events) => {
       console.log(events)
     })
+
   }
 
   render() {
@@ -48,8 +54,17 @@ class Home_page extends Component{
            barStyle="light-content"
           />
           <View style={styles.container}>
-             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation}/>
+             <NewsComponent title="Recent News" itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"}/>
           </View>
+
+          <UpComing_Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Upcoming matches"}/>
+
+
+          <Latest_Matches_page itemCount={3} navigation={this.props.navigation} loadMessage={"MORE"} title={"Latest matches"}/>
+
+          <Text style={styles.headerTitle}>Table</Text>
+          <Ranks_page itemCount={5} navigation={this.props.navigation} loadMessage={"MORE"}/>
+
         </ScrollView>
       );
     }
@@ -92,12 +107,11 @@ class Home_page extends Component{
 
 
 
-  export default Home_page;
+  export default withNavigation(Home_page);
 
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: Colors.Background,
@@ -106,6 +120,18 @@ class Home_page extends Component{
       fontSize: 20,
       textAlign: 'center',
       margin: 10,
+    },
+    headerTitle: {
+      marginTop: 20,
+      marginLeft: 10,
+      fontSize: 20,
+      marginBottom: 10,
+      color: Colors.PrimaryText
+    },
+    logo: {
+      height: 28,
+      width: 28,
+      marginLeft: 16,
     },
 
   });

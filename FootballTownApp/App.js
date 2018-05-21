@@ -12,6 +12,7 @@ export default class App extends React.Component {
     super()
     Factory.getUserInstance().getAuthorization()
     Factory.getUserInstance().getFollowingTeam().then((team) => {console.log(team)})
+    console.disableYellowBox = true;
   }
 
   render() {

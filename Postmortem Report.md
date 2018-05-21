@@ -42,11 +42,15 @@ During the earlier sprints the responsibility of setting up the GitHub version c
 
 Throughout all sprints, we worked through the features listed in the backlog. The team could prioritize and select specific modules for each sprint. Every group member was given the freedom to choose a task to work with from the to-do catalogue.
 
- After the task was completed the team was using collective code ownership. i.e. anyone within the team was given the right to modify the module as far as he/she could enhance its features/there was no strict “ok” requirement from the module owner to modify it. This had its own positive and negative sides. To start with positive side, every module was not under the sole control of a specific group member, if any group member thought something was missed and wanted to add it, he /she was able to do it easily with no more restrictions. This might have helped us, if any one of our team member was not able to complete the course. From the negative side, when a group member used to modify a specific module, other modules dependent that module was messed up.
+ After the task was completed the team was using collective code ownership. i.e. anyone within the team was given the right to modify the module as far as he/she could enhance its features/there was no strict “ok” requirement from the module owner to modify it. This had its own positive and negative sides. To start with positive side, every module was not under the sole control of a specific group member, if any group member thought something was missed and wanted to add it, he /she was able to do it easily with no more restrictions. This might have helped us, if any one of our team member was not able to complete the course. From the negative side, when a group member used to modify a specific module, other modules dependent on that module could get errors.
 
-Our experience on the project really complements with the literature, for example where it says “during collective code ownership anyone on the team can improve any part of the system at any time. But one of the worst risks is a general degradation due to inconsiderate extensions (“creeping featurism”)”.
+Our experience with the project really complements with the literature, for example where it says “during collective code ownership anyone on the team can improve any part of the system at any time. But one of the worst risks is a general degradation due to inconsiderate extensions (“creeping featurism”).
 
- Finally, even though the team has tried its best to implement refactoring, such as pulling out common modules to a separate module to avoid duplications here and there, we haven’t followed strict coding standards. Some examples of thins include: some files are named using camelCase, and some using underscores. Indentation is also heavily inconsistent, in some places two spaces were used, but in others 4 space was used. The spacing issue is most likely due to the team was using different text editors. These problems could have been largely combated by defining code and naming conventions at the beginning of the project and by having code reviews during the development cycles. This counteracts with the literature where it comments, “agile methods include the idea that teams should adhere to strict coding standards to help quality”.
+ Finally, even though the team has tried its best to implement refactoring, such as pulling out common modules to a separate module to avoid duplications here and there, we haven’t followed strict coding standards. Some examples of these include: 
+  * Some files are named using camelCase, and some using underscores. 
+  * Indentation is also heavily inconsistent, in some places two spaces were used, but in others 4 space was used. 
+  * The spacing issue is most likely due to the team was using different text editors. 
+These problems could have been largely combated by defining code and naming conventions at the beginning of the project and by having code reviews during the development cycles. This counteracts with the literature where it comments, “agile methods include the idea that teams should adhere to strict coding standards to help quality”.
 
 ## Testing
 Considering that there were no complicated computation in the application, testing was mainly usable when the data was being fetched from the database. For this purpose, test cases were written using Travis where we tested user login and CRUD (Create, Read, Update and Delete functions) for Events, News, Teams and Games as well as rendering tests for the main views of the app.
@@ -61,11 +65,10 @@ One of the advantages of using Git was it allowed us to integrate quickly and ea
 Ultimately, we found continuous integration useful as it allowed us to see, physically how the project was coming together.
 
 ## Communication channel
-We found Slack was the most important communication channel. We had a smooth communication among our group members through Slack. We had a vocal group, sharing views, questions and notification to other group members via Slack.
+We found Slack was the most important communication channel as it allowed us to communicate independant of our location. 
 
-Another important communication channel was verbally in person. We had group code sessions in the same room which made communication **much** faster. This eliminated hold ups as we weren't waiting for responses like you would with Slack. Finally, it allowed for more innovative solutions to problems as there was a lot of input and discussion.
+Another important communication channel was verbally in person. We had group code sessions in the same room which made communication much easier. This eliminated hold ups as we weren't waiting for responses like you would with Slack. Finally, it allowed for more innovative solutions to problems as there was a lot of input and discussion.
 
-What would you do differently in a future but similar project?
 # Project outcome
 ## Concept of project:
 We were given the task to create a software tool for a football cup. This tool would then be used by tourists and fans so they could keep track of things like results, upcoming games, restaurants and shops in the area etc. An admin should be able to manage the content (news, games, results etc.) through the same application.
